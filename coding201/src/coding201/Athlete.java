@@ -7,7 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 
-public class Athlete {
+public class Athlete{
 	public int attack;
 	public int defense;
 	public double health;
