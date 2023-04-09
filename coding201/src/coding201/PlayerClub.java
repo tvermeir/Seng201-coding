@@ -11,7 +11,7 @@ public class PlayerClub {
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
 	ArrayList<PurchaseableItem> itemInventory = new ArrayList<PurchaseableItem>();
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
-	ArrayList<Playercard> Cardlist = new ArrayList<Playercard>();
+	//ArrayList<Playercard> Cardlist = new ArrayList<Playercard>();
 	
 	public PlayerClub(float balance, String name) {
 		bankBalance = balance;

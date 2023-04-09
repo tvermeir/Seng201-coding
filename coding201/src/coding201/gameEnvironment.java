@@ -1,12 +1,14 @@
 package coding201;
-import java.util.Scanner;
+
 public class gameEnvironment {
 	String clubName;
 	double difficulty;
+	int money;
 	
 	public void getDetails(clubSetup myClub) {
 		clubName = myClub.clubName();
 		difficulty = myClub.setDifficulty();
+		money = myClub.getMoney();
 		
 		
 	}
