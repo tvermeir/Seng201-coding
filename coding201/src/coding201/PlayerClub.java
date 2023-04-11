@@ -11,13 +11,12 @@ public class PlayerClub {
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
 	ArrayList<PurchaseableItem> itemInventory = new ArrayList<PurchaseableItem>();
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
-	//ArrayList<Playercard> Cardlist = new ArrayList<Playercard>();
 	
-	public PlayerClub(float balance, String name, ArrayList<Athlete> athleteList) {
+	
+	public PlayerClub(float balance, String name, ArrayList<Athlete> athleteList2) {
 		bankBalance = balance;
 		teamName = name;
-		this.athleteList = athleteList;
-		
+		this.athleteList = athleteList2;
 	}
 	
 	
@@ -66,23 +65,12 @@ public class PlayerClub {
 	
 	
 	
-	public ArrayList<Playercard> getCardList() {
-		for (Athlete athlete: athleteList) {
-			Playercard card = new Playercard(athlete);
-			Cardlist.add(card);
-		}
-		return Cardlist;
-	}
 	
 	
 	
 	
 	
-	public static void main(String[] args) {
-		
-		
-		
 	
-	}
+	
 	
 }

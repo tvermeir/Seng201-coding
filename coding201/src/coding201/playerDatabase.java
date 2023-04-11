@@ -599,10 +599,6 @@ public class playerDatabase {
 
 	
 	
-	public static void main(String[] args) {
-		playerDatabase ting = new playerDatabase();
-		System.out.println(ting.getList());
-
-	}
+	
 
 }
