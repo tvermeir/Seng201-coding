@@ -1,5 +1,4 @@
 package coding201;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Hashtable;
 public class Store {
@@ -12,11 +11,21 @@ public class Store {
 		this.balance = balance;
 	}
 	public void purchaseAthlete() {
-		System.out.println(purchasableAthletes);
 		
 		System.out.println("\nIf you want to purchase an athlete please type the corresponding name in. ");
 		Scanner athleteName = new Scanner(System.in);
 		String playerName = athleteName.nextLine();
+		
+		boolean isavailable = purchasableAthletes.containsKey(playerName);
+		
+		if(isavailable) {
+			System.out.println(purchasableAthletes.get(playerName));
+			
+		}
+		else {
+			System.out.println("Please enter correct name");
+			purchaseAthlete();
+		}
 		
 	}
 	public static void main(String[] args) {
