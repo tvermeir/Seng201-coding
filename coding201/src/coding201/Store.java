@@ -1,21 +1,27 @@
 package coding201;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Hashtable;
 public class Store {
-	ArrayList<Athlete> purchasableAthletes = new ArrayList<Athlete>();
+	
+	Hashtable<String, String> purchasableAthletes =  new Hashtable<>();
 	public int balance;
 	
-	public Store(ArrayList<Athlete> purchasableAthletes, int balance) {
-		this.purchasableAthletes = purchasableAthletes;
+	public Store(Hashtable<String, String> purchase, int balance) {
+		this.purchasableAthletes = purchase;
 		this.balance = balance;
 	}
 	public void purchaseAthlete() {
 		System.out.println(purchasableAthletes);
 		
-		System.out.println("If you want to purchase an athlete please type the corresponding name in. ");
+		System.out.println("\nIf you want to purchase an athlete please type the corresponding name in. ");
+		Scanner athleteName = new Scanner(System.in);
+		String playerName = athleteName.nextLine();
+		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

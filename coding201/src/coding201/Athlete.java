@@ -1,22 +1,18 @@
 package coding201;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.BorderLayout;
 
-import java.awt.Dimension;
 
 
 public class Athlete{
 	public int attack;
 	public int defense;
-	public double health;
-	public double price;
+	public int health;
+	public int price;
 	public int stamina = 100;
 	public String name;
+	
 
 	
-	public Athlete(int attack, int defense, double health, double price, String name) {
+	public Athlete(int attack, int defense, int health, int price, String name) {
 		this.name = name;
 		this.attack = attack;
 		this.defense = defense;
@@ -47,6 +43,14 @@ public class Athlete{
 	public int getStamina() {
 		return stamina;
 	}
+	public String getHashtable(){
+		String statsString = ("," + attack + "," + defense + "," + health + "," + price);
+		
+		
+		return statsString;
+		
+	}
+	
 	
 	public String toString() {
 		return ("\nName: " + name+ ", Defense: " + defense+ ", Attack: "+ attack + ", Price: $" + price);
@@ -57,7 +61,6 @@ public class Athlete{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		 PionelPessi pepsi = new PionelPessi();
-
 	}
 	
 	
