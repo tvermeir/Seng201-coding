@@ -8,6 +8,8 @@ public class playerDatabase {
 
 	String playerString = """
 	Aaron Cresswell
+	Todd Vermeir
+	Ben Ross
 	Aaron Lennon
 	Aaron Mooy
 	Aaron Ramsey
