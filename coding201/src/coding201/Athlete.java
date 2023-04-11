@@ -49,7 +49,7 @@ public class Athlete{
 	}
 	
 	public String toString() {
-		return name;
+		return ("\nName: " + name+ ", Defense: " + defense+ ", Attack: "+ attack + ", Price: $" + price);
 	}
 	
 

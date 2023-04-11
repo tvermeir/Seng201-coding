@@ -13,9 +13,11 @@ public class PlayerClub {
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
 	//ArrayList<Playercard> Cardlist = new ArrayList<Playercard>();
 	
-	public PlayerClub(float balance, String name) {
+	public PlayerClub(float balance, String name, ArrayList<Athlete> athleteList) {
 		bankBalance = balance;
 		teamName = name;
+		this.athleteList = athleteList;
+		
 	}
 	
 	

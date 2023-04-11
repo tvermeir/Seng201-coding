@@ -32,6 +32,7 @@ public class clubSetup {
 		System.out.println("Please select a difficulty \nEasy \nNormal \nHard");
 		String decision = difficulty.nextLine();
 		
+	
 		if(decision.toLowerCase().equals("easy")) {
 			difficultyMultiplier = 0.5;
 			return difficultyMultiplier;
@@ -51,6 +52,7 @@ public class clubSetup {
 		
 		return difficultyMultiplier;
 	}
+
 	public int getMoney() {
 		if(difficultyMultiplier == 2.00) {
 			money = 75;
