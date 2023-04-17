@@ -44,7 +44,7 @@ public class Athlete{
 		return stamina;
 	}
 	public String getHashtable(){
-		String statsString = ("," + attack + "," + defense + "," + health + "," + price);
+		String statsString = (attack + "," + defense + "," + health + "," + price);
 		
 		
 		return statsString;

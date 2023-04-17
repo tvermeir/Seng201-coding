@@ -5,10 +5,10 @@ import java.util.Hashtable;
 public class gameEnvironment {
 	String clubName;
 	double difficulty;
-	int money;
+	int money = 198;
 	
 	Hashtable<String, String> playerHashTable = new Hashtable<>();
-	
+	Hashtable<String, String> athletesOnTeam = new Hashtable<>();
 	ArrayList<Athlete> purchasableAthletes = new ArrayList<Athlete>();
 	ArrayList<Athlete> athletesinClub = new ArrayList<Athlete>();
 	
@@ -16,9 +16,10 @@ public class gameEnvironment {
 	
 	
 	public void getDetails(clubSetup myClub) {
-		clubName = myClub.clubName();
-		difficulty = myClub.setDifficulty();
-		money = myClub.getMoney();
+		//clubName = myClub.clubName();
+		//difficulty = myClub.setDifficulty();
+		//money = myClub.getMoney();
+		athletesOnTeam = myClub.getPlayers();
 		
 	}
 	public Hashtable<String, String> addPurchasablePlayers(PionelPessi pepsi, PistaPenaldo penaldo, GuiltySiggurdson child, Darwizzey darwin) {
@@ -31,8 +32,9 @@ public class gameEnvironment {
 		return playerHashTable;
 	}
 	public void storeMethod() {
-		Store store = new Store(playerHashTable, money);
-		store.purchaseAthlete();
+		Store store = new Store(playerHashTable, money, athletesOnTeam);
+		money = store.purchaseAthlete();
+		System.out.println(money);
 	}
 	
 	
@@ -44,7 +46,7 @@ public class gameEnvironment {
 		
 		
 		PlayerClub playerClub = new PlayerClub(helloEnvironment.money, helloEnvironment.clubName, null);
-		//helloEnvironment.getDetails(myClub);
+		helloEnvironment.getDetails(myClub);
 		
 		
 		

@@ -1,10 +1,13 @@
 package coding201;
 
+import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.Hashtable;
 
 public class clubSetup {
 	public double difficultyMultiplier = 1;
 	public int money = 100;
+	Hashtable<String, String> clubPlayersHashtable  = new Hashtable<>();
 
 	public String clubName() {
 		Scanner myObj = new Scanner(System.in);
@@ -67,6 +70,20 @@ public class clubSetup {
 			return money;
 		}
 		return money;
+	}
+	public Hashtable<String, String> getPlayers(){
+		AthleteDatabase newPlayers = new AthleteDatabase();
+		
+		int i = 0;
+		
+		while(i<4) {
+			String athlete = newPlayers.makeAthleteString();
+			Athlete athlete2 = newPlayers.makeAthlete(athlete);
+			clubPlayersHashtable.put(athlete2.name, athlete2.getHashtable());
+			i ++;
+		}
+		return clubPlayersHashtable;
+		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
