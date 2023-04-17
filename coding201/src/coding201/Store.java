@@ -68,7 +68,7 @@ public class Store {
 			System.out.println("Please enter in a correct name");
 			doesContain(playerName, athleteName);
 		}
-		return "";
+		return "ffsd";
 		
 	}
 	public static void main(String[] args) {
