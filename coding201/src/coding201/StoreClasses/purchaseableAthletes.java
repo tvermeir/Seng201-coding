@@ -3,7 +3,7 @@ package coding201.StoreClasses;
 import java.util.Hashtable;
 
 import coding201.AthleteClasses.Athlete;
-import coding201.AthleteClasses.AthleteDatabase;
+import coding201.databases.AthleteDatabase;
 
 public class purchaseableAthletes {
 	Hashtable<String, String> playerHashTable =  new Hashtable<>();

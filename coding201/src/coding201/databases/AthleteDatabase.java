@@ -1,6 +1,9 @@
-package coding201.AthleteClasses;
+package coding201.databases;
 
 import java.util.Random;
+
+import coding201.AthleteClasses.Athlete;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;

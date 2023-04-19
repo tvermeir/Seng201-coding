@@ -2,6 +2,7 @@ package coding201;
 import java.util.Hashtable;
 
 import coding201.StoreClasses.Store;
+import coding201.setupGame.clubSetup;
 
 public class gameEnvironment {
 	String clubName;

@@ -1,4 +1,4 @@
-package coding201.AthleteClasses;
+package coding201.databases;
 
 import java.util.ArrayList;
 import java.util.List;
