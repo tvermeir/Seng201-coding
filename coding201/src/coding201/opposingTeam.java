@@ -1,10 +1,6 @@
-package coding201.setupGame;
+package coding201;
 
 import java.util.ArrayList;
-
-import coding201.PlayerClub;
-import coding201.AthleteClasses.Athlete;
-import coding201.databases.AthleteDatabase;
 
 public class opposingTeam extends PlayerClub {
 

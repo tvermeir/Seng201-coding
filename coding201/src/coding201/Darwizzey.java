@@ -1,4 +1,4 @@
-package coding201.AthleteClasses;
+package coding201;
 
 public class Darwizzey extends Athlete{
 	public Darwizzey() {

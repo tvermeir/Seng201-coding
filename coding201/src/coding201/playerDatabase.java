@@ -1,4 +1,4 @@
-package coding201.databases;
+package coding201;
 
 import java.util.ArrayList;
 import java.util.List;

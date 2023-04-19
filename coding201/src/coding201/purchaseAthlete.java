@@ -1,4 +1,4 @@
-package coding201.StoreClasses;
+package coding201;
 
 import java.util.Arrays;
 import java.util.List;
