@@ -45,7 +45,7 @@ public class gameEnvironment {
 		// If week, store.refreshStore();
 		helloEnvironment.money = store.purchaseAthlete();
 		System.out.println(helloEnvironment.money);
-		helloEnvironment.money = store.purchaseAthlete();
+		helloEnvironment.money = store.sellPlayer();
 		System.out.println(helloEnvironment.money);
 		
 		
