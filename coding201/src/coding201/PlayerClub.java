@@ -52,6 +52,11 @@ public class PlayerClub {
 	}
 	
 	public void addPlayer(Athlete athlete) {
+		if (athleteList == null) {
+			athleteList.add(athlete);
+			return;
+		}
+		
 		if (!athleteList.contains(athlete)) {
 			athleteList.add(athlete);
 		}

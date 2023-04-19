@@ -21,6 +21,21 @@ public class opposingTeam extends PlayerClub {
 		return winReward;
 	}
 	
+	public String toString() {
+		return athleteList.toString();
+	}
+	
+	public void Fill() {
+		int i = athleteList.size();
+		while (i < 4) {
+			AthleteDatabase ath = new AthleteDatabase();
+			String athstring = ath.makeAthleteString();
+			Athlete athlete = ath.makeAthlete(athstring);
+			this.addPlayer(athlete);
+			i ++;
+		}
+	}
+	
 	
 	
 	

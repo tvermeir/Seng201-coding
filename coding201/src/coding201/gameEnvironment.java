@@ -16,9 +16,9 @@ public class gameEnvironment {
 	
 	
 	public void getDetails(clubSetup myClub) {
-		//clubName = myClub.clubName();
-		//difficulty = myClub.setDifficulty();
-		//money = myClub.getMoney();
+		clubName = myClub.clubName();
+		difficulty = myClub.setDifficulty();
+		money = myClub.getMoney();
 		athletesOnTeam = myClub.getPlayers();
 		
 	}
@@ -39,23 +39,29 @@ public class gameEnvironment {
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		
 		gameEnvironment helloEnvironment = new gameEnvironment();
 		clubSetup myClub = new clubSetup();
-		
-		
-		PlayerClub playerClub = new PlayerClub(helloEnvironment.money, helloEnvironment.clubName, null);
 		helloEnvironment.getDetails(myClub);
 		
 		
 		
-		PionelPessi pepsi = new PionelPessi();
-		PistaPenaldo penaldo = new PistaPenaldo();
-		GuiltySiggurdson child = new GuiltySiggurdson(); 
-		Darwizzey darwin = new Darwizzey();
-		helloEnvironment.addPurchasablePlayers(pepsi, penaldo, child, darwin);
-		helloEnvironment.storeMethod();
+		AthleteDatabase ting = new AthleteDatabase();
+		Athlete nignog = ting.getAthlete(myClub.difficultyMultiplier);
+		System.out.println(nignog);
+		
+		
+//		
+		
+		
+		
+//		PionelPessi pepsi = new PionelPessi();
+//		PistaPenaldo penaldo = new PistaPenaldo();
+//		GuiltySiggurdson child = new GuiltySiggurdson(); 
+//		Darwizzey darwin = new Darwizzey();
+//		helloEnvironment.addPurchasablePlayers(pepsi, penaldo, child, darwin);
+//		helloEnvironment.storeMethod();
 		
 		
 	}
