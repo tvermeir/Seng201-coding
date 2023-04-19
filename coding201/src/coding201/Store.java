@@ -5,25 +5,32 @@ import java.util.Hashtable;
 import java.util.List;
 public class Store {
 	
-	Hashtable<String, String> purchasableAthletes =  new Hashtable<>();
 	Hashtable<String, String> playersInTeam =  new Hashtable<>();
+	Hashtable<String, String> playerHashTable =  new Hashtable<>();
 	
 	public int balance;
 	
-	public Store(Hashtable<String, String> purchase, int balance, Hashtable<String, String> team) {
-		this.purchasableAthletes = purchase;
+	public Store(int balance, Hashtable<String, String> team) {
+		
 		this.balance = balance;
 		this.playersInTeam = team;
+		
 	}
+	public void refreshStore() {
+		purchaseableAthletes playerHashTables = new purchaseableAthletes();
+		playerHashTable = playerHashTables.addPurchasablePlayers();
+	}
+	
 	public int purchaseAthlete() {
-		System.out.println(purchasableAthletes);
+		
+		System.out.println(playerHashTable);
 		System.out.println("\nIf you want to purchase an athlete please type the corresponding name in. ");
 		Scanner athleteName = new Scanner(System.in);
 		String playerName = athleteName.nextLine();
 		
-		boolean isavailable = purchasableAthletes.containsKey(playerName);
+		boolean isavailable = playerHashTable.containsKey(playerName);
 		if (isavailable) { 
-			String val = purchasableAthletes.get(playerName);
+			String val = playerHashTable.get(playerName);
 			List<String> athList = Arrays.asList(val.split(","));
 			int price = Integer.valueOf(athList.get(3));
 		
@@ -33,8 +40,8 @@ public class Store {
 				String swapPlayerString = doesContain(playerName, athleteName);
 			
 				playersInTeam.remove(swapPlayerString);
-				playersInTeam.put(playerName, purchasableAthletes.get(playerName));
-				purchasableAthletes.remove(playerName);
+				playersInTeam.put(playerName, playerHashTable.get(playerName));
+				playerHashTable.remove(playerName);
 				balance -= price;
 				
 				
