@@ -1,6 +1,9 @@
-package coding201;
+package coding201.StoreClasses;
 
 import java.util.Hashtable;
+
+import coding201.AthleteClasses.Athlete;
+import coding201.AthleteClasses.AthleteDatabase;
 
 public class purchaseableAthletes {
 	Hashtable<String, String> playerHashTable =  new Hashtable<>();

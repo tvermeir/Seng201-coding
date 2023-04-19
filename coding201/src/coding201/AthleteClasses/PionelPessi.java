@@ -1,4 +1,4 @@
-package coding201;
+package coding201.AthleteClasses;
 
 public class PionelPessi extends Athlete {
 	public PionelPessi() {

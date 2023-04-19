@@ -2,6 +2,10 @@ package coding201;
 
 import java.util.Hashtable;
 import java.util.Scanner;
+
+import coding201.AthleteClasses.Athlete;
+import coding201.AthleteClasses.AthleteDatabase;
+
 import java.util.Hashtable;
 
 public class clubSetup {

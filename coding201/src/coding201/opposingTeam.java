@@ -2,6 +2,9 @@ package coding201;
 
 import java.util.ArrayList;
 
+import coding201.AthleteClasses.Athlete;
+import coding201.AthleteClasses.AthleteDatabase;
+
 public class opposingTeam extends PlayerClub {
 
 	

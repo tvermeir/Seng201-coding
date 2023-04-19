@@ -3,6 +3,9 @@ package coding201;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
+
+import coding201.AthleteClasses.Athlete;
+
 import java.util.ArrayList;
 
 public class Stadium {

@@ -1,4 +1,4 @@
-package coding201;
+package coding201.StoreClasses;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,17 @@ import java.util.Scanner;
 import java.util.Hashtable;
 
 public class purchaseAthlete {
- int purchaseAthlete() {
+	public Hashtable<String, String> playerHashTable = new Hashtable<>();
+	public Hashtable<String, String> playersInTeam = new Hashtable<>();
+	public int balance;
+	
+	public purchaseAthlete(Hashtable<String, String> athletesInStore, Hashtable<String, String> currPlayers, int money) {
+		playerHashTable = athletesInStore;
+		playersInTeam = currPlayers;
+		balance = money;
+		
+	}
+ public int purchaseAthletes() {
 		
 		System.out.println(playerHashTable);
 		System.out.println("\nIf you want to purchase an athlete please type the corresponding name in. ");
@@ -34,17 +44,33 @@ public class purchaseAthlete {
 			}
 			else if (balance - price < 0) {
 				System.out.println("You do not have the funds to purchase this player!");
-				purchaseAthlete();
+				purchaseAthletes();
 				
 			}
 		}
 		
 		else if (!isavailable) {
 			System.out.println("Please enter correct name");
-			purchaseAthlete();
+			purchaseAthletes();
 		}
 		
 		return balance;
+		
+	}
+ 	public String doesContain( String playerName, Scanner athleteName) {
+		System.out.println(playersInTeam);
+		System.out.println("Please enter the player you want to swap "+ playerName + " with from your club:");
+		String swapPlayerString = athleteName.nextLine();
+		if(playersInTeam.containsKey(swapPlayerString)) {
+			return swapPlayerString;
+			
+		}
+		else
+		{
+			System.out.println("Please enter in a correct name");
+			doesContain(playerName, athleteName);
+		}
+		return "ffss";
 		
 	}
 	public static void main(String[] args) {

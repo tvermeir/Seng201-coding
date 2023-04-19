@@ -1,6 +1,8 @@
 package coding201;
 import java.util.Hashtable;
 
+import coding201.StoreClasses.Store;
+
 public class gameEnvironment {
 	String clubName;
 	double difficulty;
@@ -44,8 +46,9 @@ public class gameEnvironment {
 		//If button is pressed {helloEnvironment.money = store.purchaseAthlete();
 		// If week, store.refreshStore();
 		helloEnvironment.money = store.purchaseAthlete();
-		store.refreshStore();
+		System.out.println(helloEnvironment.money);
 		helloEnvironment.money = store.purchaseAthlete();
+		System.out.println(helloEnvironment.money);
 		
 		
 	}

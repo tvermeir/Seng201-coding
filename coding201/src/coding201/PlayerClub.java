@@ -2,6 +2,8 @@ package coding201;
 
 import java.util.ArrayList;
 
+import coding201.AthleteClasses.Athlete;
+
 public class PlayerClub {
 	float bankBalance;
 	int playerCount;

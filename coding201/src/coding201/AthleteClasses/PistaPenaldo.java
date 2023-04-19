@@ -1,4 +1,4 @@
-package coding201;
+package coding201.AthleteClasses;
 
 public class PistaPenaldo extends Athlete {
 

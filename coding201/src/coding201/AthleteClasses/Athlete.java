@@ -1,6 +1,4 @@
-package coding201;
-
-
+package coding201.AthleteClasses;
 
 public class Athlete{
 	public int attack;
