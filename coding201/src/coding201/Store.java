@@ -1,8 +1,6 @@
 package coding201;
-import java.util.Scanner;
-import java.util.Arrays;
 import java.util.Hashtable;
-import java.util.List;
+import java.util.Scanner;
 public class Store {
 	
 	Hashtable<String, String> playersInTeam =  new Hashtable<>();
@@ -27,7 +25,10 @@ public class Store {
 		return balance;
 	}
 	public int sellPlayer() {
-		return 1;
+		sellPlayer playerSold = new sellPlayer(playersInTeam, balance);
+		balance = playerSold.playerSell();
+		return balance;
+		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
