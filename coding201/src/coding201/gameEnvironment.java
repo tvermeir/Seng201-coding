@@ -27,7 +27,7 @@ public class gameEnvironment {
 	
 	}
 	public opposingTeam opposingTeamMethod() {
-		opposingTeam team = new opposingTeam(clubName, null)
+		opposingTeam team = new opposingTeam(clubName, null);
 	}
 	
 	public Store storeMethod() {
