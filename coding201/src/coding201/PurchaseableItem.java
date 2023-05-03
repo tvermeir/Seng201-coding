@@ -4,6 +4,7 @@ public class PurchaseableItem {
 	int price;
 	String name;
 	
+	
 	public PurchaseableItem(String name, int price) {
 		this.price = price;
 		this.name = name;

@@ -49,6 +49,10 @@ public class Athlete{
 		
 	}
 	
+	public void eatFood() {
+		
+	}
+	
 	
 	public String toString() {
 		return ("\nName: " + name+ ", Defense: " + defense+ ", Attack: "+ attack + ", Price: $" + price);
