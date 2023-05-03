@@ -7,7 +7,7 @@ public class Athlete{
 	public int price;
 	public int stamina = 100;
 	public String name;
-	public int ting;
+	public int ting2;
 
 	
 	public Athlete(int attack, int defense, int health, int price, String name) {
