@@ -3,7 +3,7 @@ package coding201;
 import java.util.ArrayList;
 
 public class PlayerClub {
-	float bankBalance;
+	int balance;
 	int playerCount;
 	String teamName;
 	ArrayList<Athlete> athleteList = new ArrayList<Athlete>();
@@ -14,8 +14,8 @@ public class PlayerClub {
 	ArrayList<String> nameList = new ArrayList<String>();
 	
 	
-	public PlayerClub(float balance, String name, ArrayList<Athlete> athleteList2) {
-		bankBalance = balance;
+	public PlayerClub(int balance, String name, ArrayList<Athlete> athleteList2) {
+		this.balance = balance;
 		teamName = name;
 		this.athleteList = athleteList2;
 	}
@@ -40,7 +40,7 @@ public class PlayerClub {
 		
 	}
 	public float getBalance() {
-		return bankBalance;
+		return balance;
 	}
 	
 	public boolean canPlay() {
@@ -74,6 +74,11 @@ public class PlayerClub {
 			this.nameList.add(athlete.name);
 		}
 	}
+	
+	public void addItem(PurchaseableItem item) {
+		itemInventory.add(item);
+	}
+	
 	
 	
 	

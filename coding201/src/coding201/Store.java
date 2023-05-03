@@ -5,7 +5,7 @@ public class Store {
 	
 	Hashtable<String, String> playersInTeam =  new Hashtable<>();
 	Hashtable<String, String> playerHashTable =  new Hashtable<>();
-	
+	Hashtable<String, Integer> itemHashtable = new Hashtable<>();
 	public int balance;
 	
 	public Store(int balance, Hashtable<String, String> team) {
@@ -29,6 +29,11 @@ public class Store {
 		balance = playerSold.playerSell();
 		return balance;
 		
+	}
+	
+	public int purchaseItem() {
+		Integer ting = 5;
+		return ting;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
