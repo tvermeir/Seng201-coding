@@ -11,6 +11,7 @@ public class PlayerClub {
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
 	ArrayList<PurchaseableItem> itemInventory = new ArrayList<PurchaseableItem>();
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
+	ArrayList<String> nameList = new ArrayList<String>();
 	
 	
 	public PlayerClub(float balance, String name, ArrayList<Athlete> athleteList2) {
@@ -68,6 +69,11 @@ public class PlayerClub {
 		return teamName;
 	}
 	
+	public void addNamess() {
+		for(Athlete athlete: athleteList) {
+			this.nameList.add(athlete.name);
+		}
+	}
 	
 	
 	

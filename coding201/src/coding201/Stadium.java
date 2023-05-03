@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Stadium {
 
-	Hashtable<String, ArrayList<Athlete>> PossibleOpponents =  new Hashtable<>();
+	Hashtable<String, ArrayList<String>> PossibleOpponents =  new Hashtable<>();
 	int gamesPlayed = 0;
 	
 	
@@ -16,7 +16,7 @@ public class Stadium {
 	
 	
 	public void fillOpponentTable() {
-		while (PossibleOpponents.size() < 2) {
+		while (PossibleOpponents.size() < 3) {
 			Random random = new Random();
 			teamDatabase ting = new teamDatabase();
 			List<String> nlist = ting.getList();
@@ -25,10 +25,15 @@ public class Stadium {
 			ArrayList<Athlete> alist = new ArrayList<Athlete>();
 			opposingTeam team = new opposingTeam(name, alist);
 			team.Fill();
-			PossibleOpponents.put(team.teamName, team.athleteList);
+			team.addNamess();
+			PossibleOpponents.put(team.teamName, team.nameList);
 			
 		}
 	}
+	
+	
+	
+	
 	
 	
 	public static void main(String[] args) {
