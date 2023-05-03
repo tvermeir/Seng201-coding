@@ -15,7 +15,7 @@ public class Stadium {
 	
 	
 	
-	public void fillOpponentTable() {
+	public Hashtable<String, opposingTeam> fillOpponentTable() {
 		while (PossibleOpponents.size() < 3) {
 			Random random = new Random();
 			teamDatabase ting = new teamDatabase();
@@ -29,6 +29,7 @@ public class Stadium {
 			PossibleOpponents.put(team.teamName, team);
 			
 		}
+		return PossibleOpponents;
 	}
 	
 	
