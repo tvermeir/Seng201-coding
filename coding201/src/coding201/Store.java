@@ -1,33 +1,31 @@
 package coding201;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Scanner;
 public class Store {
 	
-	Hashtable<String, String> playersInTeam =  new Hashtable<>();
-	Hashtable<String, String> playerHashTable =  new Hashtable<>();
+	Hashtable<String, Athlete> playersInTeam =  new Hashtable<>();
+	Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
 	Hashtable<String, Integer> itemHashtable = new Hashtable<>();
-	public int balance;
+	PlayerClub myClub;
 	
-	public Store(int balance, Hashtable<String, String> team) {
+	public Store(PlayerClub myClub) {
 		
-		this.balance = balance;
-		this.playersInTeam = team;
-		
+		this.myClub = myClub;
 	}
 	public void refreshStore() {
 		purchaseableAthletes playerHashTables = new purchaseableAthletes();
 		playerHashTable = playerHashTables.addPurchasablePlayers();
 	}
 	
-	public int purchaseAthlete() {
-		purchaseAthlete athlete = new purchaseAthlete(playerHashTable, playersInTeam, balance);
-		balance = athlete.purchaseAthletes();
-		return balance;
+	public void purchaseAthlete() {
+		purchaseAthlete athlete = new purchaseAthlete(playerHashTable,myClub);
+		myClub.balance = athlete.purchaseAthletes();
 	}
-	public int sellPlayer() {
-		sellPlayer playerSold = new sellPlayer(playersInTeam, balance);
-		balance = playerSold.playerSell();
-		return balance;
+	public void sellPlayer() {
+		sellPlayer playerSold = new sellPlayer(myClub);
+		myClub.balance = playerSold.playerSell();
+		
 		
 	}
 	

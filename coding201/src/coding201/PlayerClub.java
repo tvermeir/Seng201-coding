@@ -1,20 +1,21 @@
 package coding201;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class PlayerClub {
 	int balance;
 	int playerCount;
 	String teamName;
-	ArrayList<Athlete> athleteList = new ArrayList<Athlete>();
-	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
-	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
-	ArrayList<PurchaseableItem> itemInventory = new ArrayList<PurchaseableItem>();
+	Hashtable<String, Athlete> athleteList = new Hashtable<>();
+	Hashtable<String, Athlete> starterList = new Hashtable<>();
+	Hashtable<String, Athlete> reserveList = new Hashtable<>();
+	Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
 	ArrayList<String> nameList = new ArrayList<String>();
 	
 	
-	public PlayerClub(int balance, String name, ArrayList<Athlete> athleteList2) {
+	public PlayerClub(int balance, String name, Hashtable<String, Athlete> athleteList2) {
 		this.balance = balance;
 		teamName = name;
 		this.athleteList = athleteList2;
@@ -22,19 +23,19 @@ public class PlayerClub {
 	
 	
 	public void makeReserve(Athlete athlete) {
-		if (athleteList.contains(athlete)) {
-			reserveList.add(athlete);
+		if (athleteList.contains(athlete.name)) {
+			reserveList.put(athlete.name,athlete);
 		}
-		if (starterList.contains(athlete)) {
-			starterList.remove(athlete);
+		if (starterList.contains(athlete.name)) {
+			starterList.remove(athlete.name);
 		}
 	}
 	public void makeStarter(Athlete athlete) {
-		if (athleteList.contains(athlete)) {
-			starterList.add(athlete);
+		if (athleteList.contains(athlete.name)) {
+			starterList.put(athlete.name, athlete);
 		}
-		if (reserveList.contains(athlete)) {
-			reserveList.remove(athlete);
+		if (reserveList.contains(athlete.name)) {
+			reserveList.remove(athlete.name);
 		}
 		
 		
@@ -54,12 +55,12 @@ public class PlayerClub {
 	
 	public void addPlayer(Athlete athlete) {
 		if (athleteList == null) {
-			athleteList.add(athlete);
+			athleteList.put(athlete.name,athlete);
 			return;
 		}
 		
 		if (!athleteList.contains(athlete)) {
-			athleteList.add(athlete);
+			athleteList.put(athlete.name,athlete);
 		}
 		
 		
@@ -69,15 +70,10 @@ public class PlayerClub {
 		return teamName;
 	}
 	
-	public void addNamess() {
-		for(Athlete athlete: athleteList) {
-			this.nameList.add(athlete.name);
-		}
-	}
 	
-	public void addItem(PurchaseableItem item) {
-		itemInventory.add(item);
-	}
+	//public void addItem(PurchaseableItem item) {
+		//itemInventory.put(item);
+	//}
 	
 	
 	

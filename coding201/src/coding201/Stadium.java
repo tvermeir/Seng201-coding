@@ -25,7 +25,6 @@ public class Stadium {
 			ArrayList<Athlete> alist = new ArrayList<Athlete>();
 			opposingTeam team = new opposingTeam(name, alist);
 			team.Fill();
-			team.addNamess();
 			PossibleOpponents.put(team.teamName, team);
 			
 		}

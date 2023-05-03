@@ -7,7 +7,7 @@ import java.util.Hashtable;
 public class clubSetup {
 	public double difficultyMultiplier = 1;
 	public int money = 100;
-	Hashtable<String, String> clubPlayersHashtable  = new Hashtable<>();
+	Hashtable<String, Athlete> clubPlayersHashtable  = new Hashtable<>();
 
 	public String clubName() {
 		Scanner myObj = new Scanner(System.in);
@@ -71,7 +71,7 @@ public class clubSetup {
 		}
 		return money;
 	}
-	public Hashtable<String, String> getPlayers(){
+	public Hashtable<String, Athlete> getPlayers(){
 		AthleteDatabase newPlayers = new AthleteDatabase();
 		
 		int i = 0;
@@ -79,7 +79,7 @@ public class clubSetup {
 		while(i<4) {
 			String athlete = newPlayers.makeAthleteString();
 			Athlete athlete2 = newPlayers.makeAthlete(athlete);
-			clubPlayersHashtable.put(athlete2.name, athlete2.getHashtable());
+			clubPlayersHashtable.put(athlete2.name, athlete2);
 			i ++;
 		}
 		return clubPlayersHashtable;

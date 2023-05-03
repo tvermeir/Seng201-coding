@@ -6,14 +6,14 @@ import java.util.Scanner;
 import java.util.Hashtable;
 
 public class purchaseAthlete {
-	public Hashtable<String, String> playerHashTable = new Hashtable<>();
-	public Hashtable<String, String> playersInTeam = new Hashtable<>();
+	public Hashtable<String, Athlete> playerHashTable = new Hashtable<>();
+	public Hashtable<String, Athlete> playersInTeam = new Hashtable<>();
 	public int balance;
 	
-	public purchaseAthlete(Hashtable<String, String> athletesInStore, Hashtable<String, String> currPlayers, int money) {
+	public purchaseAthlete(Hashtable<String, Athlete> athletesInStore,PlayerClub myClub) {
 		playerHashTable = athletesInStore;
-		playersInTeam = currPlayers;
-		balance = money;
+		playersInTeam = myClub.athleteList;
+		balance = myClub.balance;
 		
 	}
  public int purchaseAthletes() {
@@ -25,9 +25,9 @@ public class purchaseAthlete {
 		
 		boolean isavailable = playerHashTable.containsKey(playerName);
 		if (isavailable) { 
-			String val = playerHashTable.get(playerName);
-			List<String> athList = Arrays.asList(val.split(","));
-			int price = Integer.valueOf(athList.get(3));
+			Athlete val = playerHashTable.get(playerName);
+			
+			int price = val.price;
 		
 		
 			if(balance - price >=0) {

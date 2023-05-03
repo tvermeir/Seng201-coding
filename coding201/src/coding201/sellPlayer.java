@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class sellPlayer {
-	private Hashtable<String, String> playersCanSell = new Hashtable<>();
+	private Hashtable<String, Athlete> playersCanSell = new Hashtable<>();
 	private int money;
-	public sellPlayer(Hashtable<String, String> playersInTeam, int balance) {
-		playersCanSell = playersInTeam;
-		money = balance;
+	public sellPlayer(PlayerClub myClub) {
+		playersCanSell = myClub.athleteList;
+		money = myClub.balance;
 	}
 	public int playerSell() {
 		System.out.println(playersCanSell);
@@ -22,9 +22,9 @@ public class sellPlayer {
 
 		boolean isavailable = playersCanSell.containsKey(playerName);
 		if (isavailable) { 
-			String val = playersCanSell.get(playerName);
-			List<String> athList = Arrays.asList(val.split(","));
-			int price = Integer.valueOf(athList.get(3));
+			Athlete val = playersCanSell.get(playerName);
+			
+			int price = val.price;
 
 			playersCanSell.remove(playerName);
 			money += (price*0.75);
