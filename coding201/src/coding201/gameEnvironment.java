@@ -14,20 +14,31 @@ public class gameEnvironment {
 	
 	
 	public PlayerClub getDetails(clubSetup myClub) {
-//		clubName = myClub.clubName();
-//		difficulty = myClub.setDifficulty();
-//		money = myClub.getMoney();
+		clubName = myClub.clubName();
+		difficulty = myClub.setDifficulty();
+		money = myClub.getMoney();
 		athletesOnTeam = myClub.getPlayers();
 		PlayerClub userClub = new PlayerClub(money, clubName, athletesOnTeam);
 		return userClub;
 		
 	}
 	
-	public void possibleOpponents() {
+	public Stadium stadiumMethod() {
 		Stadium stad = new Stadium();
-		possibleMatches = stad.fillOpponentTable();
-		System.out.println(possibleMatches);
+		return stad;
 	
+	}
+	
+	public String getHelp() {
+		String helpstring = """
+				Here are the commands you can use to navigate the game:
+				showteam : shows the current players in the team
+				enterstore : enters the store
+				exitstore : exits the store
+				enterstadium : enters the stadium
+				exitstadium : exits the stadium
+				""";
+		return helpstring;
 	}
 	//public opposingTeam opposingTeamMethod() {
 		//opposingTeam team = new opposingTeam(clubName, null);
@@ -46,48 +57,70 @@ public class gameEnvironment {
 	
 	public static void main(String[] args) {
 		
-		//Club Setup
+		//Game Setup
 		
+		gameEnvironment helloEnvironment = new gameEnvironment();
 		
-		//helloEnvironment.possibleOpponents();
-		
-		
-		//Store Method 
+		System.out.println("Welcome to sunday league simulator 2023");
+	    System.out.println("To start the game, you need to set up your club.");
+	    
+	    //Club setup
+	    
+	    clubSetup myClub = new clubSetup();
+	    PlayerClub userClub = helloEnvironment.getDetails(myClub);
+	    System.out.println("Awesome, you have created a club called " + userClub.getName()  + ". The club has a balance of " + userClub.getBalance());
+	    
+	    //Store setup
+	    
 		Store store = helloEnvironment.storeMethod(userClub);
 		store.refreshStore();
+		
+		//store.purchaseAthlete();
+		
+		//Stadium setup
+		
+		Stadium stadium = helloEnvironment.stadiumMethod();
+		
 		//If button is pressed {helloEnvironment.money = store.purchaseAthlete();
 			// If week, store.refreshStore();
-//		store.purchaseAthlete();
+//		
 //		System.out.println(userClub.balance);
 //		store.sellPlayer();
 //		
-		int balance = userClub.balance ; // Initialize the balance variable
 	    
-	    Scanner scanner = new Scanner(System.in);
 	    
-	    // Main game loop
+	    
+	    
 	    while (true) {
-	      System.out.println("Enter a command:");
+	      
+	    Scanner scanner = new Scanner(System.in);
+	      
 	      String input = scanner.nextLine();
 	      
 	      // Check if the user has typed "get balance"
 	      if (input.equals("get balance") && userClub != null) {
-	        System.out.println("Your team's balance is: " + balance);
+	    	  int balance = userClub.balance;
+	    	  System.out.println("Your team's balance is: " + balance);
 	      }
-	      else if (input.equals("setup club")) {
-	    	gameEnvironment helloEnvironment = new gameEnvironment();
-	  		clubSetup myClub = new clubSetup();
-	  		PlayerClub userClub = helloEnvironment.getDetails(myClub);
+	      else if (input.equals("showteam") && userClub != null) {
+	    	  System.out.println("These are the players in your team: " + userClub.printAthleteList());
 	      }
-		  
-		  }
+	      else if (input.equals("enterstore") && userClub != null) {
+	    	  store.enterStore();
+	      }
+	      else if (input.equals("/help") && userClub != null) {
+	    	  System.out.println(helloEnvironment.getHelp());
+	      }
+	      
+	      
 	      
 	      // Other game commands...
 	    
 		
 		
-		store.purchaseItem();
-		System.out.println(userClub.balance);
+		
+	    }
 	}
-
 }
+
+

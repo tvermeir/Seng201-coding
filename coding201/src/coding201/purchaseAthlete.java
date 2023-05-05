@@ -17,8 +17,8 @@ public class purchaseAthlete {
 		
 	}
  public int purchaseAthletes() {
-		
-		System.out.println(playerHashTable);
+		PlayerClub tempclub = new PlayerClub(0, "temp", playerHashTable);
+		System.out.println(tempclub.printAthleteList());
 		System.out.println("\nIf you want to purchase an athlete please type the corresponding name in. ");
 		Scanner athleteName = new Scanner(System.in);
 		String playerName = athleteName.nextLine();
@@ -59,7 +59,8 @@ public class purchaseAthlete {
 		
 	}
  	public String doesContain( String playerName, Scanner athleteName) {
-		System.out.println(playersInTeam);
+		PlayerClub temp2 = new PlayerClub(0, "none", playersInTeam);
+ 		System.out.println(temp2.printAthleteList());
 		System.out.println("Please enter the player you want to swap "+ playerName + " with from your club:");
 		String swapPlayerString = athleteName.nextLine();
 		if(playersInTeam.containsKey(swapPlayerString)) {

@@ -32,6 +32,29 @@ public class Store {
 		purchaseItem item = new purchaseItem(itemHashtable, myClub);
 		myClub.balance = item.purchaseItems();
 	}
+	public void enterStore() {
+		System.out.println("Welcome to the store! Shop players with /shopplayers or shop items with /shopitems");
+		
+		Boolean instore = true;
+		
+		while (instore) {
+			Scanner scanner = new Scanner(System.in);
+			String input = scanner.nextLine();
+			if (input.equals("shopplayers")) {
+				System.out.println("Shopping on the transfer market.");
+				this.purchaseAthlete();
+			}
+			else if (input == "shopitems") {
+				System.out.println("Shopping in the item shop.");
+				this.purchaseItem();
+			}
+			else if (input == "exitstore" ) {
+				System.out.println("Exiting the store.");
+				instore = false;
+			}
+		}
+		
+	}
 	
 	
 	public static void main(String[] args) {
