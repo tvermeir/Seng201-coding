@@ -49,9 +49,22 @@ public class Athlete{
 		
 	}
 	
-	public void eatFood() {
-		
+	public void useBangage() {
+		health = 100;
 	}
+	public void useAttackTraining() {
+		attack += 5;
+		if (attack >= 100) {
+			attack = 100;
+		}
+	}
+	public void useDefenseTraining() {
+		defense += 5;
+		if (defense >= 100) {
+			defense = 100;
+		}
+	}
+	
 	
 	
 	public String toString() {
@@ -62,7 +75,6 @@ public class Athlete{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 PionelPessi pepsi = new PionelPessi();
 	}
 	
 	

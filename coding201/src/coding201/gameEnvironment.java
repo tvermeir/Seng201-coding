@@ -1,6 +1,6 @@
 package coding201;
 import java.util.Hashtable;
-
+import java.util.Scanner;
 public class gameEnvironment {
 	String clubName;
 	double difficulty;
@@ -47,9 +47,7 @@ public class gameEnvironment {
 	public static void main(String[] args) {
 		
 		//Club Setup
-		gameEnvironment helloEnvironment = new gameEnvironment();
-		clubSetup myClub = new clubSetup();
-		PlayerClub userClub = helloEnvironment.getDetails(myClub);
+		
 		
 		//helloEnvironment.possibleOpponents();
 		
@@ -59,12 +57,37 @@ public class gameEnvironment {
 		store.refreshStore();
 		//If button is pressed {helloEnvironment.money = store.purchaseAthlete();
 			// If week, store.refreshStore();
-		store.purchaseAthlete();
-		System.out.println(userClub.balance);
-		store.sellPlayer();
-		System.out.println(userClub.balance);
+//		store.purchaseAthlete();
+//		System.out.println(userClub.balance);
+//		store.sellPlayer();
+//		
+		int balance = userClub.balance ; // Initialize the balance variable
+	    
+	    Scanner scanner = new Scanner(System.in);
+	    
+	    // Main game loop
+	    while (true) {
+	      System.out.println("Enter a command:");
+	      String input = scanner.nextLine();
+	      
+	      // Check if the user has typed "get balance"
+	      if (input.equals("get balance") && userClub != null) {
+	        System.out.println("Your team's balance is: " + balance);
+	      }
+	      else if (input.equals("setup club")) {
+	    	gameEnvironment helloEnvironment = new gameEnvironment();
+	  		clubSetup myClub = new clubSetup();
+	  		PlayerClub userClub = helloEnvironment.getDetails(myClub);
+	      }
+		  
+		  }
+	      
+	      // Other game commands...
+	    
 		
 		
+		store.purchaseItem();
+		System.out.println(userClub.balance);
 	}
 
 }
