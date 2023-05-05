@@ -22,7 +22,7 @@ public class Stadium {
 			List<String> nlist = ting.getList();
 			int rindex = random.nextInt(99);
 			String name = nlist.get(rindex);
-			ArrayList<Athlete> alist = new ArrayList<Athlete>();
+			Hashtable<String, Athlete> alist = new Hashtable<>();
 			opposingTeam team = new opposingTeam(name, alist);
 			team.Fill();
 			PossibleOpponents.put(team.teamName, team);

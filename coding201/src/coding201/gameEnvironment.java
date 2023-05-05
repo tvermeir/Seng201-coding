@@ -1,6 +1,8 @@
 package coding201;
 import java.util.Hashtable;
 
+import javax.swing.text.Position;
+
 public class gameEnvironment {
 	String clubName;
 	double difficulty;
@@ -23,10 +25,11 @@ public class gameEnvironment {
 		
 	}
 	
-	public void possibleOpponents() {
+	public opposingTeam possibleOpponents() {
 		Stadium stad = new Stadium();
 		possibleMatches = stad.fillOpponentTable();
 		System.out.println(possibleMatches);
+		return possibleMatches;
 	
 	}
 	//public opposingTeam opposingTeamMethod() {
@@ -37,6 +40,12 @@ public class gameEnvironment {
 		Store store = new Store(myClub);
 		return store;
 		
+	}
+	
+	public matchRunner startMatch(PlayerClub myClub, opposingTeam opposition) {
+		
+		matchRunner match = new matchRunner(myClub, opposition);
+		return match;
 	}
 	//public matchRunner matchMethod() {
 		//matchRunner match = new matchRunner(athletesOnTeam, opposingTeam)
@@ -51,18 +60,19 @@ public class gameEnvironment {
 		clubSetup myClub = new clubSetup();
 		PlayerClub userClub = helloEnvironment.getDetails(myClub);
 		
-		//helloEnvironment.possibleOpponents();
+		opposingTeam opposition = helloEnvironment.possibleOpponents();
 		
+		matchRunner match = helloEnvironment.startMatch(userClub, opposition );
 		
 		//Store Method 
-		Store store = helloEnvironment.storeMethod(userClub);
-		store.refreshStore();
+		//Store store = helloEnvironment.storeMethod(userClub);
+		//store.refreshStore();
 		//If button is pressed {helloEnvironment.money = store.purchaseAthlete();
 			// If week, store.refreshStore();
-		store.purchaseAthlete();
-		System.out.println(userClub.balance);
-		store.sellPlayer();
-		System.out.println(userClub.balance);
+		//store.purchaseAthlete();
+		//System.out.println(userClub.balance);
+		//store.sellPlayer();
+		//System.out.println(userClub.balance);
 		
 		
 	}
