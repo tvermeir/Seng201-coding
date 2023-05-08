@@ -41,6 +41,7 @@ public class purchaseAthlete {
 				
 				
 				
+				
 			}
 			else if (balance - price < 0) {
 				System.out.println("You do not have the funds to purchase this player!");

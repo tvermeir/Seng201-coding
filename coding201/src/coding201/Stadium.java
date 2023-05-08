@@ -16,10 +16,10 @@ public class Stadium {
 	
 	
 	public Hashtable<String, opposingTeam> fillOpponentTable() {
-		while (PossibleOpponents.size() < 3) {
+		while (PossibleOpponents.size() < 1) {
 			Random random = new Random();
-			teamDatabase ting = new teamDatabase();
-			List<String> nlist = ting.getList();
+			teamDatabase teamName = new teamDatabase();
+			List<String> nlist = teamName.getList();
 			int rindex = random.nextInt(99);
 			String name = nlist.get(rindex);
 			Hashtable<String, Athlete> alist = new Hashtable<>();
@@ -32,6 +32,15 @@ public class Stadium {
 	}
 	
 	
+	public Hashtable<String, opposingTeam> selectedTeam(){
+		PossibleOpponents.entrySet().forEach( entry -> {
+		   System.out.println( entry.getKey() + ": \n" + entry.getValue()  + ("\n"));
+		});
+		
+		return PossibleOpponents;
+
+	}
+	
 	
 	
 	
@@ -40,10 +49,9 @@ public class Stadium {
 		
 		Stadium topspur = new Stadium();
 		topspur.fillOpponentTable();
-		System.out.println(topspur.PossibleOpponents);
+		//System.out.println(topspur.PossibleOpponents);
 		
-		
-
+		topspur.selectedTeam();
 	}
 
 }

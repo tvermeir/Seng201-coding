@@ -24,7 +24,6 @@ public class matchRunner {
 			
 			
 			minutespassed += 3;
-			continue
 			
 			
 		}

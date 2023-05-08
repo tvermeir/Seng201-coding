@@ -6,7 +6,7 @@ public class Store {
 	
 	Hashtable<String, Athlete> playersInTeam =  new Hashtable<>();
 	Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
-	Hashtable<String, Integer> itemHashtable = new Hashtable<>();
+	Hashtable<String, PurchaseableItem> itemHashtable = new Hashtable<>();
 	PlayerClub myClub;
 	
 	public Store(PlayerClub myClub) {
@@ -16,6 +16,8 @@ public class Store {
 	public void refreshStore() {
 		purchaseableAthletes playerHashTables = new purchaseableAthletes();
 		playerHashTable = playerHashTables.addPurchasablePlayers();
+		PurchaseableItems itemHashtables = new PurchaseableItems();
+		itemHashtable = itemHashtables.addPurchaseableItems();	
 	}
 	
 	public void purchaseAthlete() {
@@ -24,15 +26,14 @@ public class Store {
 	}
 	public void sellPlayer() {
 		sellPlayer playerSold = new sellPlayer(myClub);
-		myClub.balance = playerSold.playerSell();
-		
-		
+		myClub.balance = playerSold.playerSell();	
+	}
+	public void purchaseItem() {
+		purchaseItem item = new purchaseItem(itemHashtable, myClub);
+		myClub.balance = item.purchaseItems();
 	}
 	
-	public int purchaseItem() {
-		Integer ting = 5;
-		return ting;
-	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

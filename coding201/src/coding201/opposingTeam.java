@@ -1,6 +1,6 @@
 package coding201;
 
-import java.util.ArrayList;
+
 import java.util.Hashtable;
 
 public class opposingTeam extends PlayerClub {
@@ -10,7 +10,7 @@ public class opposingTeam extends PlayerClub {
 	double winReward = 100;
 	
 	public opposingTeam(String name, Hashtable<String, Athlete> athleteList ){
-		super(name, athleteList);
+		super(0, name, athleteList);
 	}
 	
 	

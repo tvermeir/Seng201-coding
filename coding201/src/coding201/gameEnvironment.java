@@ -1,7 +1,10 @@
 package coding201;
 import java.util.Hashtable;
 
+
 import javax.swing.text.Position;
+
+import java.util.Scanner;
 
 public class gameEnvironment {
 	String clubName;
@@ -25,11 +28,13 @@ public class gameEnvironment {
 		
 	}
 	
-	public opposingTeam possibleOpponents() {
+	public void possibleOpponents() {
 		Stadium stad = new Stadium();
-		possibleMatches = stad.fillOpponentTable();
-		System.out.println(possibleMatches);
-		return possibleMatches;
+		stad.fillOpponentTable();
+		possibleMatches = stad.selectedTeam();
+		possibleMatches.entrySet().forEach( entry -> {
+			   System.out.println( entry.getKey() + ": \n" + entry.getValue()  + ("\n"));
+			});
 	
 	}
 	//public opposingTeam opposingTeamMethod() {
@@ -56,25 +61,56 @@ public class gameEnvironment {
 	public static void main(String[] args) {
 		
 		//Club Setup
+		
 		gameEnvironment helloEnvironment = new gameEnvironment();
-		clubSetup myClub = new clubSetup();
-		PlayerClub userClub = helloEnvironment.getDetails(myClub);
+  		clubSetup myClub = new clubSetup();
+  		PlayerClub userClub = helloEnvironment.getDetails(myClub);
 		
-		opposingTeam opposition = helloEnvironment.possibleOpponents();
+		helloEnvironment.possibleOpponents();
 		
-		matchRunner match = helloEnvironment.startMatch(userClub, opposition );
+		//matchRunner match = helloEnvironment.startMatch(userClub, opposition );
 		
 		//Store Method 
 		//Store store = helloEnvironment.storeMethod(userClub);
 		//store.refreshStore();
 		//If button is pressed {helloEnvironment.money = store.purchaseAthlete();
 			// If week, store.refreshStore();
+
 		//store.purchaseAthlete();
 		//System.out.println(userClub.balance);
 		//store.sellPlayer();
 		//System.out.println(userClub.balance);
+
+//		store.purchaseAthlete();
+//		System.out.println(userClub.balance);
+//		store.sellPlayer();
+//		
+		//Dint balance = userClub.balance ; // Initialize the balance variable
+	    
+	    //Scanner scanner = new Scanner(System.in);
+	    
+	    // Main game loop
+	    //while (true) {
+	      //System.out.println("Enter a command:");
+	      //String input = scanner.nextLine();
+	      
+	      // Check if the user has typed "get balance"
+	      //if (input.equals("get balance") && userClub != null) {
+	        //System.out.println("Your team's balance is: " + balance);
+	      //}
+	     // else if (input.equals("setup club")) {
+	    	//gameEnvironment helloEnvironment = new gameEnvironment();
+	  		//clubSetup myClub = new clubSetup();
+	  		//PlayerClub userClub = helloEnvironment.getDetails(myClub);
+	      //}
+		  
+		  //}
+	      
+	      // Other game commands...
 		
 		
+		//store.purchaseItem();
+		//System.out.println(userClub.balance);
 	}
 
 }

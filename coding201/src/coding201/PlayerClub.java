@@ -69,6 +69,12 @@ public class PlayerClub {
 	public String getName() {
 		return teamName;
 	}
+	public Hashtable<String, PurchaseableItem> getInventory() {
+		return itemInventory;
+	}
+	public void addItem(PurchaseableItem item) {
+		itemInventory.put(item.getName(), item);
+	}
 	
 	
 	//public void addItem(PurchaseableItem item) {
