@@ -13,8 +13,15 @@ public class PlayerClub {
 	Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
 	ArrayList<String> nameList = new ArrayList<String>();
+	String name;
 	
 	
+	public PlayerClub() {
+		
+	}
+	
+	
+
 	public PlayerClub(int balance, String name, Hashtable<String, Athlete> athleteList2) {
 		this.balance = balance;
 		teamName = name;

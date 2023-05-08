@@ -17,7 +17,7 @@ public class Stadium {
 	
 	
 	public Hashtable<String, opposingTeam> fillOpponentTable() {
-		while (PossibleOpponents.size() < 4) {
+		while (PossibleOpponents.size() < 1) {
 			Random random = new Random();
 			teamDatabase teamName = new teamDatabase();
 			List<String> nlist = teamName.getList();

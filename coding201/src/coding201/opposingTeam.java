@@ -2,6 +2,8 @@ package coding201;
 
 
 import java.util.Hashtable;
+import java.util.List;
+import java.util.Random;
 
 public class opposingTeam extends PlayerClub {
 
@@ -9,9 +11,31 @@ public class opposingTeam extends PlayerClub {
 	int timesVersed = 0;
 	double winReward = 100;
 	
-	public opposingTeam(String name, Hashtable<String, Athlete> athleteList ){
-		super(0, name, athleteList);
+	//creates a random name if none is passed in
+	teamDatabase teamnames = new teamDatabase();
+	List<String> nlist = teamnames.getList();
+	Random random = new Random();
+	int rindex = random.nextInt(99);
+	String rname = nlist.get(rindex);
+	Hashtable<String, Athlete> newathleteList = new Hashtable<String, Athlete>();
+	
+	
+	public opposingTeam() {
+		name = rname;
 	}
+	
+	
+	
+	public opposingTeam(String teamName ){
+		name = teamName;
+		
+	}
+	
+	public opposingTeam(String teamName, Hashtable<String, Athlete> inathleteList) {
+		name = teamName;
+		newathleteList = inathleteList;
+	}
+	
 	
 	
 	public void adjustWinReward(double difficulty){

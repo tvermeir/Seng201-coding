@@ -48,17 +48,19 @@ public class matchRunner {
 		System.out.println("Match begins between " + playerClub.getName() + " and " + opposition.getName());
 		while (minutespassed <= 90) {
 			int event = random.nextInt(2);
-			System.out.println(playerClub.athleteList);
-			System.out.println(opposition.athleteList);			
-			int number = random.nextInt(3);
+//			System.out.println(playerClub.athleteList);
+//			System.out.println(opposition.athleteList);			
+			int number = random.nextInt(4);
 			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.athleteList.keySet());
 			String playerName = listKeysOfTeam.get(number);
 			Athlete myPlayer = playerClub.athleteList.get(playerName);
 			
-			int number1 = random.nextInt(3);
+			int number1 = random.nextInt(4);
 			List<String> listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
-			String oppositionPlayer = listKeysOfTeam.get(number1);
-			Athlete oppPlayer = opposition.athleteList.get(oppositionPlayer);
+			String oppositionPlayer = listKeysOfOpposition.get(number1);
+			System.out.println(oppositionPlayer);
+			System.out.println(opposition.newathleteList.get(oppositionPlayer));
+			Athlete oppPlayer = opposition.newathleteList.get(oppositionPlayer);
 			
 			if(event == 0) {
 					//Randomly selects a player by converting the hashtable keys into an array list, before getting the persons name and getting their attack stat 
