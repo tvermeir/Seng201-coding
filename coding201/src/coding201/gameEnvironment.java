@@ -106,8 +106,17 @@ public class gameEnvironment {
 		
 		//Stadium stadium = helloEnvironment.stadiumMethod();
 		
-		matchRunner game = helloEnvironment.startMatch(userClub);
-		game.playMatch();
+//		matchRunner game = helloEnvironment.startMatch(userClub);
+//		game.playMatch();
+		
+		System.out.println(userClub.printAthleteList());
+		
+		userClub.doRandomEvent();
+		
+		System.out.println(userClub.printAthleteList());
+		
+		
+		
 		//store.purchaseAthlete();
 		//System.out.println(userClub.balance);
 		//store.sellPlayer();

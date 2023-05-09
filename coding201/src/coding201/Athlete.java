@@ -71,6 +71,19 @@ public class Athlete{
 		return (" Defense: " + defense+ ", Attack: "+ attack + ", Price: $" + price);
 	}
 	
+	public void boostStat() {
+		attack += 5;
+		if (attack >= 100) {
+			attack = 100;
+		}
+		defense += 5;
+		if (defense >= 100) {
+			defense = 100;
+		}
+		
+		
+	}
+	
 
 
 	public static void main(String[] args) {
