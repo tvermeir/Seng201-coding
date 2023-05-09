@@ -61,9 +61,8 @@ public class gameEnvironment {
 	}
 	
 	public matchRunner startMatch(PlayerClub myClub) {
-		opposingTeam opps = new opposingTeam(clubName);
+		opposingTeam opps = new opposingTeam();
 		opps.Fill();
-		System.out.println(opps);
 		matchRunner match = new matchRunner(myClub, opps);
 		return match;
 	}

@@ -43,13 +43,15 @@ public class matchRunner {
 		List<String> otherEventsList = otherEvents.getList(); 
 		List<String> goalEventsList = goalEvents.getList();
 		
+		System.out.println("Match begins between " + playerClub.getName() + " and " + opposition.name);
+		
+		System.out.println(playerClub.printAthleteList());
+		System.out.println(opposition.printAthleteList());	
 		
 		
-		System.out.println("Match begins between " + playerClub.getName() + " and " + opposition.getName());
-		while (minutespassed <= 90) {
+		while (minutespassed < 90) {
 			int event = random.nextInt(2);
-//			System.out.println(playerClub.athleteList);
-//			System.out.println(opposition.athleteList);			
+			
 			int number = random.nextInt(4);
 			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.athleteList.keySet());
 			String playerName = listKeysOfTeam.get(number);
@@ -58,13 +60,12 @@ public class matchRunner {
 			int number1 = random.nextInt(4);
 			List<String> listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
 			String oppositionPlayer = listKeysOfOpposition.get(number1);
-			System.out.println(oppositionPlayer);
-			System.out.println(opposition.newathleteList.get(oppositionPlayer));
-			Athlete oppPlayer = opposition.newathleteList.get(oppositionPlayer);
+			Athlete oppPlayer = opposition.athleteList.get(oppositionPlayer);
 			
 			if(event == 0) {
+				boolean working = true;
 					//Randomly selects a player by converting the hashtable keys into an array list, before getting the persons name and getting their attack stat 
-					
+				while(working) {
 					int attackRatingPlayer = myPlayer.getAttack();
 					
 					
@@ -72,13 +73,18 @@ public class matchRunner {
 					
 					if(attackRatingPlayer >= defenseRatingOpps) {
 						int eventNumber = random.nextInt(goalEventsList.size());
-						System.out.println(myPlayer.name + goalEventsList.get(eventNumber));
+						System.out.println(myPlayer.name + " " + goalEventsList.get(eventNumber));
+						working = false;
 					}
 					else {
 						int eventNumber = random.nextInt(otherEventsList.size());
-						System.out.println(myPlayer.name + otherEventsList.get(eventNumber));
+						System.out.println(myPlayer.name + " " + otherEventsList.get(eventNumber));
+						working = false;
+						
 						}
-					continue;
+					minutespassed += 10;
+				}
+					
 					
 				
 				
@@ -86,29 +92,34 @@ public class matchRunner {
 			}
 			
 			if(event == 1) {
-					
-					int defenseRatingPlayer = myPlayer.getDefense();
-					
-					
-					int attackRatingOpp = oppPlayer.getAttack();
-					
-					if(defenseRatingPlayer <= attackRatingOpp) {
-						int eventNumber = random.nextInt(goalEventsList.size());
-						System.out.println(oppPlayer.name + " " + goalEventsList.get(eventNumber));
-					}
-					else {
-						int eventNumber = random.nextInt(otherEventsList.size());
-						System.out.println(oppPlayer.name + " " + otherEventsList.get(eventNumber));
+					boolean working = true;
+					while(working) {
+						int defenseRatingPlayer = myPlayer.getDefense();
+						
+						
+						int attackRatingOpp = oppPlayer.getAttack();
+						
+						if(defenseRatingPlayer <= attackRatingOpp) {
+							int eventNumber = random.nextInt(goalEventsList.size());
+							System.out.println(oppPlayer.name + " " + goalEventsList.get(eventNumber));
+							working = false;
 						}
+						else {
+							int eventNumber = random.nextInt(otherEventsList.size());
+							System.out.println(oppPlayer.name + " " + otherEventsList.get(eventNumber));
+							working = false;
+							}
+					}
 					
+						
+					minutespassed += 10;
 				
-				break;
 				}
 			
 			}
 				
 			
-			minutespassed += 10;
+			
 			
 			
 		}

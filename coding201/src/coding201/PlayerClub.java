@@ -80,8 +80,9 @@ public class PlayerClub {
 	public String printAthleteList() {
 		String output = "";
 		for (String name : athleteList.keySet()) {
-			output += "\n" + name + " " + athleteList.get(name);
+			output += "\n" + name + ": " + athleteList.get(name);
 		}
+		output += "\n";
 		return output;
 	}
 	
