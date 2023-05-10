@@ -11,6 +11,8 @@ public class otherEvents {
 			has severely misjudged the location of the goal and has kicked it out for a throw in
 			forgot to turn his monitor on and fired the ball backwards
 			has sent the ball into the back of the net, then received a yellow card for taking his shirt off, only to realise he was offside
+			has been absolutely crunched by the defender
+			sticks his leg out but no penalty
 			""";
 	
 	public List<String> getList() {

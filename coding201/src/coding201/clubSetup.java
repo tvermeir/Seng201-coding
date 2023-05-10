@@ -22,11 +22,13 @@ public class clubSetup {
 		
 		if(letterConfirmString.equals("y")) {
 			System.out.println("You have chosen: " + clubName +" as your team name");
+			return clubName;
 		}
 		else {
 			clubName();
 		}
 		return clubName;
+		
 	}
 	
 	public double setDifficulty() {
