@@ -2,6 +2,8 @@ package coding201;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 
 /**
  * Creates the game 
@@ -29,8 +31,14 @@ public class gameEnvironment {
 	 * @param myClub the clubSetup class
 	 * @return the complete and setup Club belonging to the user
 	 */
+	public mainFrame gameFrame(){
+		mainFrame frame = new mainFrame();
+		return frame;
+	}
 	public PlayerClub getDetails(clubSetup myClub) {
-		clubName = myClub.clubName();
+		
+		clubName = myClub.getTextFromTextField();
+		System.out.println(clubName);
 		difficulty = myClub.setDifficulty();
 		money = myClub.getMoney();
 		athletesOnTeam = myClub.getPlayers();
@@ -119,6 +127,8 @@ public class gameEnvironment {
 		//Game Setup
 		
 		gameEnvironment helloEnvironment = new gameEnvironment();
+		mainFrame pleaseFrame = new mainFrame();
+		pleaseFrame.setupFrame();
 		
 		//matchRunner match = helloEnvironment.startMatch(userClub, opposition );
 		

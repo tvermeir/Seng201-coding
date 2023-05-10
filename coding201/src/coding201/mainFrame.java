@@ -48,7 +48,8 @@ public class mainFrame extends JFrame {
      */
     public mainFrame() {
     	
-    	
+    }
+    public void setupFrame() {
     	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(500, 500, 1280, 720);
@@ -84,8 +85,10 @@ public class mainFrame extends JFrame {
         
     }
     public void setupClub() {
-    	clubSetupFrame club = new clubSetupFrame(this);
-    	this.setContentPane(club);
+    	JPanel clubPanel = new JPanel();
+    	clubSetup club = new clubSetup();
+    	club.setupFrame(this, clubPanel);
+    	this.setContentPane(club.clubPanel);
         this.revalidate();
     }
     
@@ -96,6 +99,7 @@ public class mainFrame extends JFrame {
     
     
     frame.setVisible(true);
+    frame.setupFrame();
              
     }
 }
