@@ -1,15 +1,17 @@
 package coding201;
 import java.util.Hashtable;
-
-import javax.management.openmbean.OpenMBeanParameterInfoSupport;
-import javax.swing.text.Position;
-
 import java.util.Scanner;
 
 
-
+/**
+ * Creates the game 
+ * Initializes all other classes in the code by calling them in a specific order as per requirements
+ * 
+ *
+ */
 public class gameEnvironment {
 	String clubName;
+	
 	double difficulty;
 	int money = 198;
 	
@@ -19,7 +21,14 @@ public class gameEnvironment {
 	Hashtable<String, opposingTeam> possibleMatches = new Hashtable<>();
 	
 	
-	
+	/**
+	 * Gathers details about the club from the user
+	 * Such as, the name, the number of weeks they would like to play and the difficulty by utilizing scanners
+	 * 
+	 * 
+	 * @param myClub the clubSetup class
+	 * @return the complete and setup Club belonging to the user
+	 */
 	public PlayerClub getDetails(clubSetup myClub) {
 		clubName = myClub.clubName();
 		difficulty = myClub.setDifficulty();
@@ -29,7 +38,14 @@ public class gameEnvironment {
 		return userClub;
 		
 	}
-	
+	/**
+	 * Returns an instance of the stadium class that can be used across all other classes
+	 * It creates a hashtable of 3 different teams
+	 * The user can select what team they would like to play against 
+	 * This team is returned and then passed into the matchRunner class
+	 * @return an instance of the Stadium class
+	 * 
+	 */
 	public Stadium stadiumMethod() {
 		Stadium stad = new Stadium();
 
@@ -41,6 +57,7 @@ public class gameEnvironment {
 
 	
 	}
+	
 	
 	public String getHelp() {
 		String helpstring = """
@@ -54,11 +71,36 @@ public class gameEnvironment {
 		return helpstring;
 	}
 	
+	/**
+	 * The store class is initialized within this method
+	 * before being called inside the main function
+	 * 
+	 * It takes in a singular parameter, a PlayerClub
+	 * which is passed into the store as it contains
+	 * the players on the user's team and the items that they have
+	 * 
+	 * @param myClub
+	 * @return the store
+	 */
 	public Store storeMethod(PlayerClub myClub) {
 		Store store = new Store(myClub);
 		return store;
 		
 	}
+	/**
+	 * The match runner class is initialized within this method
+	 * before being called inside the main function
+	 * 
+	 * It takes in a singular parameter, a PlayerClub
+	 * which is passed into the match runner as it contains the complete list
+	 * of players in the user's club
+	 * 
+	 * An opposing team class is also intialised here, to pass in the opposition team
+	 * so a match can occur
+	 * 
+	 * @param myClub a PlayerClub setup in the getDetails() method
+	 * @return match an instance of the matchrunner class
+	 */
 	
 	public matchRunner startMatch(PlayerClub myClub) {
 		opposingTeam opps = new opposingTeam();
