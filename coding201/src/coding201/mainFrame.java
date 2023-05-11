@@ -2,6 +2,7 @@ package coding201;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -18,10 +19,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import java.util.Hashtable;
+
 public class mainFrame extends JFrame {
 
     JPanel contentPane;
-    
+    PlayerClub mainclub;
     
 
     /**
@@ -92,6 +95,18 @@ public class mainFrame extends JFrame {
         this.revalidate();
     }
     
+    
+    public Stadium setupStadium() {
+    	Stadium stadium = new Stadium(mainclub);
+    	stadium.fillOpponentTable();
+    	return stadium;
+    	
+    }
+    public void showStadium(Stadium stadium) {
+    	StadiumPanel stadpan = new StadiumPanel(stadium);
+    	setContentPane(stadpan);
+    }
+    
     public static void main(String[] args) {
         
      mainFrame frame = new mainFrame();
@@ -99,7 +114,15 @@ public class mainFrame extends JFrame {
     
     
     frame.setVisible(true);
-    frame.setupFrame();
+//    frame.setupFrame();
+    
+    Hashtable<String, Athlete> ting = new Hashtable<>();
+    PlayerClub test = new PlayerClub(0, "hi", ting);
+    test.Fill();
+    frame.mainclub = test;
+    Stadium stad = frame.setupStadium();
+    frame.showStadium(stad);
+    
              
     }
 }

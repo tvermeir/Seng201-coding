@@ -10,14 +10,16 @@ public class Stadium {
 	Hashtable<String, opposingTeam> PossibleOpponents =  new Hashtable<>();
 	Hashtable<String, Athlete> selectedTeam = new Hashtable<>();
 	int gamesPlayed = 0;
+	PlayerClub club;
 	
 	
-	
-	
+	public Stadium(PlayerClub club) {
+		this.club = club;
+	}
 	
 	
 	public Hashtable<String, opposingTeam> fillOpponentTable() {
-		while (PossibleOpponents.size() < 1) {
+		while (PossibleOpponents.size() < 5) {
 			Random random = new Random();
 			teamDatabase teamName = new teamDatabase();
 			List<String> nlist = teamName.getList();
@@ -26,7 +28,7 @@ public class Stadium {
 			Hashtable<String, Athlete> alist = new Hashtable<>();
 			opposingTeam team = new opposingTeam(name, alist);
 			team.Fill();
-			PossibleOpponents.put(team.teamName, team);
+			PossibleOpponents.put(team.name, team);
 			
 		}
 		return PossibleOpponents;
@@ -49,17 +51,17 @@ public class Stadium {
 
 	}
 	
+	public void playMatch(String clubName) {
+		matchRunner runner = new matchRunner(club, PossibleOpponents.get(clubName));
+		runner.playMatch();
+	}
+	
 	
 	
 	
 	
 	public static void main(String[] args) {
 		
-		Stadium topspur = new Stadium();
-		topspur.fillOpponentTable();
-		//System.out.println(topspur.PossibleOpponents);
-		
-		topspur.selectedTeam();
 	}
 
 }

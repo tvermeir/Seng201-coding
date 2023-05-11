@@ -54,8 +54,8 @@ public class gameEnvironment {
 	 * @return an instance of the Stadium class
 	 * 
 	 */
-	public Stadium stadiumMethod() {
-		Stadium stad = new Stadium();
+	public Stadium stadiumMethod(PlayerClub club) {
+		Stadium stad = new Stadium(club);
 
 		stad.fillOpponentTable();
 		possibleMatches = stad.selectedTeam();
@@ -67,17 +67,7 @@ public class gameEnvironment {
 	}
 	
 	
-	public String getHelp() {
-		String helpstring = """
-				Here are the commands you can use to navigate the game:
-				showteam : shows the current players in the team
-				enterstore : enters the store
-				exitstore : exits the store
-				enterstadium : enters the stadium
-				exitstadium : exits the stadium
-				""";
-		return helpstring;
-	}
+	
 	
 	/**
 	 * The store class is initialized within this method
@@ -154,18 +144,18 @@ public class gameEnvironment {
 		
 		//store.purchaseAthlete();
 		
-		//Stadium setup
 		
-		//Stadium stadium = helloEnvironment.stadiumMethod();
+		Stadium stadium = helloEnvironment.stadiumMethod(userClub);
+		stadium.selectedTeam();
 		
 //		matchRunner game = helloEnvironment.startMatch(userClub);
 //		game.playMatch();
 		
-		System.out.println(userClub.printAthleteList());
-		
-		userClub.doRandomEvent();
-		
-		System.out.println(userClub.printAthleteList());
+//		System.out.println(userClub.printAthleteList());
+//		
+//		userClub.doRandomEvent();
+//		
+//		System.out.println(userClub.printAthleteList());
 		
 		
 		
@@ -225,9 +215,7 @@ public class gameEnvironment {
 	      else if (input.equals("enterstore") && userClub != null) {
 	    	  store.enterStore();
 	      }
-	      else if (input.equals("/help") && userClub != null) {
-	    	  System.out.println(helloEnvironment.getHelp());
-	      }
+	      
 	      
 	      
 
