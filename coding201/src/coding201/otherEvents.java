@@ -13,6 +13,9 @@ public class otherEvents {
 			has sent the ball into the back of the net, then received a yellow card for taking his shirt off, only to realise he was offside
 			has been absolutely crunched by the defender
 			sticks his leg out but no penalty
+			two foots a player and gets swarmed by the angry opposition supporters
+			has the ball taken from his feet by a streaker
+			
 			""";
 	
 	public List<String> getList() {

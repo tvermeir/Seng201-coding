@@ -37,9 +37,11 @@ public class gameEnvironment {
 	}
 	public PlayerClub getDetails(clubSetup myClub) {
 		
-		clubName = myClub.getTextFromTextField();
+		//clubName = myClub.clubName;
+		
+		clubName = myClub.clubName;
 		System.out.println(clubName);
-		difficulty = myClub.setDifficulty();
+		//difficulty = myClub.setDifficulty();
 		money = myClub.getMoney();
 		athletesOnTeam = myClub.getPlayers();
 		PlayerClub userClub = new PlayerClub(money, clubName, athletesOnTeam);
@@ -54,8 +56,8 @@ public class gameEnvironment {
 	 * @return an instance of the Stadium class
 	 * 
 	 */
-	public Stadium stadiumMethod() {
-		Stadium stad = new Stadium();
+	public Stadium stadiumMethod(PlayerClub club) {
+		Stadium stad = new Stadium(club);
 
 		stad.fillOpponentTable();
 		possibleMatches = stad.selectedTeam();
@@ -67,17 +69,6 @@ public class gameEnvironment {
 	}
 	
 	
-	public String getHelp() {
-		String helpstring = """
-				Here are the commands you can use to navigate the game:
-				showteam : shows the current players in the team
-				enterstore : enters the store
-				exitstore : exits the store
-				enterstadium : enters the stadium
-				exitstadium : exits the stadium
-				""";
-		return helpstring;
-	}
 	
 	/**
 	 * The store class is initialized within this method
@@ -129,7 +120,8 @@ public class gameEnvironment {
 		gameEnvironment helloEnvironment = new gameEnvironment();
 		mainFrame pleaseFrame = new mainFrame();
 		pleaseFrame.setupFrame();
-		
+		pleaseFrame.setVisible(true);
+
 		//matchRunner match = helloEnvironment.startMatch(userClub, opposition );
 		
 		//Store Method 
@@ -140,32 +132,33 @@ public class gameEnvironment {
 	    System.out.println("To start the game, you need to set up your club.");
 	    
 	    //Club setup
-	    
+	   
 	    clubSetup myClub = new clubSetup();
 	    PlayerClub userClub = helloEnvironment.getDetails(myClub);
-	    System.out.println("Awesome, you have created a club called " + userClub.getName()  + ". The club has a balance of " + userClub.getBalance());
+	    
+	    
+	    //System.out.println("Awesome, you have created a club called " + userClub.getName()  + ". The club has a balance of " + userClub.getBalance());
 	    
 	    //Store setup
 	    
-		Store store = helloEnvironment.storeMethod(userClub);
-		store.refreshStore();
+//		Store store = helloEnvironment.storeMethod(userClub);
+//		store.refreshStore();
 		
 		
 		
 		//store.purchaseAthlete();
 		
-		//Stadium setup
-		
-		//Stadium stadium = helloEnvironment.stadiumMethod();
+	    Stadium stadium = helloEnvironment.stadiumMethod(userClub);
+		stadium.selectedTeam();
 		
 //		matchRunner game = helloEnvironment.startMatch(userClub);
 //		game.playMatch();
 		
-		System.out.println(userClub.printAthleteList());
-		
-		userClub.doRandomEvent();
-		
-		System.out.println(userClub.printAthleteList());
+//		System.out.println(userClub.printAthleteList());
+//		
+//		userClub.doRandomEvent();
+//		
+//		System.out.println(userClub.printAthleteList());
 		
 		
 		
@@ -195,11 +188,11 @@ public class gameEnvironment {
 
 	    
 	    
-	    while (true) {
-	      
-	    Scanner scanner = new Scanner(System.in);
-	      
-	      String input = scanner.nextLine();
+//	    while (true) {
+//	      
+//	    Scanner scanner = new Scanner(System.in);
+//	      
+//	      String input = scanner.nextLine();
 
 	      
 	      // Check if the user has typed "get balance"
@@ -215,19 +208,19 @@ public class gameEnvironment {
 		  
 		  //}
 
-	      if (input.equals("get balance") && userClub != null) {
-	    	  int balance = userClub.balance;
-	    	  System.out.println("Your team's balance is: $" + balance);
-	      }
-	      else if (input.equals("showteam") && userClub != null) {
-	    	  System.out.println("These are the players in your team: " + userClub.printAthleteList());
-	      }
-	      else if (input.equals("enterstore") && userClub != null) {
-	    	  store.enterStore();
-	      }
-	      else if (input.equals("/help") && userClub != null) {
-	    	  System.out.println(helloEnvironment.getHelp());
-	      }
+//	      if (input.equals("get balance") && userClub != null) {
+//	    	  int balance = userClub.balance;
+//	    	  System.out.println("Your team's balance is: $" + balance);
+//	      }
+//	      else if (input.equals("showteam") && userClub != null) {
+//	    	  System.out.println("These are the players in your team: " + userClub.printAthleteList());
+//	      }
+//	      else if (input.equals("enterstore") && userClub != null) {
+//	    	  store.enterStore();
+//	      }
+//	      else if (input.equals("/help") && userClub != null) {
+//	    	  System.out.println(helloEnvironment.getHelp());
+//	      }
 	      
 	      
 
@@ -235,6 +228,6 @@ public class gameEnvironment {
 		//System.out.println(userClub.balance);
 	}
 }
-}
+
 
 

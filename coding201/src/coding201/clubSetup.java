@@ -3,17 +3,19 @@ package coding201;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.util.Hashtable;
 import java.util.Scanner;
 
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
-import java.awt.TextField;
+
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
+import javax.swing.ButtonGroup;
 
 
 
@@ -24,18 +26,22 @@ public class clubSetup {
 	mainFrame frame;
 	public String clubName;
 	JPanel clubPanel;
+	public String nameString;
 	
 	public clubSetup() {
 		
 		
 	}
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void setupFrame(mainFrame frame, JPanel clubPanel) {
 		 this.frame = frame;
 		 this.clubPanel = clubPanel;
 		 frame.setBounds(500, 500, 1280, 720);
-		 frame.setLayout(null);
+		 frame.getContentPane().setLayout(null);
 		 
-		 frame.add(clubPanel);
+		 frame.getContentPane().add(clubPanel);
 		 clubPanel.setLayout(null);
 		 JLabel titleLabel = new JLabel("Setup Your Club!");
 		 titleLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
@@ -44,14 +50,14 @@ public class clubSetup {
 		 clubPanel.add(titleLabel);
 		 
 		 getTextFromTextField();
+		 setDifficulty();
 	}
 //	public String clubName() {
 //		
 //		
-//		String clubName = myObj.nextLine();
+//		String clubName = 
 //		
-//		
-//		
+//				
 //		System.out.println("Type y to confirm and n to go back");
 //		
 //		String letterConfirmString = myObj.nextLine();
@@ -66,33 +72,58 @@ public class clubSetup {
 //		return clubName;
 //		
 //	}
+//	
+	public void setDifficulty() {
+		ButtonGroup difficultyButtons = new ButtonGroup();
+		
+		JLabel setDifficultyLabel = new JLabel("Select a Difficulty");
+		setDifficultyLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		setDifficultyLabel.setBounds(570, 400, 123, 16);
+		
+		clubPanel.add(setDifficultyLabel);
+		 
+		JRadioButton easyButton = new JRadioButton("Easy");
+		easyButton.setBounds(551, 475, 141, 23);
+		clubPanel.add(easyButton);
+		difficultyButtons.add(easyButton);
+		 
+		JRadioButton mediumButton = new JRadioButton("Medium");
+		mediumButton.setBounds(551, 510, 141, 23);
+		clubPanel.add(mediumButton);
+		difficultyButtons.add(mediumButton);
+		 
+		JRadioButton hardButton = new JRadioButton("Hard");
+		hardButton.setBounds(551, 545, 141, 23);
+		clubPanel.add(hardButton);
+		difficultyButtons.add(hardButton);
+		
+		
+//		Scanner difficulty = new Scanner(System.in);
+//		//System.out.println("Please select a difficulty \nEasy \nNormal \nHard");
+//		String decision = difficulty.nextLine();
+		
 	
-	public double setDifficulty() {
-		
-		Scanner difficulty = new Scanner(System.in);
-		//System.out.println("Please select a difficulty \nEasy \nNormal \nHard");
-		String decision = difficulty.nextLine();
-		
-	
-		if(decision.toLowerCase().equals("easy")) {
-			difficultyMultiplier = 0.5;
-			return difficultyMultiplier;
-		}
-		else if(decision.toLowerCase().equals("normal")) {
-			difficultyMultiplier = 1.00;
-			return difficultyMultiplier;
-		}
-		else if(decision.toLowerCase().equals("hard")) {
-			difficultyMultiplier = 2.00;
-			return difficultyMultiplier;
-		}
-		else {
-			//System.out.println("\nPlease enter either Easy, Normal or Hard\n\n");
-			setDifficulty();
-		}
-		
-		return difficultyMultiplier;
+//		if(decision.toLowerCase().equals("easy")) {
+//			difficultyMultiplier = 0.5;
+//			return difficultyMultiplier;
+//		}
+//		else if(decision.toLowerCase().equals("normal")) {
+//			difficultyMultiplier = 1.00;
+//			return difficultyMultiplier;
+//		}
+//		else if(decision.toLowerCase().equals("hard")) {
+//			difficultyMultiplier = 2.00;
+//			return difficultyMultiplier;
+//		}
+//		else {
+//			//System.out.println("\nPlease enter either Easy, Normal or Hard\n\n");
+//			setDifficulty();
+//		}
+//		
+//		return difficultyMultiplier;
 	}
+	
+	
 
 	public int getMoney() {
 		if(difficultyMultiplier == 2.00) {
@@ -129,7 +160,7 @@ public class clubSetup {
 	 */
 	;
 	
-	public String getTextFromTextField() {
+	public void getTextFromTextField() {
 			
 		 
 		
@@ -146,21 +177,36 @@ public class clubSetup {
 		 nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		 clubPanel.add(nameLabel);
 		 
+		 JLabel lblNewLabel = new JLabel("Team Name");
+		 lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		 lblNewLabel.setBounds(551, 290, 173, 16);
+		 clubPanel.add(lblNewLabel);
+		 
+		 
 		 JButton submitButton = new JButton("Submit");
 		 submitButton.addActionListener(new ActionListener() {
-		 	public void actionPerformed(ActionEvent e) {
-		 		clubName = nameInput.getText();
-		 	}
-		 });
+			 	public void actionPerformed(ActionEvent e) {
+			 		
+			 		lblNewLabel.setText(nameInput.getText());
+			 		clubName = nameInput.getText();
+			 		System.out.println(clubName);
+			 		//System.out.println(nameInput.getText());
+			 	}
+			 });
+		 
+		 
+		 
 		 submitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
 		 submitButton.setBounds(594, 216, 99, 48);
 		 clubPanel.add(submitButton);
+		
 		 
-		 
-		 return clubName;
 	}
-
-
+	
+	
+public void pleasWork(String name) {
+	clubName  = name;
+}
 	
 	
 	
