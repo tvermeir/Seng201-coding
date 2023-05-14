@@ -1,9 +1,10 @@
 package coding201;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
 
@@ -15,30 +16,33 @@ import javax.swing.JLabel;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
 
 
 public class clubSetup {
-	public double difficultyMultiplier = 1;
 	public int money = 100;
 	Hashtable<String, Athlete> clubPlayersHashtable  = new Hashtable<>();
 	mainFrame frame;
 	public String clubName;
 	JPanel clubPanel;
 	public String nameString;
+	ButtonGroup difficultyButtons = new ButtonGroup();
+	public String difficultyString;
+	Stadium stadium;
 	
-	public clubSetup() {
-		
-		
-	}
+
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void setupFrame(mainFrame frame, JPanel clubPanel) {
+	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium) {
 		 this.frame = frame;
 		 this.clubPanel = clubPanel;
-		 frame.setBounds(500, 500, 1280, 720);
+		 this.stadium = stadium;
+		 
+		 frame.setBounds(0,0, 1280, 720);
 		 frame.getContentPane().setLayout(null);
 		 
 		 frame.getContentPane().add(clubPanel);
@@ -50,91 +54,83 @@ public class clubSetup {
 		 clubPanel.add(titleLabel);
 		 
 		 getTextFromTextField();
-		 setDifficulty();
 	}
-//	public String clubName() {
-//		
-//		
-//		String clubName = 
-//		
-//				
-//		System.out.println("Type y to confirm and n to go back");
-//		
-//		String letterConfirmString = myObj.nextLine();
-//		
-//		if(letterConfirmString.equals("y")) {
-//			System.out.println("You have chosen: " + clubName +" as your team name");
-//			return clubName;
-//		}
-//		else {
-//			clubName();
-//		}
-//		return clubName;
-//		
-//	}
-//	
+	
 	public void setDifficulty() {
-		ButtonGroup difficultyButtons = new ButtonGroup();
+		JPanel difficultyFrame = new JPanel();
+		
+		difficultyFrame.setLayout(null);
+		frame.setTitle(clubName);
+		frame.setContentPane(difficultyFrame);
+		frame.revalidate();
+		
+		
 		
 		JLabel setDifficultyLabel = new JLabel("Select a Difficulty");
-		setDifficultyLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		setDifficultyLabel.setBounds(570, 400, 123, 16);
+		setDifficultyLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
+		setDifficultyLabel .setHorizontalAlignment(SwingConstants.CENTER);
+		setDifficultyLabel .setBounds(0, 0, 1280, 99);
 		
-		clubPanel.add(setDifficultyLabel);
+		difficultyFrame.add(setDifficultyLabel);
 		 
 		JRadioButton easyButton = new JRadioButton("Easy");
-		easyButton.setBounds(551, 475, 141, 23);
-		clubPanel.add(easyButton);
+		easyButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		easyButton.setBounds(569, 197, 141, 23);
+		difficultyFrame.add(easyButton);
 		difficultyButtons.add(easyButton);
 		 
 		JRadioButton mediumButton = new JRadioButton("Medium");
-		mediumButton.setBounds(551, 510, 141, 23);
-		clubPanel.add(mediumButton);
+		mediumButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		mediumButton.setBounds(569, 263, 141, 23);
+		difficultyFrame.add(mediumButton);
 		difficultyButtons.add(mediumButton);
 		 
 		JRadioButton hardButton = new JRadioButton("Hard");
-		hardButton.setBounds(551, 545, 141, 23);
-		clubPanel.add(hardButton);
+		hardButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		hardButton.setBounds(569, 344, 141, 23);
+		difficultyFrame.add(hardButton);
 		difficultyButtons.add(hardButton);
 		
+		JButton confirmDifficultyButton = new JButton("Confirm Difficulty");
+		 confirmDifficultyButton.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		difficultyString = getSelectedButton();
+		 		HomePanel homePanel = new HomePanel(frame);
+		 		homePanel.setupPanel(stadium);
+		 		
+		 	}
+		 });
+		 confirmDifficultyButton.setBackground(Color.WHITE);
+		 confirmDifficultyButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		 confirmDifficultyButton.setBounds(508, 448, 264, 29);
+		 difficultyFrame.add(confirmDifficultyButton);
 		
-//		Scanner difficulty = new Scanner(System.in);
-//		//System.out.println("Please select a difficulty \nEasy \nNormal \nHard");
-//		String decision = difficulty.nextLine();
+
 		
+	}
 	
-//		if(decision.toLowerCase().equals("easy")) {
-//			difficultyMultiplier = 0.5;
-//			return difficultyMultiplier;
-//		}
-//		else if(decision.toLowerCase().equals("normal")) {
-//			difficultyMultiplier = 1.00;
-//			return difficultyMultiplier;
-//		}
-//		else if(decision.toLowerCase().equals("hard")) {
-//			difficultyMultiplier = 2.00;
-//			return difficultyMultiplier;
-//		}
-//		else {
-//			//System.out.println("\nPlease enter either Easy, Normal or Hard\n\n");
-//			setDifficulty();
-//		}
-//		
-//		return difficultyMultiplier;
+	String getSelectedButton()
+	{  
+	    for (Enumeration<AbstractButton> buttons = difficultyButtons.getElements(); buttons.hasMoreElements();) {
+	        AbstractButton button = buttons.nextElement();
+	        if (button.isSelected()) {
+	                return button.getText();
+	        }
+	    }
+	    return null;
 	}
 	
 	
-
 	public int getMoney() {
-		if(difficultyMultiplier == 2.00) {
+		if(difficultyString == "Hard") {
 			money = 75;
 			return money;
 		}
-		else if(difficultyMultiplier == 1.00) {
+		else if(difficultyString == "Medium") {
 			money = 100;
 			return money;
 		}
-		else if(difficultyMultiplier == 0.5) {
+		else if(difficultyString == "Easy") {
 			money = 150;
 			return money;
 		}
@@ -189,7 +185,8 @@ public class clubSetup {
 			 		
 			 		lblNewLabel.setText(nameInput.getText());
 			 		clubName = nameInput.getText();
-			 		System.out.println(clubName);
+			 		setDifficulty();
+			 		
 			 		//System.out.println(nameInput.getText());
 			 	}
 			 });
@@ -204,9 +201,7 @@ public class clubSetup {
 	}
 	
 	
-public void pleasWork(String name) {
-	clubName  = name;
-}
+
 	
 	
 	

@@ -69,6 +69,7 @@ public class gameEnvironment {
 	}
 	
 	
+
 	
 	/**
 	 * The store class is initialized within this method
@@ -118,8 +119,18 @@ public class gameEnvironment {
 		//Game Setup
 		
 		gameEnvironment helloEnvironment = new gameEnvironment();
+		
+		clubSetup myClub = new clubSetup();
+	    PlayerClub userClub = helloEnvironment.getDetails(myClub);
+
+		
+		Stadium stadium = helloEnvironment.stadiumMethod(userClub);
+
+		stadium.selectedTeam();
+		
+		
 		mainFrame pleaseFrame = new mainFrame();
-		pleaseFrame.setupFrame();
+		pleaseFrame.setupFrame(stadium);
 		pleaseFrame.setVisible(true);
 
 		//matchRunner match = helloEnvironment.startMatch(userClub, opposition );
@@ -133,8 +144,7 @@ public class gameEnvironment {
 	    
 	    //Club setup
 	   
-	    clubSetup myClub = new clubSetup();
-	    PlayerClub userClub = helloEnvironment.getDetails(myClub);
+	    
 	    
 	    
 	    //System.out.println("Awesome, you have created a club called " + userClub.getName()  + ". The club has a balance of " + userClub.getBalance());
@@ -147,9 +157,9 @@ public class gameEnvironment {
 		
 		
 		//store.purchaseAthlete();
+
 		
-	    Stadium stadium = helloEnvironment.stadiumMethod(userClub);
-		stadium.selectedTeam();
+		
 		
 //		matchRunner game = helloEnvironment.startMatch(userClub);
 //		game.playMatch();
@@ -208,20 +218,8 @@ public class gameEnvironment {
 		  
 		  //}
 
-//	      if (input.equals("get balance") && userClub != null) {
-//	    	  int balance = userClub.balance;
-//	    	  System.out.println("Your team's balance is: $" + balance);
-//	      }
-//	      else if (input.equals("showteam") && userClub != null) {
-//	    	  System.out.println("These are the players in your team: " + userClub.printAthleteList());
-//	      }
-//	      else if (input.equals("enterstore") && userClub != null) {
-//	    	  store.enterStore();
-//	      }
-//	      else if (input.equals("/help") && userClub != null) {
-//	    	  System.out.println(helloEnvironment.getHelp());
-//	      }
-	      
+
+
 	      
 
 		//store.purchaseItem();

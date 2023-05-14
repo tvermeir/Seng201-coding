@@ -2,6 +2,7 @@ package coding201;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -18,10 +19,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import java.util.Hashtable;
+
 public class mainFrame extends JFrame {
 
     JPanel contentPane;
-    
+    PlayerClub mainclub;
+    Stadium stadium;
     
 
     /**
@@ -49,10 +53,11 @@ public class mainFrame extends JFrame {
     public mainFrame() {
     	
     }
-    public void setupFrame() {
+    public void setupFrame(Stadium stadium) {
+    	this.stadium = stadium;
     	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(500, 500, 1280, 720);
+        setBounds(0, 0, 1280, 720);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         
@@ -87,11 +92,23 @@ public class mainFrame extends JFrame {
     public void setupClub() {
     	JPanel clubPanel = new JPanel();
     	clubSetup club = new clubSetup();
-    	club.setupFrame(this, clubPanel);
+    	club.setupFrame(this, clubPanel, stadium);
     	this.setContentPane(club.clubPanel);
         this.revalidate();
     }
     
+    
+    public Stadium setupStadium() {
+    	Stadium stadium = new Stadium(mainclub);
+    	stadium.fillOpponentTable();
+    	return stadium;
+    	
+    }
+//    public void showStadium(Stadium stadium) {
+//    	StadiumPanel stadpan = new StadiumPanel(stadium);
+//    	setContentPane(stadpan);
+//    }
+//    
     public static void main(String[] args) {
         
      mainFrame frame = new mainFrame();
@@ -99,7 +116,15 @@ public class mainFrame extends JFrame {
     
     
     frame.setVisible(true);
-    frame.setupFrame();
+//    frame.setupFrame();
+    
+    Hashtable<String, Athlete> ting = new Hashtable<>();
+    PlayerClub test = new PlayerClub(0, "hi", ting);
+    test.Fill();
+    frame.mainclub = test;
+    Stadium stad = frame.setupStadium();
+    frame.showStadium(stad);
+    
              
     }
 }

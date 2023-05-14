@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import java.awt.Color;
 
 public class clubSetupFrame extends JPanel {
 
@@ -30,7 +31,7 @@ public class clubSetupFrame extends JPanel {
 		 JPanel clubPanel = new JPanel();
 		 add(clubPanel);
 		 
-		 JLabel titleLabel = new JLabel("Setup Your Club!");
+		 JLabel titleLabel = new JLabel("Select a Difficulty");
 		 titleLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
 		 titleLabel .setHorizontalAlignment(SwingConstants.CENTER);
 		 titleLabel .setBounds(0, 0, 1280, 99);
@@ -42,57 +43,30 @@ public class clubSetupFrame extends JPanel {
 		
 	}
 	public String getTextFromTextField() {
-			
-		 
-		
-		 JTextField nameInput = new JTextField();
-		 nameInput.setFont(new Font("Bahnschrift", Font.PLAIN, 14));
-		 nameInput.setBounds(551, 139, 173, 56);
-		 add(nameInput);
-		 
-		 nameInput.setColumns(10);
-		 
-		 JLabel nameLabel = new JLabel("Please Enter Team Name Below");
-		 nameLabel.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		 nameLabel.setBounds(483, 90, 320, 38);
-		 nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		 add(nameLabel);
-		 
-		 JButton submitButton = new JButton("Submit");
-		 submitButton.addActionListener(new ActionListener() {
-		 	public void actionPerformed(ActionEvent e) {
-		 		clubName = nameInput.getText();
-		 		System.out.println(clubName);
-		 	}
-		 });
-		 submitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		 submitButton.setBounds(594, 216, 99, 48);
-		 add(submitButton);
-		 
-		 JLabel lblNewLabel = new JLabel("Team Name");
-		 lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		 lblNewLabel.setBounds(551, 290, 173, 16);
-		 add(lblNewLabel);
-		 
-		 JLabel setDifficultyLabel = new JLabel("Select a Difficulty");
-		 setDifficultyLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		 setDifficultyLabel.setBounds(570, 400, 123, 16);
-		 add(setDifficultyLabel);
 		 
 		 JRadioButton easyButton = new JRadioButton("Easy");
-		 easyButton.setBounds(551, 475, 141, 23);
+		 easyButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		 easyButton.setBounds(569, 197, 141, 23);
 		 add(easyButton);
 		 
 		 JRadioButton mediumButton = new JRadioButton("Medium");
-		 mediumButton.setBounds(551, 510, 141, 23);
+		 mediumButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		 mediumButton.setBounds(569, 263, 141, 23);
 		 add(mediumButton);
 		 
 		 JRadioButton hardButton = new JRadioButton("Hard");
-		 hardButton.setBounds(551, 545, 141, 23);
+		 hardButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		 hardButton.setBounds(569, 344, 141, 23);
 		 add(hardButton);
 		 
 		 JButton confirmDifficultyButton = new JButton("Confirm Difficulty");
-		 confirmDifficultyButton.setBounds(551, 600, 173, 29);
+		 confirmDifficultyButton.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 	}
+		 });
+		 confirmDifficultyButton.setBackground(Color.WHITE);
+		 confirmDifficultyButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		 confirmDifficultyButton.setBounds(508, 448, 264, 29);
 		 add(confirmDifficultyButton);
 		 
 		 
