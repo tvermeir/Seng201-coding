@@ -95,6 +95,9 @@ public class PlayerClub {
 		itemInventory.put(item.getName(), item);
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
 	public void doBoostStatEvent() {
 		Random random = new Random();
 		int number = random.nextInt(4);

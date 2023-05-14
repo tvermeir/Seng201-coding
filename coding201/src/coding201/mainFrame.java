@@ -53,9 +53,9 @@ public class mainFrame extends JFrame {
     public mainFrame() {
     	
     }
-    public void setupFrame(Stadium stadium) {
+    public void setupFrame(Stadium stadium, PlayerClub userClub) {
     	this.stadium = stadium;
-    	
+    	this.mainclub = userClub;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(0, 0, 1280, 720);
         contentPane = new JPanel();
@@ -92,7 +92,7 @@ public class mainFrame extends JFrame {
     public void setupClub() {
     	JPanel clubPanel = new JPanel();
     	clubSetup club = new clubSetup();
-    	club.setupFrame(this, clubPanel, stadium);
+    	club.setupFrame(this, clubPanel, stadium, mainclub);
     	this.setContentPane(club.clubPanel);
         this.revalidate();
     }
@@ -108,7 +108,7 @@ public class mainFrame extends JFrame {
 //    	StadiumPanel stadpan = new StadiumPanel(stadium);
 //    	setContentPane(stadpan);
 //    }
-//    
+    
     public static void main(String[] args) {
         
      mainFrame frame = new mainFrame();
@@ -123,7 +123,7 @@ public class mainFrame extends JFrame {
     test.Fill();
     frame.mainclub = test;
     Stadium stad = frame.setupStadium();
-    frame.showStadium(stad);
+//    frame.showStadium(stad);
     
              
     }

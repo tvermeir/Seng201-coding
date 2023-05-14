@@ -32,15 +32,17 @@ public class clubSetup {
 	ButtonGroup difficultyButtons = new ButtonGroup();
 	public String difficultyString;
 	Stadium stadium;
+	PlayerClub userClub;
 	
 
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium) {
+	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub) {
 		 this.frame = frame;
 		 this.clubPanel = clubPanel;
 		 this.stadium = stadium;
+		 this.userClub = userClub;
 		 
 		 frame.setBounds(0,0, 1280, 720);
 		 frame.getContentPane().setLayout(null);
@@ -185,6 +187,7 @@ public class clubSetup {
 			 		
 			 		lblNewLabel.setText(nameInput.getText());
 			 		clubName = nameInput.getText();
+			 		userClub.setName(clubName);
 			 		setDifficulty();
 			 		
 			 		//System.out.println(nameInput.getText());

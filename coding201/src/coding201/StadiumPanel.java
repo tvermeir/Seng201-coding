@@ -17,12 +17,14 @@ import java.security.PublicKey;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 import java.awt.GridLayout;
+import javax.swing.ButtonGroup;
 
 public class StadiumPanel extends JPanel {
 	opposingTeam currTeam;
 	mainFrame frame;
 	Stadium stadium;
 	ArrayList<opposingTeam> oppsList = new ArrayList<opposingTeam>();
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Create the panel.
 	 */
@@ -57,7 +59,7 @@ public class StadiumPanel extends JPanel {
 		
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		playerPanel.setBounds(24, 82, 570, 369);
+		playerPanel.setBounds(24, 82, 550, 369);
 		add(playerPanel);
 		playerPanel.setLayout(null);
 		
@@ -67,13 +69,13 @@ public class StadiumPanel extends JPanel {
 		
 		
 		
-		JLabel teamNameLabel = new JLabel(stadium.club.teamName);
+		JLabel teamNameLabel = new JLabel(stadium.club.name);
 		teamNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		teamNameLabel.setBounds(192, 11, 89, 14);
+		teamNameLabel.setBounds(126, 11, 298, 14);
 		playerPanel.add(teamNameLabel);
 		
 		JPanel playerList = new JPanel();
-		playerList.setBounds(36, 36, 504, 138);
+		playerList.setBounds(10, 36, 530, 138);
 		playerPanel.add(playerList);
 		playerList.setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -84,17 +86,17 @@ public class StadiumPanel extends JPanel {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(638, 82, 569, 369);
+		panel_1.setBounds(657, 82, 550, 369);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel oppName = new JLabel(currTeam.name);
 		oppName.setHorizontalAlignment(SwingConstants.CENTER);
-		oppName.setBounds(182, 11, 109, 14);
+		oppName.setBounds(144, 11, 261, 14);
 		panel_1.add(oppName);
 		
 		JPanel oppList = new JPanel();
-		oppList.setBounds(36, 36, 506, 137);
+		oppList.setBounds(10, 36, 532, 137);
 		panel_1.add(oppList);
 		oppList.setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -114,6 +116,7 @@ public class StadiumPanel extends JPanel {
 		add(btnNewButton);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("1");
+		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsList.get(0);
@@ -126,6 +129,7 @@ public class StadiumPanel extends JPanel {
 		add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("2");
+		buttonGroup.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsList.get(1);
@@ -138,6 +142,7 @@ public class StadiumPanel extends JPanel {
 		add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("3");
+		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsList.get(2);
@@ -150,6 +155,7 @@ public class StadiumPanel extends JPanel {
 		add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("4");
+		buttonGroup.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsList.get(3);

@@ -125,12 +125,10 @@ public class gameEnvironment {
 
 		
 		Stadium stadium = helloEnvironment.stadiumMethod(userClub);
-
-		stadium.selectedTeam();
 		
 		
 		mainFrame pleaseFrame = new mainFrame();
-		pleaseFrame.setupFrame(stadium);
+		pleaseFrame.setupFrame(stadium, userClub);
 		pleaseFrame.setVisible(true);
 
 		//matchRunner match = helloEnvironment.startMatch(userClub, opposition );

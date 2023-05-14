@@ -42,6 +42,7 @@ public class athleteDisplay extends JPanel {
 		add(lblNewLabel_1_1);
 		
 		JTextArea txtrHi = new JTextArea();
+		txtrHi.setEditable(false);
 		txtrHi.setWrapStyleWord(true);
 		txtrHi.setLineWrap(true);
 		txtrHi.setFont(new Font("Leelawadee", Font.PLAIN, 13));
