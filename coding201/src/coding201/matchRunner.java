@@ -42,9 +42,9 @@ public class matchRunner {
 		List<String> otherEventsList = otherEvents.getList(); 
 		List<String> goalEventsList = goalEvents.getList();
 		
-		System.out.println("Match begins between " + playerClub.getName() + " and " + opposition.name);
+		System.out.println("Match begins between " + playerClub.name + " and " + opposition.name);
 		
-		System.out.println("\nHere is the starting lineup for " + playerClub.getName());
+		System.out.println("\nHere is the starting lineup for " + playerClub.name);
 		System.out.println(playerClub.printAthleteList());
 		
 		System.out.println("\nHere is the starting lineup for " + opposition.name);
@@ -136,7 +136,7 @@ public class matchRunner {
 					minutespassed += 10;
 				
 				}
-			System.out.println("Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.getName() + ")");
+			System.out.println("Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")");
 			}
 				
 			

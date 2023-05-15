@@ -23,7 +23,7 @@ public class StadiumPanel extends JPanel {
 	opposingTeam currTeam;
 	mainFrame frame;
 	Stadium stadium;
-	ArrayList<opposingTeam> oppsList = new ArrayList<opposingTeam>();
+	ArrayList<opposingTeam> oppsListTable = new ArrayList<opposingTeam>();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Create the panel.
@@ -41,11 +41,11 @@ public class StadiumPanel extends JPanel {
 		
 	
 		stadium.PossibleOpponents.forEach((k, v) -> {
-			  oppsList.add(v);
-			  System.out.println(v.printAthleteList());
+			  oppsListTable.add(v);
+//			  System.out.println(v.printAthleteList());
 		});
 		
-		currTeam = oppsList.get(0);
+		currTeam = oppsListTable.get(0);
 		
 
 		
@@ -109,62 +109,96 @@ public class StadiumPanel extends JPanel {
 		JButton btnNewButton = new JButton("START MATCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				stadium.playMatch(currTeam.getName());
+				stadium.playMatch(currTeam.name);
 			}
 		});
 		btnNewButton.setBounds(466, 524, 301, 23);
 		add(btnNewButton);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("1");
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Opponent 1");
+		rdbtnNewRadioButton.setVerticalTextPosition(SwingConstants.TOP);
+		rdbtnNewRadioButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		rdbtnNewRadioButton.setSelected(true);
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currTeam = oppsList.get(0);
+				currTeam = oppsListTable.get(0);
 				oppList.removeAll();
+				currTeam.athleteList.forEach((k, v) -> {
+					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					oppList.add(athleteDisplay);   
+				});
+				oppName.setText(currTeam.name);
+				
 				revalidate();
 			}
 		});
 		rdbtnNewRadioButton.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton.setBounds(600, 79, 32, 23);
+		rdbtnNewRadioButton.setBounds(577, 99, 79, 33);
 		add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("2");
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Opponent 2");
+		rdbtnNewRadioButton_1.setVerticalTextPosition(SwingConstants.TOP);
+		rdbtnNewRadioButton_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currTeam = oppsList.get(1);
+				currTeam = oppsListTable.get(1);
 				oppList.removeAll();
+				currTeam.athleteList.forEach((k, v) -> {
+					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					oppList.add(athleteDisplay);   
+				});
+				oppName.setText(currTeam.name);
+				
 				revalidate();
 			}
 		});
 		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1.setBounds(600, 105, 32, 23);
+		rdbtnNewRadioButton_1.setBounds(580, 189, 73, 37);
 		add(rdbtnNewRadioButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("3");
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Opponent 3");
+		rdbtnNewRadioButton_2.setVerticalTextPosition(SwingConstants.TOP);
+		rdbtnNewRadioButton_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currTeam = oppsList.get(2);
+				currTeam = oppsListTable.get(2);
 				oppList.removeAll();
+				currTeam.athleteList.forEach((k, v) -> {
+					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					oppList.add(athleteDisplay);   
+				});
+				oppName.setText(currTeam.name);
+				
 				revalidate();
 			}
 		});
 		rdbtnNewRadioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_2.setBounds(601, 131, 31, 23);
+		
+		rdbtnNewRadioButton_2.setBounds(580, 292, 73, 38);
 		add(rdbtnNewRadioButton_2);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("4");
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Opponent 4");
+		rdbtnNewRadioButton_3.setHorizontalTextPosition(SwingConstants.CENTER);
+		rdbtnNewRadioButton_3.setVerticalTextPosition(SwingConstants.TOP);
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currTeam = oppsList.get(3);
+				currTeam = oppsListTable.get(3);
 				oppList.removeAll();
+				currTeam.athleteList.forEach((k, v) -> {
+					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					oppList.add(athleteDisplay);   
+				});
+				oppName.setText(currTeam.name);
+				
 				revalidate();
 			}
 		});
 		rdbtnNewRadioButton_3.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_3.setBounds(601, 157, 31, 23);
+		rdbtnNewRadioButton_3.setBounds(580, 390, 73, 37);
 		add(rdbtnNewRadioButton_3);
 
 	}

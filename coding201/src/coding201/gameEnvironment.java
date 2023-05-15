@@ -137,8 +137,8 @@ public class gameEnvironment {
 		//Store store = helloEnvironment.storeMethod(userClub);
 		//store.refreshStore();
 
-		System.out.println("Welcome to sunday league simulator 2023");
-	    System.out.println("To start the game, you need to set up your club.");
+//		System.out.println("Welcome to sunday league simulator 2023");
+//	    System.out.println("To start the game, you need to set up your club.");
 	    
 	    //Club setup
 	   
