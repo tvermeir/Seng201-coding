@@ -42,7 +42,7 @@ public class clubSetupFrame extends JPanel {
 		 JSlider framesPerSecond = new JSlider();
 		 framesPerSecond.setPaintLabels(true);
 		 framesPerSecond.setPaintTicks(true);
-		 framesPerSecond.setMinorTickSpacing(1);
+		 framesPerSecond.setMinorTickSpacing(2);
 		 framesPerSecond.setBounds(269, 347, 741, 45);
 		 add(framesPerSecond);
 		 
