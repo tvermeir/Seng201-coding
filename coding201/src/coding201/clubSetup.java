@@ -32,6 +32,7 @@ public class clubSetup {
 	ButtonGroup difficultyButtons = new ButtonGroup();
 	public String difficultyString;
 	Stadium stadium;
+	public int weeksToPlay;
 	PlayerClub userClub;
 	
 
@@ -57,7 +58,15 @@ public class clubSetup {
 		 
 		 getTextFromTextField();
 	}
-	
+	public void setWeeksToPlay() {
+		JPanel weeksPanel = new JPanel(); 
+		weeksPanel.setLayout(null);	
+		frame.setContentPane(weeksPanel);
+		frame.revalidate();
+		
+		
+		
+	}
 	public void setDifficulty() {
 		JPanel difficultyFrame = new JPanel();
 		
