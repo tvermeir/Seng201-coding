@@ -22,7 +22,7 @@ public class HomePanel extends JPanel {
 		
 	}
 	
-	public void setupPanel(Stadium stadium) {
+	public void setupPanel(Stadium stadium, Store store) {
 		frame.setBounds(0,0, 1280, 720);
 		frame.getContentPane().setLayout(null);
 		JPanel mainPanel = new JPanel();
@@ -41,7 +41,7 @@ public class HomePanel extends JPanel {
 		 JButton btnStadium = new JButton("Stadium");
 		 btnStadium.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, frame);
+		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, store, frame);
 		 		frame.setContentPane(stadiumPanel);
 //		 		frame.setContentPane(stadiumPanel);
 		 		
@@ -55,7 +55,8 @@ public class HomePanel extends JPanel {
 		 JButton btnStore = new JButton("Store");
 		 btnStore.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		
+		 		StorePanel storePanel = new StorePanel(stadium, store, frame);
+		 		frame.setContentPane(storePanel);
 		 	}
 		 });
 		 btnStore.setFont(new Font("Dialog", Font.PLAIN, 22));

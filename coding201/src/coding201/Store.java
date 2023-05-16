@@ -12,6 +12,7 @@ public class Store {
 	public Store(PlayerClub myClub) {
 		
 		this.myClub = myClub;
+		this.refreshStore();
 	}
 	public void refreshStore() {
 		purchaseableAthletes playerHashTables = new purchaseableAthletes();

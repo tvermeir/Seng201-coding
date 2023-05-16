@@ -28,7 +28,7 @@ public class StadiumPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public StadiumPanel(Stadium stadium, mainFrame frame) {
+	public StadiumPanel(Stadium stadium, Store store, mainFrame frame) {
 		this.frame = frame;
 		this.stadium = stadium;
 		
@@ -230,7 +230,7 @@ public class StadiumPanel extends JPanel {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HomePanel home = new HomePanel(frame);
-				home.setupPanel(stadium);
+				home.setupPanel(stadium, store);
 				
 			}
 		});

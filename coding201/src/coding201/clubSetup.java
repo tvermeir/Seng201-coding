@@ -34,16 +34,18 @@ public class clubSetup {
 	Stadium stadium;
 	public int weeksToPlay;
 	PlayerClub userClub;
+	Store store;
 	
 
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub) {
+	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub, Store store) {
 		 this.frame = frame;
 		 this.clubPanel = clubPanel;
 		 this.stadium = stadium;
 		 this.userClub = userClub;
+		 this.store = store;
 		 
 		 frame.setBounds(0,0, 1280, 720);
 		 frame.getContentPane().setLayout(null);
@@ -107,7 +109,7 @@ public class clubSetup {
 		 	public void actionPerformed(ActionEvent e) {
 		 		difficultyString = getSelectedButton();
 		 		HomePanel homePanel = new HomePanel(frame);
-		 		homePanel.setupPanel(stadium);
+		 		homePanel.setupPanel(stadium, store);
 		 		
 		 	}
 		 });
