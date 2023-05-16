@@ -43,8 +43,9 @@ public class gameEnvironment {
 		System.out.println(clubName);
 		//difficulty = myClub.setDifficulty();
 		money = myClub.getMoney();
-		athletesOnTeam = myClub.getPlayers();
-		PlayerClub userClub = new PlayerClub(money, clubName, athletesOnTeam);
+//		athletesOnTeam = myClub.getPlayers();
+		PlayerClub userClub = new PlayerClub(money, clubName);
+		userClub.Fill();
 		return userClub;
 		
 	}

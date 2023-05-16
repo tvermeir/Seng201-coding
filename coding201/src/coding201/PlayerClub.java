@@ -23,6 +23,11 @@ public class PlayerClub {
 		
 	}
 	
+	public PlayerClub(int balance, String name) {
+		this.balance = balance;
+		teamName = name;
+	}
+	
 	
 
 	public PlayerClub(int balance, String name, Hashtable<String, Athlete> athleteList2) {
@@ -65,15 +70,15 @@ public class PlayerClub {
 	
 	public void addPlayer(Athlete athlete) {
 		if (athleteList == null) {
-			athleteList.put(athlete.name,athlete);
+			starterList.put(athlete.name,athlete);
 			return;
 		}
 		
-		if (!athleteList.contains(athlete) && athleteList.size() < 8) {
+		else if (!athleteList.contains(athlete) && athleteList.size() < 8) {
 			if (!starterList.contains(athlete) && starterList.size() < 4) {
 				starterList.put(athlete.name, athlete);
 			}
-			else if (reserveList.size() < 4){
+			else if (!reserveList.contains(athlete) && reserveList.size() < 4){
 				reserveList.put(athlete.name, athlete);
 			}
 			athleteList.put(athlete.name,athlete);

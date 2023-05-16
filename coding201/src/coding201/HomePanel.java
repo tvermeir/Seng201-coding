@@ -38,14 +38,24 @@ public class HomePanel extends JPanel {
 		 titleLabel.setBounds(526, 43, 232, 39);
 		 mainPanel.add(titleLabel);
 		 
+		 
+		 JButton btnTeamView = new JButton("Team View");
+		 btnTeamView.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		TeamViewPanel teamView = new TeamViewPanel(stadium, store, frame);
+		 		frame.setContentPane(teamView);
+		 		frame.validate();
+		 	}
+		 });
+		 btnTeamView.setFont(new Font("Dialog", Font.PLAIN, 22));
+		 btnTeamView.setBounds(400, 222, 336, 273);
+		 mainPanel.add(btnTeamView);
+		 
 		 JButton btnStadium = new JButton("Stadium");
 		 btnStadium.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, store, frame);
 		 		frame.setContentPane(stadiumPanel);
-//		 		frame.setContentPane(stadiumPanel);
-		 		
-		 		
 		 	}
 		 });
 		 btnStadium.setFont(new Font("Dialog", Font.PLAIN, 22));
@@ -62,5 +72,9 @@ public class HomePanel extends JPanel {
 		 btnStore.setFont(new Font("Dialog", Font.PLAIN, 22));
 		 btnStore.setBounds(904, 222, 336, 273);
 		 mainPanel.add(btnStore);
+		 
+		 
+		 
+		 
 	}
 }

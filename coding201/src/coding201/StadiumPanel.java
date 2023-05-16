@@ -72,42 +72,48 @@ public class StadiumPanel extends JPanel {
 		
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		playerPanel.setBounds(24, 82, 550, 401);
+		playerPanel.setBounds(24, 82, 550, 431);
 		add(playerPanel);
 		playerPanel.setLayout(null);
 		
 		JPanel playerList = new JPanel();
-		playerList.setBounds(10, 36, 530, 138);
+		playerList.setBounds(10, 36, 530, 177);
 		playerPanel.add(playerList);
 		playerList.setLayout(new GridLayout(1, 0, 0, 0));
+		stadium.club.starterList.forEach((k, v) -> {
+			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			playerList.add(athleteDisplay);   
+		});
 		
 		JLabel lblNewLabel_1 = new JLabel("Starting Lineup");
 		lblNewLabel_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
 		lblNewLabel_1.setBounds(10, 11, 134, 24);
 		playerPanel.add(lblNewLabel_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 237, 530, 138);
-		playerPanel.add(panel);
+		JPanel reservePanel = new JPanel();
+		reservePanel.setBounds(10, 259, 530, 161);
+		playerPanel.add(reservePanel);
+		reservePanel.setLayout(new GridLayout(0, 4, 0, 0));
+		stadium.club.reserveList.forEach((k, v) -> {
+			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			reservePanel.add(athleteDisplay);   
+		});
+		
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Reserves");
 		lblNewLabel_1_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1_2.setBounds(10, 202, 134, 24);
+		lblNewLabel_1_2.setBounds(10, 224, 134, 24);
 		playerPanel.add(lblNewLabel_1_2);
 		
-		stadium.club.athleteList.forEach((k, v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
-			playerList.add(athleteDisplay);   
-		});
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(657, 82, 550, 401);
+		panel_1.setBounds(657, 82, 550, 431);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
 		JPanel oppList = new JPanel();
-		oppList.setBounds(10, 36, 532, 137);
+		oppList.setBounds(10, 36, 532, 177);
 		panel_1.add(oppList);
 		oppList.setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -117,12 +123,13 @@ public class StadiumPanel extends JPanel {
 		panel_1.add(lblNewLabel_1_1);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 237, 530, 138);
+		panel_2.setBounds(10, 259, 530, 161);
 		panel_1.add(panel_2);
+		panel_2.setLayout(new GridLayout(0, 4, 0, 0));
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Reserves");
 		lblNewLabel_1_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1_3.setBounds(10, 202, 134, 24);
+		lblNewLabel_1_3.setBounds(10, 224, 134, 24);
 		panel_1.add(lblNewLabel_1_3);
 		
 		currTeam.athleteList.forEach((k, v) -> {

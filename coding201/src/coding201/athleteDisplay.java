@@ -18,11 +18,11 @@ public class athleteDisplay extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Attack");
-		lblNewLabel_1.setBounds(16, 54, 60, 14);
+		lblNewLabel_1.setBounds(16, 72, 60, 14);
 		add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Defense");
-		lblNewLabel_2.setBounds(16, 79, 60, 14);
+		lblNewLabel_2.setBounds(16, 88, 60, 14);
 		add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Stamina");
@@ -30,27 +30,39 @@ public class athleteDisplay extends JPanel {
 		add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_3_1 = new JLabel(Integer.toString(athlete.getStamina()));
+		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_1.setBounds(78, 104, 46, 14);
 		add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel(Integer.toString(athlete.getDefense()));
-		lblNewLabel_2_1.setBounds(78, 79, 46, 14);
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setBounds(78, 88, 46, 14);
 		add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel(Integer.toString(athlete.getAttack()));
-		lblNewLabel_1_1.setBounds(78, 54, 46, 14);
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setBounds(78, 72, 46, 14);
 		add(lblNewLabel_1_1);
 		
 		JTextArea txtrHi = new JTextArea();
 		txtrHi.setEditable(false);
 		txtrHi.setWrapStyleWord(true);
 		txtrHi.setLineWrap(true);
-		txtrHi.setFont(new Font("Leelawadee", Font.PLAIN, 13));
+		txtrHi.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 18));
 		txtrHi.setText(athlete.name);
 		txtrHi.setColumns(1);
 		txtrHi.setRows(2);
-		txtrHi.setBounds(16, 11, 108, 38);
+		txtrHi.setBounds(16, 11, 108, 50);
 		add(txtrHi);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Price");
+		lblNewLabel_3_2.setBounds(16, 120, 60, 14);
+		add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_1_1 = new JLabel(Integer.toString(athlete.getPrice()));
+		lblNewLabel_3_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3_1_1.setBounds(78, 120, 46, 14);
+		add(lblNewLabel_3_1_1);
 		
 		
 		

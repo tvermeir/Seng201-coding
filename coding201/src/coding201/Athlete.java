@@ -29,7 +29,7 @@ public class Athlete{
 		return name;
 	}
 	
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 	
