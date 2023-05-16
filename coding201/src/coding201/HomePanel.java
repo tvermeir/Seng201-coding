@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class HomePanel {
+public class HomePanel extends JPanel {
 	
 	mainFrame frame;
 	
@@ -43,6 +43,7 @@ public class HomePanel {
 		 	public void actionPerformed(ActionEvent e) {
 		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, frame);
 		 		frame.setContentPane(stadiumPanel);
+//		 		frame.setContentPane(stadiumPanel);
 		 		
 		 		
 		 	}

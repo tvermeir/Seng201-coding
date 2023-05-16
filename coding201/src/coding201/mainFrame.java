@@ -110,19 +110,15 @@ public class mainFrame extends JFrame {
 //    }
     
     public static void main(String[] args) {
-        
-     mainFrame frame = new mainFrame();
+//        
+//     mainFrame frame = new mainFrame();
     //frame.setstore();
     
     
-    frame.setVisible(true);
+//    frame.setVisible(true);
 //    frame.setupFrame();
     
-    Hashtable<String, Athlete> ting = new Hashtable<>();
-    PlayerClub test = new PlayerClub(0, "hi", ting);
-    test.Fill();
-    frame.mainclub = test;
-    Stadium stad = frame.setupStadium();
+    
 //    frame.showStadium(stad);
     
              

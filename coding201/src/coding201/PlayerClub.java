@@ -68,9 +68,17 @@ public class PlayerClub {
 			return;
 		}
 		
-		if (!athleteList.contains(athlete)) {
+		if (!athleteList.contains(athlete) && athleteList.size() < 8) {
+			if (!starterList.contains(athlete) && starterList.size() < 4) {
+				starterList.put(athlete.name, athlete);
+			}
+			else if (reserveList.size() < 4){
+				reserveList.put(athlete.name, athlete);
+			}
 			athleteList.put(athlete.name,athlete);
 		}
+		
+		
 		
 		
 	}
