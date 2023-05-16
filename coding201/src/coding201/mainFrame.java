@@ -26,7 +26,7 @@ public class mainFrame extends JFrame {
     JPanel contentPane;
     PlayerClub mainclub;
     Stadium stadium;
-    
+    Store store;
 
     /**
      * Launch the application.
@@ -53,9 +53,10 @@ public class mainFrame extends JFrame {
     public mainFrame() {
     	
     }
-    public void setupFrame(Stadium stadium, PlayerClub userClub) {
+    public void setupFrame(Stadium stadium,Store store, PlayerClub userClub) {
     	this.stadium = stadium;
     	this.mainclub = userClub;
+    	this.store = store;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(0, 0, 1280, 720);
         contentPane = new JPanel();
@@ -92,7 +93,7 @@ public class mainFrame extends JFrame {
     public void setupClub() {
     	JPanel clubPanel = new JPanel();
     	clubSetup club = new clubSetup();
-    	club.setupFrame(this, clubPanel, stadium, mainclub);
+    	club.setupFrame(this, clubPanel, stadium, mainclub, store);
     	this.setContentPane(club.clubPanel);
         this.revalidate();
     }

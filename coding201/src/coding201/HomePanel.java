@@ -22,7 +22,7 @@ public class HomePanel {
 		
 	}
 	
-	public void setupPanel(Stadium stadium) {
+	public void setupPanel(Stadium stadium, Store store) {
 		frame.setBounds(0,0, 1280, 720);
 		frame.getContentPane().setLayout(null);
 		JPanel mainPanel = new JPanel();
@@ -41,7 +41,7 @@ public class HomePanel {
 		 JButton btnStadium = new JButton("Stadium");
 		 btnStadium.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, frame);
+		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, store, frame);
 		 		frame.setContentPane(stadiumPanel);
 		 		
 		 		

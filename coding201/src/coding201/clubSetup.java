@@ -6,11 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Scanner;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSlider;
 import javax.swing.SwingConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.JLabel;
 
 
@@ -34,16 +36,18 @@ public class clubSetup {
 	Stadium stadium;
 	public int weeksToPlay;
 	PlayerClub userClub;
+	Store store;
 	
 
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub) {
+	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub, Store store) {
 		 this.frame = frame;
 		 this.clubPanel = clubPanel;
 		 this.stadium = stadium;
 		 this.userClub = userClub;
+		 this.store = store;
 		 
 		 frame.setBounds(0,0, 1280, 720);
 		 frame.getContentPane().setLayout(null);
@@ -64,6 +68,37 @@ public class clubSetup {
 		frame.setContentPane(weeksPanel);
 		frame.revalidate();
 		
+		JLabel titleLabel = new JLabel("Select the Number of Weeks You Would Like to Play For");
+		titleLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
+		titleLabel .setHorizontalAlignment(SwingConstants.CENTER);
+		titleLabel .setBounds(0, 0, 1280, 99);
+		weeksPanel.add(titleLabel);
+		
+		JSlider weeksSelected = new JSlider(5,15,10);
+		weeksSelected.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				int weeksToPlay = weeksSelected.getValue();
+				System.out.println(weeksToPlay);
+		 			}
+		});
+		 		
+		weeksSelected.setPaintLabels(true);
+		weeksSelected.setPaintTicks(true);
+		weeksSelected.setMinorTickSpacing(1);
+		weeksSelected.setMajorTickSpacing(1);
+		weeksSelected.setBounds(269, 337, 741, 45);
+		weeksPanel.add(weeksSelected);
+		 
+		JButton continueButton = new JButton("Continue");
+		 continueButton.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		HomePanel homePanel = new HomePanel(frame);
+		 		homePanel.setupPanel(stadium, store);
+		 	}
+		 });
+		 continueButton.setFont(new Font("Bahnschrift", Font.PLAIN, 22));
+		 continueButton.setBounds(493, 524, 293, 79);
+		 weeksPanel.add(continueButton);
 		
 		
 	}
@@ -106,8 +141,8 @@ public class clubSetup {
 		 confirmDifficultyButton.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		difficultyString = getSelectedButton();
-		 		HomePanel homePanel = new HomePanel(frame);
-		 		homePanel.setupPanel(stadium);
+		 		setWeeksToPlay();
+		 		
 		 		
 		 	}
 		 });

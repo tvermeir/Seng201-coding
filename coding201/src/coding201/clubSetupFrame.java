@@ -8,12 +8,16 @@ import java.awt.TextField;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import java.awt.Color;
 import javax.swing.JScrollBar;
 import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class clubSetupFrame extends JPanel {
 
@@ -22,40 +26,49 @@ public class clubSetupFrame extends JPanel {
 	 */
 	;
 	String clubName;
-	mainFrame frame;
+	JFrame frame = new JFrame();
 	private JTextField textField;
-	public clubSetupFrame(mainFrame mainframe) {
-		this.frame = mainframe;
+	public clubSetupFrame() {
+		
 		
 		 setBounds(500, 500, 1280, 720);
 		 setLayout(null);
 		 
 		 JPanel clubPanel = new JPanel();
 		 add(clubPanel);
-		 
 		 JLabel titleLabel = new JLabel("Select the Number of Weeks You Would Like to Play For");
 		 titleLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
 		 titleLabel .setHorizontalAlignment(SwingConstants.CENTER);
 		 titleLabel .setBounds(0, 0, 1280, 99);
 		 add(titleLabel);
 		 
-		 JSlider framesPerSecond = new JSlider();
-		 framesPerSecond.setPaintLabels(true);
-		 framesPerSecond.setPaintTicks(true);
-		 framesPerSecond.setMinorTickSpacing(2);
-		 framesPerSecond.setBounds(269, 347, 741, 45);
-		 add(framesPerSecond);
+		 JSlider weeksSelected = new JSlider(5,15,10);
+		 weeksSelected.addChangeListener(new ChangeListener() {
+		 	public void stateChanged(ChangeEvent e) {
+		 		int weeksToPlay = weeksSelected.getValue();
+		 		System.out.println(weeksToPlay);
+		 		}
+		 });
+		 weeksSelected.setPaintLabels(true);
+		 weeksSelected.setPaintTicks(true);
+		 weeksSelected.setMinorTickSpacing(1);
+		 weeksSelected.setMajorTickSpacing(1);
+		 weeksSelected.setBounds(269, 337, 741, 45);
+		 add(weeksSelected);
 		 
-		 getTextFromTextField();
+		 JButton continueButton = new JButton("Continue");
+		 continueButton.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 	}
+		 });
+		 continueButton.setFont(new Font("Bahnschrift", Font.PLAIN, 22));
+		 continueButton.setBounds(493, 524, 293, 79);
+		 add(continueButton);
+		 
+		 
+		 
 		 
 		 
 		
-	}
-	public String getTextFromTextField() {
-		 
-		
-		 
-		 
-		 
 	}
 }
