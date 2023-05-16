@@ -16,6 +16,7 @@ public class PlayerClub {
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
 	ArrayList<String> nameList = new ArrayList<String>();
 	String name;
+	int weeksToPlay;
 	
 	
 	public PlayerClub() {
@@ -68,9 +69,17 @@ public class PlayerClub {
 			return;
 		}
 		
-		if (!athleteList.contains(athlete)) {
+		if (!athleteList.contains(athlete) && athleteList.size() < 8) {
+			if (!starterList.contains(athlete) && starterList.size() < 4) {
+				starterList.put(athlete.name, athlete);
+			}
+			else if (reserveList.size() < 4){
+				reserveList.put(athlete.name, athlete);
+			}
 			athleteList.put(athlete.name,athlete);
 		}
+		
+		
 		
 		
 	}

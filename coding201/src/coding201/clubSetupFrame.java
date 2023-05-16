@@ -19,6 +19,7 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
+
 public class clubSetupFrame extends JPanel {
 
 	/**
@@ -36,7 +37,9 @@ public class clubSetupFrame extends JPanel {
 		 
 		 JPanel clubPanel = new JPanel();
 		 add(clubPanel);
+
 		 JLabel titleLabel = new JLabel("Select the Number of Weeks You Would Like to Play For");
+
 		 titleLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
 		 titleLabel .setHorizontalAlignment(SwingConstants.CENTER);
 		 titleLabel .setBounds(0, 0, 1280, 99);
@@ -67,8 +70,18 @@ public class clubSetupFrame extends JPanel {
 		 
 		 
 		 
+
+		 getTextFromTextField();
+
 		 
 		 
 		
 	}
+
+	public String getTextFromTextField() {
+		 
+		 
+		 return clubName;
+	}
+
 }

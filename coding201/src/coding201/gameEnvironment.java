@@ -126,7 +126,7 @@ public class gameEnvironment {
 		
 		Stadium stadium = helloEnvironment.stadiumMethod(userClub);
 		Store store = helloEnvironment.storeMethod(userClub);
-		
+
 		mainFrame pleaseFrame = new mainFrame();
 		pleaseFrame.setupFrame(stadium, store, userClub);
 		pleaseFrame.setVisible(true);

@@ -77,7 +77,7 @@ public class clubSetup {
 		JSlider weeksSelected = new JSlider(5,15,10);
 		weeksSelected.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				int weeksToPlay = weeksSelected.getValue();
+				userClub.weeksToPlay= weeksSelected.getValue();
 				System.out.println(weeksToPlay);
 		 			}
 		});
@@ -143,6 +143,9 @@ public class clubSetup {
 		 		difficultyString = getSelectedButton();
 		 		setWeeksToPlay();
 		 		
+
+		 		
+
 		 		
 		 	}
 		 });

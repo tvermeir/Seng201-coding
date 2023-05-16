@@ -36,6 +36,7 @@ public class StadiumPanel extends JPanel {
 		
 		
 		
+		
         
 		
 		
@@ -52,32 +53,47 @@ public class StadiumPanel extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Stadium");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 34));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(550, 0, 133, 33);
+		lblNewLabel.setBounds(540, 0, 153, 33);
 		add(lblNewLabel);
+		
+		JLabel teamNameLabel = new JLabel(stadium.club.name);
+		teamNameLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
+		teamNameLabel.setBounds(142, 45, 298, 26);
+		add(teamNameLabel);
+		teamNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JLabel oppName = new JLabel(currTeam.name);
+		oppName.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
+		oppName.setBounds(806, 38, 261, 33);
+		add(oppName);
+		oppName.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		playerPanel.setBounds(24, 82, 550, 369);
+		playerPanel.setBounds(24, 82, 550, 401);
 		add(playerPanel);
 		playerPanel.setLayout(null);
-		
-		
-		
-		
-		
-		
-		
-		JLabel teamNameLabel = new JLabel(stadium.club.name);
-		teamNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		teamNameLabel.setBounds(126, 11, 298, 14);
-		playerPanel.add(teamNameLabel);
 		
 		JPanel playerList = new JPanel();
 		playerList.setBounds(10, 36, 530, 138);
 		playerPanel.add(playerList);
 		playerList.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		JLabel lblNewLabel_1 = new JLabel("Starting Lineup");
+		lblNewLabel_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(10, 11, 134, 24);
+		playerPanel.add(lblNewLabel_1);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 237, 530, 138);
+		playerPanel.add(panel);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Reserves");
+		lblNewLabel_1_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		lblNewLabel_1_2.setBounds(10, 202, 134, 24);
+		playerPanel.add(lblNewLabel_1_2);
 		
 		stadium.club.athleteList.forEach((k, v) -> {
 			athleteDisplay athleteDisplay = new athleteDisplay(v);
@@ -86,19 +102,28 @@ public class StadiumPanel extends JPanel {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(657, 82, 550, 369);
+		panel_1.setBounds(657, 82, 550, 401);
 		add(panel_1);
 		panel_1.setLayout(null);
-		
-		JLabel oppName = new JLabel(currTeam.name);
-		oppName.setHorizontalAlignment(SwingConstants.CENTER);
-		oppName.setBounds(144, 11, 261, 14);
-		panel_1.add(oppName);
 		
 		JPanel oppList = new JPanel();
 		oppList.setBounds(10, 36, 532, 137);
 		panel_1.add(oppList);
 		oppList.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Starting Lineup");
+		lblNewLabel_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		lblNewLabel_1_1.setBounds(10, 11, 134, 24);
+		panel_1.add(lblNewLabel_1_1);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(10, 237, 530, 138);
+		panel_1.add(panel_2);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("Reserves");
+		lblNewLabel_1_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		lblNewLabel_1_3.setBounds(10, 202, 134, 24);
+		panel_1.add(lblNewLabel_1_3);
 		
 		currTeam.athleteList.forEach((k, v) -> {
 			athleteDisplay athleteDisplay = new athleteDisplay(v);
@@ -124,7 +149,7 @@ public class StadiumPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(0);
 				oppList.removeAll();
-				currTeam.athleteList.forEach((k, v) -> {
+				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
 					oppList.add(athleteDisplay);   
 				});
@@ -145,7 +170,7 @@ public class StadiumPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(1);
 				oppList.removeAll();
-				currTeam.athleteList.forEach((k, v) -> {
+				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
 					oppList.add(athleteDisplay);   
 				});
@@ -166,7 +191,7 @@ public class StadiumPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(2);
 				oppList.removeAll();
-				currTeam.athleteList.forEach((k, v) -> {
+				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
 					oppList.add(athleteDisplay);   
 				});
@@ -188,7 +213,7 @@ public class StadiumPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(3);
 				oppList.removeAll();
-				currTeam.athleteList.forEach((k, v) -> {
+				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
 					oppList.add(athleteDisplay);   
 				});
@@ -205,11 +230,26 @@ public class StadiumPanel extends JPanel {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HomePanel home = new HomePanel(frame);
-				home.setupPanel(stadium);
+
 				home.setupPanel(stadium, store);
 
+				
 			}
 		});
+		btnNewButton_1.setBounds(24, 12, 89, 23);
+		add(btnNewButton_1);
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
 	}
 
 	

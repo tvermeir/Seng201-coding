@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class HomePanel {
+public class HomePanel extends JPanel {
 	
 	mainFrame frame;
 	
@@ -43,6 +43,7 @@ public class HomePanel {
 		 	public void actionPerformed(ActionEvent e) {
 		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, store, frame);
 		 		frame.setContentPane(stadiumPanel);
+//		 		frame.setContentPane(stadiumPanel);
 		 		
 		 		
 		 	}
@@ -54,7 +55,8 @@ public class HomePanel {
 		 JButton btnStore = new JButton("Store");
 		 btnStore.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		
+		 		StorePanel storePanel = new StorePanel(stadium, store, frame);
+		 		frame.setContentPane(storePanel);
 		 	}
 		 });
 		 btnStore.setFont(new Font("Dialog", Font.PLAIN, 22));
