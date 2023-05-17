@@ -51,12 +51,16 @@ public class Stadium {
 
 	}
 	
+<<<<<<< HEAD
 //	public matchRunner playMatch(String clubName) {
 //	
 //		
 //		//return runner;
 //		
 //	}
+=======
+
+>>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
 	
 	
 	

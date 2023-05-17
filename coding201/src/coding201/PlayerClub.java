@@ -15,6 +15,7 @@ public class PlayerClub {
 	Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
 	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
 	ArrayList<String> nameList = new ArrayList<String>();
+	ArrayList<String> itemList = new ArrayList<String>();
 	String name;
 	int weeksToPlay;
 	
@@ -107,6 +108,12 @@ public class PlayerClub {
 	}
 	public void addItem(PurchaseableItem item) {
 		itemInventory.put(item.getName(), item);
+		itemList.add(item.name);
+	}
+	
+	public void removeItem(String itemName) {
+		itemInventory.remove(itemName);
+		itemList.remove(itemName);
 	}
 	
 	public void setName(String name) {

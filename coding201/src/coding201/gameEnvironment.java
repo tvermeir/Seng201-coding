@@ -43,6 +43,7 @@ public class gameEnvironment {
 		money = myClub.getMoney();
 //		athletesOnTeam = myClub.getPlayers();
 		PlayerClub userClub = new PlayerClub(money, clubName);
+		System.out.println(userClub.balance);
 		userClub.Fill();
 		return userClub;
 		
@@ -104,9 +105,15 @@ public class gameEnvironment {
 //	public matchRunner startMatch(PlayerClub myClub) {
 //		opposingTeam opps = new opposingTeam();
 //		opps.Fill();
+<<<<<<< HEAD
 //		matchRunner match = new matchRunner(myClub, opps);
 //		return match;
 	//}
+=======
+////		matchRunner match = new matchRunner(myClub, opps);
+//		return match;
+//	}
+>>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
 	//public matchRunner matchMethod() {
 		//matchRunner match = new matchRunner(athletesOnTeam, opposingTeam)
 	//}
@@ -130,97 +137,7 @@ public class gameEnvironment {
 		pleaseFrame.setupFrame(stadium, store, userClub);
 		pleaseFrame.setVisible(true);
 
-		//matchRunner match = helloEnvironment.startMatch(userClub, opposition );
 		
-		//Store Method 
-		//Store store = helloEnvironment.storeMethod(userClub);
-		//store.refreshStore();
-
-//		System.out.println("Welcome to sunday league simulator 2023");
-//	    System.out.println("To start the game, you need to set up your club.");
-	    
-	    //Club setup
-	   
-	    
-	    
-	    
-	    //System.out.println("Awesome, you have created a club called " + userClub.getName()  + ". The club has a balance of " + userClub.getBalance());
-	    
-	    //Store setup
-	    
-//		Store store = helloEnvironment.storeMethod(userClub);
-//		store.refreshStore();
-		
-		
-		
-		//store.purchaseAthlete();
-
-		
-		
-		
-//		matchRunner game = helloEnvironment.startMatch(userClub);
-//		game.playMatch();
-		
-//		System.out.println(userClub.printAthleteList());
-//		
-//		userClub.doRandomEvent();
-//		
-//		System.out.println(userClub.printAthleteList());
-		
-		
-		
-		//store.purchaseAthlete();
-		//System.out.println(userClub.balance);
-		//store.sellPlayer();
-		//System.out.println(userClub.balance);
-
-//		store.purchaseAthlete();
-
-//		System.out.println(userClub.balance);
-//		store.sellPlayer();
-//		
-
-		//Dint balance = userClub.balance ; // Initialize the balance variable
-
-	    
-
-	    //Scanner scanner = new Scanner(System.in);
-
-	    
-
-	    // Main game loop
-	    //while (true) {
-	      //System.out.println("Enter a command:");
-	      //String input = scanner.nextLine();
-
-	    
-	    
-//	    while (true) {
-//	      
-//	    Scanner scanner = new Scanner(System.in);
-//	      
-//	      String input = scanner.nextLine();
-
-	      
-	      // Check if the user has typed "get balance"
-
-	      //if (input.equals("get balance") && userClub != null) {
-	        //System.out.println("Your team's balance is: " + balance);
-	      //}
-	     // else if (input.equals("setup club")) {
-	    	//gameEnvironment helloEnvironment = new gameEnvironment();
-	  		//clubSetup myClub = new clubSetup();
-	  		//PlayerClub userClub = helloEnvironment.getDetails(myClub);
-	      //}
-		  
-		  //}
-
-
-
-	      
-
-		//store.purchaseItem();
-		//System.out.println(userClub.balance);
 	}
 }
 
