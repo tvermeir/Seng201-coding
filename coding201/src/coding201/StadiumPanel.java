@@ -141,10 +141,10 @@ public class StadiumPanel extends JPanel {
 		JButton btnNewButton = new JButton("START MATCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				matchRunner runner = stadium.playMatch(currTeam.name);
+				matchRunner runner = new matchRunner(stadium.club, currTeam, frame);
 				
-				matchRunnerPanel matchRunner = new matchRunnerPanel(runner, frame, stadium, currTeam);
-				frame.setContentPane(matchRunner);
+				
+				frame.setContentPane(runner);
 				frame.revalidate();
 				
 				

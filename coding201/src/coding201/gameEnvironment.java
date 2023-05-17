@@ -101,12 +101,12 @@ public class gameEnvironment {
 	 * @return match an instance of the matchrunner class
 	 */
 	
-	public matchRunner startMatch(PlayerClub myClub) {
-		opposingTeam opps = new opposingTeam();
-		opps.Fill();
-		matchRunner match = new matchRunner(myClub, opps);
-		return match;
-	}
+//	public matchRunner startMatch(PlayerClub myClub) {
+//		opposingTeam opps = new opposingTeam();
+//		opps.Fill();
+//		matchRunner match = new matchRunner(myClub, opps);
+//		return match;
+	//}
 	//public matchRunner matchMethod() {
 		//matchRunner match = new matchRunner(athletesOnTeam, opposingTeam)
 	//}
