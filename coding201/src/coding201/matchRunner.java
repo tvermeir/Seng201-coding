@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
 
-
+import javax.swing.JPanel;
 
 import java.util.List;
 
@@ -18,13 +18,20 @@ public class matchRunner {
 	public ArrayList<String> listKeysOfTeam;
 	public ArrayList<String> listKeysOfOpposition;
 	public PlayerClub playerClub;
+	mainFrame frame;
+	JPanel matchPanel;
 
 
 
-
-	public matchRunner(PlayerClub player, opposingTeam opps) {
+	public matchRunner(PlayerClub player, opposingTeam opps, mainFrame frame) {
 		this.playerClub = player;
 		this.opposition = opps;
+		this.frame = frame;
+		
+		 frame.setBounds(0,0, 1280, 720);
+		 frame.setLayout(null);
+		 frame.setContentPane(matchPanel);
+		 playMatch();
 	
 		
 	}
