@@ -51,12 +51,7 @@ public class Stadium {
 
 	}
 	
-	public matchRunner playMatch(String clubName) {
-		matchRunner runner = new matchRunner(club, PossibleOpponents.get(clubName));
-		
-		return runner;
-		
-	}
+
 	
 	
 	

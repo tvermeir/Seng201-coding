@@ -108,7 +108,7 @@ public class StadiumPanel extends JPanel {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(657, 82, 550, 431);
+		panel_1.setBounds(653, 191, 550, 236);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -122,16 +122,6 @@ public class StadiumPanel extends JPanel {
 		lblNewLabel_1_1.setBounds(10, 11, 134, 24);
 		panel_1.add(lblNewLabel_1_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 259, 530, 161);
-		panel_1.add(panel_2);
-		panel_2.setLayout(new GridLayout(0, 4, 0, 0));
-		
-		JLabel lblNewLabel_1_3 = new JLabel("Reserves");
-		lblNewLabel_1_3.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1_3.setBounds(10, 224, 134, 24);
-		panel_1.add(lblNewLabel_1_3);
-		
 		currTeam.athleteList.forEach((k, v) -> {
 			athleteDisplay athleteDisplay = new athleteDisplay(v);
 			oppList.add(athleteDisplay);   
@@ -141,11 +131,11 @@ public class StadiumPanel extends JPanel {
 		JButton btnNewButton = new JButton("START MATCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				matchRunner runner = stadium.playMatch(currTeam.name);
-				
-				matchRunnerPanel matchRunner = new matchRunnerPanel(runner, frame, stadium, currTeam);
-				frame.setContentPane(matchRunner);
-				frame.revalidate();
+//				matchRunner runner = stadium.playMatch(currTeam.name);
+//				
+//				matchRunnerPanel matchRunner = new matchRunnerPanel(runner, frame, stadium, currTeam);
+//				frame.setContentPane(matchRunner);
+//				frame.revalidate();
 				
 				
 			}

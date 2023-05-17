@@ -141,6 +141,7 @@ public class clubSetup {
 		 confirmDifficultyButton.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		difficultyString = getSelectedButton();
+		 		userClub.balance = getMoney();
 		 		if(difficultyString == null) {
 		 			JOptionPane.showMessageDialog(frame, "Please Select a Difficulty");
 		 		}

@@ -2,6 +2,7 @@ package coding201;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
@@ -16,14 +17,17 @@ import javax.swing.ButtonGroup;
 
 public class StorePanel extends JPanel {
 	ArrayList<Athlete> playerList = new ArrayList<Athlete>();
+	ArrayList<PurchaseableItem> itemList = new ArrayList<PurchaseableItem>();
 	ArrayList<JRadioButton> buttonlist = new ArrayList<JRadioButton>();
 	Athlete currPlayer;
+	PurchaseableItem currItem;
 	/**
 	 * Create the panel.
 	 */
 	
 	mainFrame frame;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	
 	public StorePanel(Stadium stadium, Store store, mainFrame frame) {
 		setLayout(null);
@@ -33,20 +37,26 @@ public class StorePanel extends JPanel {
 			});
 		}
 		
+		store.itemHashtable.forEach((k, v) -> {
+			itemList.add(v);  
+		});
 		
-		System.out.println(playerList.size());
+		
+		
+		
+//		System.out.println(playerList.size());
 		
 		
 		
 		JLabel lblNewLabel = new JLabel("Store");
 		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 36));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(432, 5, 203, 47);
+		lblNewLabel.setBounds(538, 5, 203, 47);
 		add(lblNewLabel);
 		
 		JPanel athletesDisplay = new JPanel();
 		athletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		athletesDisplay.setBounds(167, 108, 530, 191);
+		athletesDisplay.setBounds(306, 107, 530, 191);
 		
 		
 		
@@ -74,35 +84,18 @@ public class StorePanel extends JPanel {
 			playersInStorePanel.add(athleteDisplay);   
 		});
 		
+		
+		
 		JLabel playerTitle = new JLabel("Players");
 		playerTitle.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		playerTitle.setBounds(167, 82, 750, 23);
+		playerTitle.setBounds(306, 81, 750, 23);
 		add(playerTitle);
 		
-if(playerList.size() == 0) {
-			playerTitle.setText("Player Store is Empty, Come back next week to purchase more players!");
-		}
-		
-		JPanel itemsDisplay = new JPanel();
-		itemsDisplay.setLayout(null);
-		itemsDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		itemsDisplay.setBounds(167, 335, 530, 179);
-		add(itemsDisplay);
-		
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBounds(10, 7, 510, 132);
-		itemsDisplay.add(panel_1_1);
-		panel_1_1.setLayout(new GridLayout(0, 4, 0, 0));
-		
-		JLabel itemsTitle = new JLabel("Items");
-		itemsTitle.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		itemsTitle.setBounds(167, 310, 134, 14);
-		add(itemsTitle);
 		
 		JPanel purchaseAthletesDisplay = new JPanel();
 		purchaseAthletesDisplay.setLayout(null);
 		purchaseAthletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		purchaseAthletesDisplay.setBounds(707, 108, 153, 191);
+		purchaseAthletesDisplay.setBounds(846, 107, 153, 191);
 		add(purchaseAthletesDisplay);
 		
 		JPanel currPlayerPanel = new JPanel();
@@ -110,11 +103,55 @@ if(playerList.size() == 0) {
 		purchaseAthletesDisplay.add(currPlayerPanel);
 		currPlayerPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
+if(playerList.size() == 0) {
+			playerTitle.setText("Player Store is Empty, Come back next week to purchase more players!");
+			remove(purchaseAthletesDisplay);
+			remove(currPlayerPanel);
+			
+		}
+		
+		JPanel itemsDisplay = new JPanel();
+		itemsDisplay.setLayout(null);
+		itemsDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		itemsDisplay.setBounds(306, 334, 530, 193);
+		add(itemsDisplay);
+		
+		JPanel ItemsPanel = new JPanel();
+		ItemsPanel.setBounds(10, 7, 510, 146);
+		itemsDisplay.add(ItemsPanel);
+		ItemsPanel.setLayout(new GridLayout(0, 4, 0, 0));
+		
+		itemList.forEach((v) -> {
+			ItemDisplay item = new ItemDisplay(v);
+			ItemsPanel.add(item);
+		});
+		
+		
+		
+		
+		
+		JLabel itemsTitle = new JLabel("Items");
+		itemsTitle.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		itemsTitle.setBounds(306, 309, 134, 14);
+		add(itemsTitle);
+		
+		
+		
+		
+		JLabel balancelbl = new JLabel("Balance: " + Integer.toString(store.myClub.balance));
+		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+		balancelbl.setBounds(887, 29, 97, 23);
+		add(balancelbl);
+		
 		JButton btnNewButton_1 = new JButton("PURCHASE");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (playerList.size() > 0) {
+				if (playerList.size() > 0 && store.myClub.balance - currPlayer.price >= 0) {
+					
 					store.myClub.addPlayer(currPlayer);
+					JOptionPane.showMessageDialog(frame, currPlayer.name + " Purchased." );
+					store.myClub.balance -= currPlayer.price;
+					balancelbl.setText("Balance: " + Integer.toString(store.myClub.balance));
 					playerList.remove(currPlayer);
 					store.playerHashTable.remove(currPlayer.name);
 					currPlayer = null;
@@ -129,12 +166,15 @@ if(playerList.size() == 0) {
 		                athletesDisplay.repaint();
 		            }
 					
+		            
 					validate();
 					repaint();
 					playerList.forEach((v) -> {
 						athleteDisplay athleteDisplay = new athleteDisplay(v);
 						playersInStorePanel.add(athleteDisplay);   
 					});
+					
+					
 					currPlayerPanel.removeAll();
 					
 					validate();
@@ -143,7 +183,12 @@ if(playerList.size() == 0) {
 					StorePanel.this.repaint();
 					athletesDisplay.revalidate();
 					athletesDisplay.repaint();
+					
 				}
+				else {
+					JOptionPane.showMessageDialog(frame, "Club balance is too low. Cannot purchase " + currPlayer.name + "." );
+				}
+					
 				
 			}
 		});
@@ -155,16 +200,41 @@ if(playerList.size() == 0) {
 		JPanel purchaseItemsDisplay = new JPanel();
 		purchaseItemsDisplay.setLayout(null);
 		purchaseItemsDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		purchaseItemsDisplay.setBounds(707, 335, 153, 179);
+		purchaseItemsDisplay.setBounds(846, 334, 153, 193);
 		add(purchaseItemsDisplay);
 		
-		JPanel panel_1_2_1 = new JPanel();
-		panel_1_2_1.setBounds(10, 7, 133, 132);
-		purchaseItemsDisplay.add(panel_1_2_1);
-		panel_1_2_1.setLayout(new GridLayout(0, 4, 0, 0));
+		JPanel currItemPanel = new JPanel();
+		currItemPanel.setBounds(10, 7, 133, 146);
+		purchaseItemsDisplay.add(currItemPanel);
+		currItemPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnNewButton = new JButton("PURCHASE");
-		btnNewButton.setBounds(23, 144, 106, 29);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (store.myClub.balance - currItem.price >= 0 && !store.myClub.itemList.contains(currItem.name)) {
+					store.myClub.addItem(currItem);
+					store.myClub.balance -= currItem.price;
+					balancelbl.setText("Balance: " + Integer.toString(store.myClub.balance));
+					JOptionPane.showMessageDialog(frame, currItem.name + " Purchased." );
+					currItem = null;
+					currItemPanel.removeAll();
+					currItemPanel.revalidate();
+					currItemPanel.repaint();
+				}
+				else if (store.myClub.itemList.contains(currItem.name)) {
+					JOptionPane.showMessageDialog(frame, currItem.name + "Already in club inventory. Use it before purchasing another." );
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(frame, "Club balance is too low. Cannot purchase " + currItem.name + "." );
+				}
+				
+				
+				
+				
+			}
+		});
+		btnNewButton.setBounds(23, 158, 106, 29);
 		purchaseItemsDisplay.add(btnNewButton);
 		
 		JButton backButton = new JButton("Back");
@@ -176,6 +246,8 @@ if(playerList.size() == 0) {
 		});
 		backButton.setBounds(10, 25, 89, 23);
 		add(backButton);
+		
+		
 		
 		
 		
@@ -259,11 +331,53 @@ if(playerList.size() == 0) {
 				athletesDisplay.add(buttonlist.get(i));
 			}
 		}
-//		else {
-//		    JLabel noPlayersLabel = new JLabel("No players available");
-//		    noPlayersLabel.setBounds(10, 50, 100, 20);
-//		    panel.add(noPlayersLabel);
-//		}
+//		
+		
+		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("");
+		rdbtnNewRadioButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currItem = itemList.get(0);
+				currItemPanel.removeAll();
+				ItemDisplay currbuyingitem = new ItemDisplay(currItem);
+				currItemPanel.add(currbuyingitem);
+				revalidate();
+			}
+		});
+		buttonGroup_1.add(rdbtnNewRadioButton_4);
+		rdbtnNewRadioButton_4.setBounds(63, 160, 21, 23);
+		itemsDisplay.add(rdbtnNewRadioButton_4);
+		
+		JRadioButton rdbtnNewRadioButton_4_1 = new JRadioButton("");
+		rdbtnNewRadioButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currItem = itemList.get(1);
+				currItemPanel.removeAll();
+				ItemDisplay currbuyingitem = new ItemDisplay(currItem);
+				currItemPanel.add(currbuyingitem);
+				revalidate();
+			}
+		});
+		buttonGroup_1.add(rdbtnNewRadioButton_4_1);
+		rdbtnNewRadioButton_4_1.setBounds(193, 160, 21, 23);
+		itemsDisplay.add(rdbtnNewRadioButton_4_1);
+		
+		JRadioButton rdbtnNewRadioButton_4_2 = new JRadioButton("");
+		rdbtnNewRadioButton_4_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currItem = itemList.get(2);
+				currItemPanel.removeAll();
+				ItemDisplay currbuyingitem = new ItemDisplay(currItem);
+				currItemPanel.add(currbuyingitem);
+				revalidate();
+				
+			}
+		});
+		buttonGroup_1.add(rdbtnNewRadioButton_4_2);
+		rdbtnNewRadioButton_4_2.setBounds(319, 160, 21, 23);
+		itemsDisplay.add(rdbtnNewRadioButton_4_2);
+		
+		
+		
 		
 		
 		
