@@ -141,7 +141,13 @@ public class StadiumPanel extends JPanel {
 		JButton btnNewButton = new JButton("START MATCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				stadium.playMatch(currTeam.name);
+				matchRunner runner = stadium.playMatch(currTeam.name);
+				
+				matchRunnerPanel matchRunner = new matchRunnerPanel(runner, frame, stadium, currTeam);
+				frame.setContentPane(matchRunner);
+				frame.revalidate();
+				
+				
 			}
 		});
 		btnNewButton.setBounds(466, 524, 301, 23);

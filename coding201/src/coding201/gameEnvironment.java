@@ -1,8 +1,6 @@
 package coding201;
 import java.util.Hashtable;
-import java.util.Scanner;
 
-import javax.swing.JFrame;
 
 
 /**

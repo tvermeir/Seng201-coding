@@ -67,6 +67,7 @@ public class HomePanel extends JPanel {
 		 	public void actionPerformed(ActionEvent e) {
 		 		StorePanel storePanel = new StorePanel(stadium, store, frame);
 		 		frame.setContentPane(storePanel);
+		 		frame.revalidate();
 		 	}
 		 });
 		 btnStore.setFont(new Font("Dialog", Font.PLAIN, 22));

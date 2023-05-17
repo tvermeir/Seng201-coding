@@ -32,6 +32,8 @@ public class StorePanel extends JPanel {
 				playerList.add(v);  
 			});
 		}
+		
+		
 		System.out.println(playerList.size());
 		
 		
@@ -42,56 +44,70 @@ public class StorePanel extends JPanel {
 		lblNewLabel.setBounds(432, 5, 203, 47);
 		add(lblNewLabel);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel.setBounds(167, 108, 530, 191);
-		add(panel);
-		panel.setLayout(null);
+		JPanel athletesDisplay = new JPanel();
+		athletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		athletesDisplay.setBounds(167, 108, 530, 191);
 		
+		
+		
+		add(athletesDisplay);
+			
+			
+		
+			
+	
+		
+
+		
+		athletesDisplay.setLayout(null);
 		JPanel playersInStorePanel = new JPanel();
 		playersInStorePanel.setBounds(10, 7, 510, 147);
-		panel.add(playersInStorePanel);
+		athletesDisplay.add(playersInStorePanel);
 		playersInStorePanel.setLayout(new GridLayout(0, 4, 0, 0));
 		
-		if (playerList.size() > 0) {
-			playerList.forEach((v) -> {
-				athleteDisplay athleteDisplay = new athleteDisplay(v);
-				playersInStorePanel.add(athleteDisplay);   
-			});
+		
+		
+		
+		
+		playerList.forEach((v) -> {
+			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			playersInStorePanel.add(athleteDisplay);   
+		});
+		
+		JLabel playerTitle = new JLabel("Players");
+		playerTitle.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		playerTitle.setBounds(167, 82, 750, 23);
+		add(playerTitle);
+		
+if(playerList.size() == 0) {
+			playerTitle.setText("Player Store is Empty, Come back next week to purchase more players!");
 		}
 		
-		
-		
-		JLabel lblNewLabel_1 = new JLabel("Players");
-		lblNewLabel_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1.setBounds(167, 88, 134, 14);
-		add(lblNewLabel_1);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBounds(167, 335, 530, 179);
-		add(panel_2);
+		JPanel itemsDisplay = new JPanel();
+		itemsDisplay.setLayout(null);
+		itemsDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		itemsDisplay.setBounds(167, 335, 530, 179);
+		add(itemsDisplay);
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setBounds(10, 7, 510, 132);
-		panel_2.add(panel_1_1);
+		itemsDisplay.add(panel_1_1);
 		panel_1_1.setLayout(new GridLayout(0, 4, 0, 0));
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Items");
-		lblNewLabel_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1_1.setBounds(167, 310, 134, 14);
-		add(lblNewLabel_1_1);
+		JLabel itemsTitle = new JLabel("Items");
+		itemsTitle.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		itemsTitle.setBounds(167, 310, 134, 14);
+		add(itemsTitle);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_3.setBounds(707, 108, 153, 191);
-		add(panel_3);
+		JPanel purchaseAthletesDisplay = new JPanel();
+		purchaseAthletesDisplay.setLayout(null);
+		purchaseAthletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		purchaseAthletesDisplay.setBounds(707, 108, 153, 191);
+		add(purchaseAthletesDisplay);
 		
 		JPanel currPlayerPanel = new JPanel();
 		currPlayerPanel.setBounds(10, 7, 133, 147);
-		panel_3.add(currPlayerPanel);
+		purchaseAthletesDisplay.add(currPlayerPanel);
 		currPlayerPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnNewButton_1 = new JButton("PURCHASE");
@@ -108,9 +124,9 @@ public class StorePanel extends JPanel {
 		            if (selectedRadioButton != null) {
 		                buttonGroup.remove(selectedRadioButton);
 		                buttonlist.remove(selectedRadioButton);
-		                panel.remove(selectedRadioButton);
-		                panel.validate();
-		                panel.repaint();
+		                athletesDisplay.remove(selectedRadioButton);
+		                athletesDisplay.validate();
+		                athletesDisplay.repaint();
 		            }
 					
 					validate();
@@ -125,8 +141,8 @@ public class StorePanel extends JPanel {
 					repaint();
 					StorePanel.this.validate();
 					StorePanel.this.repaint();
-					panel.revalidate();
-					panel.repaint();
+					athletesDisplay.revalidate();
+					athletesDisplay.repaint();
 				}
 				
 			}
@@ -134,32 +150,32 @@ public class StorePanel extends JPanel {
 		
 		
 		btnNewButton_1.setBounds(23, 156, 106, 29);
-		panel_3.add(btnNewButton_1);
+		purchaseAthletesDisplay.add(btnNewButton_1);
 		
-		JPanel panel_3_1 = new JPanel();
-		panel_3_1.setLayout(null);
-		panel_3_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_3_1.setBounds(707, 335, 153, 179);
-		add(panel_3_1);
+		JPanel purchaseItemsDisplay = new JPanel();
+		purchaseItemsDisplay.setLayout(null);
+		purchaseItemsDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		purchaseItemsDisplay.setBounds(707, 335, 153, 179);
+		add(purchaseItemsDisplay);
 		
 		JPanel panel_1_2_1 = new JPanel();
 		panel_1_2_1.setBounds(10, 7, 133, 132);
-		panel_3_1.add(panel_1_2_1);
+		purchaseItemsDisplay.add(panel_1_2_1);
 		panel_1_2_1.setLayout(new GridLayout(0, 4, 0, 0));
 		
 		JButton btnNewButton = new JButton("PURCHASE");
 		btnNewButton.setBounds(23, 144, 106, 29);
-		panel_3_1.add(btnNewButton);
+		purchaseItemsDisplay.add(btnNewButton);
 		
-		JButton btnNewButton_2 = new JButton("Back");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HomePanel home = new HomePanel(frame);
 				home.setupPanel(stadium, store);
 			}
 		});
-		btnNewButton_2.setBounds(10, 25, 89, 23);
-		add(btnNewButton_2);
+		backButton.setBounds(10, 25, 89, 23);
+		add(backButton);
 		
 		
 		
@@ -240,7 +256,7 @@ public class StorePanel extends JPanel {
 		
 		if (playerList.size() > 0) {
 			for (int i = 0; i < playerList.size(); i++) {
-				panel.add(buttonlist.get(i));
+				athletesDisplay.add(buttonlist.get(i));
 			}
 		}
 //		else {

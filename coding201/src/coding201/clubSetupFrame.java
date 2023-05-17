@@ -32,56 +32,56 @@ public class clubSetupFrame extends JPanel {
 	public clubSetupFrame() {
 		
 		
-		 setBounds(500, 500, 1280, 720);
-		 setLayout(null);
+		 frame.setBounds(0, 0, 1280, 720);
+		 frame.getContentPane().setLayout(null);
 		 
 		 JPanel clubPanel = new JPanel();
-		 add(clubPanel);
+		 frame.getContentPane().add(clubPanel);
+		 clubPanel.setBounds(0, 0, 1280, 720);
+		 clubPanel.setLayout(null);
 
-		 JLabel titleLabel = new JLabel("Select the Number of Weeks You Would Like to Play For");
+		 JTextField nameInput = new JTextField();
+		 nameInput.setFont(new Font("Bahnschrift", Font.PLAIN, 14));
+		 nameInput.setBounds(553, 139, 173, 56);
+		 clubPanel.add(nameInput);
+		 
+		 nameInput.setColumns(10);
+		 
+		 JLabel nameLabel = new JLabel("Please Enter Team Name Below");
+		 nameLabel.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		 nameLabel.setBounds(480, 90, 320, 38);
+		 nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		 clubPanel.add(nameLabel);
+		 
+		 
+		 JButton submitButton = new JButton("Submit");
+		 
+		 
+		 submitButton.addActionListener(new ActionListener() {
+			 	public void actionPerformed(ActionEvent e) {
+			 		
+			 		clubName = nameInput.getText();
+			 		
+			 		//System.out.println(nameInput.getText());
+			 	}
+			 });
+		 
+		 
+		 
+		 submitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		 submitButton.setBounds(590, 336, 99, 48);
+		 clubPanel.add(submitButton);
+		
+		 
+		 
+		 
 
-		 titleLabel .setFont(new Font("Bahnschrift", Font.PLAIN, 33));
-		 titleLabel .setHorizontalAlignment(SwingConstants.CENTER);
-		 titleLabel .setBounds(0, 0, 1280, 99);
-		 add(titleLabel);
-		 
-		 JSlider weeksSelected = new JSlider(5,15,10);
-		 weeksSelected.addChangeListener(new ChangeListener() {
-		 	public void stateChanged(ChangeEvent e) {
-		 		int weeksToPlay = weeksSelected.getValue();
-		 		System.out.println(weeksToPlay);
-		 		}
-		 });
-		 weeksSelected.setPaintLabels(true);
-		 weeksSelected.setPaintTicks(true);
-		 weeksSelected.setMinorTickSpacing(1);
-		 weeksSelected.setMajorTickSpacing(1);
-		 weeksSelected.setBounds(269, 337, 741, 45);
-		 add(weeksSelected);
-		 
-		 JButton continueButton = new JButton("Continue");
-		 continueButton.addActionListener(new ActionListener() {
-		 	public void actionPerformed(ActionEvent e) {
-		 	}
-		 });
-		 continueButton.setFont(new Font("Bahnschrift", Font.PLAIN, 22));
-		 continueButton.setBounds(493, 524, 293, 79);
-		 add(continueButton);
-		 
-		 
-		 
-
-		 getTextFromTextField();
 
 		 
 		 
 		
 	}
 
-	public String getTextFromTextField() {
-		 
-		 
-		 return clubName;
-	}
+	
 
 }

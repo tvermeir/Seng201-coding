@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
@@ -14,11 +15,10 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JLabel;
-
-
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
@@ -78,7 +78,7 @@ public class clubSetup {
 		weeksSelected.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				userClub.weeksToPlay= weeksSelected.getValue();
-				System.out.println(weeksToPlay);
+				System.out.println(userClub.weeksToPlay);
 		 			}
 		});
 		 		
@@ -141,8 +141,12 @@ public class clubSetup {
 		 confirmDifficultyButton.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		difficultyString = getSelectedButton();
+		 		if(difficultyString == null) {
+		 			JOptionPane.showMessageDialog(frame, "Please Select a Difficulty");
+		 		}
+		 		else {
 		 		setWeeksToPlay();
-		 		
+		 		}
 
 		 		
 
@@ -209,34 +213,35 @@ public class clubSetup {
 			
 		 
 		
-		 JTextField nameInput = new JTextField();
+		JTextField nameInput = new JTextField();
 		 nameInput.setFont(new Font("Bahnschrift", Font.PLAIN, 14));
-		 nameInput.setBounds(551, 139, 173, 56);
+		 nameInput.setBounds(553, 139, 173, 56);
 		 clubPanel.add(nameInput);
 		 
 		 nameInput.setColumns(10);
 		 
 		 JLabel nameLabel = new JLabel("Please Enter Team Name Below");
 		 nameLabel.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		 nameLabel.setBounds(483, 90, 320, 38);
+		 nameLabel.setBounds(480, 90, 320, 38);
 		 nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		 clubPanel.add(nameLabel);
 		 
-		 JLabel lblNewLabel = new JLabel("Team Name");
-		 lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		 lblNewLabel.setBounds(551, 290, 173, 16);
-		 clubPanel.add(lblNewLabel);
-		 
 		 
 		 JButton submitButton = new JButton("Submit");
+		 
+		 
 		 submitButton.addActionListener(new ActionListener() {
 			 	public void actionPerformed(ActionEvent e) {
 			 		
-			 		lblNewLabel.setText(nameInput.getText());
 			 		clubName = nameInput.getText();
 			 		userClub.setName(clubName);
-			 		setDifficulty();
 			 		
+			 		if(clubName.length() == 0){
+			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name Longer Than 0 Characters");
+			 		}
+			 		else {
+			 			setDifficulty();
+			 		}
 			 		//System.out.println(nameInput.getText());
 			 	}
 			 });
@@ -244,11 +249,11 @@ public class clubSetup {
 		 
 		 
 		 submitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		 submitButton.setBounds(594, 216, 99, 48);
+		 submitButton.setBounds(590, 336, 99, 48);
 		 clubPanel.add(submitButton);
 		
-		 
 	}
+		 
 	
 	
 
