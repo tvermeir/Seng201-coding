@@ -77,8 +77,8 @@ public class clubSetup {
 		JSlider weeksSelected = new JSlider(5,15,10);
 		weeksSelected.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				userClub.weeksToPlay= weeksSelected.getValue();
-				System.out.println(userClub.weeksToPlay);
+				stadium.weeksToPlay= weeksSelected.getValue();
+				//System.out.println(stadium.weeksToPlay);
 		 			}
 		});
 		 		
@@ -93,6 +93,7 @@ public class clubSetup {
 		 continueButton.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		HomePanel homePanel = new HomePanel(frame);
+		 		System.out.println(stadium.weeksToPlay);
 		 		homePanel.setupPanel(stadium, store);
 		 	}
 		 });

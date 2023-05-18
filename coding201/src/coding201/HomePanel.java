@@ -38,6 +38,10 @@ public class HomePanel extends JPanel {
 		 titleLabel.setBounds(526, 43, 232, 39);
 		 mainPanel.add(titleLabel);
 		 
+		 JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
+		 weekLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		 weekLabel.setBounds(60, 39, 149, 43);
+		 mainPanel.add(weekLabel);
 		 
 		 JButton btnTeamView = new JButton("Team View");
 		 btnTeamView.addActionListener(new ActionListener() {

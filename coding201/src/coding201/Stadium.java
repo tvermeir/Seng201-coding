@@ -11,6 +11,8 @@ public class Stadium {
 	Hashtable<String, Athlete> selectedTeam = new Hashtable<>();
 	int gamesPlayed = 0;
 	PlayerClub club;
+	int currWeek = 1;
+	int weeksToPlay;
 	
 	
 	public Stadium(PlayerClub club) {
@@ -51,16 +53,7 @@ public class Stadium {
 
 	}
 	
-<<<<<<< HEAD
-//	public matchRunner playMatch(String clubName) {
-//	
-//		
-//		//return runner;
-//		
-//	}
-=======
 
->>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
 	
 	
 	

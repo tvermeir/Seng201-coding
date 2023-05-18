@@ -105,15 +105,7 @@ public class gameEnvironment {
 //	public matchRunner startMatch(PlayerClub myClub) {
 //		opposingTeam opps = new opposingTeam();
 //		opps.Fill();
-<<<<<<< HEAD
-//		matchRunner match = new matchRunner(myClub, opps);
-//		return match;
-	//}
-=======
-////		matchRunner match = new matchRunner(myClub, opps);
-//		return match;
-//	}
->>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
+
 	//public matchRunner matchMethod() {
 		//matchRunner match = new matchRunner(athletesOnTeam, opposingTeam)
 	//}
