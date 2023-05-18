@@ -29,6 +29,7 @@ public class matchRunner extends JPanel	 {
 	public ArrayList<String> listKeysOfOpposition;
 	public PlayerClub playerClub;
 	mainFrame frame;
+	Stadium stadium;
 
 	private JTextArea textField;
 
@@ -36,6 +37,7 @@ public class matchRunner extends JPanel	 {
 		this.playerClub = player;
 		this.opposition = opps;
 		this.frame = frame;
+		this.stadium = stad;
 		
 		 frame.setBounds(0,0, 1280, 720);
 		 frame.setLayout(null);
@@ -129,9 +131,9 @@ public class matchRunner extends JPanel	 {
 			int event = random.nextInt(2);
 			
 			int number = random.nextInt(4);
-			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.athleteList.keySet());
+			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.starterList.keySet());
 			String playerName = listKeysOfTeam.get(number);
-			Athlete myPlayer = playerClub.athleteList.get(playerName);
+			Athlete myPlayer = playerClub.starterList.get(playerName);
 			
 			int number1 = random.nextInt(4);
 			List<String> listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
@@ -203,6 +205,8 @@ public class matchRunner extends JPanel	 {
 			
 			
 		System.out.println("Game has ended");
+		stadium.PossibleOpponents.remove(opposition.name);
+		stadium.fillOpponentTable();
 		
 			
 		}
