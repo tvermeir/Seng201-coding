@@ -49,7 +49,7 @@ public class clubSetupFrame extends JPanel {
 			
 			textField = new JTextArea();
 			textField.setEditable(false);
-			textField.setBounds(242, 71, 796, 630);
+			textField.setBounds(1, 1, 199, 90);
 			
 			frame.getContentPane().add(textField);
 			textField.setColumns(10);

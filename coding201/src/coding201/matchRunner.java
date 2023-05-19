@@ -10,6 +10,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -78,25 +79,29 @@ public class matchRunner extends JPanel	 {
 		 
 		 playMatch();
 	
-		 JButton backButton = new JButton("Back");
+		 JButton backButton = new JButton("Finish Simulation");
 			backButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					HomePanel home = new HomePanel(frame);
 					stad.currWeek +=1;
 					if(myClubScore > oppScore) {
+						JOptionPane.showMessageDialog(frame, "Congrats, with that win " + stad.club.name + " just earned $50");
 						stad.club.balance += 50;
 					}
 					else if(myClubScore == oppScore) {
+						JOptionPane.showMessageDialog(frame, "With that tough draw " + stad.club.name + " just earned $25");
 						stad.club.balance += 25;
 					}
 					else if(myClubScore < oppScore) {
+						JOptionPane.showMessageDialog(frame, "The fans booed the players and demand a refund, " + stad.club.name + " just lost $10");
 						stad.club.balance -= 10;
 					}
+					
 					store.refreshStore();
 					home.setupPanel(stad, store);
 				}
 			});
-			backButton.setBounds(10, 25, 89, 23);
+			backButton.setBounds(10, 25, 150, 23);
 			add(backButton);
 			
 		JLabel scoreLabel = new JLabel("Final Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")" );
