@@ -3,6 +3,7 @@ package coding201;
 import javax.swing.JPanel;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
@@ -79,7 +80,7 @@ public class StadiumPanel extends JPanel {
 		JPanel playerList = new JPanel();
 		playerList.setBounds(10, 36, 530, 177);
 		playerPanel.add(playerList);
-		playerList.setLayout(new GridLayout(1, 0, 0, 0));
+		playerList.setLayout(new GridLayout(0, 4, 0, 0));
 		stadium.club.starterList.forEach((k, v) -> {
 			athleteDisplay athleteDisplay = new athleteDisplay(v);
 			playerList.add(athleteDisplay);   
@@ -135,11 +136,16 @@ public class StadiumPanel extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 
-				matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
+				
 				
 				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek) {
+					matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
 					frame.setContentPane(runner);
 				}
+				else if(stadium.club.starterList.size() < 4) {
+					JOptionPane.showMessageDialog(frame, "In order to Start a Match the Club Requires 4 Starters");
+				}
+				
 				
 				
 
