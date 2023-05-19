@@ -624,7 +624,7 @@ public class TeamViewPanel extends JPanel {
 							}
 						}
 						reserveButtonsToPrint.forEach((v) -> {
-							panel.add(v);
+							panel_1.add(v);
 						});
 						currDisplay.removeAll();
 						validate();
@@ -727,7 +727,7 @@ public class TeamViewPanel extends JPanel {
 		}
 		
 		reserveButtonsToPrint.forEach((v) -> {
-			panel.add(v);
+			panel_1.add(v);
 		});
 		
 		
