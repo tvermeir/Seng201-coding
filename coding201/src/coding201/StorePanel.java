@@ -19,6 +19,7 @@ public class StorePanel extends JPanel {
 	ArrayList<Athlete> playerList = new ArrayList<Athlete>();
 	ArrayList<PurchaseableItem> itemList = new ArrayList<PurchaseableItem>();
 	ArrayList<JRadioButton> buttonlist = new ArrayList<JRadioButton>();
+	ArrayList<JRadioButton> buttonsToPrint = new ArrayList<JRadioButton>();
 	Athlete currPlayer;
 	PurchaseableItem currItem;
 	/**
@@ -138,10 +139,21 @@ if(playerList.size() == 0) {
 		
 		
 		
-		JLabel balancelbl = new JLabel("Balance: " + Integer.toString(store.myClub.balance));
+//		JLabel balancelbl = new JLabel("Balance: " + Integer.toString(store.myClub.balance));
+//		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+//		balancelbl.setBounds(887, 29, 97, 23);
+//		add(balancelbl);
+		
+		
+		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
 		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-		balancelbl.setBounds(887, 29, 97, 23);
+		balancelbl.setBounds(1050, 33, 144, 23);
 		add(balancelbl);
+		
+		JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
+		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+		weekLabel.setBounds(932, 33, 108, 23);
+		add(weekLabel);
 		
 		JButton btnNewButton_1 = new JButton("PURCHASE");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -157,14 +169,28 @@ if(playerList.size() == 0) {
 					currPlayer = null;
 					playersInStorePanel.removeAll();
 					
-					JRadioButton selectedRadioButton = buttonlist.get(buttonlist.size() - 1);
-		            if (selectedRadioButton != null) {
-		                buttonGroup.remove(selectedRadioButton);
-		                buttonlist.remove(selectedRadioButton);
-		                athletesDisplay.remove(selectedRadioButton);
-		                athletesDisplay.validate();
-		                athletesDisplay.repaint();
-		            }
+//		            if (selectedRadioButton != null) {
+//		                buttonGroup.remove(selectedRadioButton);
+//		                buttonlist.remove(selectedRadioButton);
+//		                athletesDisplay.remove(selectedRadioButton);
+//		                athletesDisplay.validate();
+//		                athletesDisplay.repaint();
+//		            }
+					JRadioButton selectedRadioButton = buttonlist.get(buttonsToPrint.size() - 1);
+					buttonGroup.remove(selectedRadioButton);
+					athletesDisplay.remove(selectedRadioButton);
+					buttonsToPrint.clear();
+					athletesDisplay.revalidate();
+					athletesDisplay.repaint();
+					if (playerList.size() > 0) {
+						for (int i = 0; i < playerList.size(); i++) {
+							buttonsToPrint.add(buttonlist.get(i));
+						}
+					}
+					
+					
+						
+					
 					
 		            
 					validate();
@@ -177,12 +203,18 @@ if(playerList.size() == 0) {
 					
 					currPlayerPanel.removeAll();
 					
+					buttonsToPrint.forEach((v) -> {
+						athletesDisplay.add(v);
+					});
+					
 					validate();
 					repaint();
 					StorePanel.this.validate();
 					StorePanel.this.repaint();
 					athletesDisplay.revalidate();
 					athletesDisplay.repaint();
+					
+					
 					
 				}
 				else {
@@ -326,11 +358,7 @@ if(playerList.size() == 0) {
 //		panel.add(rdbtnNewRadioButton_3);
 		buttonlist.add(rdbtnNewRadioButton_3);
 		
-		if (playerList.size() > 0) {
-			for (int i = 0; i < playerList.size(); i++) {
-				athletesDisplay.add(buttonlist.get(i));
-			}
-		}
+		
 //		
 		
 		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("");
@@ -375,6 +403,16 @@ if(playerList.size() == 0) {
 		buttonGroup_1.add(rdbtnNewRadioButton_4_2);
 		rdbtnNewRadioButton_4_2.setBounds(319, 160, 21, 23);
 		itemsDisplay.add(rdbtnNewRadioButton_4_2);
+		
+		if (playerList.size() > 0) {
+			for (int i = 0; i < playerList.size(); i++) {
+				buttonsToPrint.add(buttonlist.get(i));
+			}
+		}
+		
+		buttonsToPrint.forEach((v) -> {
+			athletesDisplay.add(v);
+		});
 		
 		
 		

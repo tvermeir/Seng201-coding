@@ -18,7 +18,7 @@ public class playerDatabase {
 	Abdelhamid Sabiri
 	Abdoulaye Doucouré
 	Aboubakar Kamara
-	Adalberto Peñaranda Maestre
+	Adalberto Maestre
 	Adam David Lallana
 	Adam Masina
 	Adam Smith
@@ -26,8 +26,8 @@ public class playerDatabase {
 	Adama Traoré Diarra
 	Ademola Lookman
 	Adrian Mariappa
-	Adrián San Miguel del Castillo
-	Adrien Sebastian Perruchet Silva
+	Adrián  del Castillo
+	Adrien Silva
 	Ainsley Maitland-Niles
 	Alberto Moreno
 	Aleksandar Mitrović
@@ -38,7 +38,7 @@ public class playerDatabase {
 	Alex Smithies
 	Alexander Sørloth
 	Alexandre Lacazette
-	Alexandre Nascimento Costa Silva
+	Alexandre Silva
 	Alexis Sanchez
 	Alfie Jones
 	Alfie Mawson
@@ -90,7 +90,7 @@ public class playerDatabase {
 	Benjamin Johnson
 	Benjamin Mendy
 	Beram Kayal
-	Bernard Anício Caldeira Duarte
+	Bernard Duarte
 	Bernardo
 	Bernardo Silva
 	Bernd Leno
@@ -128,7 +128,7 @@ public class playerDatabase {
 	Christian Kabasele
 	Christopher Schindler
 	Ciaran Clark
-	Claudio Andrés Bravo Muñoz
+	Claudio Muñoz
 	Collin Quaner
 	Connor Wickham
 	Conor Coady
@@ -137,12 +137,12 @@ public class playerDatabase {
 	Curtis Jones
 	Cyrus Christie
 	Dale Stephens
-	Damián Emiliano Martínez
+	Emiliano Martínez
 	Dan Burn
 	Dan Gosling
 	Daniel Amartey
 	Daniel Sturridge
-	Daniel William John Ings
+	Daniel Ings
 	Daniel Williams
 	Danilo
 	Danny Drinkwater
@@ -159,7 +159,7 @@ public class playerDatabase {
 	David Luiz
 	David Silva
 	Davide Zappacosta
-	Davinson Sánchez Mina
+	Davinson Mina
 	Davy Pröpper
 	DeAndre Yedlin
 	Declan Rice
@@ -170,7 +170,7 @@ public class playerDatabase {
 	Denis Odoi
 	Denis Suárez
 	Diego Rico
-	Diogo José Teixeira da Silva
+	Diogo da Silva
 	Divock Origi
 	Domingos Quina
 	Dominic Calvert-Lewin
@@ -181,7 +181,7 @@ public class playerDatabase {
 	Edward Nketiah
 	Elias Kachunga
 	Emerson Hyndman
-	Emerson Palmieri dos Santos
+	Emerson dos Santos
 	Emile Smith Rowe
 	Eric Bertrand Bailly
 	Eric Dier
@@ -189,14 +189,14 @@ public class playerDatabase {
 	Erik Lamela
 	Ethan Ampadu
 	Etienne Capoue
-	Fabián Cornelio Balbuena González
+	Fabián González
 	Fabian Delph
 	Fabian Schär
 	Fabinho
-	Fabricio Martín Agosto Ramírez
-	Faustino Marcos Alberto Rojo
+	Fabricio Ramírez
+	Faustino Rojo
 	Federico Fernández
-	Felipe Anderson Pereira Gomes
+	Felipe Gomes
 	Fernando Llorente Torres
 	Fernando Luiz Rosa
 	Florent Hadergjonaj
@@ -207,13 +207,13 @@ public class playerDatabase {
 	Francisco Femenía Far
 	Fraser Forster
 	Freddie Woodman
-	Frederico Rodrigues Santos
+	Frederico Santos
 	Gabriel Jesus
 	Gaëtan Bong Songo
 	Gary Cahill
 	Gary Madine
 	George Marsh
-	Georges-Kevin N'Koudou Mbida
+	Georges-Kevin Mbida
 	Georginio Wijnaldum
 	Gerard Deulofeu
 	Glenn Murray
@@ -230,7 +230,7 @@ public class playerDatabase {
 	Harvey Lewis Barnes
 	Håvard Nordtveit
 	Hector Bellerin
-	Hélder Wander Sousa Azevedo Costa
+	Hélder Costa
 	Henrikh Mkhitaryan
 	Heung-Min Son
 	Heurelho da Silva Gomes
@@ -242,7 +242,7 @@ public class playerDatabase {
 	Isaac Hayden
 	Isaac Mbenza
 	Issa Diop
-	Ivan Ricardo Neves Abreu Cavaleiro
+	Ivan Cavaleiro
 	Jack Cork
 	Jack Simpson
 	Jack Stephens
@@ -302,10 +302,10 @@ public class playerDatabase {
 	Jordan Pickford
 	Jordon Ibe
 	Jorginho
-	José Diogo Dalot Teixeira
+	Diogo Dalot
 	José Holebas
 	Jose Izquierdo
-	José Luis Sanmartín Mato
+	José Mato
 	Joseph Willock
 	Josh Benson
 	Josh Knight
@@ -349,7 +349,7 @@ public class playerDatabase {
 	Lee Peltier
 	Leighton Baines
 	Leon Balogun
-	Leonardo Bonatini Lohner Maia
+	Leonardo Maia
 	Leroy Sané
 	Lewis Cass
 	Lewis Cook
@@ -359,7 +359,7 @@ public class playerDatabase {
 	Luca de la Torre
 	Lucas Digne
 	Lucas Perez
-	Lucas Rodrigues Moura da Silva
+	Lucas Moura 
 	Lucas Torreira
 	Luciano Vietto
 	Luka Milivojević
@@ -392,7 +392,7 @@ public class playerDatabase {
 	Matěj Vydra
 	Mateo Kovačić
 	Mathew Ryan
-	Mathias Jattah-Njie Jørgensen
+	Mathias Jørgensen
 	Matt Butcher
 	Matt Doherty
 	Matt Ritchie
@@ -413,8 +413,8 @@ public class playerDatabase {
 	Michail Antonio
 	Michel Vorm
 	Michy Batshuayi
-	Miguel Ángel Almirón Rejala
-	Miguel Ángel Britos Cabrera
+	Miguel Rejala
+	Miguel Cabrera
 	Mohamed Diamé
 	Mohamed Elneny
 	Mohamed Elyounoussi
@@ -434,7 +434,7 @@ public class playerDatabase {
 	Nathaniel Clyne
 	Nathaniel Mendez-Laing
 	Neeskens Kebano
-	Neil Leonard Dula Etheridge
+	Neil Etheridge
 	Nemanja Matić
 	Nicolas Otamendi
 	Nikola Tavares
@@ -471,12 +471,12 @@ public class playerDatabase {
 	Ramadan Sobhi
 	Raúl Alonso Jiménez Rodríguez
 	Rhys Healey
-	Ricardo Domingos Barbosa Pereira
+	Ricardo Pereira
 	Richarlison de Andrade
 	Riyad Mahrez
 	Rob Holding
 	Robbie Brady
-	Robert Kenedy Nunes do Nascimento
+	Robert Nascimento
 	Robert Snodgrass
 	Roberto Firmino
 	Roberto Maximiliano Pereyra
@@ -485,7 +485,7 @@ public class playerDatabase {
 	Rondon
 	Ross Barkley
 	Rúben Diogo Da Silva Neves
-	Rúben Gonçalo Silva Nascimento Vinagre
+	Rúben Vinagre
 	Ruben Loftus-Cheek
 	Rui Pedro dos Santos Patrício
 	Ryan Bennett

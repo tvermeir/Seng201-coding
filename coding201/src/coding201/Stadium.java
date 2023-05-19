@@ -11,6 +11,8 @@ public class Stadium {
 	Hashtable<String, Athlete> selectedTeam = new Hashtable<>();
 	int gamesPlayed = 0;
 	PlayerClub club;
+	int currWeek = 1;
+	int weeksToPlay;
 	
 	
 	public Stadium(PlayerClub club) {

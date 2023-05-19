@@ -2,14 +2,19 @@ package coding201;
 
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
 import java.util.List;
@@ -24,13 +29,17 @@ public class matchRunner extends JPanel	 {
 	public ArrayList<String> listKeysOfOpposition;
 	public PlayerClub playerClub;
 	mainFrame frame;
+	Stadium stadium;
+	int myClubScore = 0;
+	int oppScore = 0;
 
 	private JTextArea textField;
 
-	public matchRunner(PlayerClub player, opposingTeam opps, mainFrame frame) {
+	public matchRunner(PlayerClub player, opposingTeam opps, mainFrame frame, Stadium stad, Store store) {
 		this.playerClub = player;
 		this.opposition = opps;
 		this.frame = frame;
+		this.stadium = stad;
 		
 		 frame.setBounds(0,0, 1280, 720);
 		 frame.setLayout(null);
@@ -41,7 +50,8 @@ public class matchRunner extends JPanel	 {
 			
 			textField = new JTextArea();
 			textField.setEditable(false);
-			textField.setBounds(402, 148, 476, 423);
+			textField.setBounds(242, 71, 796, 630);
+			
 			add(textField);
 			textField.setColumns(10);
 			textField.setLineWrap(true);
@@ -50,27 +60,58 @@ public class matchRunner extends JPanel	 {
 			
 			JLabel lblNewLabel = new JLabel("Match Between " + playerClub.name +  " & " + opps.name);
 			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-			lblNewLabel.setBounds(402, 30, 476, 46);
+			lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+			lblNewLabel.setBounds(346, 30, 571, 46);
 			add(lblNewLabel);
 			
-			JLabel lblNewLabel_1 = new JLabel("FInal Score");
-			lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-			lblNewLabel_1.setBounds(402, 624, 476, 53);
-			add(lblNewLabel_1);
+			
 		 
+			
+			
 		 
+		JScrollPane scroll = new JScrollPane (textField);
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+
+		scroll.setBounds(254, 163, 689, 337);
+		add(scroll);
+
 		 
 		 playMatch();
 	
-		
+		 JButton backButton = new JButton("Back");
+			backButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					HomePanel home = new HomePanel(frame);
+					stad.currWeek +=1;
+					if(myClubScore > oppScore) {
+						stad.club.balance += 50;
+					}
+					else if(myClubScore == oppScore) {
+						stad.club.balance += 25;
+					}
+					else if(myClubScore < oppScore) {
+						stad.club.balance -= 10;
+					}
+					store.refreshStore();
+					home.setupPanel(stad, store);
+				}
+			});
+			backButton.setBounds(10, 25, 89, 23);
+			add(backButton);
+			
+		JLabel scoreLabel = new JLabel("Final Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")" );
+		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		scoreLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		scoreLabel.setBounds(338, 617, 587, 53);
+		add(scoreLabel);
+		 
 	}
+
 	
 	
 	public void playMatch()  {
 		int minutespassed = 10;
-		int myClubScore = 0;
-		int oppScore = 0;
+		
 		
 		Random random = new Random();
 		
@@ -105,9 +146,9 @@ public class matchRunner extends JPanel	 {
 			int event = random.nextInt(2);
 			
 			int number = random.nextInt(4);
-			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.athleteList.keySet());
+			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.starterList.keySet());
 			String playerName = listKeysOfTeam.get(number);
-			Athlete myPlayer = playerClub.athleteList.get(playerName);
+			Athlete myPlayer = playerClub.starterList.get(playerName);
 			
 			int number1 = random.nextInt(4);
 			List<String> listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
@@ -173,12 +214,13 @@ public class matchRunner extends JPanel	 {
 					minutespassed += 10;
 				
 				}
-			textField.setText(textField.getText()+ "\n Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")");
+			textField.setText(textField.getText()+ "\nScore = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")");
 			}
 				
 			
 			
-		System.out.println("Game has ended");
+		stadium.PossibleOpponents.remove(opposition.name);
+		stadium.fillOpponentTable();
 		
 			
 		}

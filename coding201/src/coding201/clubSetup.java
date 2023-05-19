@@ -77,8 +77,10 @@ public class clubSetup {
 		JSlider weeksSelected = new JSlider(5,15,10);
 		weeksSelected.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				userClub.weeksToPlay= weeksSelected.getValue();
-				System.out.println(userClub.weeksToPlay);
+				
+				stadium.weeksToPlay = weeksSelected.getValue();
+			
+				//System.out.println(stadium.weeksToPlay);
 		 			}
 		});
 		 		
@@ -92,9 +94,17 @@ public class clubSetup {
 		JButton continueButton = new JButton("Continue");
 		 continueButton.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		HomePanel homePanel = new HomePanel(frame);
-		 		homePanel.setupPanel(stadium, store);
-		 	}
+		 		if(stadium.weeksToPlay==0) {
+		 			JOptionPane.showMessageDialog(frame, "Please Select a Number of Weeks to Play For");
+		 		}
+		 		else {
+		 			HomePanel homePanel = new HomePanel(frame);
+			 		System.out.println(stadium.weeksToPlay);
+			 		homePanel.setupPanel(stadium, store);
+			 	}
+		 		
+		 		}
+		 		
 		 });
 		 continueButton.setFont(new Font("Bahnschrift", Font.PLAIN, 22));
 		 continueButton.setBounds(493, 524, 293, 79);

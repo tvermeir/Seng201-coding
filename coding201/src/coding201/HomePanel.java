@@ -38,6 +38,21 @@ public class HomePanel extends JPanel {
 		 titleLabel.setBounds(526, 43, 232, 39);
 		 mainPanel.add(titleLabel);
 		 
+//		 JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
+//		 weekLabel.setHorizontalAlignment(SwingConstants.CENTER);
+//		 weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+//		 weekLabel.setBounds(60, 39, 149, 43);
+//		 mainPanel.add(weekLabel);
+		 
+		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
+		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+		balancelbl.setBounds(1050, 33, 144, 23);
+		mainPanel.add(balancelbl);
+			
+		JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
+		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+		weekLabel.setBounds(932, 33, 108, 23);
+		mainPanel.add(weekLabel);
 		 
 		 JButton btnTeamView = new JButton("Team View");
 		 btnTeamView.addActionListener(new ActionListener() {

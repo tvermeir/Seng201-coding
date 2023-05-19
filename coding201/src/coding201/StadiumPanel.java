@@ -1,21 +1,21 @@
 package coding201;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JButton;
-import javax.swing.JList;
+
 import javax.swing.JRadioButton;
 
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
-import java.security.PublicKey;
+
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
+
 import java.awt.GridLayout;
 import javax.swing.ButtonGroup;
 
@@ -55,24 +55,24 @@ public class StadiumPanel extends JPanel {
 		JLabel lblNewLabel = new JLabel("Stadium");
 		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 34));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(540, 0, 153, 33);
+		lblNewLabel.setBounds(540, 21, 153, 33);
 		add(lblNewLabel);
 		
 		JLabel teamNameLabel = new JLabel(stadium.club.name);
 		teamNameLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
-		teamNameLabel.setBounds(142, 45, 298, 26);
+		teamNameLabel.setBounds(142, 78, 298, 26);
 		add(teamNameLabel);
 		teamNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JLabel oppName = new JLabel(currTeam.name);
 		oppName.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
-		oppName.setBounds(806, 38, 261, 33);
+		oppName.setBounds(806, 71, 261, 33);
 		add(oppName);
 		oppName.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		playerPanel.setBounds(24, 82, 550, 431);
+		playerPanel.setBounds(24, 115, 550, 431);
 		add(playerPanel);
 		playerPanel.setLayout(null);
 		
@@ -108,7 +108,7 @@ public class StadiumPanel extends JPanel {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(653, 191, 550, 236);
+		panel_1.setBounds(653, 224, 550, 236);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -128,20 +128,26 @@ public class StadiumPanel extends JPanel {
 		});
 		
 		
-		JButton btnNewButton = new JButton("START MATCH");
+		JButton btnNewButton = new JButton("SIMULATE MATCH");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				matchRunner runner = new matchRunner(stadium.club, currTeam, frame);
-				
-				
-				frame.setContentPane(runner);
-				frame.revalidate();
 
+
+
+			public void actionPerformed(ActionEvent e) {
+
+				matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
 				
+				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek) {
+					frame.setContentPane(runner);
+				}
+				
+				
+
+
 				
 			}
 		});
-		btnNewButton.setBounds(466, 524, 301, 23);
+		btnNewButton.setBounds(466, 557, 301, 23);
 		add(btnNewButton);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Opponent 1");
@@ -163,7 +169,7 @@ public class StadiumPanel extends JPanel {
 			}
 		});
 		rdbtnNewRadioButton.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton.setBounds(577, 99, 79, 33);
+		rdbtnNewRadioButton.setBounds(577, 132, 79, 33);
 		add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Opponent 2");
@@ -184,7 +190,7 @@ public class StadiumPanel extends JPanel {
 			}
 		});
 		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1.setBounds(580, 189, 73, 37);
+		rdbtnNewRadioButton_1.setBounds(580, 222, 73, 37);
 		add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Opponent 3");
@@ -206,7 +212,7 @@ public class StadiumPanel extends JPanel {
 		});
 		rdbtnNewRadioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		rdbtnNewRadioButton_2.setBounds(580, 292, 73, 38);
+		rdbtnNewRadioButton_2.setBounds(580, 325, 73, 38);
 		add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Opponent 4");
@@ -227,7 +233,7 @@ public class StadiumPanel extends JPanel {
 			}
 		});
 		rdbtnNewRadioButton_3.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_3.setBounds(580, 390, 73, 37);
+		rdbtnNewRadioButton_3.setBounds(580, 423, 73, 37);
 		add(rdbtnNewRadioButton_3);
 		
 		JButton btnNewButton_1 = new JButton("Back");
@@ -240,8 +246,19 @@ public class StadiumPanel extends JPanel {
 				
 			}
 		});
-		btnNewButton_1.setBounds(24, 12, 89, 23);
+		btnNewButton_1.setBounds(24, 33, 89, 23);
 		add(btnNewButton_1);
+		
+		
+		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
+		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+		balancelbl.setBounds(1050, 33, 144, 23);
+		add(balancelbl);
+			
+		JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
+		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
+		weekLabel.setBounds(932, 33, 108, 23);
+		add(weekLabel);
 		
 		
 		

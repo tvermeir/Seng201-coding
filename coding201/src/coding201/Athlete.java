@@ -49,17 +49,20 @@ public class Athlete{
 		
 	}
 	
-	public void useBangage() {
-		health = 100;
+	public void useRecovery() {
+		stamina += 50;
+		if (stamina >= 100) {
+			stamina = 100;
+		}
 	}
 	public void useAttackTraining() {
-		attack += 5;
+		attack += 15;
 		if (attack >= 100) {
 			attack = 100;
 		}
 	}
 	public void useDefenseTraining() {
-		defense += 5;
+		defense += 15;
 		if (defense >= 100) {
 			defense = 100;
 		}
