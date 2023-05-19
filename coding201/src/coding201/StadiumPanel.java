@@ -131,19 +131,12 @@ public class StadiumPanel extends JPanel {
 		JButton btnNewButton = new JButton("START MATCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 				matchRunner runner = new matchRunner(stadium.club, currTeam, frame);
 				
 				
 				frame.setContentPane(runner);
 				frame.revalidate();
-=======
-//				matchRunner runner = stadium.playMatch(currTeam.name);
-//				
-//				matchRunnerPanel matchRunner = new matchRunnerPanel(runner, frame, stadium, currTeam);
-//				frame.setContentPane(matchRunner);
-//				frame.revalidate();
->>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
+
 				
 				
 			}
