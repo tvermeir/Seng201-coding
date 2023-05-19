@@ -79,7 +79,7 @@ public class StadiumPanel extends JPanel {
 		JPanel playerList = new JPanel();
 		playerList.setBounds(10, 36, 530, 177);
 		playerPanel.add(playerList);
-		playerList.setLayout(new GridLayout(1, 0, 0, 0));
+		playerList.setLayout(new GridLayout(0, 4, 0, 0));
 		stadium.club.starterList.forEach((k, v) -> {
 			athleteDisplay athleteDisplay = new athleteDisplay(v);
 			playerList.add(athleteDisplay);   
