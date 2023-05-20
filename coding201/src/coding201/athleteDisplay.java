@@ -45,6 +45,7 @@ public class athleteDisplay extends JPanel {
 		add(lblNewLabel_1_1);
 		
 		JTextArea txtrHi = new JTextArea();
+		txtrHi.setForeground(new Color(128, 0, 0));
 		txtrHi.setEditable(false);
 		txtrHi.setWrapStyleWord(true);
 		txtrHi.setLineWrap(true);
@@ -52,7 +53,7 @@ public class athleteDisplay extends JPanel {
 		txtrHi.setText(athlete.name);
 		txtrHi.setColumns(1);
 		txtrHi.setRows(2);
-		txtrHi.setBounds(16, 11, 108, 50);
+		txtrHi.setBounds(16, 11, 108, 62);
 		add(txtrHi);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Price");

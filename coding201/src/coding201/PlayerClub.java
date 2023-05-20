@@ -59,6 +59,18 @@ public class PlayerClub {
 		
 		
 	}
+	
+	public void reShuffle() {
+		while (starterList.size() < 4 && reserveList.size() > 0) {
+			ArrayList<Athlete> tempAths = new ArrayList<Athlete>();
+			reserveList.forEach((k, v) -> {
+				tempAths.add(v);
+			});
+			starterList.put(tempAths.get(0).name, tempAths.get(0));
+			reserveList.remove(tempAths.get(0).name);
+			tempAths.remove(0);
+		}
+	}
 	public float getBalance() {
 		return balance;
 	}

@@ -84,9 +84,11 @@ public class TeamViewPanel extends JPanel {
 		panel.add(playerList);
 		playerList.setLayout(new GridLayout(0, 4, 0, 0));
 		
+		
+		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
 		starterButtonGroup.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setBounds(55, 177, 21, 23);
+		rdbtnNewRadioButton.setBounds(65, 177, 21, 23);
 //		panel.add(rdbtnNewRadioButton);
 		
 		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
@@ -110,7 +112,7 @@ public class TeamViewPanel extends JPanel {
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
 		starterButtonGroup.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setBounds(194, 177, 21, 23);
+		rdbtnNewRadioButton_1.setBounds(204, 177, 21, 23);
 //		panel.add(rdbtnNewRadioButton_1);
 		
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
@@ -129,7 +131,7 @@ public class TeamViewPanel extends JPanel {
 		
 		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("");
 		starterButtonGroup.add(rdbtnNewRadioButton_1_1);
-		rdbtnNewRadioButton_1_1.setBounds(349, 177, 21, 23);
+		rdbtnNewRadioButton_1_1.setBounds(330, 177, 21, 23);
 		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currPlayer = starterList.get(2);
@@ -147,7 +149,7 @@ public class TeamViewPanel extends JPanel {
 		
 		JRadioButton rdbtnNewRadioButton_1_1_1 = new JRadioButton("");
 		starterButtonGroup.add(rdbtnNewRadioButton_1_1_1);
-		rdbtnNewRadioButton_1_1_1.setBounds(475, 177, 21, 23);
+		rdbtnNewRadioButton_1_1_1.setBounds(465, 177, 21, 23);
 //		panel.add(rdbtnNewRadioButton_1_1_1);
 		rdbtnNewRadioButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -259,7 +261,64 @@ public class TeamViewPanel extends JPanel {
 		});
 		reserveButtonList.add(rdbtnNewRadioButton_1_1_1_1);
 		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(TeamViewPanel.class.getResource("/img/SwapArrows.jpg")));
+		lblNewLabel_1.setBounds(41, 210, 73, 285);
+		if (reserveList.size() > 0) {
+			add(lblNewLabel_1);
+		}
 		
+		JButton btnNewButton_2 = new JButton("Swap");
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currPlayer == null || currStarter == null || currReserve == null) {
+					JOptionPane.showMessageDialog(frame, "Please select a starter and a reserve" );
+					return;
+				}
+				
+				stadium.club.starterList.put(currReserve.name, currReserve);
+				stadium.club.reserveList.put(currStarter.name, currStarter);
+				stadium.club.starterList.remove(currStarter.name);
+				stadium.club.reserveList.remove(currReserve.name);
+				
+				
+				currPlayer = null;
+				currStarter = null;
+				currReserve = null;
+				
+				starterList.clear();
+				reserveList.clear();
+				playerList.removeAll();
+				reservePanel.removeAll();
+				
+				stadium.club.starterList.forEach((k, v) -> {
+					starterList.add(v);   
+				});
+				starterList.forEach((v) -> {
+					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					playerList.add(athleteDisplay);
+					playerList.revalidate();
+				});
+				stadium.club.reserveList.forEach((k, v) -> {
+					reserveList.add(v);   
+				});
+				reserveList.forEach((v) -> {
+					athleteDisplay athleteDisp = new athleteDisplay(v);
+					reservePanel.add(athleteDisp);
+					reservePanel.revalidate();
+//					System.out.println(v.name);
+				});
+				
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tw Cen MT", Font.ITALIC, 14));
+		btnNewButton_2.setHorizontalAlignment(SwingConstants.LEADING);
+		btnNewButton_2.setBounds(29, 334, 81, 36);
+		if (reserveList.size() > 0) {
+			add(btnNewButton_2);
+			this.setComponentZOrder(btnNewButton_2, 0);
+		}
 		
 		
 		
@@ -386,7 +445,7 @@ public class TeamViewPanel extends JPanel {
 				
 			}
 		});
-		btnNewButton_1.setBounds(34, 176, 146, 23);
+		btnNewButton_1.setBounds(22, 176, 171, 23);
 		panel_4.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Apply Defense Training");
@@ -455,7 +514,7 @@ public class TeamViewPanel extends JPanel {
 				
 			}
 		});
-		btnNewButton_1_1.setBounds(34, 198, 146, 23);
+		btnNewButton_1_1.setBounds(22, 198, 171, 23);
 		panel_4.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("Apply Active Recovery");
@@ -525,7 +584,7 @@ public class TeamViewPanel extends JPanel {
 				
 			}
 		});
-		btnNewButton_1_1_1.setBounds(34, 223, 146, 23);
+		btnNewButton_1_1_1.setBounds(22, 223, 171, 23);
 		panel_4.add(btnNewButton_1_1_1);
 		
 		JButton sellButton = new JButton("Sell Player");
@@ -556,6 +615,10 @@ public class TeamViewPanel extends JPanel {
 				            return;
 				        }
 						stadium.club.starterList.remove(currPlayer.name);
+						if (reserveList.size() > 0) {
+							stadium.club.starterList.put(reserveList.get(0).name, reserveList.get(0));
+							stadium.club.reserveList.remove(reserveList.get(0).name);
+						}
 						starterList.clear();
 						playerList.removeAll();
 						stadium.club.starterList.forEach((k, v) -> {
@@ -566,6 +629,18 @@ public class TeamViewPanel extends JPanel {
 							playerList.add(athleteDisplay);
 							playerList.revalidate();
 						});
+						reserveList.clear();
+						reservePanel.removeAll();
+						stadium.club.reserveList.forEach((k, v) -> {
+							reserveList.add(v);   
+						});
+						reserveList.forEach((v) -> {
+							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							reservePanel.add(athleteDisplay);
+							reservePanel.revalidate();
+						});
+						
+						
 						stadium.club.balance += currPlayer.price;
 						balancelbl.setText("Balance: " + Integer.toString(stadium.club.balance));
 						stadium.club.athleteList.remove(currPlayer.name);
@@ -588,6 +663,32 @@ public class TeamViewPanel extends JPanel {
 						starterButtonsToPrint.forEach((v) -> {
 							panel.add(v);
 						});
+						JRadioButton selectedRadioButton2;
+						if (reserveButtonsToPrint.size() == 0) {
+							
+							selectedRadioButton2 = reserveButtonList.get(reserveButtonsToPrint.size());
+						}
+						else {
+							selectedRadioButton2 = reserveButtonList.get(reserveButtonsToPrint.size() - 1);
+						}
+						reserveButtonGroup.remove(selectedRadioButton2);
+						panel_1.remove(selectedRadioButton2);
+						reserveButtonsToPrint.clear();
+						panel_1.revalidate();
+						panel_1.repaint();
+						if (reserveList.size() > 0) {
+							for (int i = 0; i < reserveList.size(); i++) {
+								reserveButtonsToPrint.add(reserveButtonList.get(i));
+							}
+							reserveButtonsToPrint.forEach((v) -> {
+								panel_1.add(v);
+							});
+						}
+						
+						
+						
+						
+						
 						currDisplay.removeAll();
 						validate();
 						repaint();
@@ -612,10 +713,10 @@ public class TeamViewPanel extends JPanel {
 						TeamViewPanel.this.revalidate();
 						TeamViewPanel.this.repaint();
 						
-						JRadioButton selectedRadioButton = starterButtonList.get(reserveButtonsToPrint.size() - 1);
+						JRadioButton selectedRadioButton = reserveButtonList.get(reserveButtonsToPrint.size() - 1);
 						reserveButtonGroup.remove(selectedRadioButton);
 						panel_1.remove(selectedRadioButton);
-						starterButtonsToPrint.clear();
+						reserveButtonsToPrint.clear();
 						panel_1.revalidate();
 						panel_1.repaint();
 						if (reserveList.size() > 0) {
@@ -630,6 +731,15 @@ public class TeamViewPanel extends JPanel {
 						validate();
 						repaint();
 					}
+					remove(lblNewLabel_1);
+					remove(btnNewButton_2);
+					if (reserveList.size() > 0) {
+						add(lblNewLabel_1);
+					}
+					if (reserveList.size() > 0) {
+						add(btnNewButton_2);
+						TeamViewPanel.this.setComponentZOrder(btnNewButton_2, 0);
+					}
 					
 					
 					
@@ -637,7 +747,7 @@ public class TeamViewPanel extends JPanel {
 				
 			}
 		});
-		sellButton.setBounds(34, 247, 146, 23);
+		sellButton.setBounds(22, 247, 171, 23);
 		panel_4.add(sellButton);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Selected Player");
@@ -645,12 +755,7 @@ public class TeamViewPanel extends JPanel {
 		add(lblNewLabel_1_1_1_1);
 		lblNewLabel_1_1_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 20));
 		
-
-//		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
-//		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-//		balancelbl.setBounds(1050, 33, 144, 23);
-//		add(balancelbl);
-
+		
 		
 		JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
@@ -659,61 +764,7 @@ public class TeamViewPanel extends JPanel {
 		
 		
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(TeamViewPanel.class.getResource("/img/SwapArrows.jpg")));
-		lblNewLabel_1.setBounds(41, 210, 73, 285);
-		if (reserveList.size() > 0) {
-			add(lblNewLabel_1);
-		}
 		
-		JButton btnNewButton_2 = new JButton("Swap");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currPlayer == null || currStarter == null || currReserve == null) {
-					JOptionPane.showMessageDialog(frame, "Please select a starter and a reserve" );
-					return;
-				}
-				stadium.club.starterList.put(currReserve.name, currReserve);
-				stadium.club.reserveList.put(currStarter.name, currStarter);
-				stadium.club.starterList.remove(currStarter.name);
-				stadium.club.reserveList.remove(currReserve.name);
-				
-				
-				currPlayer = null;
-				currStarter = null;
-				currReserve = null;
-				
-				starterList.clear();
-				reserveList.clear();
-				playerList.removeAll();
-				reservePanel.removeAll();
-				
-				stadium.club.starterList.forEach((k, v) -> {
-					starterList.add(v);   
-				});
-				starterList.forEach((v) -> {
-					athleteDisplay athleteDisplay = new athleteDisplay(v);
-					playerList.add(athleteDisplay);
-					playerList.revalidate();
-				});
-				stadium.club.reserveList.forEach((k, v) -> {
-					reserveList.add(v);   
-				});
-				reserveList.forEach((v) -> {
-					athleteDisplay athleteDisp = new athleteDisplay(v);
-					reservePanel.add(athleteDisp);
-					reservePanel.revalidate();
-//					System.out.println(v.name);
-				});
-				
-			}
-		});
-		btnNewButton_2.setFont(new Font("Tw Cen MT", Font.ITALIC, 14));
-		btnNewButton_2.setHorizontalAlignment(SwingConstants.LEADING);
-		btnNewButton_2.setBounds(29, 334, 81, 36);
-		if (reserveList.size() > 0) {
-			add(btnNewButton_2);
-		}
 		
 		if (starterList.size() > 0) {
 			for (int i = 0; i < starterList.size(); i++) {

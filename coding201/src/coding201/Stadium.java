@@ -12,7 +12,7 @@ public class Stadium {
 	int gamesPlayed = 0;
 	PlayerClub club;
 	int currWeek = 1;
-	int weeksToPlay;
+	int weeksToPlay = 10;
 	
 	
 	public Stadium(PlayerClub club) {

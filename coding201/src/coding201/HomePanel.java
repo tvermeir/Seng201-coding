@@ -63,7 +63,7 @@ public class HomePanel extends JPanel {
 		 	}
 		 });
 		 btnTeamView.setFont(new Font("Dialog", Font.PLAIN, 22));
-		 btnTeamView.setBounds(400, 222, 336, 273);
+		 btnTeamView.setBounds(470, 222, 336, 273);
 		 mainPanel.add(btnTeamView);
 		 
 		 JButton btnStadium = new JButton("Stadium");
