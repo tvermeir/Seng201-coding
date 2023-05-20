@@ -474,6 +474,7 @@ public class StadiumPanel extends JPanel {
 	public void doRandomEvent() {
 		Random random = new Random();
 		int number1 = random.nextInt(10);
+		
 		if (number1 == 9) {
 			this.doAthleteQuitEvent();
 		}
@@ -482,6 +483,11 @@ public class StadiumPanel extends JPanel {
 		}
 		if (number1 <= 2) {
 			this.doBoostStatEvent();
+		}
+		
+		
+		else {
+			JOptionPane.showMessageDialog(frame,"Week has been successfully skipped.");
 		}
 		
 
