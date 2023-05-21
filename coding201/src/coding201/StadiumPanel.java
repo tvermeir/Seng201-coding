@@ -163,23 +163,24 @@ public class StadiumPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				int count = 0;
 				boolean canPlay = true;
-				for (int i = 0; i < nameList.size(); i++) {
-					Athlete athlete = stadium.club.starterList.get(nameList.get(i));
-					if(athlete.stamina <50 && count <1) {
-						JOptionPane.showMessageDialog(frame,"One Player on your team does not have enough stamina, make sure it is greater than 50");
-						count+=1;
-						canPlay = false;
-						break;
+				if (stadium.club.starterList.size() < 4) {
+					JOptionPane.showMessageDialog(frame, "In order to Start a Match the Club Requires 4 Starters");
+				}
+				else if(stadium.club.starterList.size() == 4) {
+					for (int i = 0; i < nameList.size(); i++) {
+						Athlete athlete = stadium.club.starterList.get(nameList.get(i));
+						if(athlete.stamina <50 && count <1) {
+							JOptionPane.showMessageDialog(frame,"One Player on your team does not have enough stamina, make sure it is greater than 50");
+							count+=1;
+							canPlay = false;
+							break;
+						}
+						
+						else if(athlete.stamina >= 50) {
+							canPlay = true;
+							
+						}
 					}
-					else if(athlete.stamina >= 50) {
-						canPlay = true;
-						
-					}
-					
-						
-				
-						
-					
 				}
 				
 				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek && canPlay == true) {
@@ -189,9 +190,7 @@ public class StadiumPanel extends JPanel {
 					matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
 					frame.setContentPane(runner);
 				}
-				else if(stadium.club.starterList.size() < 4) {
-					JOptionPane.showMessageDialog(frame, "In order to Start a Match the Club Requires 4 Starters");
-				}
+				
 				else if(stadium.currWeek >= stadium.weeksToPlay) {
 						JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
 						FinishPanel finishPanel = new FinishPanel(frame,stadium);

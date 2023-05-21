@@ -4,10 +4,11 @@ import java.util.Hashtable;
 
 
 /**
- * Creates the game 
- * Initializes all other classes in the code by calling them in a specific order as per requirements
- * 
- *
+ * <h1>Game Environment<h1>
+ * The game environment class initializes all the main code based classes (not swing)  in the code by calling them in a specific order as per requirements
+ * before passing the initialized classes into the mainFrame class, creating the JFrame 
+ *@version 1.0
+ *@author toddv & benzene26
  */
 public class gameEnvironment {
 	String clubName;
@@ -22,6 +23,18 @@ public class gameEnvironment {
 	
 	
 	/**
+	 * Creates an instance of the mainframe account
+	 * This frame instance is used across the whole program and is used to initialize the 
+	 * 
+	 * 
+	 * @param None
+	 * @return an instance of the mainframe class
+	 */
+	public mainFrame gameFrame(){
+		mainFrame frame = new mainFrame();
+		return frame;
+	}
+	/**
 	 * Gathers details about the club from the user
 	 * Such as, the name, the number of weeks they would like to play and the difficulty by utilizing scanners
 	 * 
@@ -29,21 +42,12 @@ public class gameEnvironment {
 	 * @param myClub the clubSetup class
 	 * @return the complete and setup Club belonging to the user
 	 */
-	public mainFrame gameFrame(){
-		mainFrame frame = new mainFrame();
-		return frame;
-	}
 	public PlayerClub getDetails(clubSetup myClub) {
 		
-		//clubName = myClub.clubName;
 		
 		clubName = myClub.clubName;
-		System.out.println(clubName);
-		//difficulty = myClub.setDifficulty();
 		money = myClub.getMoney();
-//		athletesOnTeam = myClub.getPlayers();
 		PlayerClub userClub = new PlayerClub(money, clubName);
-		System.out.println(userClub.balance);
 		userClub.Fill();
 		return userClub;
 		
@@ -87,31 +91,16 @@ public class gameEnvironment {
 		return store;
 		
 	}
+	
+	
 	/**
-	 * The match runner class is initialized within this method
-	 * before being called inside the main function
+	 * The main class here calls the methods above and instantiates the program
+	 * It creates the clubSetup, PlayerClub, and gameEnvironment instances 
+	 * Before passing them into the setupFrame method of the mainFrame class
 	 * 
-	 * It takes in a singular parameter, a PlayerClub
-	 * which is passed into the match runner as it contains the complete list
-	 * of players in the user's club
-	 * 
-	 * An opposing team class is also intialised here, to pass in the opposition team
-	 * so a match can occur
-	 * 
-	 * @param myClub a PlayerClub setup in the getDetails() method
-	 * @return match an instance of the matchrunner class
+	 * @param None
+	 * @return None
 	 */
-	
-//	public matchRunner startMatch(PlayerClub myClub) {
-//		opposingTeam opps = new opposingTeam();
-//		opps.Fill();
-  
-	//public matchRunner matchMethod() {
-		//matchRunner match = new matchRunner(athletesOnTeam, opposingTeam)
-	//}
-	
-	
-	
 	public static void main(String[] args) {
 		
 		//Game Setup
@@ -125,9 +114,10 @@ public class gameEnvironment {
 		Stadium stadium = helloEnvironment.stadiumMethod(userClub);
 		Store store = helloEnvironment.storeMethod(userClub);
 
-		mainFrame pleaseFrame = new mainFrame();
-		pleaseFrame.setupFrame(stadium, store, userClub);
-		pleaseFrame.setVisible(true);
+		
+		mainFrame mainFrame = new mainFrame();
+		mainFrame.setupFrame(stadium, store, userClub);
+		mainFrame.setVisible(true);
 
 		
 	}

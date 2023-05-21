@@ -26,7 +26,7 @@ public class opposingTeam extends PlayerClub {
 	
 	
 	
-	public opposingTeam(String teamName ){
+	public opposingTeam(String teamName){
 		name = teamName;
 		
 	}

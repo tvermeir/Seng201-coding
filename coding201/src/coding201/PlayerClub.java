@@ -7,7 +7,14 @@ import javax.swing.JOptionPane;
 
 import java.util.Hashtable;
 import java.util.List;
-
+/**
+ * <h1>Player Club<h1>
+ * This class is responsible for creating the framework for the player club. It contains the complete
+ * athleteList, starterList and reserveList as well as the name of the club and the starting balance of the club
+ * 
+ *@version 1.0
+ *@author toddv & benzene26
+ */
 public class PlayerClub {
 	int balance;
 	int playerCount;
@@ -23,7 +30,15 @@ public class PlayerClub {
 	int weeksToPlay;
 	
 	
-	public PlayerClub() {
+	/**
+	 *These are constructors used to set up the variables within the PlayerClub class, there are three of them as there are three different calls to the class
+	 * 
+	 * 
+	 *@param Balance: an integer value representing the money the club has, Name: an string value representing the name of the team
+	 *@return sets the balance and teamName within the class equal to the constructor values, the 3rd constructor, the hashtable athleteList from the opposing team class
+	 */
+	
+	public PlayerClub () {
 		
 	}
 	
@@ -40,25 +55,17 @@ public class PlayerClub {
 		this.athleteList = athleteList2;
 	}
 	
+
+	/**
+	 *These are constructors used to set up the variables within the PlayerClub class, there are three of them as there are three different calls to the class
+	 * 
+	 * 
+	 *@param Balance: an integer value representing the money the club has, Name: an string value representing the name of the team
+	 *@return sets the balance and teamName within the class equal to the constructor values, the 3rd constructor, the hashtable athleteList from the opposing team class
+	 */
 	
-	public void makeReserve(Athlete athlete) {
-		if (athleteList.contains(athlete.name)) {
-			reserveList.put(athlete.name,athlete);
-		}
-		if (starterList.contains(athlete.name)) {
-			starterList.remove(athlete.name);
-		}
-	}
-	public void makeStarter(Athlete athlete) {
-		if (athleteList.contains(athlete.name)) {
-			starterList.put(athlete.name, athlete);
-		}
-		if (reserveList.contains(athlete.name)) {
-			reserveList.remove(athlete.name);
-		}
-		
-		
-	}
+	
+	
 	
 	public void reShuffle() {
 		while (starterList.size() < 4 && reserveList.size() > 0) {
@@ -71,18 +78,7 @@ public class PlayerClub {
 			tempAths.remove(0);
 		}
 	}
-	public float getBalance() {
-		return balance;
-	}
 	
-	public boolean canPlay() {
-		if (starterList.size() >= 4) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 	
 	public void addPlayer(Athlete athlete) {
 		if (athleteList == null) {
