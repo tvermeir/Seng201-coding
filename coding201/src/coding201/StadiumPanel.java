@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.awt.event.ActionListener;
 
@@ -30,6 +29,7 @@ public class StadiumPanel extends JPanel {
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
 	ArrayList<Athlete> athleteList = new ArrayList<Athlete>();
+	ArrayList<String> nameList = new ArrayList<String>();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Create the panel.
@@ -52,6 +52,10 @@ public class StadiumPanel extends JPanel {
 		
 		stadium.club.athleteList.forEach((k, v) -> {
 			athleteList.add(v);   
+		});
+		
+		stadium.club.starterList.forEach((k,v) -> {
+			nameList.add(k);
 		});
 		
 		
@@ -157,17 +161,43 @@ public class StadiumPanel extends JPanel {
 
 
 			public void actionPerformed(ActionEvent e) {
-
+				int count = 0;
+				boolean canPlay = true;
+				for (int i = 0; i < nameList.size(); i++) {
+					Athlete athlete = stadium.club.starterList.get(nameList.get(i));
+					if(athlete.stamina <50 && count <1) {
+						JOptionPane.showMessageDialog(frame,"One Player on your team does not have enough stamina, make sure it is greater than 50");
+						count+=1;
+						canPlay = false;
+						break;
+					}
+					else if(athlete.stamina >= 50) {
+						canPlay = true;
+						
+					}
+					
+						
 				
+						
+					
+				}
 				
-				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek) {
+				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek && canPlay == true) {
+					
+					
+					
 					matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
 					frame.setContentPane(runner);
 				}
 				else if(stadium.club.starterList.size() < 4) {
 					JOptionPane.showMessageDialog(frame, "In order to Start a Match the Club Requires 4 Starters");
 				}
-				
+				else if(stadium.currWeek >= stadium.weeksToPlay) {
+						JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+						FinishPanel finishPanel = new FinishPanel(frame,stadium);
+						frame.setContentPane(finishPanel);
+					
+					}
 				
 				
 
@@ -296,6 +326,12 @@ public class StadiumPanel extends JPanel {
 					weekLabel.setText("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 					doRandomEvent();
 					frame.revalidate();
+				}
+				else {
+					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+					
 				}
 			}
 		});
@@ -478,15 +514,20 @@ public class StadiumPanel extends JPanel {
 		if (number1 == 9) {
 			this.doAthleteQuitEvent();
 		}
-		if (number1 == 4) {
-			this.doRandomNewAthleteEvent();
+		else if (number1 == 4) {
+			if(reserveList.size() <4){
+				this.doRandomNewAthleteEvent();
+			}
+			else {
+				JOptionPane.showMessageDialog(frame,"Week has been successfully skipped.");
+			}
 		}
-		if (number1 <= 2) {
+		else if (number1 <= 2) {
 			this.doBoostStatEvent();
 		}
 		
 		
-		else {
+		else{
 			JOptionPane.showMessageDialog(frame,"Week has been successfully skipped.");
 		}
 		

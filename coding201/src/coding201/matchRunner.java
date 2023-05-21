@@ -87,18 +87,29 @@ public class matchRunner extends JPanel	 {
 					if(myClubScore > oppScore) {
 						JOptionPane.showMessageDialog(frame, "Congrats, with that win " + stad.club.name + " just earned $50");
 						stad.club.balance += 50;
+						stad.numWins +=1;
 					}
 					else if(myClubScore == oppScore) {
 						JOptionPane.showMessageDialog(frame, "With that tough draw " + stad.club.name + " just earned $25");
 						stad.club.balance += 25;
+						stad.numDraws += 1;
 					}
 					else if(myClubScore < oppScore) {
 						JOptionPane.showMessageDialog(frame, "The fans booed the players and demand a refund, " + stad.club.name + " just lost $10");
 						stad.club.balance -= 10;
+						stad.numLosses += 1;
 					}
 					
-					store.refreshStore();
-					home.setupPanel(stad, store);
+					if(stadium.currWeek < stadium.weeksToPlay) {
+					
+						store.refreshStore();
+						home.setupPanel(stad, store);
+					}
+					else {
+						JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+						FinishPanel finishPanel = new FinishPanel(frame,stad);
+						frame.setContentPane(finishPanel);
+					}
 				}
 			});
 			backButton.setBounds(10, 25, 150, 23);
@@ -185,6 +196,7 @@ public class matchRunner extends JPanel	 {
 						
 						}
 					minutespassed += 10;
+					reduceStamina(myPlayer);
 				}
 					
 					
@@ -215,7 +227,7 @@ public class matchRunner extends JPanel	 {
 							}
 					}
 					
-						
+					reduceStamina(myPlayer);
 					minutespassed += 10;
 				
 				}
@@ -236,7 +248,14 @@ public class matchRunner extends JPanel	 {
 	
 	
 	
-	
+	public void reduceStamina(Athlete myPlayer) {
+		if(myPlayer.stamina - 3 >= 0) {
+			myPlayer.stamina -= 3;
+		}
+		else if(myPlayer.stamina - 3 < 0) {
+			myPlayer.stamina = 0;
+		}
+	}
 	
 	
 	public static void main(String[] args) {

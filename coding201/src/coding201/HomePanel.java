@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicInternalFrameUI.InternalFrameLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -57,9 +58,18 @@ public class HomePanel extends JPanel {
 		 JButton btnTeamView = new JButton("Team View");
 		 btnTeamView.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		TeamViewPanel teamView = new TeamViewPanel(stadium, store, frame);
-		 		frame.setContentPane(teamView);
-		 		frame.validate();
+		 		if(stadium.currWeek < stadium.weeksToPlay) {
+					
+		 			TeamViewPanel teamView = new TeamViewPanel(stadium, store, frame);
+			 		frame.setContentPane(teamView);
+			 		frame.validate();
+				}
+				else {
+					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+				}
+		 		
 		 	}
 		 });
 		 btnTeamView.setFont(new Font("Dialog", Font.PLAIN, 22));
@@ -69,8 +79,17 @@ public class HomePanel extends JPanel {
 		 JButton btnStadium = new JButton("Stadium");
 		 btnStadium.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		StadiumPanel stadiumPanel = new StadiumPanel(stadium, store, frame);
-		 		frame.setContentPane(stadiumPanel);
+		 		if(stadium.currWeek < stadium.weeksToPlay) {
+					
+		 			StadiumPanel stadiumPanel = new StadiumPanel(stadium, store, frame);
+			 		frame.setContentPane(stadiumPanel);
+				}
+				else {
+					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+				}
+		 		
 		 	}
 		 });
 		 btnStadium.setFont(new Font("Dialog", Font.PLAIN, 22));
@@ -80,14 +99,35 @@ public class HomePanel extends JPanel {
 		 JButton btnStore = new JButton("Store");
 		 btnStore.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		StorePanel storePanel = new StorePanel(stadium, store, frame);
-		 		frame.setContentPane(storePanel);
-		 		frame.revalidate();
+		 		
+		 		if(stadium.currWeek < stadium.weeksToPlay) {
+					
+		 			StorePanel storePanel = new StorePanel(stadium, store, frame);
+			 		frame.setContentPane(storePanel);
+			 		frame.revalidate();
+				}
+				else {
+					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+				}
+		 		
 		 	}
 		 });
 		 btnStore.setFont(new Font("Dialog", Font.PLAIN, 22));
 		 btnStore.setBounds(904, 222, 336, 273);
 		 mainPanel.add(btnStore);
+		 
+		 JButton backButton = new JButton("Quit Game");
+			backButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(frame,"Game has ended");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+				}
+			});
+			backButton.setBounds(10, 25, 100, 23);
+			mainPanel.add(backButton);
 		 
 		 
 		 

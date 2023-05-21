@@ -13,6 +13,9 @@ public class Stadium {
 	PlayerClub club;
 	int currWeek = 1;
 	int weeksToPlay = 10;
+	int numWins = 0;
+	int numDraws = 0;
+	int numLosses = 0;
 	
 	
 	public Stadium(PlayerClub club) {

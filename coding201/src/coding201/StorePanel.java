@@ -158,7 +158,7 @@ if(playerList.size() == 0) {
 		JButton btnNewButton_1 = new JButton("PURCHASE");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (playerList.size() > 0 && store.myClub.balance - currPlayer.price >= 0) {
+				if (playerList.size() > 0 && store.myClub.balance - currPlayer.price >= 0  && stadium.club.reserveList.size() < 4) {
 					
 					store.myClub.addPlayer(currPlayer);
 					JOptionPane.showMessageDialog(frame, currPlayer.name + " Purchased." );
@@ -168,7 +168,7 @@ if(playerList.size() == 0) {
 					store.playerHashTable.remove(currPlayer.name);
 					currPlayer = null;
 					playersInStorePanel.removeAll();
-					
+				
 //		            if (selectedRadioButton != null) {
 //		                buttonGroup.remove(selectedRadioButton);
 //		                buttonlist.remove(selectedRadioButton);
@@ -217,6 +217,9 @@ if(playerList.size() == 0) {
 					
 					
 				}
+				else if (stadium.club.reserveList.size() >= 4) {
+					JOptionPane.showMessageDialog(frame, "Only a maximum of 4 players allowed in the Reserves" );
+				}
 				else {
 					JOptionPane.showMessageDialog(frame, "Club balance is too low. Cannot purchase " + currPlayer.name + "." );
 				}
@@ -256,6 +259,7 @@ if(playerList.size() == 0) {
 				else if (store.myClub.itemList.contains(currItem.name)) {
 					JOptionPane.showMessageDialog(frame, currItem.name + "Already in club inventory. Use it before purchasing another." );
 				}
+				
 				
 				else {
 					JOptionPane.showMessageDialog(frame, "Club balance is too low. Cannot purchase " + currItem.name + "." );
