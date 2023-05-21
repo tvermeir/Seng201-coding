@@ -7,6 +7,7 @@ public class Athlete{
 	public int price;
 	public int stamina = 100;
 	public String name;
+	public int sellPrice;
 	
 
 	
@@ -16,6 +17,7 @@ public class Athlete{
 		this.defense = defense;
 		this.health = health;
 		this.price = price;
+		this.sellPrice = (price / 2);
 	}
 	public int getAttack() {
 		return attack;

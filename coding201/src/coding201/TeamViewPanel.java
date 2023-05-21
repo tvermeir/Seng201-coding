@@ -33,6 +33,7 @@ public class TeamViewPanel extends JPanel {
 	ArrayList<JRadioButton> starterButtonsToPrint = new ArrayList<JRadioButton>();
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
+	ArrayList<String> nameList = new ArrayList<String>();
 	
 	/**
 	 * Create the panel.
@@ -47,7 +48,9 @@ public class TeamViewPanel extends JPanel {
 		stadium.club.reserveList.forEach((k, v) -> {
 			reserveList.add(v);   
 		});
-		
+		stadium.club.athleteList.forEach((k, v) -> {
+			nameList.add(v.name);   
+		});
 		
 		
 		
@@ -641,7 +644,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						
-						stadium.club.balance += currPlayer.price;
+						stadium.club.balance += currPlayer.sellPrice;
 						balancelbl.setText("Balance: " + Integer.toString(stadium.club.balance));
 						stadium.club.athleteList.remove(currPlayer.name);
 						currPlayer = null;
@@ -705,7 +708,7 @@ public class TeamViewPanel extends JPanel {
 							reservePanel.add(athleteDisplay);
 							reservePanel.revalidate();
 						});
-						stadium.club.balance += currPlayer.price;
+						stadium.club.balance += currPlayer.sellPrice;
 						balancelbl.setText("Balance: " + Integer.toString(stadium.club.balance));
 						stadium.club.athleteList.remove(currPlayer.name);
 						currPlayer = null;
@@ -742,7 +745,12 @@ public class TeamViewPanel extends JPanel {
 					}
 					
 					
-					
+				boolean lost = checkEnd(stadium, store);
+				if (lost == true) {
+					JOptionPane.showMessageDialog(frame,"Your team does not have enough athletes to play a match, and the club balance is too low to afford a new athlete. Game over.");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+				}	
 				}
 				
 			}
@@ -789,5 +797,22 @@ public class TeamViewPanel extends JPanel {
 		
 		
 
+	}
+	public boolean checkEnd(Stadium stadium, Store store) {
+		Integer storemin = 200;
+		ArrayList<String> playerList = new ArrayList<String>();
+		store.playerHashTable.forEach((name, athlete) -> {
+			playerList.add(name);
+		});
+		for (int i = 0; i < store.playerHashTable.size(); i++) {
+			if (store.playerHashTable.get(playerList.get(i)).price < storemin) {
+				storemin = store.playerHashTable.get(playerList.get(i)).price;
+			}
+			
+		}
+		if (stadium.club.athleteList.size() < 4 && storemin > stadium.club.balance) {
+			return true;
+		}
+		return false;
 	}
 }

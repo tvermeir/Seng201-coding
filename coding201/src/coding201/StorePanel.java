@@ -158,24 +158,28 @@ if(playerList.size() == 0) {
 		JButton btnNewButton_1 = new JButton("PURCHASE");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (currPlayer == null) {
+					JOptionPane.showMessageDialog(frame, "Please select a player." );
+					return;
+				}
+				
 				if (playerList.size() > 0 && store.myClub.balance - currPlayer.price >= 0  && stadium.club.reserveList.size() < 4) {
+					Athlete swappedAthlete = store.myClub.addBoughtPlayer(currPlayer);
+					if (swappedAthlete == currPlayer) {
+						JOptionPane.showMessageDialog(frame, currPlayer.name + " Purchased and added to the starters.");
+					}
+					else {
+						JOptionPane.showMessageDialog(frame, currPlayer.name + " Purchased and added to the starters.\n" + swappedAthlete.name + " has been swapped to the reserves." );
+					}
 					
-					store.myClub.addPlayer(currPlayer);
-					JOptionPane.showMessageDialog(frame, currPlayer.name + " Purchased." );
 					store.myClub.balance -= currPlayer.price;
 					balancelbl.setText("Balance: " + Integer.toString(store.myClub.balance));
 					playerList.remove(currPlayer);
 					store.playerHashTable.remove(currPlayer.name);
 					currPlayer = null;
 					playersInStorePanel.removeAll();
-				
-//		            if (selectedRadioButton != null) {
-//		                buttonGroup.remove(selectedRadioButton);
-//		                buttonlist.remove(selectedRadioButton);
-//		                athletesDisplay.remove(selectedRadioButton);
-//		                athletesDisplay.validate();
-//		                athletesDisplay.repaint();
-//		            }
+					
+					
 					JRadioButton selectedRadioButton = buttonlist.get(buttonsToPrint.size() - 1);
 					buttonGroup.remove(selectedRadioButton);
 					athletesDisplay.remove(selectedRadioButton);
@@ -218,8 +222,9 @@ if(playerList.size() == 0) {
 					
 				}
 				else if (stadium.club.reserveList.size() >= 4) {
-					JOptionPane.showMessageDialog(frame, "Only a maximum of 4 players allowed in the Reserves" );
+					JOptionPane.showMessageDialog(frame, "Only a maximum of 8 players allowed in the Team." );
 				}
+				
 				else {
 					JOptionPane.showMessageDialog(frame, "Club balance is too low. Cannot purchase " + currPlayer.name + "." );
 				}
@@ -246,6 +251,10 @@ if(playerList.size() == 0) {
 		JButton btnNewButton = new JButton("PURCHASE");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (currItem == null) {
+					JOptionPane.showMessageDialog(frame, "Please select an item." );
+					return;
+				}
 				if (store.myClub.balance - currItem.price >= 0 && !store.myClub.itemList.contains(currItem.name)) {
 					store.myClub.addItem(currItem);
 					store.myClub.balance -= currItem.price;
@@ -427,4 +436,6 @@ if(playerList.size() == 0) {
 		
 
 	}
+	
+	
 }
