@@ -4,6 +4,11 @@ import java.util.Hashtable;
 
 public class purchaseableAthletes {
 	Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
+	
+	/**
+	 * Creates a hashtable that can be passed into other objects and contains 4 random athletes.
+	 * @return playerHashtable
+	 */
 	public Hashtable<String, Athlete> addPurchasablePlayers() {
 		AthleteDatabase newPlayers = new AthleteDatabase();
 		

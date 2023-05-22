@@ -17,7 +17,10 @@ public class otherEvents {
 			has the ball taken from his feet by a streaker
 			
 			""";
-	
+	/**
+	 * Returns a list form of the eventString of possible events that are printed by the matchrunner.
+	 * @return
+	 */
 	public List<String> getList() {
 		List<String> items = Arrays. asList(eventString. split("\n"));
 		return items;

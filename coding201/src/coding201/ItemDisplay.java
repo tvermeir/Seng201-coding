@@ -12,7 +12,8 @@ import javax.swing.JTextArea;
 public class ItemDisplay extends JPanel {
 
 	/**
-	 * Create the panel.
+	 * Creates a visual representation fo the purchaseableItem object, including all the stats.
+	 * @param item
 	 */
 	public ItemDisplay(PurchaseableItem item) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));

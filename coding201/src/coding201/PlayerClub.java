@@ -136,7 +136,10 @@ public class PlayerClub {
 	
 	
 	
-	
+	/**
+	 * Returns a "nicer" version of the athleteLIst hashtable.
+	 * @return string form of the AthleteList hashtable.
+	 */
 	public String printAthleteList() {
 		String output = "";
 		for (String name : athleteList.keySet()) {
@@ -145,25 +148,40 @@ public class PlayerClub {
 		output += "\n";
 		return output;
 	}
-	
+	/**
+	 * @return Returns the hashtable of the Club's inventory.
+	 */
 	public Hashtable<String, PurchaseableItem> getInventory() {
 		return itemInventory;
 	}
+	/**
+	 * Adds an item into the club's inventory.
+	 * @param item to be added.
+	 */
 	public void addItem(PurchaseableItem item) {
 		itemInventory.put(item.getName(), item);
 		itemList.add(item.name);
 	}
-	
+	/**
+	 * Removes an item from the inventory by passing the item's name as the key into the hashtable.
+	 * @param itemName
+	 */
 	public void removeItem(String itemName) {
 		itemInventory.remove(itemName);
 		itemList.remove(itemName);
 	}
-	
+	/**
+	 * Sets the clubs name as the input name
+	 * @param name to set the club's name to.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	
+	/**
+	 * Fills up the club with 4 random athletes; 
+	 * Only used when club first initialised along with OpposingTeam
+	 */
 	public void Fill() {
 		int i = athleteList.size();
 		while (i < 4) {
