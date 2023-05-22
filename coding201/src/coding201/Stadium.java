@@ -4,7 +4,13 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
-
+/**
+ * Stadium
+ * Stadium is the object that contains all the stats about the player's club and holds the hadhtable for the possible opponents.
+ * The opponent hashtable can be filled with random teams.
+ * @version 1.0
+ * @author tve21 & bro82
+ */
 public class Stadium {
 
 	Hashtable<String, opposingTeam> PossibleOpponents =  new Hashtable<>();

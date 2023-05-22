@@ -20,7 +20,14 @@ import java.awt.event.ActionEvent;
 
 import java.awt.GridLayout;
 import javax.swing.ButtonGroup;
-
+/**
+ * StadiumPanel
+ * StadiumPanel is the JPanel which allows the user to select an opposition team and begin a match.
+ * An opponent can be selected from 4 possible teams
+ * Each week, the 4 possible opponents are refreshed with new random teams.
+ * @version 1.0
+ * @author tve21 & bro82
+ */
 public class StadiumPanel extends JPanel {
 	opposingTeam currTeam;
 	mainFrame frame;

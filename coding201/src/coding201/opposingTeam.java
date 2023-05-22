@@ -4,13 +4,16 @@ package coding201;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
-
+/**
+ * opposingTeam
+ * An extension of the PlayerClub, an OpposingTeam auto name generation.
+ * This is the object whose athleteList is compared with the player's starter list in order to determine the outcome of a match.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class opposingTeam extends PlayerClub {
 
-	
-	int timesVersed = 0;
-	double winReward = 100;
-	
 	//creates a random name if none is passed in
 	teamDatabase teamnames = new teamDatabase();
 	List<String> nlist = teamnames.getList();

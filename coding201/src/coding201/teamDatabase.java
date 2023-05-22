@@ -2,7 +2,12 @@ package coding201;
 
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * teamDatabase
+ * teamDatabase is the class from which the random team names are generated. A list of these teams can be returned.
+ * @version 1.0
+ * @author tve21 & bro82
+ */
 public class teamDatabase {
 	/**
 	 * teamnames string generated from list of top european clubs, compiled from top clubs from La Liga Santander, Premier Leaguue, Ligue 1, SPFL, Bundesliga, Serie A, and Liga Portugal.

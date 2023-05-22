@@ -2,6 +2,12 @@ package coding201;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
+/**
+ * Store is the object which contains the purchasable Players and the purchasable Items.
+ * It is refreshed each week with 4 random players.
+ * @version 1.0
+ * @author tve21 & bro82
+ */
 public class Store {
 	
 	Hashtable<String, Athlete> playersInTeam =  new Hashtable<>();

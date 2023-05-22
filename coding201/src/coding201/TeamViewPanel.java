@@ -1,6 +1,7 @@
 package coding201;
 
 import javax.swing.JPanel;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -20,6 +21,14 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import javax.swing.JTextField;
+
+/**
+ * TeamViewPanel
+ * The TeamViewPanel is the JPanel from which all intra-team actions can take place. 
+ * Players can be sold back to the market, renamed, swapped from the starters to the reserves (and vice versa), and stat-boosting items can be applied.
+ * @version 1.0
+ * @author tve21 & bro82
+ */
 public class TeamViewPanel extends JPanel {
 	mainFrame frame;
 	private final ButtonGroup starterButtonGroup = new ButtonGroup();

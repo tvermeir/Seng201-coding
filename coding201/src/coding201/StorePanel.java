@@ -14,7 +14,12 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
-
+/**
+ * StorePanel
+ * StorePanel is the JPanel where the store can be accessed. Players can be bought, along with items using buttons.
+ *@version 1.0
+ *@author tve21 & bro82
+ */
 public class StorePanel extends JPanel {
 	ArrayList<Athlete> playerList = new ArrayList<Athlete>();
 	ArrayList<PurchaseableItem> itemList = new ArrayList<PurchaseableItem>();

@@ -8,10 +8,18 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTextArea;
 /**
+<<<<<<< HEAD
  * AthleteDisplay
  *The class that creates a visual representation of an Athlete object
  *@version 1.0
  *@author tve21 & bro82
+=======
+ * athleteDisplay
+ * This extension of JPanel is used throughout the game to visually represent an athlete and their stats. 
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+>>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
  */
 public class athleteDisplay extends JPanel {
 

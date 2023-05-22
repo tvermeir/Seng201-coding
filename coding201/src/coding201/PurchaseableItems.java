@@ -1,7 +1,14 @@
 package coding201;
 
 import java.util.Hashtable;
-
+/**
+ * PurchaseableItems
+ * PurchaseableItems contains a hashtable of the 3 types of purchaseable items in the game: Active recovery, Attack Training, and Defense Training.
+ * Items can be added to the empty table.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class PurchaseableItems {
 
 	Hashtable<String, PurchaseableItem> itemHashtable =  new Hashtable<>();

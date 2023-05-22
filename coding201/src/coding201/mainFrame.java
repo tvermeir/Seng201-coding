@@ -20,7 +20,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import java.util.Hashtable;
-
+/**
+ * mainFrame
+ * This extension of JFrame is the main window in which the game runs.
+ * 
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class mainFrame extends JFrame {
 
     JPanel contentPane;
@@ -32,29 +39,16 @@ public class mainFrame extends JFrame {
      * Launch the application.
      */
     
-    
-//    public void setstore() {
-//        StoreScreen store = new StoreScreen(this);
-//        this.setContentPane(store);
-//        this.revalidate();
-//        
-//    }
-//    
-//    public void setmain() {
-//        MainScreen main = new MainScreen(this);
-//        this.setContentPane(main);
-//        this.revalidate();
-//        
-//    }
-
-    /**
-     * Create the frame.
-     */
     public mainFrame() {
     	
     }
 
-
+    /**
+     * Sets up the starting JPanel containing the playButton
+     * @param stadium
+     * @param store
+     * @param userClub
+     */
     public void setupFrame(Stadium stadium, Store store, PlayerClub userClub) {
     	this.stadium = stadium;
     	this.mainclub = userClub;
@@ -92,6 +86,9 @@ public class mainFrame extends JFrame {
  
         
     }
+    /**
+     * Calls the club.setupFrame method which initiates the creation of the player's club
+     */
     public void setupClub() {
     	JPanel clubPanel = new JPanel();
     	clubSetup club = new clubSetup();
@@ -100,29 +97,18 @@ public class mainFrame extends JFrame {
         this.revalidate();
     }
     
-    
+    /**
+     * Creates a stadium object that is used throughout the game.
+     * @return stadium
+     */
     public Stadium setupStadium() {
     	Stadium stadium = new Stadium(mainclub);
     	stadium.fillOpponentTable();
     	return stadium;
     	
     }
-//    public void showStadium(Stadium stadium) {
-//    	StadiumPanel stadpan = new StadiumPanel(stadium);
-//    	setContentPane(stadpan);
-//    }
     
     public static void main(String[] args) {
-//        
-//     mainFrame frame = new mainFrame();
-    //frame.setstore();
-    
-    
-//    frame.setVisible(true);
-//    frame.setupFrame();
-    
-    
-//    frame.showStadium(stad);
     
              
     }

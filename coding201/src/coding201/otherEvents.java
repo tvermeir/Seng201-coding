@@ -2,7 +2,14 @@ package coding201;
 
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * otherEvents
+ * otherEvents contains a string of the possible events called in the matchRunner which do not result in a goal.
+ * A list of the events can be returned.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class otherEvents {
 
 	String eventString = """
