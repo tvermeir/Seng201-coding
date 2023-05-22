@@ -247,9 +247,23 @@ public class clubSetup {
 			 		clubName = nameInput.getText();
 			 		userClub.setName(clubName);
 			 		
-			 		if(clubName.length() == 0){
-			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name Longer Than 0 Characters");
+			 		if(clubName.length() < 3 || clubName.length() > 15){
+			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name that is 3-15 characters in length.");
+			 			return;
 			 		}
+			 		Boolean hasSpecial = false;
+			 		for (int i = 0; i < clubName.length(); i++) {
+			 			if (!Character.isLetter(clubName.toLowerCase().charAt(i)) && !Character.isDigit(clubName.charAt(i))) {
+			 				hasSpecial = true;
+			 			}
+			 		}
+			 		if (hasSpecial == true) {
+			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name that contains no special characters");
+			 			return;
+			 		}
+			 		
+			 		
+			 		
 			 		else {
 			 			setDifficulty();
 			 		}
