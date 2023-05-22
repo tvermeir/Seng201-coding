@@ -22,7 +22,13 @@ import javax.swing.JButton;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
-
+/**
+ * <h1>clubSetup<h1>
+ *This method is responsible for setting up the club page. It takes in user data such as the name of the club, the difficulty setting and the number of weeks the user wants to play for
+ *It utilizes both Java Swing and java to create a gui with multiple JPanels.
+ *@version 1.0
+ *@author toddv & benzene26
+ */
 
 public class clubSetup {
 	public int money = 100;
@@ -39,8 +45,14 @@ public class clubSetup {
 	Store store;
 	
 
-	/**
-	 * @wbp.parser.entryPoint
+	/**\
+	 * The constructor here take in a frame, a panel, an instance of a PlayerClub, Store and stadium. it also sets the bounds of the initial jPanel, before calling the 
+	 * appropriate method that gets the intended name of the club
+	 * 
+	 * @param frame: the mainframe that creates the whole frame. clubPanel: the panel that the class will be built upon.stadium: An instance of 
+	 * stadium was initialized in the gameEnvironment class before being passed through userClub: a playerClub that is initialized 
+	 * in the gameEnvironment before being passed through. Store: an instance of the store that is also created in the gameEnvironment class
+	 * 
 	 */
 	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub, Store store) {
 		 this.frame = frame;
@@ -62,6 +74,11 @@ public class clubSetup {
 		 
 		 getTextFromTextField();
 	}
+	/**\
+	 * The method gathers information from the user specifying how many weeks they would like to play for. 
+	 * The number ranges from 5-15 and utilizes a JSlider with ticks at each integer value between those
+	 * parameters. It then sets the variable in the stadium class, weekstoPlay, to the variable from the JSlider. 
+	 */
 	public void setWeeksToPlay() {
 		JPanel weeksPanel = new JPanel(); 
 		weeksPanel.setLayout(null);	
@@ -76,11 +93,8 @@ public class clubSetup {
 		
 		JSlider weeksSelected = new JSlider(5,15,10);
 		weeksSelected.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e) {
-				
+			public void stateChanged(ChangeEvent e) {			
 				stadium.weeksToPlay = weeksSelected.getValue();
-			
-				//System.out.println(stadium.weeksToPlay);
 		 			}
 		});
 		 		
@@ -93,6 +107,7 @@ public class clubSetup {
 		 
 		JButton continueButton = new JButton("Continue");
 		 continueButton.addActionListener(new ActionListener() {
+			 /*Gets the number of weeks to play for from the JSlider unit input*/
 		 	public void actionPerformed(ActionEvent e) {
 		 		if(stadium.weeksToPlay==0) {
 		 			JOptionPane.showMessageDialog(frame, "Please Select a Number of Weeks to Play For");
@@ -113,6 +128,10 @@ public class clubSetup {
 		
 		
 	}
+	/**\
+	 * This method uses radio buttons to get a specified difficulty from the user. There are three possible values, Easy, Medium and Hard.
+	 * The difference between the 3 is the starting money, easy gives $150, medium uses $100, hard uses $50.
+	 */
 	public void setDifficulty() {
 		JPanel difficultyFrame = new JPanel();
 		
@@ -148,8 +167,10 @@ public class clubSetup {
 		difficultyFrame.add(hardButton);
 		difficultyButtons.add(hardButton);
 		
+		
 		JButton confirmDifficultyButton = new JButton("Confirm Difficulty");
 		 confirmDifficultyButton.addActionListener(new ActionListener() {
+			 /*Gets the difficulty setting from the user depending on the selected button*/
 		 	public void actionPerformed(ActionEvent e) {
 		 		difficultyString = getSelectedButton();
 		 		userClub.balance = getMoney();
@@ -173,8 +194,12 @@ public class clubSetup {
 
 		
 	}
-	
-	String getSelectedButton()
+	/**\
+	 *The method iterates through the radio buttons, before returning the string value associated with the button
+	 *Then the value for the string is passed back into the method above
+	 *@return String value for the difficulty setting
+	 */
+	public String getSelectedButton()
 	{  
 	    for (Enumeration<AbstractButton> buttons = difficultyButtons.getElements(); buttons.hasMoreElements();) {
 	        AbstractButton button = buttons.nextElement();
@@ -185,7 +210,9 @@ public class clubSetup {
 	    return null;
 	}
 	
-	
+	/**\
+	 *Depending on the value of the difficulty string, the initial balance will be set by the method below.
+	 */
 	public int getMoney() {
 		if(difficultyString == "Hard") {
 			money = 75;
@@ -201,6 +228,7 @@ public class clubSetup {
 		}
 		return money;
 	}
+	
 	public Hashtable<String, Athlete> getPlayers(){
 		AthleteDatabase newPlayers = new AthleteDatabase();
 		
@@ -220,7 +248,9 @@ public class clubSetup {
 	 * Create the panel.
 	 */
 	;
-	
+	/**\
+	 *A method that gets the club name by reading the input from the given text field. The input has to be between 3-15 characters and can only contain numbers and letters. 
+	 */
 	public void getTextFromTextField() {
 			
 		 
@@ -268,7 +298,7 @@ public class clubSetup {
 			 		else {
 			 			setDifficulty();
 			 		}
-			 		//System.out.println(nameInput.getText());
+			 		
 			 	}
 			 });
 		 

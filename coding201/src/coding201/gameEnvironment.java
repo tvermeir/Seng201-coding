@@ -27,7 +27,7 @@ public class gameEnvironment {
 	 * This frame instance is used across the whole program and is used to initialize the 
 	 * 
 	 * 
-	 * @param None
+	 * @paramNone
 	 * @return an instance of the mainframe class
 	 */
 	public mainFrame gameFrame(){
