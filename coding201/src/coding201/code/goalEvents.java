@@ -22,6 +22,7 @@ public class goalEvents {
 			""";
 	/**\
 	 * The method converts the string above into an arraylist, splitting the strings by the new line (\n) parameter
+	 * @return List
 	 * */
 	public List<String> getList() {
 		List<String> items = Arrays. asList(goalString. split("\n"));

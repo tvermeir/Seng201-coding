@@ -21,6 +21,9 @@ public class opposingTeam extends PlayerClub {
 	Random random = new Random();
 	int rindex = random.nextInt(99);
 	String rname = nlist.get(rindex);
+	/**
+	 * a hashtable of new athletes
+	 */
 	public Hashtable<String, Athlete> newathleteList = new Hashtable<String, Athlete>();
 	
 	/**

@@ -14,17 +14,46 @@ import java.util.Hashtable;
  *@author bro82
  */
 public class PlayerClub {
+	/**
+	 * Balance of the Club
+	 */
 	public int balance;
-
+	/**
+	 * Name of the team
+	 */
 	public String teamName;
+	/**
+	 * HashTable of the athletes
+	 */
 	public Hashtable<String, Athlete> athleteList = new Hashtable<>();
+	/**
+	 * Hashtable of the Starters
+	 */
 	public Hashtable<String, Athlete> starterList = new Hashtable<>();
+	/**
+	 * Hashtable of the Reserves
+	 */
 	public Hashtable<String, Athlete> reserveList = new Hashtable<>();
+	/**
+	 * Hashtable of the items in the user's inventory
+	 */
 	public Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
+	/**
+	 * Array list of all the names
+	 */
 	public ArrayList<String> nameList = new ArrayList<String>();
+	/**
+	 * Array list of all the items
+	 */
 	public ArrayList<String> itemList = new ArrayList<String>();
+	/**
+	 * String representing a name
+	 */
 	public String name;
-	int weeksToPlay;
+	/**
+	 * integer of the total weeks to play
+	 */
+	public int weeksToPlay;
 	
 	
 	
@@ -110,6 +139,12 @@ public class PlayerClub {
 			athleteList.put(athlete.name,athlete);
 		}
 	}
+	/**
+	 * Adds the bought athlete to the starter list, swaps out the old
+	 * starter with the new athlete and puts the old starter in reserve
+	 * @param athlete an instance of the Athlete Class
+	 * @return Athlete
+	 */
 	public Athlete addBoughtPlayer(Athlete athlete) {
 		if (starterList.size() < 4) {
 			starterList.put(athlete.name, athlete);

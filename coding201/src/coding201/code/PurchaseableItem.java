@@ -9,8 +9,17 @@ package coding201.code;
  *
  */
 public class PurchaseableItem {
+	/**
+	 * Integer of the price
+	 */
 	public int price;
+	/**
+	 * String of the name of the item
+	 */
 	public String name;
+	/**
+	 * The item information
+	 */
 	public String info;
 	
 	
@@ -25,11 +34,18 @@ public class PurchaseableItem {
 		this.name = name;
 		this.info = info;
 	}
+	/**
+	 * returns the price
+	 * @return int
+	 */
 	
 	public int getPrice() {
 		return price;
 	}
-	
+	/**
+	 * returns the name of the item
+	 * @return String
+	 */
 	public String getName() {
 		return name;
 	}

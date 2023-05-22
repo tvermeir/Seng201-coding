@@ -331,7 +331,7 @@ public class matchRunner extends JPanel	 {
 			
 		}
 		
-	/*This method is called when all the players are injured, it is so the user is notified of what has happened. 
+	/**\This method is called when all the players are injured, it is so the user is notified of what has happened. 
 	 * 
 	 */
 	public void endEarly() {
@@ -342,8 +342,10 @@ public class matchRunner extends JPanel	 {
 			
 			
 		
-	/*This method is called when to check if all the players in the team have enough stamina left, otherwise
+	/**\This method is called when to check if all the players in the team have enough stamina left, otherwise
 	 * the game is ended early. If one player has stamina, the game continues. 
+	 * @param stad an instance of a stadium class
+	 * @return Boolean
 	 */
 	public Boolean checkStamina(Stadium stad) {
 		Boolean yes = false;
@@ -358,7 +360,8 @@ public class matchRunner extends JPanel	 {
 		}
 		return yes;		
 	}
-	/*The method here is used to reduce the stamina of a chosen player. Only if they are completing an action
+	/**\The method here is used to reduce the stamina of a chosen player. Only if they are completing an action
+	 * @param myPlayer an instance of the Athlete class
 	 */
 	public void reduceStamina(Athlete myPlayer) {
 		Random random = new Random();
@@ -374,9 +377,5 @@ public class matchRunner extends JPanel	 {
 	}
 	
 	
-	public static void main(String[] args) {
-		
-
-	}
 
 }

@@ -14,15 +14,34 @@ import java.util.Collections;
  * @author bro82
  */
 public class Stadium {
-
+	/**
+	 * hashTable of the possible opponents
+	 */
 	public Hashtable<String, opposingTeam> PossibleOpponents =  new Hashtable<>();
-	public Hashtable<String, Athlete> selectedTeam = new Hashtable<>();
-	public int gamesPlayed = 0;
+	
+	/**
+	 * Instance of the PlayerClub class
+	 */
 	public PlayerClub club;
+	/**
+	 * number of current weeks played
+	 */
 	public int currWeek = 1;
+	/**
+	 * number of weeks to play, default is 10
+	 */
 	public int weeksToPlay = 10;
+	/**
+	 * number of wins
+	 */
 	public int numWins = 0;
+	/**
+	 * number of draws
+	 */
 	public int numDraws = 0;
+	/**
+	 * number of losses
+	 */
 	public int numLosses = 0;
 	
 	/**
@@ -67,9 +86,13 @@ public class Stadium {
 			storeprices.add(thlete.price);
 		});
 		Collections.sort(storeprices);
-		for (int i = 0; i < needsNAthletes; i++) {
-			needsNMoney += storeprices.get(i);
+		if(store.playerHashTable.size() == 1) {
+			needsNMoney = storeprices.get(0);
 		}
+		else if (store.playerHashTable.size() != 1)
+			for (int i = 0; i < needsNAthletes; i++) {
+				needsNMoney += storeprices.get(i);
+			}
 		if (needsNMoney > club.balance) {
 			return true;
 		}

@@ -8,11 +8,22 @@ import java.util.Hashtable;
  * @author bro82
  */
 public class Store {
-	
-	Hashtable<String, Athlete> playersInTeam =  new Hashtable<>();
+	/**
+	 * Hashtable of the players in the team
+	 */
 	public Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
+	/**
+	 * hashTable of all the items
+	 */
 	public Hashtable<String, PurchaseableItem> itemHashtable = new Hashtable<>();
+	/**
+	 * instance of the Playerclub class
+	 */
 	public PlayerClub myClub;
+	
+	/**
+	 * instance of the athlete class
+	 */
 	Athlete zero = new Athlete(0, 0, 0, "null");
 	
 	

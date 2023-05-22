@@ -43,9 +43,9 @@ public class clubSetup {
 	 * an integer, money
 	 */
 	public int money = 100;
-	
-	Hashtable<String, Athlete> clubPlayersHashtable  = new Hashtable<>();
-	
+	/**
+	 * the main frame 
+	 */
 	public mainFrame frame;
 	/**
 	 * name of a club
