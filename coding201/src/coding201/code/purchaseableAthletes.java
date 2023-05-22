@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 
 import java.util.Hashtable;
 /**
@@ -27,10 +27,6 @@ public class purchaseableAthletes {
 			i ++;
 		}
 		return playerHashTable;
-
-	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

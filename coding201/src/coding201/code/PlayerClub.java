@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,17 +16,16 @@ import java.util.List;
  *@author toddv & benzene26
  */
 public class PlayerClub {
-	int balance;
-	int playerCount;
-	String teamName;
-	Hashtable<String, Athlete> athleteList = new Hashtable<>();
-	Hashtable<String, Athlete> starterList = new Hashtable<>();
-	Hashtable<String, Athlete> reserveList = new Hashtable<>();
-	Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
-	ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
-	ArrayList<String> nameList = new ArrayList<String>();
-	ArrayList<String> itemList = new ArrayList<String>();
-	String name;
+	public int balance;
+
+	public String teamName;
+	public Hashtable<String, Athlete> athleteList = new Hashtable<>();
+	public Hashtable<String, Athlete> starterList = new Hashtable<>();
+	public Hashtable<String, Athlete> reserveList = new Hashtable<>();
+	public Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
+	public ArrayList<String> nameList = new ArrayList<String>();
+	public ArrayList<String> itemList = new ArrayList<String>();
+	public String name;
 	int weeksToPlay;
 	
 	
@@ -85,7 +84,9 @@ public class PlayerClub {
 	 */
 	
 	public void addPlayer(Athlete athlete) {
-		if (athleteList == null) {
+		
+		
+		if (athleteList.isEmpty()) {
 			starterList.put(athlete.name,athlete);
 			athleteList.put(athlete.name,athlete);
 			return;
@@ -188,6 +189,9 @@ public class PlayerClub {
 			AthleteDatabase ath = new AthleteDatabase();
 			String athstring = ath.makeAthleteString();
 			Athlete athlete = ath.makeAthlete(athstring);
+			if (athleteList.keys().contains(athlete.name)) {
+				continue;
+			}
 			this.addPlayer(athlete);
 			i ++;
 		}

@@ -1,25 +1,20 @@
-package coding201;
+package coding201.gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import coding201.code.Athlete;
+
 import java.awt.Color;
 import javax.swing.JTextArea;
 /**
-<<<<<<< HEAD
- * AthleteDisplay
- *The class that creates a visual representation of an Athlete object
- *@version 1.0
- *@author tve21 & bro82
-=======
  * athleteDisplay
  * This extension of JPanel is used throughout the game to visually represent an athlete and their stats. 
  * @version 1.0
  * @author tve21 & bro82
- *
->>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
  */
 public class athleteDisplay extends JPanel {
 

@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 
 /**
  * Athlete
@@ -10,7 +10,7 @@ package coding201;
 public class Athlete{
 	public int attack;
 	public int defense;
-	public int price;
+	public int price =0;
 	public int stamina = 100;
 	public String name;
 	public int sellPrice;
@@ -136,9 +136,7 @@ public class Athlete{
 	
 
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	}
+	
 	
 	
 

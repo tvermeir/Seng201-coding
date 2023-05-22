@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 import javax.swing.JPanel;
 
@@ -7,12 +7,21 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import coding201.code.Athlete;
+import coding201.code.AthleteDatabase;
+import coding201.code.PlayerClub;
+import coding201.code.Stadium;
+import coding201.code.Store;
+import coding201.code.opposingTeam;
+
 import java.awt.Color;
 import javax.swing.JButton;
 
 import javax.swing.JRadioButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.awt.event.ActionListener;
 
@@ -33,6 +42,7 @@ public class StadiumPanel extends JPanel {
 	mainFrame frame;
 	Stadium stadium;
 	Store store;
+	Integer bal;
 	ArrayList<opposingTeam> oppsListTable = new ArrayList<opposingTeam>();
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
@@ -340,20 +350,34 @@ public class StadiumPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if(stadium.currWeek < stadium.weeksToPlay) {
 					stadium.currWeek +=1;
+					store.refreshStore();
 					stadium.club.athleteList.forEach((k, v) -> {
 						v.stamina = 100;
 					});
 					weekLabel.setText("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 					doRandomEvent();
-					String[] options = new String[] {starterList.get(0).name, starterList.get(1).name, starterList.get(2).name, starterList.get(3).name};
-				    int response = JOptionPane.showOptionDialog(frame, "Select a starter who will receive special training this week", "Special Training",
-				        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-				        null, options, options[0]);
-					selectedTraining(stadium, response);
+					stadium.club.reShuffle();
+					if (stadium.club.starterList.size() == 4) {
+						String[] options = new String[] {starterList.get(0).name, starterList.get(1).name, starterList.get(2).name, starterList.get(3).name};
+					    int response = JOptionPane.showOptionDialog(frame, "Select a starter who will receive special training this week", "Special Training",
+					        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+					        null, options, options[0]);
+						ArrayList<String> starterList2 = selectedTraining(stadium, response);
+						JOptionPane.showMessageDialog(frame, stadium.club.athleteList.get(starterList2.get(response)).name + " has had their defense and attack boosted by 20 points.");
+					}
+					
+					stadium.PossibleOpponents.clear();
+					stadium.fillOpponentTable();
 					frame.revalidate();
-					HomePanel home = new HomePanel(frame);
-					home.setupPanel(stadium, store);
+					
+					if (!stadium.checkEnd(store)) {
+						HomePanel home = new HomePanel(frame);
+						home.setupPanel(stadium, store);
+					}
+					
 				}
+
+					
 				else {
 					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
 					FinishPanel finishPanel = new FinishPanel(frame,stadium);
@@ -448,7 +472,17 @@ public class StadiumPanel extends JPanel {
 			stadium.club.athleteList.remove(currPlayer.name);
 			athleteList.remove(currPlayer);
 			playerListPanel.removeAll();
+			reservePanel.removeAll();
 			stadium.club.reShuffle();
+			reserveList.clear();
+			stadium.club.reserveList.forEach((k, v) -> {
+				reserveList.add(v);   
+			});
+			
+			reserveList.forEach((v) -> {
+				athleteDisplay athleteDisplay = new athleteDisplay(v);
+				reservePanel.add(athleteDisplay);   
+			});
 			starterList.clear();
 			stadium.club.starterList.forEach((k, v) -> {
 				starterList.add(v);   
@@ -467,23 +501,16 @@ public class StadiumPanel extends JPanel {
 			
 			StadiumPanel.this.revalidate();
 			StadiumPanel.this.repaint();
+			JOptionPane.showMessageDialog(frame, currPlayer.name + " has quit the team");
 		}
-		else if(stadium.club.reserveList.contains(currPlayer))
+		else if(stadium.club.reserveList.contains(currPlayer)) {
 			System.out.println("true");
 			stadium.club.reserveList.remove(currPlayer.name);
 			stadium.club.athleteList.remove(currPlayer.name);
 			athleteList.remove(currPlayer);
 			reservePanel.removeAll();
 			stadium.club.reShuffle();
-			reserveList.clear();
-			stadium.club.reserveList.forEach((k, v) -> {
-				reserveList.add(v);   
-			});
 			
-			reserveList.forEach((v) -> {
-				athleteDisplay athleteDisplay = new athleteDisplay(v);
-				reservePanel.add(athleteDisplay);   
-			});
 			athleteList.clear();
 			stadium.club.athleteList.forEach((k, v) -> {
 				athleteList.add(v);   
@@ -491,6 +518,14 @@ public class StadiumPanel extends JPanel {
 			StadiumPanel.this.revalidate();
 			StadiumPanel.this.repaint();
 			JOptionPane.showMessageDialog(frame, currPlayer.name + " has quit the team");
+		}
+		boolean lost = stadium.checkEnd(store);
+		if (lost == true) {
+			JOptionPane.showMessageDialog(frame,"Your team does not have enough players to play a match, and the club balance is too low to buy back to 4 players. Game over.");
+			FinishPanel finishPanel = new FinishPanel(frame,stadium);
+			frame.setContentPane(finishPanel);
+			frame.revalidate();
+		}
 	}
 
 	/**
@@ -538,16 +573,12 @@ public class StadiumPanel extends JPanel {
 
 	public void doRandomEvent() {
 		Random random = new Random();
-		int number1 = random.nextInt(20);
-		
+//		int number1 = random.nextInt(20);
+		int number1 = 9;
 		if (number1 == 9) {
 			this.doAthleteQuitEvent();
-			boolean lost = checkEnd(stadium, store);
-			if (lost == true) {
-				JOptionPane.showMessageDialog(frame,"Your team does not have enough athletes to play a match, and the club balance is too low to afford a new athlete. Game over.");
-				FinishPanel finishPanel = new FinishPanel(frame,stadium);
-				frame.setContentPane(finishPanel);
-			}
+			stadium.club.reShuffle();
+//			
 		}
 		else if (number1 == 4 && reserveList.size() == 3) {
 			if(reserveList.size() <4){
@@ -593,38 +624,14 @@ public class StadiumPanel extends JPanel {
 		
 
 	}
-	/**
-	 * Takes the club balance, and finds the cheapest player in the store.
-	 * The two values are compared and if the club balance is lower than the cheapest price and there are not enough players to start a match, true is returned. 
-	 * Otherwise false.
-	 * @param stadium
-	 * @param store
-	 * @return boolean 
-	 */
-	public boolean checkEnd(Stadium stadium, Store store) {
-		Integer storemin = 200;
-		ArrayList<String> playerList = new ArrayList<String>();
-		store.playerHashTable.forEach((name, athlete) -> {
-			playerList.add(name);
-		});
-		for (int i = 0; i < store.playerHashTable.size(); i++) {
-			if (store.playerHashTable.get(nameList.get(i)).price < storemin) {
-				storemin = store.playerHashTable.get(nameList.get(i)).price;
-			}
-			
-		}
-		if (stadium.club.athleteList.size() < 4 && storemin > stadium.club.balance) {
-			return true;
-		}
-		return false;
-	}
+	
 	/**
 	 * Takes the stadium and a number, and uses that number to select an athlete who gets their stats significantly boosted.
 	 * This is done by calling the Athlete.boostStat() method 4 times.
 	 * @param stadium
 	 * @param num
 	 */
-	public void selectedTraining(Stadium stadium, int num) {
+	public ArrayList<String> selectedTraining(Stadium stadium, int num) {
 		ArrayList<String> tempStarts = new ArrayList<String>();
 		stadium.club.starterList.forEach((k, v) -> {
 			tempStarts.add(k);
@@ -633,6 +640,7 @@ public class StadiumPanel extends JPanel {
 		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
 		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
 		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
+		return tempStarts;
 		
 	}
 }

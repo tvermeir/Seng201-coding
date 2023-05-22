@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 import javax.swing.JPanel;
 
@@ -16,8 +16,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.border.MatteBorder;
+
+import coding201.code.Athlete;
+import coding201.code.Stadium;
+import coding201.code.Store;
+
 import javax.swing.ButtonGroup;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import javax.swing.JTextField;
@@ -37,6 +44,7 @@ public class TeamViewPanel extends JPanel {
 	Athlete currReserve;
 	Athlete currStarter;
 	Timer timer;
+	Integer bal;
 	ArrayList<JRadioButton> starterButtonList = new ArrayList<JRadioButton>();
 	ArrayList<JRadioButton> reserveButtonList = new ArrayList<JRadioButton>();
 	ArrayList<JRadioButton> reserveButtonsToPrint = new ArrayList<JRadioButton>();
@@ -856,11 +864,12 @@ public class TeamViewPanel extends JPanel {
 					}
 					
 					
-				boolean lost = checkEnd(stadium, store);
+				boolean lost = stadium.checkEnd(store);
 				if (lost == true) {
-					JOptionPane.showMessageDialog(frame,"Your team does not have enough athletes to play a match, and the club balance is too low to afford a new athlete. Game over.");
+					JOptionPane.showMessageDialog(frame,"Your team does not have enough players to play a match, and the club balance is too low to buy back to 4 players. Game over.");
 					FinishPanel finishPanel = new FinishPanel(frame,stadium);
 					frame.setContentPane(finishPanel);
+					frame.revalidate();
 				}	
 				}
 				
@@ -898,6 +907,10 @@ public class TeamViewPanel extends JPanel {
 						newname = textField.getText();
 						if (newname.length() < 3 || newname.length() > 15) {
 							JOptionPane.showMessageDialog(frame, "Please enter a name between 3 and 15 characters.");
+							return;
+						}
+						if (stadium.club.athleteList.containsKey(newname)) {
+							JOptionPane.showMessageDialog(frame, newname + " Is already in your team. Please enter a unique name.");
 							return;
 						}
 						Boolean hasSpecial = false;
@@ -1006,29 +1019,4 @@ public class TeamViewPanel extends JPanel {
 
 	}
 	
-	/**
-	 * Takes the club balance, and finds the cheapest player in the store.
-	 * The two values are compared and if the club balance is lower than the cheapest price and there are not enough players to start a match, true is returned. 
-	 * Otherwise false.
-	 * @param stadium
-	 * @param store
-	 * @return boolean 
-	 */
-	public boolean checkEnd(Stadium stadium, Store store) {
-		Integer storemin = 200;
-		ArrayList<String> playerList = new ArrayList<String>();
-		store.playerHashTable.forEach((name, athlete) -> {
-			playerList.add(name);
-		});
-		for (int i = 0; i < store.playerHashTable.size(); i++) {
-			if (store.playerHashTable.get(playerList.get(i)).price < storemin) {
-				storemin = store.playerHashTable.get(playerList.get(i)).price;
-			}
-			
-		}
-		if (stadium.club.athleteList.size() < 4 && storemin > stadium.club.balance) {
-			return true;
-		}
-		return false;
-	}
 }

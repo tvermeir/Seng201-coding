@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,10 +31,6 @@ public class otherEvents {
 	public List<String> getList() {
 		List<String> items = Arrays. asList(eventString. split("\n"));
 		return items;
-	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

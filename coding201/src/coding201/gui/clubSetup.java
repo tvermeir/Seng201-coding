@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -14,6 +14,12 @@ import javax.swing.JSlider;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import coding201.code.Athlete;
+import coding201.code.PlayerClub;
+import coding201.code.Stadium;
+import coding201.code.Store;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -115,7 +121,7 @@ public class clubSetup {
 		 		else {
 		 			HomePanel homePanel = new HomePanel(frame);
 		 			JOptionPane.showMessageDialog(frame, stadium.club.name + " has been entered into a " + Integer.toString(stadium.weeksToPlay) + " week tournament. \n These starting players have been purchased: \n\n" + stadium.club.printAthleteList());
-		 			System.out.println(stadium.weeksToPlay);
+		 			
 			 		homePanel.setupPanel(stadium, store);
 			 	}
 		 		
