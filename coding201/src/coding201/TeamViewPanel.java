@@ -827,7 +827,23 @@ public class TeamViewPanel extends JPanel {
 							JOptionPane.showMessageDialog(frame, "Please enter a name between 3 and 15 characters.");
 							return;
 						}
-						currPlayer.name = newname;
+						if (stadium.club.starterList.contains(currPlayer)) {
+							stadium.club.starterList.remove(currPlayer.name);
+							stadium.club.athleteList.remove(currPlayer.name);
+							currPlayer.name = newname;
+							stadium.club.addPlayer(currPlayer);
+							
+						}
+						else if (stadium.club.reserveList.contains(currPlayer)) {
+							stadium.club.reserveList.remove(currPlayer.name);
+							stadium.club.athleteList.remove(currPlayer.name);
+							currPlayer.name = newname;
+							stadium.club.addPlayer(currPlayer);
+						}
+						
+//						stadium.club.athleteList.get(currPlayer.name).name = newname;
+						
+//						currPlayer.name = newname;
 						currDisplay.removeAll();
 						starterList.clear();
 						playerList.removeAll();
