@@ -26,10 +26,21 @@ import java.awt.event.ActionEvent;
  *
  */
 public class mainFrame extends JFrame {
-
+	/**
+	 * Declares the contentpane variable
+	 */
     JPanel contentPane;
+    /**
+     * Declares the player club variable
+     */
     PlayerClub mainclub;
+    /**
+     * Declares the stadium variable
+     */
     Stadium stadium;
+    /**
+     * Declares the store variable
+     */
     Store store;
 
     /**

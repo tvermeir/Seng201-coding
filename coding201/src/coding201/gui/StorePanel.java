@@ -28,18 +28,41 @@ import javax.swing.ButtonGroup;
  * @author bro82
  */
 public class StorePanel extends JPanel {
+	/**
+	 * list of players
+	 */
 	ArrayList<Athlete> playerList = new ArrayList<Athlete>();
+	/**
+	 * List of purchaseable Items
+	 */
 	ArrayList<PurchaseableItem> itemList = new ArrayList<PurchaseableItem>();
+	/**
+	 * List of buttons for the players to buy
+	 */
 	ArrayList<JRadioButton> buttonlist = new ArrayList<JRadioButton>();
+	/**
+	 * Buttons that need to be printed based on the length of the playersinstore list
+	 */
 	ArrayList<JRadioButton> buttonsToPrint = new ArrayList<JRadioButton>();
+	/**
+	 * Most recently selected player
+	 */
 	Athlete currPlayer;
+	/**
+	 * Most recently selected item
+	 */
 	PurchaseableItem currItem;
 	/**
-	 * Create the panel.
+	 * Initialise the main frame of the game window
 	 */
-	
 	mainFrame frame;
+	/**
+	 * Button group for the player selector buttons
+	 */
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	/**
+	 * Button group for the reserve selector buttons
+	 */
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	/**
 	 * Constructs the whole store JPanel taking the stadium, store, and JFrame the game runs inside as parameters.

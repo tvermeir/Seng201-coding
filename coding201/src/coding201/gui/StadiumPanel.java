@@ -39,10 +39,25 @@ import javax.swing.ButtonGroup;
  * @author bro82
  */
 public class StadiumPanel extends JPanel {
+	/**
+	 * Most recently selected opposition team
+	 */
 	opposingTeam currTeam;
+	/**
+	 * Initialise the main JFrame of the game
+	 */
 	mainFrame frame;
+	/**
+	 * Initialise the stadium object
+	 */
 	Stadium stadium;
+	/**
+	 * Initialise the store object
+	 */
 	Store store;
+	/**
+	 * Balance integer
+	 */
 	Integer bal;
 	/**\
 	 * List of Opposition teams
@@ -68,13 +83,21 @@ public class StadiumPanel extends JPanel {
 	 * list of names of players
 	 */
 	ArrayList<String> nameList = new ArrayList<String>();
-	
+	/**
+	 * Initiaslise the button group that contains all the buttons for selecting the opposition team
+	 */
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Create the panel.
 	 */
 	JPanel playerListPanel = new JPanel();
+	/**
+	 * Initialise the reserve panel
+	 */
 	JPanel reservePanel = new JPanel();
+	/**
+	 * Initialise the player club
+	 */
 	PlayerClub club;
 	
 	/**

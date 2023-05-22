@@ -24,7 +24,9 @@ import java.awt.event.ActionEvent;
 
 
 public class HomePanel extends JPanel {
-	
+	/**
+	 * Declares the main JFrame
+	 */
 	mainFrame frame;
 	/**\
 	 * The constructor here takes in the mainFrame class and adds the panel to it in the method setupPanel

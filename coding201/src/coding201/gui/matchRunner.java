@@ -38,19 +38,53 @@ import java.util.List;
  * @author bro82
  */
 public class matchRunner extends JPanel	 {
-	
+	/**
+	 * Hashtable for player object that uses the player's name as the key
+	 */
 	public Hashtable<String, Athlete> player;
+	/**
+	 * Initialise the variable for the opposing team
+	 */
 	public opposingTeam opposition;
-	
+	/**
+	 * ArrayList that contains the list of the keys of the athletes on the player's team
+	 */
 	public ArrayList<String> listKeysOfTeam;
+	/**
+	 * ArrayList that contains the list of the keys of the athletes on the oppositions team
+	 */
 	public ArrayList<String> listKeysOfOpposition;
+	/**
+	 * Declares the playerClub variable
+	 */
 	public PlayerClub playerClub;
+	/**
+	 * declares the main game JFrame
+	 */
 	mainFrame frame;
+	/**
+	 * Declares the stadium which contains the playerclub and the opposingteams
+	 */
 	Stadium stad;
+	/**
+	 * Variable to keep track of the current score of the player's team
+	 */
 	int myClubScore = 0;
+	/**
+	 * Variable to keep track of the score of the opposing team
+	 */
 	int oppScore = 0;
+	/**
+	 * Declares the store variable
+	 */
 	Store store;
+	/**
+	 * Determines if the match is running
+	 */
 	private Boolean gameRunning =  true;
+	/**
+	 * instantiates the textfield
+	 */
 
 	private JTextArea textField;
 

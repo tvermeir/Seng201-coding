@@ -38,23 +38,73 @@ import javax.swing.JTextField;
  * @author bro82
  */
 public class TeamViewPanel extends JPanel {
+	/**
+	 * The main game frame
+	 */
 	mainFrame frame;
+	/**
+	 * Button Group for the starter selectors
+	 */
 	private final ButtonGroup starterButtonGroup = new ButtonGroup();
+	/**
+	 * Button group for the reserve selectors
+	 */
 	private final ButtonGroup reserveButtonGroup = new ButtonGroup();
+	/**
+	 * Currently selected player (chosen by the most recently selected button)
+	 */
 	Athlete currPlayer;
+	/**
+	 * Most recently selected reserve player
+	 */
 	Athlete currReserve;
+	/**
+	 * Most recently selected starter player
+	 */
 	Athlete currStarter;
-	Timer timer;
+	/**
+	 * balance
+	 */
 	Integer bal;
+	/**
+	 * List for starter buttons
+	 */
 	ArrayList<JRadioButton> starterButtonList = new ArrayList<JRadioButton>();
+	/**
+	 * List for reserve buttons
+	 */
 	ArrayList<JRadioButton> reserveButtonList = new ArrayList<JRadioButton>();
+	/**
+	 * List for reserve buttons to print onto the GUI
+	 */
 	ArrayList<JRadioButton> reserveButtonsToPrint = new ArrayList<JRadioButton>();
+	/**
+	 * List for starter buttons to print onto the GUI
+	 */
 	ArrayList<JRadioButton> starterButtonsToPrint = new ArrayList<JRadioButton>();
+	/**
+	 * List of starter players
+	 */
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
+	/**
+	 * List of reserve players
+	 */
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
+	/**
+	 * List of names of players
+	 */
 	ArrayList<String> nameList = new ArrayList<String>();
+	/**
+	 * updated name of the renamed athlete
+	 */
 	String newname;
+	/**
+	 * Initialise textfield
+	 */
 	private JTextField textField;
+	/**
+	 * Initialise submitButton
+	 */
 	private JButton submitButton;
 	
 	/**
