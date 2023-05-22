@@ -115,7 +115,7 @@ public class clubSetup {
 		 		else {
 		 			HomePanel homePanel = new HomePanel(frame);
 		 			JOptionPane.showMessageDialog(frame, stadium.club.name + " has been entered into a " + Integer.toString(stadium.weeksToPlay) + " week tournament. \n These starting players have been purchased: \n\n" + stadium.club.printAthleteList());
-		 			System.out.println(stadium.weeksToPlay);
+		 			
 			 		homePanel.setupPanel(stadium, store);
 			 	}
 		 		

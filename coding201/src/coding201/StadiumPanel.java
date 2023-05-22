@@ -345,11 +345,16 @@ public class StadiumPanel extends JPanel {
 					});
 					weekLabel.setText("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 					doRandomEvent();
-					String[] options = new String[] {starterList.get(0).name, starterList.get(1).name, starterList.get(2).name, starterList.get(3).name};
-				    int response = JOptionPane.showOptionDialog(frame, "Select a starter who will receive special training this week", "Special Training",
-				        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-				        null, options, options[0]);
-					selectedTraining(stadium, response);
+					if (stadium.club.starterList.size() == 4) {
+						String[] options = new String[] {starterList.get(0).name, starterList.get(1).name, starterList.get(2).name, starterList.get(3).name};
+					    int response = JOptionPane.showOptionDialog(frame, "Select a starter who will receive special training this week", "Special Training",
+					        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+					        null, options, options[0]);
+						ArrayList<String> starterList2 = selectedTraining(stadium, response);
+						JOptionPane.showMessageDialog(frame, stadium.club.athleteList.get(starterList2.get(response)).name + " has had their defense and attack boosted by 20 points.");
+					}
+					stadium.PossibleOpponents.clear();
+					stadium.fillOpponentTable();
 					frame.revalidate();
 					HomePanel home = new HomePanel(frame);
 					home.setupPanel(stadium, store);
@@ -624,7 +629,7 @@ public class StadiumPanel extends JPanel {
 	 * @param stadium
 	 * @param num
 	 */
-	public void selectedTraining(Stadium stadium, int num) {
+	public ArrayList<String> selectedTraining(Stadium stadium, int num) {
 		ArrayList<String> tempStarts = new ArrayList<String>();
 		stadium.club.starterList.forEach((k, v) -> {
 			tempStarts.add(k);
@@ -633,6 +638,7 @@ public class StadiumPanel extends JPanel {
 		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
 		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
 		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
+		return tempStarts;
 		
 	}
 }

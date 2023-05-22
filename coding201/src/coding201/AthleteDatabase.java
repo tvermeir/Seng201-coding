@@ -4,25 +4,19 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-<<<<<<< HEAD
+
 
 /**
  * AthleteDatabase
  *The athlete database is where an athlete is created. the name is taken from the playerDatabase list at random, given random stats
- * before the price is calculated using the average of all the stats. This lass is used to create alll athletes in the program.
+ * before the price is calculated using the average of all the stats. This class is used to create all athletes in the program.
  *@version 1.0
  *@author tve21 & bro82
  */
-=======
-/**
- * AthleteDatabase
- * This class uses random numbers, along with names generated from the playerDatabase to create random athlete objects.
- * @version 1.0
- * @author tve21 & bro82
- *
- */
 
->>>>>>> branch 'main' of https://github.com/tvermeir/Seng201-coding.git
+
+
+
 public class AthleteDatabase {
 
 	playerDatabase nameList = new playerDatabase();

@@ -36,7 +36,7 @@ public class StorePanel extends JPanel {
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	/**
 	 * Constructs the whole store JPanel taking the stadium, store, and JFrame the game runs inside as parameters.
-	 * @param stadium
+	 * @param stadium 
 	 * @param store
 	 * @param frame
 	 */

@@ -12,14 +12,7 @@ import java.util.Hashtable;
  */
 public class gameEnvironment {
 	String clubName;
-	
-	double difficulty;
-	int money = 198;
-	
-	Hashtable<String, Athlete> athletesOnTeam = new Hashtable<>();
-	Hashtable<String, String> reserveListHashtable = new Hashtable<>();
-	Hashtable<String, String> opposingTeam = new Hashtable<>();
-	Hashtable<String, opposingTeam> possibleMatches = new Hashtable<>();
+	int money;
 	
 	
 	/**
@@ -43,14 +36,11 @@ public class gameEnvironment {
 	 * @return the complete and setup Club belonging to the user
 	 */
 	public PlayerClub getDetails(clubSetup myClub) {
-		
-		
 		clubName = myClub.clubName;
 		money = myClub.getMoney();
 		PlayerClub userClub = new PlayerClub(money, clubName);
 		userClub.Fill();
 		return userClub;
-		
 	}
 	/**
 	 * Returns an instance of the stadium class that can be used across all other classes
@@ -62,19 +52,9 @@ public class gameEnvironment {
 	 */
 	public Stadium stadiumMethod(PlayerClub club) {
 		Stadium stad = new Stadium(club);
-
 		stad.fillOpponentTable();
-//		possibleMatches = stad.selectedTeam();
-		
-
 		return stad;
-
-	
 	}
-	
-	
-
-	
 	/**
 	 * The store class is initialized within this method
 	 * before being called inside the main function
