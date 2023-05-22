@@ -344,7 +344,11 @@ public class StadiumPanel extends JPanel {
 					});
 					weekLabel.setText("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 					doRandomEvent();
-					
+					String[] options = new String[] {starterList.get(0).name, starterList.get(1).name, starterList.get(2).name, starterList.get(3).name};
+				    int response = JOptionPane.showOptionDialog(frame, "Select a starter who will receive special training this week", "Special Training",
+				        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+				        null, options, options[0]);
+					selectedTraining(stadium, response);
 					frame.revalidate();
 					HomePanel home = new HomePanel(frame);
 					home.setupPanel(stadium, store);
@@ -604,5 +608,16 @@ public class StadiumPanel extends JPanel {
 			return true;
 		}
 		return false;
+	}
+	public void selectedTraining(Stadium stadium, int num) {
+		ArrayList<String> tempStarts = new ArrayList<String>();
+		stadium.club.starterList.forEach((k, v) -> {
+			tempStarts.add(k);
+		});
+		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
+		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
+		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
+		stadium.club.starterList.get(tempStarts.get(num)).boostStat();
+		
 	}
 }
