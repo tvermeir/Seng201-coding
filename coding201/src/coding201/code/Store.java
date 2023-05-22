@@ -1,7 +1,5 @@
 package coding201.code;
 import java.util.Hashtable;
-import java.util.List;
-import java.util.Scanner;
 /**
  * Store is the object which contains the purchasable Players and the purchasable Items.
  * It is refreshed each week with 4 random players.

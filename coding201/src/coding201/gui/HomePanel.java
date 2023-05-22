@@ -1,13 +1,5 @@
 package coding201.gui;
 
-/**
- * HomePanel
- *This is the main panel of the program, created after the club setup has been done. It contains 4 buttons, one to enter the store, one to enter the team view, one
- *to enter the stadium and one to exit the game. 
- *@version 1.0
- *@author tve21 & bro82
- */
-
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -21,6 +13,14 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+/**
+ * HomePanel
+ *This is the main panel of the program, created after the club setup has been done. It contains 4 buttons, one to enter the store, one to enter the team view, one
+ *to enter the stadium and one to exit the game. 
+ *@version 1.0
+ *@author tve21 & bro82
+ */
+
 
 public class HomePanel extends JPanel {
 	

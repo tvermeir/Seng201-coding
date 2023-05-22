@@ -1,8 +1,5 @@
 package coding201.gui;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -12,17 +9,13 @@ import coding201.code.PlayerClub;
 import coding201.code.Stadium;
 import coding201.code.Store;
 
-import java.awt.CardLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import java.util.Hashtable;
 /**
  * mainFrame
  * This extension of JFrame is the main window in which the game runs.

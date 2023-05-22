@@ -2,11 +2,8 @@ package coding201.code;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import javax.swing.JOptionPane;
-
 import java.util.Hashtable;
-import java.util.List;
+
 /**
  * <h1>Player Club<h1>
  * This class is responsible for creating the framework for the player club. It contains the complete
@@ -184,7 +181,6 @@ public class PlayerClub {
 	 * Only used when club first initialised along with OpposingTeam
 	 */
 	public void Fill() {
-//		int i = athleteList.size();
 		while (athleteList.size() < 4) {
 			AthleteDatabase ath = new AthleteDatabase();
 			String athstring = ath.makeAthleteString();

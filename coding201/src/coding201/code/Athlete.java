@@ -2,15 +2,17 @@ package coding201.code;
 
 /**
  * Athlete
- *The athlete class is the constructor for all of the athletes in the game. When athletes are initialized, they are given stats from this class, 
+ *The athlete class is the constructor for all of the athletes in the game. 
+ *When athletes are initialized, they are given stats from this class, 
  *including attack, defense, price and their name. The Athletes are used all over the program
+ *
  *@version 1.0
  *@author tve21 & bro82
  */
-public class Athlete{
+public class Athlete{ 
 	public int attack;
 	public int defense;
-	public int price =0;
+	public int price = 0;
 	public int stamina = 100;
 	public String name;
 	public int sellPrice;

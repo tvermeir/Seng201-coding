@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
-import javax.swing.border.MatteBorder;
+
 
 import coding201.code.Athlete;
 import coding201.code.Stadium;
@@ -23,7 +23,7 @@ import coding201.code.Store;
 
 import javax.swing.ButtonGroup;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.Timer;

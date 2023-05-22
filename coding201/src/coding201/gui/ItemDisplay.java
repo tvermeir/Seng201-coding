@@ -9,7 +9,7 @@ import javax.swing.border.LineBorder;
 import coding201.code.PurchaseableItem;
 
 import java.awt.Color;
-import javax.swing.JTextField;
+
 import javax.swing.JTextArea;
 /**
  * ItemDisplay
