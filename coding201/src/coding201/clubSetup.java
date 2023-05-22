@@ -99,7 +99,8 @@ public class clubSetup {
 		 		}
 		 		else {
 		 			HomePanel homePanel = new HomePanel(frame);
-			 		System.out.println(stadium.weeksToPlay);
+		 			JOptionPane.showMessageDialog(frame, stadium.club.name + " has been entered into a " + Integer.toString(stadium.weeksToPlay) + " week tournament. \n These starting players have been purchased: \n\n" + stadium.club.printAthleteList());
+		 			System.out.println(stadium.weeksToPlay);
 			 		homePanel.setupPanel(stadium, store);
 			 	}
 		 		
@@ -253,7 +254,7 @@ public class clubSetup {
 			 		}
 			 		Boolean hasSpecial = false;
 			 		for (int i = 0; i < clubName.length(); i++) {
-			 			if (!Character.isLetter(clubName.toLowerCase().charAt(i)) && !Character.isDigit(clubName.charAt(i))) {
+			 			if (!Character.isLetter(clubName.toLowerCase().charAt(i)) && !Character.isDigit(clubName.charAt(i)) && !Character.isWhitespace(clubName.charAt(i))) {
 			 				hasSpecial = true;
 			 			}
 			 		}

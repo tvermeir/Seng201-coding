@@ -19,6 +19,7 @@ import javax.swing.ButtonGroup;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import javax.swing.JTextField;
 public class TeamViewPanel extends JPanel {
 	mainFrame frame;
 	private final ButtonGroup starterButtonGroup = new ButtonGroup();
@@ -34,6 +35,9 @@ public class TeamViewPanel extends JPanel {
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
 	ArrayList<String> nameList = new ArrayList<String>();
+	String newname;
+	private JTextField textField;
+	private JButton btnNewButton_4;
 	
 	/**
 	 * Create the panel.
@@ -58,7 +62,7 @@ public class TeamViewPanel extends JPanel {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_4.setBounds(932, 237, 215, 284);
+		panel_4.setBounds(932, 237, 215, 310);
 		add(panel_4);
 		panel_4.setLayout(null);
 		
@@ -106,8 +110,15 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
+				
 				revalidate();
 				repaint();
+				
 				
 			}
 		});
@@ -125,6 +136,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -142,6 +158,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -161,6 +182,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -202,6 +228,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -221,6 +252,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -239,6 +275,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -257,6 +298,11 @@ public class TeamViewPanel extends JPanel {
 				currDisplay.removeAll();
 				athleteDisplay disp = new athleteDisplay(currPlayer);
 				currDisplay.add(disp);
+				if (textField != null) {
+					TeamViewPanel.this.remove(textField);
+					TeamViewPanel.this.remove(btnNewButton_4);
+					
+				}
 				revalidate();
 				repaint();
 				
@@ -758,6 +804,68 @@ public class TeamViewPanel extends JPanel {
 		sellButton.setBounds(22, 247, 171, 23);
 		panel_4.add(sellButton);
 		
+		JButton btnNewButton_3 = new JButton("Rename Player");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currPlayer == null) {
+					JOptionPane.showMessageDialog(frame, "Please select a player");
+					return;
+				}
+				textField = new JTextField();
+				textField.setBounds(932, 558, 127, 20);
+				add(textField);
+				textField.setColumns(10);
+				revalidate();
+				repaint();
+				btnNewButton_4 = new JButton("Submit");
+				btnNewButton_4.setBounds(1058, 558, 89, 20);
+				add(btnNewButton_4);
+				btnNewButton_4.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						newname = textField.getText();
+						if (newname.length() < 3 || newname.length() > 15) {
+							JOptionPane.showMessageDialog(frame, "Please enter a name between 3 and 15 characters.");
+							return;
+						}
+						currPlayer.name = newname;
+						currDisplay.removeAll();
+						starterList.clear();
+						playerList.removeAll();
+						stadium.club.starterList.forEach((k, v) -> {
+							starterList.add(v);   
+						});
+						starterList.forEach((v) -> {
+							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							playerList.add(athleteDisplay);
+							playerList.revalidate();
+						});
+						reserveList.clear();
+						reservePanel.removeAll();
+						stadium.club.reserveList.forEach((k, v) -> {
+							reserveList.add(v);   
+						});
+						reserveList.forEach((v) -> {
+							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							reservePanel.add(athleteDisplay);
+							reservePanel.revalidate();
+						});
+						athleteDisplay newAth = new athleteDisplay(currPlayer);
+						currDisplay.add(newAth);
+						TeamViewPanel.this.remove(textField);
+						TeamViewPanel.this.remove(btnNewButton_4);
+						revalidate();
+						repaint();
+						
+					}
+				});
+				
+				
+				
+			}
+		});
+		btnNewButton_3.setBounds(22, 271, 171, 23);
+		panel_4.add(btnNewButton_3);
+		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Selected Player");
 		lblNewLabel_1_1_1_1.setBounds(932, 199, 215, 27);
 		add(lblNewLabel_1_1_1_1);
@@ -769,6 +877,10 @@ public class TeamViewPanel extends JPanel {
 		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
 		weekLabel.setBounds(932, 33, 108, 23);
 		TeamViewPanel.this.add(weekLabel);
+		
+		
+		
+		
 		
 		
 		
