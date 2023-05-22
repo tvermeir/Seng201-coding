@@ -7,7 +7,13 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * FinishPanel
+ *This is the finishing screen panel created after either all the weeks have finished, the user want's to quit the game or they cannot afford a new player.
+ *It displays the users win's, losses', draw's and money gained during their play. 
+ *@version 1.0
+ *@author tve21 & bro82
+ */
 public class FinishPanel extends JPanel {
 	
 	/**
@@ -52,6 +58,7 @@ public class FinishPanel extends JPanel {
 		JButton exitButton = new JButton("Exit Screen");
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*Once quit button has been pushed, the frame is exited*/
 				frame.dispose();
 			}
 		});

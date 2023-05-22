@@ -229,27 +229,9 @@ public class clubSetup {
 		return money;
 	}
 	
-	public Hashtable<String, Athlete> getPlayers(){
-		AthleteDatabase newPlayers = new AthleteDatabase();
-		
-		int i = 0;
-		
-		while(i<4) {
-			String athlete = newPlayers.makeAthleteString();
-			Athlete athlete2 = newPlayers.makeAthlete(athlete);
-			clubPlayersHashtable.put(athlete2.name, athlete2);
-			i ++;
-		}
-		return clubPlayersHashtable;
-		
-	}
-	
-	/**
-	 * Create the panel.
-	 */
-	;
 	/**\
 	 *A method that gets the club name by reading the input from the given text field. The input has to be between 3-15 characters and can only contain numbers and letters. 
+	 *The name is then set using the variable stored inside the PlayerClub before
 	 */
 	public void getTextFromTextField() {
 			
@@ -273,6 +255,7 @@ public class clubSetup {
 		 
 		 
 		 submitButton.addActionListener(new ActionListener() {
+			 /*Gets the name of the club depending on the user input. It checks that the name doesn't contain special characters and is in between 3 and 15 characters long. */
 			 	public void actionPerformed(ActionEvent e) {
 			 		
 			 		clubName = nameInput.getText();

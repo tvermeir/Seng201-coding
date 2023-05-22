@@ -1,11 +1,11 @@
 package coding201;
 
 /**
- * <h1>Athlete<h1>
+ * Athlete
  *The athlete class is the constructor for all of the athletes in the game. When athletes are initialized, they are given stats from this class, 
  *including attack, defense, price and their name. The Athletes are used all over the program
  *@version 1.0
- *@author toddv & benzene26
+ *@author tve21 & bro82
  */
 public class Athlete{
 	public int attack;
@@ -108,6 +108,12 @@ public class Athlete{
 		}
 	}
 	
+	/**\
+	 * returns a String version of the Athlete's statistics
+	 */
+	public String toString() {
+		return (" Defense: " + defense+ ", Attack: "+ attack + ", Price: $" + price);
+	}
 	
 	
 	/**\

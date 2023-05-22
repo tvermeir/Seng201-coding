@@ -15,13 +15,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
 import java.util.List;
 
-
+/**
+ * matchRunner
+ *This class is where the matches are simulated. It takes in the opposing team and the player club>
+ *It randomly selects two players, one from each team and checks if one's attack is greater than the other's defense
+ *If it is true, a goal is scored. If false, it mvoes on to the next event
+ *@version 1.0
+ *@author tve21 & bro82
+ */
 public class matchRunner extends JPanel	 {
 	
 	public Hashtable<String, Athlete> player;
@@ -39,6 +45,10 @@ public class matchRunner extends JPanel	 {
 
 	private JTextArea textField;
 
+	/**
+	 *The constructor for the class takes in multiple parameters and creates the JPanel for the class
+	 *@param playerclub,opposingTeam, mainFrame, Stadium, Store
+	 */
 	public matchRunner(PlayerClub player, opposingTeam opps, mainFrame frame, Stadium stad, Store store) {
 		this.playerClub = player;
 		this.opposition = opps;
@@ -48,7 +58,6 @@ public class matchRunner extends JPanel	 {
 		
 		
 		 listKeysOfTeam = new ArrayList<String>(playerClub.starterList.keySet());
-		 System.out.println(listKeysOfTeam);
 		 listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
 		
 		 frame.setBounds(0,0, 1280, 720);
@@ -100,6 +109,11 @@ public class matchRunner extends JPanel	 {
 		 
 		 JButton backButton = new JButton("Finish Simulation");
 			backButton.addActionListener(new ActionListener() {
+				/* The method here calculates who won and gives appropriate prize money to the user. 
+				 * It also checks if the current weeks is less than the total weeks to play, to ensure 
+				 * the user cannot play more weeks than intended
+				 * If the whole team is injured during the match, it will end the game early and not
+				 * return any prize money to the user*/
 				public void actionPerformed(ActionEvent e) {
 					
 					HomePanel home = new HomePanel(frame);
@@ -147,7 +161,13 @@ public class matchRunner extends JPanel	 {
 	}
 
 	
-	
+	/**
+	 * The method playMatch simulates the match. 
+	 * It checks if the whole team is not injured, before checking the stats of one 
+	 * random player vs another. If the team is on attack or defense, is also calculated by
+	 * a random number.
+	 * It repeats this process either 9 times, or if the whole team gets injured it ends the game early
+	 */
 	public void playMatch()  {
 		int minutespassed = 10;
 		
@@ -161,7 +181,7 @@ public class matchRunner extends JPanel	 {
 				
 		textField.setText("Game Events: \n");
 		
-		while (minutespassed <= 90 && gameRunning) {
+		while (minutespassed <= 90) {
 			
 			
 			Boolean check = checkStamina(stad);
@@ -181,7 +201,6 @@ public class matchRunner extends JPanel	 {
 				frame.remove(matchRunner.this);
 				
 				endEarly();
-				gameRunning = false;
 				break;
 				
 				
@@ -265,28 +284,20 @@ public class matchRunner extends JPanel	 {
 			
 		}
 		
-	//implement timer every 3 seconds output text that is randomly selected from some prompts eg (todd vermeir is through on goal but [opposingplayer] prevents a goal with his superior defense
-	
-	
+	/*This method is called when all the players are injured, it is so the user is notified of what has happened. 
+	 * 
+	 */
 	public void endEarly() {
-		int res = JOptionPane.showOptionDialog(new JFrame(), "Game was unable to be simulated as all your starters got injured midway through", "Game",
-				JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-				new Object[] { "Ok" }, JOptionPane.OK_OPTION);
-		//JOptionPane.showMessageDialog(frame,"Game was unable to be simulated as all your starters got injured midway through");
-		if(res == JOptionPane.OK_OPTION) {
-			System.out.println("helo");
-			HomePanel home = new HomePanel(frame);
-			store.refreshStore();
-			home.setupPanel(stad, store);
-			frame.revalidate();
-		}
-			
-			
+		JOptionPane.showOptionDialog(new JFrame(), "Game was unable to be simulated as all your starters got injured midway through", "Game",
+			JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+			new Object[] { "Ok" }, JOptionPane.OK_OPTION);
 		}
 			
 			
 		
-	
+	/*This method is called when to check if all the players in the team have enough stamina left, otherwise
+	 * the game is ended early. If one player has stamina, the game continues. 
+	 */
 	public Boolean checkStamina(Stadium stad) {
 		Boolean yes = false;
 		
@@ -298,9 +309,10 @@ public class matchRunner extends JPanel	 {
 				
 			}
 		}
-		System.out.println(yes);
 		return yes;		
 	}
+	/*The method here is used to reduce the stamina of a chosen player. Only if they are completing an action
+	 */
 	public void reduceStamina(Athlete myPlayer) {
 		Random random = new Random();
 		int number = 10 + random.nextInt(4);

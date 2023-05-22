@@ -1,10 +1,15 @@
 package coding201;
 
-import java.awt.EventQueue;
+/**
+ * HomePanel
+ *This is the main panel of the program, created after the club setup has been done. It contains 4 buttons, one to enter the store, one to enter the team view, one
+ *to enter the stadium and one to exit the game. 
+ *@version 1.0
+ *@author tve21 & bro82
+ */
 
-import javax.swing.JFrame;
+
 import javax.swing.JPanel;
-import javax.swing.plaf.basic.BasicInternalFrameUI.InternalFrameLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -16,13 +21,23 @@ import java.awt.event.ActionEvent;
 public class HomePanel extends JPanel {
 	
 	mainFrame frame;
-	
+	/**\
+	 * The constructor here takes in the mainFrame class and adds the panel to it in the method setupPanel
+	 * 
+	 * @param mainFrame frame: takes in an instance of the mainFram class so that components can be added to it
+	 * 
+	 */
 	public HomePanel (mainFrame frame) {
 		this.frame = frame;
 		
 		
 	}
-	
+	/**\
+	 * The constructor here takes in the mainFrame class and adds the panel to it in the method setupPanel
+	 * 
+	 * @param mainFrame frame: takes in an instance of the mainFram class so that components can be added to it
+	 * 
+	 */
 	public void setupPanel(Stadium stadium, Store store) {
 		frame.setBounds(0,0, 1280, 720);
 		frame.getContentPane().setLayout(null);
@@ -39,11 +54,6 @@ public class HomePanel extends JPanel {
 		 titleLabel.setBounds(526, 43, 232, 39);
 		 mainPanel.add(titleLabel);
 		 
-//		 JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
-//		 weekLabel.setHorizontalAlignment(SwingConstants.CENTER);
-//		 weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-//		 weekLabel.setBounds(60, 39, 149, 43);
-//		 mainPanel.add(weekLabel);
 		 
 		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
 		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
@@ -57,6 +67,9 @@ public class HomePanel extends JPanel {
 		 
 		 JButton btnTeamView = new JButton("Team View");
 		 btnTeamView.addActionListener(new ActionListener() {
+			 /* Before entering the TeamViewPanel class, the weeks are checked to make sure the current number of weeks
+			  * is less than the required number of weeks. If it is not, the teamViewPanel is loaded. If it is, the finishPanel
+			  * is loaded.*/
 		 	public void actionPerformed(ActionEvent e) {
 		 		if(stadium.currWeek < stadium.weeksToPlay) {
 					
@@ -78,6 +91,9 @@ public class HomePanel extends JPanel {
 		 
 		 JButton btnStadium = new JButton("Stadium");
 		 btnStadium.addActionListener(new ActionListener() {
+			 /* Before entering the StadiumPanel class, the weeks are checked to make sure the current number of weeks
+			  * is less than the required number of weeks. If it is not, the StadiumPanel is loaded. If it is, the finishPanel
+			  * is loaded.*/
 		 	public void actionPerformed(ActionEvent e) {
 		 		if(stadium.currWeek < stadium.weeksToPlay) {
 					
@@ -98,6 +114,9 @@ public class HomePanel extends JPanel {
 		 
 		 JButton btnStore = new JButton("Store");
 		 btnStore.addActionListener(new ActionListener() {
+			 /* Before entering the StorePanel class, the weeks are checked to make sure the current number of weeks
+			  * is less than the required number of weeks. If it is not, the Store Panel is loaded. If it is, the finishPanel
+			  * is loaded.*/
 		 	public void actionPerformed(ActionEvent e) {
 		 		
 		 		if(stadium.currWeek < stadium.weeksToPlay) {
@@ -120,6 +139,7 @@ public class HomePanel extends JPanel {
 		 
 		 JButton backButton = new JButton("Quit Game");
 			backButton.addActionListener(new ActionListener() {
+				 /*Loads the FinishPanel up if the user desires to quit the game*/
 				public void actionPerformed(ActionEvent e) {
 					JOptionPane.showMessageDialog(frame,"Game has ended");
 					FinishPanel finishPanel = new FinishPanel(frame,stadium);

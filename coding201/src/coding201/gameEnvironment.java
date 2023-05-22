@@ -4,11 +4,11 @@ import java.util.Hashtable;
 
 
 /**
- * <h1>Game Environment<h1>
+ * Game Environment
  * The game environment class initializes all the main code based classes (not swing)  in the code by calling them in a specific order as per requirements
  * before passing the initialized classes into the mainFrame class, creating the JFrame 
  *@version 1.0
- *@author toddv & benzene26
+ *@author tve21 & bbro82
  */
 public class gameEnvironment {
 	String clubName;
