@@ -336,7 +336,7 @@ public class StadiumPanel extends JPanel {
 			
 		JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-		weekLabel.setBounds(932, 33, 108, 23);
+		weekLabel.setBounds(910, 33, 130, 23);
 		add(weekLabel);
 		
 		JButton byeButton = new JButton("Skip Week");

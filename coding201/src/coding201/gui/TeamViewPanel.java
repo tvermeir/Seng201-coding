@@ -113,7 +113,7 @@ public class TeamViewPanel extends JPanel {
 		
 		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
 		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-		balancelbl.setBounds(1050, 33, 97, 23);
+		balancelbl.setBounds(1050, 33, 144, 23);
 		add(balancelbl);
 		
 		JRadioButton starterButton1 = new JRadioButton("");
@@ -434,10 +434,10 @@ public class TeamViewPanel extends JPanel {
 		lblStarters.setBounds(115, 80, 215, 27);
 		add(lblStarters);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Reserves");
-		lblNewLabel_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(115, 362, 215, 27);
-		add(lblNewLabel_1_1);
+		JLabel lblReserves = new JLabel("Reserves");
+		lblReserves.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 20));
+		lblReserves.setBounds(115, 362, 215, 27);
+		add(lblReserves);
 		
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -468,10 +468,10 @@ public class TeamViewPanel extends JPanel {
 			InvPanel.revalidate();
 		});
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Item Inventory");
-		lblNewLabel_1_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(690, 80, 215, 27);
-		add(lblNewLabel_1_1_1);
+		JLabel itemInventory = new JLabel("Item Inventory");
+		itemInventory.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 20));
+		itemInventory.setBounds(690, 80, 215, 27);
+		add(itemInventory);
 		
 		
 		
@@ -987,7 +987,7 @@ public class TeamViewPanel extends JPanel {
 		
 		JLabel weekLabel = new JLabel("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 		weekLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-		weekLabel.setBounds(932, 33, 108, 23);
+		weekLabel.setBounds(910, 33, 130, 23);
 		TeamViewPanel.this.add(weekLabel);
 		
 		/**
