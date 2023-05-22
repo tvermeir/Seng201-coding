@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Arrays;
 
 public class playerDatabase {
-
+	/**
+	 * playerString created from the list of Premier League Players from the 2018/2019 season.
+	 * retrieved from: https://footystats.org/download-stats-csv
+	 */
 	String playerString = """
 	Aaron Cresswell
 	Todd Vermeir
@@ -580,7 +583,10 @@ public class playerDatabase {
 	Zeze Steven Sessegnon
 	Łukasz Fabiański
 	""";
-	
+	/**
+	 * Uses the playerString string of player names to return a list of the separate names.
+	 * @return list of all the player names.
+	 */
 	public List<String> getList() {
 		List<String> items = Arrays. asList(playerString. split("\n"));
 		return items;

@@ -501,7 +501,8 @@ public class StadiumPanel extends JPanel {
 
 	public void doRandomNewAthleteEvent() {
 		AthleteDatabase athbase = new AthleteDatabase();
-		Athlete newAthlete = athbase.getAthlete();
+		String athString = athbase.makeAthleteString();
+		Athlete newAthlete = athbase.makeAthlete(athString);
 		stadium.club.reserveList.put(newAthlete.name, newAthlete);
 		stadium.club.reShuffle();
 		reservePanel.removeAll();
