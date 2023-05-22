@@ -15,7 +15,6 @@ import java.util.Random;
  */
 public class OpposingTeam extends PlayerClub {
 
-	//creates a random name if none is passed in
 	TeamDatabase teamnames = new TeamDatabase();
 	List<String> nlist = teamnames.getList();
 	Random random = new Random();

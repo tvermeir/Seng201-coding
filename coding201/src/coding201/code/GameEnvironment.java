@@ -34,8 +34,6 @@ public class GameEnvironment {
 	 * @return the complete and setup Club belonging to the user
 	 */
 	public PlayerClub getDetails(ClubSetup myClub) {
-//		clubName = myClub.clubName;
-//		money = myClub.getMoney();
 		PlayerClub userClub = new PlayerClub(myClub.getMoney(), myClub.clubName);
 		userClub.Fill();
 		return userClub;
@@ -81,7 +79,6 @@ public class GameEnvironment {
 	 */
 	public static void main(String[] args) {
 		
-		//Game Setup
 		
 		GameEnvironment helloEnvironment = new GameEnvironment();
 		ClubSetup myClub = new ClubSetup();

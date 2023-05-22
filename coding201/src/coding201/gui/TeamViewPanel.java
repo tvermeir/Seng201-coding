@@ -480,7 +480,6 @@ public class TeamViewPanel extends JPanel {
 			AthleteDisplay athleteDisp = new AthleteDisplay(v);
 			reserveListPanel.add(athleteDisp);
 			reserveListPanel.validate();
-//			System.out.println(v.name);
 		});
 		
 		JLabel lblStarters = new JLabel("Starters");

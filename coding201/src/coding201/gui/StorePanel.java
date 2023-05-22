@@ -357,7 +357,7 @@ public class StorePanel extends JPanel {
 		});
 		buttonGroup.add(selectPlayer1);
 		selectPlayer1.setBounds(65, 165, 21, 23);
-//		panel.add(rdbtnNewRadioButton);
+
 		buttonlist.add(selectPlayer1);
 		
 		JRadioButton selectPlayer2 = new JRadioButton("");
@@ -379,7 +379,7 @@ public class StorePanel extends JPanel {
 		
 		buttonGroup.add(selectPlayer2);
 		selectPlayer2.setBounds(192, 165, 21, 23);
-//		panel.add(rdbtnNewRadioButton_1);
+
 		buttonlist.add(selectPlayer2);
 		
 		JRadioButton selectPlayer3 = new JRadioButton("");
@@ -400,7 +400,7 @@ public class StorePanel extends JPanel {
 		
 		buttonGroup.add(selectPlayer3);
 		selectPlayer3.setBounds(320, 165, 21, 23);
-//		panel.add(rdbtnNewRadioButton_2);
+
 		buttonlist.add(selectPlayer3);
 		
 		JRadioButton selectPlayer4 = new JRadioButton("");
@@ -421,11 +421,9 @@ public class StorePanel extends JPanel {
 		
 		buttonGroup.add(selectPlayer4);
 		selectPlayer4.setBounds(450, 165, 21, 23);
-//		panel.add(rdbtnNewRadioButton_3);
 		buttonlist.add(selectPlayer4);
 		
-		
-//		
+			
 		
 		JRadioButton selectItem1 = new JRadioButton("");
 		selectItem1.addActionListener(new ActionListener() {

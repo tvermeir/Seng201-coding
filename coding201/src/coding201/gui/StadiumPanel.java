@@ -137,7 +137,6 @@ public class StadiumPanel extends JPanel {
 	
 		stadium.PossibleOpponents.forEach((k, v) -> {
 			  oppsListTable.add(v);
-//			  System.out.println(v.printAthleteList());
 		});
 		
 		currTeam = oppsListTable.get(0);
@@ -454,7 +453,6 @@ public class StadiumPanel extends JPanel {
 			playerListPanel.removeAll();
 			athleteList.remove(currPlayer);
 			athleteList.add(boostedAthlete);
-//			stadium.club.reShuffle();
 			stadium.club.starterList.remove(currPlayer.name);
 			stadium.club.starterList.put(currPlayer.name, boostedAthlete);
 			
@@ -476,7 +474,6 @@ public class StadiumPanel extends JPanel {
 			playerListPanel.removeAll();
 			athleteList.remove(currPlayer);
 			athleteList.add(boostedAthlete);
-//			stadium.club.reShuffle();
 			stadium.club.reserveList.remove(currPlayer.name);
 			stadium.club.reserveList.put(currPlayer.name, boostedAthlete);
 			
@@ -624,11 +621,9 @@ public class StadiumPanel extends JPanel {
 	public void doRandomEvent() {
 		Random random = new Random();
 		int number1 = random.nextInt(20);
-//		int number1 = 9;
 		if (number1 == 9) {
 			this.doAthleteQuitEvent();
-			stadium.club.reShuffle();
-//			
+			stadium.club.reShuffle();		
 		}
 		else if (number1 == 4 && reserveList.size() == 3) {
 			if(reserveList.size() <4){
