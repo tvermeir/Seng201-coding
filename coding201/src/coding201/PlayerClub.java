@@ -83,6 +83,7 @@ public class PlayerClub {
 	public void addPlayer(Athlete athlete) {
 		if (athleteList == null) {
 			starterList.put(athlete.name,athlete);
+			athleteList.put(athlete.name,athlete);
 			return;
 		}
 		
@@ -95,15 +96,42 @@ public class PlayerClub {
 			}
 			athleteList.put(athlete.name,athlete);
 		}
+	}
+	public Athlete addBoughtPlayer(Athlete athlete) {
+		if (starterList.size() < 4) {
+			starterList.put(athlete.name, athlete);
+			athleteList.put(athlete.name, athlete);
+			Athlete swappedAthlete = athlete;
+			return swappedAthlete;
+		}
 		
-		
-		
-		
+		ArrayList<String> namelist = new ArrayList<String>();
+		starterList.forEach((k, v) -> {
+			namelist.add(k);
+		});
+		Random random = new Random();
+		int number = random.nextInt(3);
+		Athlete swappedAthlete = starterList.get(namelist.get(number));
+		reserveList.put(swappedAthlete.name, swappedAthlete);
+		starterList.remove(swappedAthlete.name);
+		starterList.put(athlete.name, athlete);
+		athleteList.put(athlete.name, athlete);
+		return swappedAthlete;
 	}
 	
+	
+	
+	/**
+	 *This method returns the name of the team
+	 *@param N/A
+	 *@return returns the string form of the teamName
+	 */
 	public String getName() {
 		return teamName;
 	}
+	
+	
+	
 	
 	public String printAthleteList() {
 		String output = "";

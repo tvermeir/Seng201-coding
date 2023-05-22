@@ -193,6 +193,7 @@ public class matchRunner extends JPanel	 {
 						int eventNumber = random.nextInt(otherEventsList.size());
 						textField.setText(textField.getText()+ "\n" +myPlayer.name + " " + otherEventsList.get(eventNumber) + "\n");
 						working = false;
+						reduceStamina(myPlayer);
 						
 						}
 					minutespassed += 10;
@@ -234,7 +235,9 @@ public class matchRunner extends JPanel	 {
 			textField.setText(textField.getText()+ "\nScore = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")");
 			}
 				
-			
+//		stadium.club.starterList.forEach((k, v) -> {
+//			if v.
+//		});
 			
 		stadium.PossibleOpponents.remove(opposition.name);
 		stadium.fillOpponentTable();
@@ -249,10 +252,14 @@ public class matchRunner extends JPanel	 {
 	
 	
 	public void reduceStamina(Athlete myPlayer) {
-		if(myPlayer.stamina - 3 >= 0) {
-			myPlayer.stamina -= 3;
+		Random random = new Random();
+		int number = 8 + random.nextInt(4);
+		
+		
+		if(myPlayer.stamina - number >= 0) {
+			myPlayer.stamina -= number;
 		}
-		else if(myPlayer.stamina - 3 < 0) {
+		else if(myPlayer.stamina - number < 0) {
 			myPlayer.stamina = 0;
 		}
 	}

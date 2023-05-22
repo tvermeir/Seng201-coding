@@ -32,6 +32,10 @@ public class athleteDisplay extends JPanel {
 		JLabel lblNewLabel_3_1 = new JLabel(Integer.toString(athlete.getStamina()));
 		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_1.setBounds(78, 104, 46, 14);
+		if (athlete.stamina == 0) {
+			lblNewLabel_3_1.setText("Injured");
+		}
+		
 		add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel(Integer.toString(athlete.getDefense()));
@@ -64,6 +68,15 @@ public class athleteDisplay extends JPanel {
 		lblNewLabel_3_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_1_1.setBounds(78, 120, 46, 14);
 		add(lblNewLabel_3_1_1);
+		
+		JLabel lblNewLabel_3_2_1 = new JLabel("Sell Price");
+		lblNewLabel_3_2_1.setBounds(16, 135, 60, 14);
+		add(lblNewLabel_3_2_1);
+		
+		JLabel lblNewLabel_3_1_1_1 = new JLabel(Integer.toString(athlete.sellPrice));
+		lblNewLabel_3_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3_1_1_1.setBounds(78, 135, 46, 14);
+		add(lblNewLabel_3_1_1_1);
 		
 		
 		
