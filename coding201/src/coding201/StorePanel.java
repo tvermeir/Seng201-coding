@@ -72,7 +72,7 @@ public class StorePanel extends JPanel {
 		
 		athletesDisplay.setLayout(null);
 		JPanel playersInStorePanel = new JPanel();
-		playersInStorePanel.setBounds(10, 7, 510, 147);
+		playersInStorePanel.setBounds(10, 7, 510, 157);
 		athletesDisplay.add(playersInStorePanel);
 		playersInStorePanel.setLayout(new GridLayout(0, 4, 0, 0));
 		
@@ -118,7 +118,7 @@ if(playerList.size() == 0) {
 		add(itemsDisplay);
 		
 		JPanel ItemsPanel = new JPanel();
-		ItemsPanel.setBounds(10, 7, 510, 146);
+		ItemsPanel.setBounds(10, 7, 510, 154);
 		itemsDisplay.add(ItemsPanel);
 		ItemsPanel.setLayout(new GridLayout(0, 4, 0, 0));
 		
@@ -221,8 +221,8 @@ if(playerList.size() == 0) {
 					
 					
 				}
-				else if (stadium.club.reserveList.size() >= 4) {
-					JOptionPane.showMessageDialog(frame, "Only a maximum of 8 players allowed in the Team." );
+				else if (stadium.club.reserveList.size() == 4) {
+					JOptionPane.showMessageDialog(frame, "Only a maximum of 8 players allowed in the Team. Sell one if you want to buy " + currPlayer.name );
 				}
 				
 				else {

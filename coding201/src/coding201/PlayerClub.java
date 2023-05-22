@@ -56,7 +56,11 @@ public class PlayerClub {
 	}
 	
 
-	  
+
+	/**
+	 * This method is called when an event occurs that removes a player from the club's starter list. It moves a player, if in the reserve list, to fill the empty space in the starter list.
+	 * 
+	 */
 	
 	
 	
@@ -73,6 +77,12 @@ public class PlayerClub {
 		}
 	}
 	
+	
+	/**
+	 * Adds a player to the club's athletelist table and either the starterlist or reservelist depending on how many players are in the starters.
+	 *
+	 * @param athlete
+	 */
 	
 	public void addPlayer(Athlete athlete) {
 		if (athleteList == null) {

@@ -99,7 +99,8 @@ public class clubSetup {
 		 		}
 		 		else {
 		 			HomePanel homePanel = new HomePanel(frame);
-			 		System.out.println(stadium.weeksToPlay);
+		 			JOptionPane.showMessageDialog(frame, stadium.club.name + " has been entered into a " + Integer.toString(stadium.weeksToPlay) + " week tournament. \n These starting players have been purchased: \n\n" + stadium.club.printAthleteList());
+		 			System.out.println(stadium.weeksToPlay);
 			 		homePanel.setupPanel(stadium, store);
 			 	}
 		 		
@@ -247,9 +248,23 @@ public class clubSetup {
 			 		clubName = nameInput.getText();
 			 		userClub.setName(clubName);
 			 		
-			 		if(clubName.length() == 0){
-			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name Longer Than 0 Characters");
+			 		if(clubName.length() < 3 || clubName.length() > 15){
+			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name that is 3-15 characters in length.");
+			 			return;
 			 		}
+			 		Boolean hasSpecial = false;
+			 		for (int i = 0; i < clubName.length(); i++) {
+			 			if (!Character.isLetter(clubName.toLowerCase().charAt(i)) && !Character.isDigit(clubName.charAt(i)) && !Character.isWhitespace(clubName.charAt(i))) {
+			 				hasSpecial = true;
+			 			}
+			 		}
+			 		if (hasSpecial == true) {
+			 			JOptionPane.showMessageDialog(frame, "Please Enter a Name that contains no special characters");
+			 			return;
+			 		}
+			 		
+			 		
+			 		
 			 		else {
 			 			setDifficulty();
 			 		}
