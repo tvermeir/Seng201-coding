@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 import java.awt.EventQueue;
 
@@ -8,7 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
- 
+import coding201.code.PlayerClub;
+import coding201.code.Stadium;
+import coding201.code.Store;
+
 import java.awt.CardLayout;
 import javax.swing.JLabel;
 import java.awt.Font;

@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 
 import java.awt.Font;
@@ -17,6 +17,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+
+import coding201.code.Athlete;
+import coding201.code.PlayerClub;
+import coding201.code.Stadium;
+import coding201.code.Store;
+import coding201.code.goalEvents;
+import coding201.code.opposingTeam;
+import coding201.code.otherEvents;
 
 import java.util.List;
 

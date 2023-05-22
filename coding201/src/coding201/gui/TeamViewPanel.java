@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 import javax.swing.JPanel;
 
@@ -16,6 +16,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.border.MatteBorder;
+
+import coding201.code.Athlete;
+import coding201.code.Stadium;
+import coding201.code.Store;
+
 import javax.swing.ButtonGroup;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -898,6 +903,10 @@ public class TeamViewPanel extends JPanel {
 						newname = textField.getText();
 						if (newname.length() < 3 || newname.length() > 15) {
 							JOptionPane.showMessageDialog(frame, "Please enter a name between 3 and 15 characters.");
+							return;
+						}
+						if (stadium.club.athleteList.containsKey(newname)) {
+							JOptionPane.showMessageDialog(frame, newname + " Is already in your team. Please enter a unique name.");
 							return;
 						}
 						Boolean hasSpecial = false;

@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class Store {
 	
 	Hashtable<String, Athlete> playersInTeam =  new Hashtable<>();
-	Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
-	Hashtable<String, PurchaseableItem> itemHashtable = new Hashtable<>();
-	PlayerClub myClub;
+	public Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
+	public Hashtable<String, PurchaseableItem> itemHashtable = new Hashtable<>();
+	public PlayerClub myClub;
 	
 	/**
 	 * Uses the playerclub to create a store that can access all the parameters of the player club.

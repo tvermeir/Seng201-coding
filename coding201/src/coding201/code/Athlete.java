@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 
 /**
  * Athlete

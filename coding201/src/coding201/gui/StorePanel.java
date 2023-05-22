@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -6,6 +6,12 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import coding201.code.Athlete;
+import coding201.code.PurchaseableItem;
+import coding201.code.Stadium;
+import coding201.code.Store;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JButton;

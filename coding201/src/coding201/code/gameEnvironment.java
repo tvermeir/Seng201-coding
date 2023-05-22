@@ -1,5 +1,8 @@
-package coding201;
+package coding201.code;
 import java.util.Hashtable;
+
+import coding201.gui.clubSetup;
+import coding201.gui.mainFrame;
 
 
 

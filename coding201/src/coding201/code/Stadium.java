@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -13,15 +13,15 @@ import java.util.ArrayList;
  */
 public class Stadium {
 
-	Hashtable<String, opposingTeam> PossibleOpponents =  new Hashtable<>();
-	Hashtable<String, Athlete> selectedTeam = new Hashtable<>();
-	int gamesPlayed = 0;
-	PlayerClub club;
-	int currWeek = 1;
-	int weeksToPlay = 10;
-	int numWins = 0;
-	int numDraws = 0;
-	int numLosses = 0;
+	public Hashtable<String, opposingTeam> PossibleOpponents =  new Hashtable<>();
+	public Hashtable<String, Athlete> selectedTeam = new Hashtable<>();
+	public int gamesPlayed = 0;
+	public PlayerClub club;
+	public int currWeek = 1;
+	public int weeksToPlay = 10;
+	public int numWins = 0;
+	public int numDraws = 0;
+	public int numLosses = 0;
 	
 	/**
 	 * Constructs the stadium using the player's club.

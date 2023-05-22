@@ -1,4 +1,4 @@
-package coding201;
+package coding201.code;
 /**
  * PurchaseableItem
  * PurchaseableItem is the class of the items that can be applied to each player in a team.
@@ -8,9 +8,9 @@ package coding201;
  *
  */
 public class PurchaseableItem {
-	int price;
-	String name;
-	String info;
+	public int price;
+	public String name;
+	public String info;
 	
 	
 	/**

@@ -1,10 +1,13 @@
-package coding201;
+package coding201.gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import coding201.code.Athlete;
+
 import java.awt.Color;
 import javax.swing.JTextArea;
 /**

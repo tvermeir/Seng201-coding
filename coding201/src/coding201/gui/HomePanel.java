@@ -1,4 +1,4 @@
-package coding201;
+package coding201.gui;
 
 /**
  * HomePanel
@@ -13,6 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+
+import coding201.code.Stadium;
+import coding201.code.Store;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
