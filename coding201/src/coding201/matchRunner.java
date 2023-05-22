@@ -303,7 +303,7 @@ public class matchRunner extends JPanel	 {
 	}
 	public void reduceStamina(Athlete myPlayer) {
 		Random random = new Random();
-		int number = 8 + random.nextInt(4);
+		int number = 10 + random.nextInt(4);
 		
 		
 		if(myPlayer.stamina - number >= 0) {
