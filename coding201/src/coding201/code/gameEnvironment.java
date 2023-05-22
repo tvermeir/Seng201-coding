@@ -14,8 +14,6 @@ import coding201.gui.mainFrame;
  *@author tve21 & bbro82
  */
 public class gameEnvironment {
-	String clubName;
-	int money;
 	
 	
 	/**
@@ -39,9 +37,9 @@ public class gameEnvironment {
 	 * @return the complete and setup Club belonging to the user
 	 */
 	public PlayerClub getDetails(clubSetup myClub) {
-		clubName = myClub.clubName;
-		money = myClub.getMoney();
-		PlayerClub userClub = new PlayerClub(money, clubName);
+//		clubName = myClub.clubName;
+//		money = myClub.getMoney();
+		PlayerClub userClub = new PlayerClub(myClub.getMoney(), myClub.clubName);
 		userClub.Fill();
 		return userClub;
 	}

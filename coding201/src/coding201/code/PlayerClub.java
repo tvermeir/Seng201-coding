@@ -17,13 +17,12 @@ import java.util.List;
  */
 public class PlayerClub {
 	public int balance;
-	public int playerCount;
+
 	public String teamName;
 	public Hashtable<String, Athlete> athleteList = new Hashtable<>();
 	public Hashtable<String, Athlete> starterList = new Hashtable<>();
 	public Hashtable<String, Athlete> reserveList = new Hashtable<>();
 	public Hashtable<String, PurchaseableItem> itemInventory = new Hashtable<>();
-	public ArrayList<Athlete> topScorer = new ArrayList<Athlete>();
 	public ArrayList<String> nameList = new ArrayList<String>();
 	public ArrayList<String> itemList = new ArrayList<String>();
 	public String name;

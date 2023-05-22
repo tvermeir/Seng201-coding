@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.awt.event.ActionListener;
 
@@ -41,6 +42,7 @@ public class StadiumPanel extends JPanel {
 	mainFrame frame;
 	Stadium stadium;
 	Store store;
+	Integer bal;
 	ArrayList<opposingTeam> oppsListTable = new ArrayList<opposingTeam>();
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
@@ -353,6 +355,7 @@ public class StadiumPanel extends JPanel {
 					});
 					weekLabel.setText("Week " + stadium.currWeek + " / " + stadium.weeksToPlay);
 					doRandomEvent();
+					stadium.club.reShuffle();
 					if (stadium.club.starterList.size() == 4) {
 						String[] options = new String[] {starterList.get(0).name, starterList.get(1).name, starterList.get(2).name, starterList.get(3).name};
 					    int response = JOptionPane.showOptionDialog(frame, "Select a starter who will receive special training this week", "Special Training",
@@ -364,8 +367,11 @@ public class StadiumPanel extends JPanel {
 					stadium.PossibleOpponents.clear();
 					stadium.fillOpponentTable();
 					frame.revalidate();
-					HomePanel home = new HomePanel(frame);
-					home.setupPanel(stadium, store);
+					if (!checkEnd(stadium, store)) {
+						HomePanel home = new HomePanel(frame);
+						home.setupPanel(stadium, store);
+					}
+					
 				}
 				else {
 					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
@@ -551,15 +557,19 @@ public class StadiumPanel extends JPanel {
 
 	public void doRandomEvent() {
 		Random random = new Random();
-		int number1 = random.nextInt(20);
-		
+//		int number1 = random.nextInt(20);
+		int number1 = 9;
 		if (number1 == 9) {
 			this.doAthleteQuitEvent();
+//			stadium.club.reShuffle();
 			boolean lost = checkEnd(stadium, store);
 			if (lost == true) {
 				JOptionPane.showMessageDialog(frame,"Your team does not have enough athletes to play a match, and the club balance is too low to afford a new athlete. Game over.");
 				FinishPanel finishPanel = new FinishPanel(frame,stadium);
+				StadiumPanel.this.setVisible(false);
 				frame.setContentPane(finishPanel);
+				frame.revalidate();
+				
 			}
 		}
 		else if (number1 == 4 && reserveList.size() == 3) {
@@ -616,19 +626,36 @@ public class StadiumPanel extends JPanel {
 	 */
 	public boolean checkEnd(Stadium stadium, Store store) {
 		Integer storemin = 200;
+		ArrayList<Integer> storePrices = new ArrayList<Integer>();
 		ArrayList<String> playerList = new ArrayList<String>();
 		store.playerHashTable.forEach((name, athlete) -> {
 			playerList.add(name);
 		});
-		for (int i = 0; i < store.playerHashTable.size(); i++) {
-			if (store.playerHashTable.get(nameList.get(i)).price < storemin) {
-				storemin = store.playerHashTable.get(nameList.get(i)).price;
+		int number2 = Math.min(store.playerHashTable.size(), nameList.size());
+		for (int i = 0; i < number2; i++) {
+			storePrices.add(store.playerHashTable.get(playerList.get(i)).price);
+			if (store.playerHashTable.get(playerList.get(i)).price < storemin) {
+				storemin = store.playerHashTable.get(playerList.get(i)).price;
 			}
 			
 		}
 		if (stadium.club.athleteList.size() < 4 && storemin > stadium.club.balance) {
 			return true;
 		}
+		boolean canAfford = true;
+		bal = stadium.club.balance;
+		Collections.sort(storePrices);
+		for (int i = 0; i < 4 - (nameList.size()); i++) {
+			bal -= storePrices.get(i);
+		}
+		if (bal < 0) {
+			canAfford = false;
+		}
+		if (canAfford == false) {
+			return true;
+		}
+//		else if ()
+		
 		return false;
 	}
 	/**

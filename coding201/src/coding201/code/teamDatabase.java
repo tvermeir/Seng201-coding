@@ -11,7 +11,9 @@ import java.util.List;
 public class teamDatabase {
 	/**
 	 * teamnames string generated from list of top european clubs, compiled from top clubs from La Liga Santander, Premier Leaguue, Ligue 1, SPFL, Bundesliga, Serie A, and Liga Portugal.
+	 * compiled from: https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_UEFA_countries
 	 */
+	
 	String teamnames = """
 	Real Madrid
 	Barcelona
