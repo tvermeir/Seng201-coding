@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 public class athleteDisplay extends JPanel {
 
 	/**
-	 * Create the panel.
+	 * Creates a visual representation of a player, including their stats along with a buy and sellback price.
 	 */
 	public athleteDisplay(Athlete athlete) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));

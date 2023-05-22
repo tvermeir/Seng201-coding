@@ -3,7 +3,6 @@ package coding201;
 public class Athlete{
 	public int attack;
 	public int defense;
-	public int health;
 	public int price;
 	public int stamina = 100;
 	public String name;
@@ -11,11 +10,10 @@ public class Athlete{
 	
 
 	
-	public Athlete(int attack, int defense, int health, int price, String name) {
+	public Athlete(int attack, int defense, int price, String name) {
 		this.name = name;
 		this.attack = attack;
 		this.defense = defense;
-		this.health = health;
 		this.price = price;
 		this.sellPrice = (price / 2);
 	}
@@ -35,16 +33,13 @@ public class Athlete{
 		return price;
 	}
 	
-	public double getHealth() {
-		return health;
-		
-	}
+
 	
 	public int getStamina() {
 		return stamina;
 	}
 	public String getHashtable(){
-		String statsString = (attack + "," + defense + "," + health + "," + price);
+		String statsString = (attack + "," + defense + "," + price);
 		
 		
 		return statsString;
