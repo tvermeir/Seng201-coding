@@ -92,7 +92,7 @@ public class PlayerClub {
 			return;
 		}
 		
-		else if (!athleteList.contains(athlete) && athleteList.size() < 8) {
+		else if (!athleteList.contains(athlete.name) && athleteList.size() < 8) {
 			if (!starterList.contains(athlete) && starterList.size() < 4) {
 				starterList.put(athlete.name, athlete);
 			}
@@ -184,16 +184,18 @@ public class PlayerClub {
 	 * Only used when club first initialised along with OpposingTeam
 	 */
 	public void Fill() {
-		int i = athleteList.size();
-		while (i < 4) {
+//		int i = athleteList.size();
+		while (athleteList.size() < 4) {
 			AthleteDatabase ath = new AthleteDatabase();
 			String athstring = ath.makeAthleteString();
 			Athlete athlete = ath.makeAthlete(athstring);
-			if (athleteList.keys().contains(athlete.name)) {
+			if (athleteList.contains(athlete.name)) {
 				continue;
 			}
-			this.addPlayer(athlete);
-			i ++;
+			else {
+				this.addPlayer(athlete);
+			}
+			
 		}
 	}
 

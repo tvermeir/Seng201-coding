@@ -3,6 +3,7 @@ import coding201.code.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Hashtable;
 import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
 
 class ClubTest {
 	@Test
@@ -121,15 +122,21 @@ class ClubTest {
 	@Test
 	void fillsToFour() {
 		boolean notFour = false;
-		for (int i=0; i < 100; i++) {
+		boolean isFour = true;
+		for (int i=0; i < 1000; i++) {
 			PlayerClub club = new PlayerClub(10, "Test");
 			club.Fill();
+			
 			if (club.athleteList.size() < 4) {
 				notFour = true;
+			}
+			if (club.athleteList.size() != 4) {
+				isFour = false;
 			}
 			
 		}
 		assertEquals(notFour, false);
+		assertEquals(isFour, true);
 	}
 	
 	
