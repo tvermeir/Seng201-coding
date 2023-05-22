@@ -13,7 +13,7 @@ import coding201.code.AthleteDatabase;
 import coding201.code.PlayerClub;
 import coding201.code.Stadium;
 import coding201.code.Store;
-import coding201.code.opposingTeam;
+import coding201.code.OpposingTeam;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -42,11 +42,11 @@ public class StadiumPanel extends JPanel {
 	/**
 	 * Most recently selected opposition team
 	 */
-	opposingTeam currTeam;
+	OpposingTeam currTeam;
 	/**
 	 * Initialise the main JFrame of the game
 	 */
-	mainFrame frame;
+	MainFrame frame;
 	/**
 	 * Initialise the stadium object
 	 */
@@ -62,7 +62,7 @@ public class StadiumPanel extends JPanel {
 	/**\
 	 * List of Opposition teams
 	 */
-	ArrayList<opposingTeam> oppsListTable = new ArrayList<opposingTeam>();
+	ArrayList<OpposingTeam> oppsListTable = new ArrayList<OpposingTeam>();
 	
 	/**\
 	 * List of Starters
@@ -106,7 +106,7 @@ public class StadiumPanel extends JPanel {
 	 * @param store an instance of the store class
 	 * @param frame an instance of the mainframe class
 	 */
-	public StadiumPanel(Stadium stadium, Store store, mainFrame frame) {
+	public StadiumPanel(Stadium stadium, Store store, MainFrame frame) {
 		this.frame = frame;
 		this.stadium = stadium;
 		this.club = stadium.club;
@@ -176,7 +176,7 @@ public class StadiumPanel extends JPanel {
 		playerPanel.add(playerListPanel);
 		playerListPanel.setLayout(new GridLayout(0, 4, 0, 0));
 		stadium.club.starterList.forEach((k, v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			playerListPanel.add(athleteDisplay);   
 		});
 		
@@ -190,7 +190,7 @@ public class StadiumPanel extends JPanel {
 		playerPanel.add(reservePanel);
 		reservePanel.setLayout(new GridLayout(0, 4, 0, 0));
 		stadium.club.reserveList.forEach((k, v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			reservePanel.add(athleteDisplay);   
 		});
 		
@@ -218,7 +218,7 @@ public class StadiumPanel extends JPanel {
 		oppPanel.add(lblNewLabel_1_1);
 		
 		currTeam.athleteList.forEach((k, v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			oppListPanel.add(athleteDisplay);   
 		});
 		
@@ -251,7 +251,7 @@ public class StadiumPanel extends JPanel {
 					}					
 				}				
 				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek && canPlay == true) {															
-					matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
+					MatchRunner runner = new MatchRunner(stadium.club, currTeam, frame, stadium, store);
 					frame.setContentPane(runner);
 				}
 				else if(stadium.club.starterList.size() < 4) {
@@ -280,7 +280,7 @@ public class StadiumPanel extends JPanel {
 				currTeam = oppsListTable.get(0);
 				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
-					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
@@ -304,7 +304,7 @@ public class StadiumPanel extends JPanel {
 				currTeam = oppsListTable.get(1);
 				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
-					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
@@ -328,7 +328,7 @@ public class StadiumPanel extends JPanel {
 				currTeam = oppsListTable.get(2);
 				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
-					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
@@ -353,7 +353,7 @@ public class StadiumPanel extends JPanel {
 				currTeam = oppsListTable.get(3);
 				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
-					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
@@ -464,7 +464,7 @@ public class StadiumPanel extends JPanel {
 			});
 			
 			starterList.forEach((v) -> {
-				athleteDisplay athleteDisplay = new athleteDisplay(v);
+				AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 				playerListPanel.add(athleteDisplay);   
 			});
 			StadiumPanel.this.revalidate();
@@ -486,7 +486,7 @@ public class StadiumPanel extends JPanel {
 			});
 			
 			reserveList.forEach((v) -> {
-				athleteDisplay athleteDisplay = new athleteDisplay(v);
+				AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 				playerListPanel.add(athleteDisplay);   
 			});
 			StadiumPanel.this.revalidate();
@@ -530,7 +530,7 @@ public class StadiumPanel extends JPanel {
 			});
 			
 			reserveList.forEach((v) -> {
-				athleteDisplay athleteDisplay = new athleteDisplay(v);
+				AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 				reservePanel.add(athleteDisplay);   
 			});
 			starterList.clear();
@@ -539,7 +539,7 @@ public class StadiumPanel extends JPanel {
 			});
 			
 			starterList.forEach((v) -> {
-				athleteDisplay athleteDisplay = new athleteDisplay(v);
+				AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 				playerListPanel.add(athleteDisplay);   
 			});
 			
@@ -595,7 +595,7 @@ public class StadiumPanel extends JPanel {
 		});
 		
 		reserveList.forEach((v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			reservePanel.add(athleteDisplay);   
 		});
 		
@@ -606,7 +606,7 @@ public class StadiumPanel extends JPanel {
 		});
 		
 		starterList.forEach((v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			playerListPanel.add(athleteDisplay);   
 		});
 		

@@ -27,14 +27,14 @@ public class HomePanel extends JPanel {
 	/**
 	 * Declares the main JFrame
 	 */
-	mainFrame frame;
+	MainFrame frame;
 	/**\
 	 * The constructor here takes in the mainFrame class and adds the panel to it in the method setupPanel
 	 * 
 	 * @param frame takes in an instance of the mainFram class so that components can be added to it
 	 * 
 	 */
-	public HomePanel (mainFrame frame) {
+	public HomePanel (MainFrame frame) {
 		this.frame = frame;
 		
 		

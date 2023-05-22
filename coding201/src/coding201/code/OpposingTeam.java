@@ -13,10 +13,10 @@ import java.util.Random;
  * @author bro82
  *
  */
-public class opposingTeam extends PlayerClub {
+public class OpposingTeam extends PlayerClub {
 
 	//creates a random name if none is passed in
-	teamDatabase teamnames = new teamDatabase();
+	TeamDatabase teamnames = new TeamDatabase();
 	List<String> nlist = teamnames.getList();
 	Random random = new Random();
 	int rindex = random.nextInt(99);
@@ -29,7 +29,7 @@ public class opposingTeam extends PlayerClub {
 	/**
 	 * Constructors used to initialise the team. If no name is passed in, a random one is generated from the teamDatabase.
 	 */
-	public opposingTeam() {
+	public OpposingTeam() {
 		name = rname;
 	}
 	
@@ -37,7 +37,7 @@ public class opposingTeam extends PlayerClub {
 	 * Sets the name of the OpposingTeam object to the input teamName.
 	 * @param teamName a string of the opposingTeam
 	 */
-	public opposingTeam(String teamName){
+	public OpposingTeam(String teamName){
 		name = teamName;
 	}
 	/**
@@ -46,7 +46,7 @@ public class opposingTeam extends PlayerClub {
 	 * @param teamName a string of the teamName
 	 * @param inathleteList a HashTable of Strings and Athletes
 	 */
-	public opposingTeam(String teamName, Hashtable<String, Athlete> inathleteList) {
+	public OpposingTeam(String teamName, Hashtable<String, Athlete> inathleteList) {
 		name = teamName;
 		newathleteList = inathleteList;
 	}

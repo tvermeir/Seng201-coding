@@ -37,7 +37,7 @@ import javax.swing.ButtonGroup;
  * @author bro82
  */
 
-public class clubSetup {
+public class ClubSetup {
 	/* */
 	/**
 	 * an integer, money
@@ -46,7 +46,7 @@ public class clubSetup {
 	/**
 	 * the main frame 
 	 */
-	public mainFrame frame;
+	public MainFrame frame;
 	/**
 	 * name of a club
 	 */
@@ -86,7 +86,7 @@ public class clubSetup {
 	 * @param stadium  An instance of stadium was initialized in the gameEnvironment class before being passed through
 	 * @param userClub a playerClub that is initialized in the gameEnvironment before being passed through.
 	 */
-	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub, Store store) {
+	public void setupFrame(MainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub, Store store) {
 		 this.frame = frame;
 		 this.clubPanel = clubPanel;
 		 this.stadium = stadium;

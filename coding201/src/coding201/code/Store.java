@@ -42,7 +42,7 @@ public class Store {
 	 * Items remain in the store for further shopping after being purchased so they are only called in this method in order to help the constructor during first initialisation.
 	 */
 	public void refreshStore() {
-		purchaseableAthletes playerHashTables = new purchaseableAthletes();
+		PurchaseableAthletes playerHashTables = new PurchaseableAthletes();
 		playerHashTable = playerHashTables.addPurchasablePlayers();
 		PurchaseableItems itemHashtables = new PurchaseableItems();
 		itemHashtable = itemHashtables.addPurchaseableItems();	

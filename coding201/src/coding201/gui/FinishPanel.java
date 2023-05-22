@@ -25,7 +25,7 @@ public class FinishPanel extends JPanel {
 	 * @param frame initializes the mainFrame
 	 * @param stad creates an instance of the stadium class
 	 */
-	public FinishPanel(mainFrame frame, Stadium stad) {
+	public FinishPanel(MainFrame frame, Stadium stad) {
 		setBounds(0, 0, 1280, 720);
 		setLayout(null);
 		

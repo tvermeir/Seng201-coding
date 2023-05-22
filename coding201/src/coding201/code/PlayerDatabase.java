@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author bro82
  *
  */
-public class playerDatabase {
+public class PlayerDatabase {
 	/**
 	 * playerString created from the list of Premier League Players from the 2018/2019 season.
 	 * retrieved from: https://footystats.org/download-stats-csv

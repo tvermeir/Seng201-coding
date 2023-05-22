@@ -9,7 +9,7 @@ import java.util.List;
  *@author tve21
  *@author bro82
  */
-public class goalEvents {
+public class GoalEvents {
 	String goalString = """
 			rifles a shot into the top corner
 			has sent the keeper and ran it in

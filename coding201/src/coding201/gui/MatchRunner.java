@@ -22,9 +22,9 @@ import coding201.code.Athlete;
 import coding201.code.PlayerClub;
 import coding201.code.Stadium;
 import coding201.code.Store;
-import coding201.code.goalEvents;
-import coding201.code.opposingTeam;
-import coding201.code.otherEvents;
+import coding201.code.GoalEvents;
+import coding201.code.OpposingTeam;
+import coding201.code.OtherEvents;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ import java.util.List;
  * @author tve21
  * @author bro82
  */
-public class matchRunner extends JPanel	 {
+public class MatchRunner extends JPanel	 {
 	/**
 	 * Hashtable for player object that uses the player's name as the key
 	 */
@@ -45,7 +45,7 @@ public class matchRunner extends JPanel	 {
 	/**
 	 * Initialise the variable for the opposing team
 	 */
-	public opposingTeam opposition;
+	public OpposingTeam opposition;
 	/**
 	 * ArrayList that contains the list of the keys of the athletes on the player's team
 	 */
@@ -61,7 +61,7 @@ public class matchRunner extends JPanel	 {
 	/**
 	 * declares the main game JFrame
 	 */
-	mainFrame frame;
+	MainFrame frame;
 	/**
 	 * Declares the stadium which contains the playerclub and the opposingteams
 	 */
@@ -96,7 +96,7 @@ public class matchRunner extends JPanel	 {
 	 *@param stad  instance of the Stadium class
 	 *@param store instance of the Store class
 	 */
-	public matchRunner(PlayerClub player, opposingTeam opps, mainFrame frame, Stadium stad, Store store) {
+	public MatchRunner(PlayerClub player, OpposingTeam opps, MainFrame frame, Stadium stad, Store store) {
 		this.playerClub = player;
 		this.opposition = opps;
 		this.frame = frame;
@@ -221,8 +221,8 @@ public class matchRunner extends JPanel	 {
 		
 		Random random = new Random();
 		
-		otherEvents otherEvents = new otherEvents();
-		goalEvents goalEvents = new goalEvents();
+		OtherEvents otherEvents = new OtherEvents();
+		GoalEvents goalEvents = new GoalEvents();
 		List<String> otherEventsList = otherEvents.getList(); 
 		List<String> goalEventsList = goalEvents.getList();
 				
@@ -245,7 +245,7 @@ public class matchRunner extends JPanel	 {
 			textField.setText(textField.getText()+ "\nMinutes: "+ minutespassed + ":00");
 			minutespassed +=10;
 			if(check ==false) {
-				frame.remove(matchRunner.this);
+				frame.remove(MatchRunner.this);
 				
 				endEarly();
 				break;

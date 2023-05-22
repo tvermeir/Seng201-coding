@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 public class AthleteDatabase {
 
-	playerDatabase nameList = new playerDatabase();
+	PlayerDatabase nameList = new PlayerDatabase();
 	List<String> nlist = nameList.getList();
 	ArrayList<Athlete> athletes = new ArrayList<Athlete>();
 	

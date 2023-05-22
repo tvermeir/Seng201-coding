@@ -8,7 +8,7 @@ import java.util.Hashtable;
  *@author tve21
  *@author bro82
  */
-public class purchaseableAthletes {
+public class PurchaseableAthletes {
 	Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
 	
 	/**

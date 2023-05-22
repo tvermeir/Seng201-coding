@@ -17,13 +17,13 @@ import javax.swing.JTextArea;
  * @author tve21
  * @author bro82
  */
-public class athleteDisplay extends JPanel {
+public class AthleteDisplay extends JPanel {
 
 	/**
 	 * Creates a visual representation of a player, including their stats along with a buy and sellback price.
 	 * @param athlete the athlete and his stats that we want to display
 	 */
-	public athleteDisplay(Athlete athlete) {
+	public AthleteDisplay(Athlete athlete) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setLayout(null);
 		

@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
  * @author bro82
  *
  */
-public class mainFrame extends JFrame {
+public class MainFrame extends JFrame {
 	/**
 	 * Declares the contentpane variable
 	 */
@@ -47,7 +47,7 @@ public class mainFrame extends JFrame {
      * Launch the application.
      */
     
-    public mainFrame() {
+    public MainFrame() {
     	
     }
 
@@ -99,7 +99,7 @@ public class mainFrame extends JFrame {
      */
     public void setupClub() {
     	JPanel clubPanel = new JPanel();
-    	clubSetup club = new clubSetup();
+    	ClubSetup club = new ClubSetup();
     	club.setupFrame(this, clubPanel, stadium, mainclub, store);
     	this.setContentPane(club.clubPanel);
         this.revalidate();

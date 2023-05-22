@@ -17,7 +17,7 @@ public class Stadium {
 	/**
 	 * hashTable of the possible opponents
 	 */
-	public Hashtable<String, opposingTeam> PossibleOpponents =  new Hashtable<>();
+	public Hashtable<String, OpposingTeam> PossibleOpponents =  new Hashtable<>();
 	
 	/**
 	 * Instance of the PlayerClub class
@@ -56,15 +56,15 @@ public class Stadium {
 	 * Fills the stadium's PossibleOpponent hashtable with 4 random teams.
 	 * @return HashTable
 	 */
-	public Hashtable<String, opposingTeam> fillOpponentTable() {
+	public Hashtable<String, OpposingTeam> fillOpponentTable() {
 		while (PossibleOpponents.size() < 5) {
 			Random random = new Random();
-			teamDatabase teamName = new teamDatabase();
+			TeamDatabase teamName = new TeamDatabase();
 			List<String> nlist = teamName.getList();
 			int rindex = random.nextInt(99);
 			String name = nlist.get(rindex);
 			Hashtable<String, Athlete> alist = new Hashtable<>();
-			opposingTeam team = new opposingTeam(name, alist);
+			OpposingTeam team = new OpposingTeam(name, alist);
 			team.Fill();
 			PossibleOpponents.put(team.name, team);
 			

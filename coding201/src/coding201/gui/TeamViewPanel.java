@@ -41,7 +41,7 @@ public class TeamViewPanel extends JPanel {
 	/**
 	 * The main game frame
 	 */
-	mainFrame frame;
+	MainFrame frame;
 	/**
 	 * Button Group for the starter selectors
 	 */
@@ -113,7 +113,7 @@ public class TeamViewPanel extends JPanel {
 	 * @param store an instance of the store class
 	 * @param frame an instance of the frame class
 	 */
-	public TeamViewPanel(Stadium stadium, Store store, mainFrame frame) {
+	public TeamViewPanel(Stadium stadium, Store store, MainFrame frame) {
 		setLayout(null);
 		
 		/**
@@ -181,7 +181,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = starterList.get(0);
 				currStarter = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -208,7 +208,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = starterList.get(1);
 				currStarter = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -233,7 +233,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = starterList.get(2);
 				currStarter = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -258,7 +258,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = starterList.get(3);
 				currStarter = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -286,7 +286,7 @@ public class TeamViewPanel extends JPanel {
 		 */
 		
 		starterList.forEach((v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			playerListPanel.add(athleteDisplay);   
 		});
 		
@@ -312,7 +312,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = reserveList.get(0);
 				currReserve = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -338,7 +338,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = reserveList.get(1);
 				currReserve = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -363,7 +363,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = reserveList.get(2);
 				currReserve = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -388,7 +388,7 @@ public class TeamViewPanel extends JPanel {
 				currPlayer = reserveList.get(3);
 				currReserve = currPlayer;
 				currDisplay.removeAll();
-				athleteDisplay disp = new athleteDisplay(currPlayer);
+				AthleteDisplay disp = new AthleteDisplay(currPlayer);
 				currDisplay.add(disp);
 				if (textField != null) {
 					TeamViewPanel.this.remove(textField);
@@ -446,7 +446,7 @@ public class TeamViewPanel extends JPanel {
 					starterList.add(v);   
 				});
 				starterList.forEach((v) -> {
-					athleteDisplay athleteDisplay = new athleteDisplay(v);
+					AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 					playerListPanel.add(athleteDisplay);
 					playerListPanel.revalidate();
 				});
@@ -454,7 +454,7 @@ public class TeamViewPanel extends JPanel {
 					reserveList.add(v);   
 				});
 				reserveList.forEach((v) -> {
-					athleteDisplay athleteDisp = new athleteDisplay(v);
+					AthleteDisplay athleteDisp = new AthleteDisplay(v);
 					reserveListPanel.add(athleteDisp);
 					reserveListPanel.revalidate();
 				});
@@ -477,7 +477,7 @@ public class TeamViewPanel extends JPanel {
 		}
 		
 		reserveList.forEach((v) -> {
-			athleteDisplay athleteDisp = new athleteDisplay(v);
+			AthleteDisplay athleteDisp = new AthleteDisplay(v);
 			reserveListPanel.add(athleteDisp);
 			reserveListPanel.validate();
 //			System.out.println(v.name);
@@ -552,7 +552,7 @@ public class TeamViewPanel extends JPanel {
 					if (stadium.club.starterList.contains(currPlayer)) {
 						stadium.club.starterList.get(currPlayer.name).useAttackTraining();
 						currDisplay.removeAll();
-						athleteDisplay updated = new athleteDisplay(stadium.club.starterList.get(currPlayer.name));
+						AthleteDisplay updated = new AthleteDisplay(stadium.club.starterList.get(currPlayer.name));
 						currDisplay.add(updated);
 						
 						playerListPanel.removeAll();
@@ -562,7 +562,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						starterList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							playerListPanel.add(athleteDisplay);   
 						});
 						TeamViewPanel.this.revalidate();
@@ -571,7 +571,7 @@ public class TeamViewPanel extends JPanel {
 					else if (stadium.club.reserveList.contains(currPlayer)) {
 						stadium.club.reserveList.get(currPlayer.name).useAttackTraining();
 						currDisplay.removeAll();
-						athleteDisplay updated = new athleteDisplay(stadium.club.reserveList.get(currPlayer.name));
+						AthleteDisplay updated = new AthleteDisplay(stadium.club.reserveList.get(currPlayer.name));
 						currDisplay.add(updated);
 						revalidate();
 						TeamViewPanel.this.revalidate();
@@ -584,7 +584,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						reserveList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							reserveListPanel.add(athleteDisplay);   
 						});
 						TeamViewPanel.this.revalidate();
@@ -626,7 +626,7 @@ public class TeamViewPanel extends JPanel {
 					if (stadium.club.starterList.contains(currPlayer)) {
 						stadium.club.starterList.get(currPlayer.name).useDefenseTraining();
 						currDisplay.removeAll();
-						athleteDisplay updated = new athleteDisplay(stadium.club.starterList.get(currPlayer.name));
+						AthleteDisplay updated = new AthleteDisplay(stadium.club.starterList.get(currPlayer.name));
 						currDisplay.add(updated);
 						
 						playerListPanel.removeAll();
@@ -636,7 +636,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						starterList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							playerListPanel.add(athleteDisplay);   
 						});
 						TeamViewPanel.this.revalidate();
@@ -645,7 +645,7 @@ public class TeamViewPanel extends JPanel {
 					else if (stadium.club.reserveList.contains(currPlayer)) {
 						stadium.club.reserveList.get(currPlayer.name).useDefenseTraining();
 						currDisplay.removeAll();
-						athleteDisplay updated = new athleteDisplay(stadium.club.reserveList.get(currPlayer.name));
+						AthleteDisplay updated = new AthleteDisplay(stadium.club.reserveList.get(currPlayer.name));
 						currDisplay.add(updated);
 						revalidate();
 						TeamViewPanel.this.revalidate();
@@ -658,7 +658,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						reserveList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							reserveListPanel.add(athleteDisplay);   
 						});
 						TeamViewPanel.this.revalidate();
@@ -699,7 +699,7 @@ public class TeamViewPanel extends JPanel {
 					if (stadium.club.starterList.contains(currPlayer)) {
 						stadium.club.starterList.get(currPlayer.name).useRecovery();
 						currDisplay.removeAll();
-						athleteDisplay updated = new athleteDisplay(stadium.club.starterList.get(currPlayer.name));
+						AthleteDisplay updated = new AthleteDisplay(stadium.club.starterList.get(currPlayer.name));
 						currDisplay.add(updated);
 						
 						playerListPanel.removeAll();
@@ -709,7 +709,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						starterList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							playerListPanel.add(athleteDisplay);   
 						});
 						TeamViewPanel.this.revalidate();
@@ -718,7 +718,7 @@ public class TeamViewPanel extends JPanel {
 					else if (stadium.club.reserveList.contains(currPlayer)) {
 						stadium.club.reserveList.get(currPlayer.name).useRecovery();
 						currDisplay.removeAll();
-						athleteDisplay updated = new athleteDisplay(stadium.club.reserveList.get(currPlayer.name));
+						AthleteDisplay updated = new AthleteDisplay(stadium.club.reserveList.get(currPlayer.name));
 						currDisplay.add(updated);
 						revalidate();
 						TeamViewPanel.this.revalidate();
@@ -731,7 +731,7 @@ public class TeamViewPanel extends JPanel {
 						});
 						
 						reserveList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							reserveListPanel.add(athleteDisplay);   
 						});
 						TeamViewPanel.this.revalidate();
@@ -798,7 +798,7 @@ public class TeamViewPanel extends JPanel {
 							starterList.add(v);   
 						});
 						starterList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							playerListPanel.add(athleteDisplay);
 							playerListPanel.revalidate();
 						});
@@ -808,7 +808,7 @@ public class TeamViewPanel extends JPanel {
 							reserveList.add(v);   
 						});
 						reserveList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							reserveListPanel.add(athleteDisplay);
 							reserveListPanel.revalidate();
 						});
@@ -877,7 +877,7 @@ public class TeamViewPanel extends JPanel {
 							reserveList.add(v);   
 						});
 						reserveList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							reserveListPanel.add(athleteDisplay);
 							reserveListPanel.revalidate();
 						});
@@ -1001,7 +1001,7 @@ public class TeamViewPanel extends JPanel {
 							starterList.add(v);   
 						});
 						starterList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							playerListPanel.add(athleteDisplay);
 							playerListPanel.revalidate();
 						});
@@ -1011,11 +1011,11 @@ public class TeamViewPanel extends JPanel {
 							reserveList.add(v);   
 						});
 						reserveList.forEach((v) -> {
-							athleteDisplay athleteDisplay = new athleteDisplay(v);
+							AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 							reserveListPanel.add(athleteDisplay);
 							reserveListPanel.revalidate();
 						});
-						athleteDisplay newAth = new athleteDisplay(currPlayer);
+						AthleteDisplay newAth = new AthleteDisplay(currPlayer);
 						currDisplay.add(newAth);
 						TeamViewPanel.this.remove(textField);
 						TeamViewPanel.this.remove(submitButton);

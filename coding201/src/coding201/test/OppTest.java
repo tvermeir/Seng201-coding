@@ -11,12 +11,12 @@ class OppTest {
 
 	@Test
 	void testNullConstructor() {
-		opposingTeam opps = new opposingTeam();
+		OpposingTeam opps = new OpposingTeam();
 		assertNotEquals(null, opps.name);
 	}
 	@Test
 	void testNameConstructor() {
-		opposingTeam opps = new opposingTeam("Test");
+		OpposingTeam opps = new OpposingTeam("Test");
 		assertEquals("Test", opps.name);
 	}
 	@Test
@@ -24,7 +24,7 @@ class OppTest {
 		Hashtable<String, Athlete> inlist = new Hashtable<String, Athlete>();
 		Athlete athlete = new Athlete(50, 50, 50, "Lionel Messi");
 		inlist.put("Lionel Messi", athlete);
-		opposingTeam opps = new opposingTeam("Test", inlist);
+		OpposingTeam opps = new OpposingTeam("Test", inlist);
 		assertEquals(opps.newathleteList.get("Lionel Messi"), athlete);
 	}
 	@Test
@@ -32,7 +32,7 @@ class OppTest {
 		Hashtable<String, Athlete> inlist = new Hashtable<String, Athlete>();
 		Athlete athlete = new Athlete(50, 50, 50, "Lionel Messi");
 		inlist.put("Lionel Messi", athlete);
-		opposingTeam opps = new opposingTeam("Test", inlist);
+		OpposingTeam opps = new OpposingTeam("Test", inlist);
 		assertNotEquals(opps.toString(), null);
 	}
 	

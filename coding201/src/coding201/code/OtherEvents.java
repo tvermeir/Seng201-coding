@@ -11,7 +11,7 @@ import java.util.List;
  *@author bro82
  *
  */
-public class otherEvents {
+public class OtherEvents {
 
 	String eventString = """
 			has jumped in the air to attempt a bicycle, but failed to realise the ball was on the ground

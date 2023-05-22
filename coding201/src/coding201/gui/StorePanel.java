@@ -55,7 +55,7 @@ public class StorePanel extends JPanel {
 	/**
 	 * Initialise the main frame of the game window
 	 */
-	mainFrame frame;
+	MainFrame frame;
 	/**
 	 * Button group for the player selector buttons
 	 */
@@ -70,7 +70,7 @@ public class StorePanel extends JPanel {
 	 * @param store an instance of the store class
 	 * @param frame an instance of the frame class
 	 */
-	public StorePanel(Stadium stadium, Store store, mainFrame frame) {
+	public StorePanel(Stadium stadium, Store store, MainFrame frame) {
 		setLayout(null);
 		/**
 		 * Creates arrayLists of the hashtables stored in the store object in order to make iteration possible
@@ -109,7 +109,7 @@ public class StorePanel extends JPanel {
 		
 		
 		playerList.forEach((v) -> {
-			athleteDisplay athleteDisplay = new athleteDisplay(v);
+			AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 			playersInStorePanel.add(athleteDisplay);   
 		});
 		
@@ -224,7 +224,7 @@ public class StorePanel extends JPanel {
 					}
 				
 					playerList.forEach((v) -> {
-						athleteDisplay athleteDisplay = new athleteDisplay(v);
+						AthleteDisplay athleteDisplay = new AthleteDisplay(v);
 						playersInStorePanel.add(athleteDisplay);   
 					});
 					
@@ -348,7 +348,7 @@ public class StorePanel extends JPanel {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(0);
 					currPlayerPanel.removeAll();
-					athleteDisplay currbuying = new athleteDisplay(currPlayer);
+					AthleteDisplay currbuying = new AthleteDisplay(currPlayer);
 					currPlayerPanel.add(currbuying);
 					revalidate();
 				}
@@ -369,7 +369,7 @@ public class StorePanel extends JPanel {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(1);
 					currPlayerPanel.removeAll();
-					athleteDisplay currbuying = new athleteDisplay(currPlayer);
+					AthleteDisplay currbuying = new AthleteDisplay(currPlayer);
 					currPlayerPanel.add(currbuying);
 					revalidate();
 				}
@@ -391,7 +391,7 @@ public class StorePanel extends JPanel {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(2);
 					currPlayerPanel.removeAll();
-					athleteDisplay currbuying = new athleteDisplay(currPlayer);
+					AthleteDisplay currbuying = new AthleteDisplay(currPlayer);
 					currPlayerPanel.add(currbuying);
 					revalidate();
 				}
@@ -412,7 +412,7 @@ public class StorePanel extends JPanel {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(3);
 					currPlayerPanel.removeAll();
-					athleteDisplay currbuying = new athleteDisplay(currPlayer);
+					AthleteDisplay currbuying = new AthleteDisplay(currPlayer);
 					currPlayerPanel.add(currbuying);
 					revalidate();
 				}

@@ -1,7 +1,7 @@
 package coding201.code;
 
-import coding201.gui.clubSetup;
-import coding201.gui.mainFrame;
+import coding201.gui.ClubSetup;
+import coding201.gui.MainFrame;
 
 
 
@@ -13,7 +13,7 @@ import coding201.gui.mainFrame;
  *@author tve21
  *@author bro82
  */
-public class gameEnvironment {
+public class GameEnvironment {
 	
 	
 	/**
@@ -23,8 +23,8 @@ public class gameEnvironment {
 	 * 
 	 * @return an instance of the mainframe class
 	 */
-	public mainFrame gameFrame(){
-		mainFrame frame = new mainFrame();
+	public MainFrame gameFrame(){
+		MainFrame frame = new MainFrame();
 		return frame;
 	}
 	/**
@@ -35,7 +35,7 @@ public class gameEnvironment {
 	 * @param myClub the clubSetup class
 	 * @return the complete and setup Club belonging to the user
 	 */
-	public PlayerClub getDetails(clubSetup myClub) {
+	public PlayerClub getDetails(ClubSetup myClub) {
 //		clubName = myClub.clubName;
 //		money = myClub.getMoney();
 		PlayerClub userClub = new PlayerClub(myClub.getMoney(), myClub.clubName);
@@ -85,8 +85,8 @@ public class gameEnvironment {
 		
 		//Game Setup
 		
-		gameEnvironment helloEnvironment = new gameEnvironment();
-		clubSetup myClub = new clubSetup();
+		GameEnvironment helloEnvironment = new GameEnvironment();
+		ClubSetup myClub = new ClubSetup();
 	    PlayerClub userClub = helloEnvironment.getDetails(myClub);
 
 		
@@ -94,7 +94,7 @@ public class gameEnvironment {
 		Store store = helloEnvironment.storeMethod(userClub);
 
 		
-		mainFrame mainFrame = new mainFrame();
+		MainFrame mainFrame = new MainFrame();
 		mainFrame.setupFrame(stadium, store, userClub);
 		mainFrame.setVisible(true);
 
