@@ -86,7 +86,7 @@ public class PlayerClub {
 	public void addPlayer(Athlete athlete) {
 		
 		
-		if (athleteList == null) {
+		if (athleteList.isEmpty()) {
 			starterList.put(athlete.name,athlete);
 			athleteList.put(athlete.name,athlete);
 			return;

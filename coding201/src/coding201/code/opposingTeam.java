@@ -20,7 +20,7 @@ public class opposingTeam extends PlayerClub {
 	Random random = new Random();
 	int rindex = random.nextInt(99);
 	String rname = nlist.get(rindex);
-	Hashtable<String, Athlete> newathleteList = new Hashtable<String, Athlete>();
+	public Hashtable<String, Athlete> newathleteList = new Hashtable<String, Athlete>();
 	
 	/**
 	 * Constructors used to initialise the team. If no name is passed in, a random one is generated from the teamDatabase.
@@ -60,9 +60,5 @@ public class opposingTeam extends PlayerClub {
 	
 	
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

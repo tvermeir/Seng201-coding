@@ -68,15 +68,6 @@ public class Stadium {
 //
 //	}
 	
-	
 
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		
-	}
 
 }

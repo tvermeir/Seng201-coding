@@ -146,8 +146,5 @@ public class teamDatabase {
 		return items;
 	}
 	
-	public static void main(String[] args) {
-
-	}
 
 }

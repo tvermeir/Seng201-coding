@@ -32,9 +32,5 @@ public class otherEvents {
 		List<String> items = Arrays. asList(eventString. split("\n"));
 		return items;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
