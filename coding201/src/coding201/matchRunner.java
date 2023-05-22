@@ -259,7 +259,7 @@ public class matchRunner extends JPanel	 {
 				
 
 			
-		stad.PossibleOpponents.remove(opposition.name);
+		stad.PossibleOpponents.clear();
 		stad.fillOpponentTable();
 		
 			
@@ -307,7 +307,7 @@ public class matchRunner extends JPanel	 {
 		
 		
 		if(myPlayer.stamina - number >= 0) {
-			myPlayer.stamina -= 100;
+			myPlayer.stamina -= number;
 		}
 		else if(myPlayer.stamina - number < 0) {
 			myPlayer.stamina = 0;
