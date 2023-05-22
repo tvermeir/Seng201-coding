@@ -9,6 +9,7 @@ import java.util.Hashtable;
 import java.util.Random;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -30,9 +31,11 @@ public class matchRunner extends JPanel	 {
 	public ArrayList<String> listKeysOfOpposition;
 	public PlayerClub playerClub;
 	mainFrame frame;
-	Stadium stadium;
+	Stadium stad;
 	int myClubScore = 0;
 	int oppScore = 0;
+	Store store;
+	private Boolean gameRunning =  true;
 
 	private JTextArea textField;
 
@@ -40,7 +43,13 @@ public class matchRunner extends JPanel	 {
 		this.playerClub = player;
 		this.opposition = opps;
 		this.frame = frame;
-		this.stadium = stad;
+		this.stad = stad;
+		this.store = store;
+		
+		
+		 listKeysOfTeam = new ArrayList<String>(playerClub.starterList.keySet());
+		 System.out.println(listKeysOfTeam);
+		 listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
 		
 		 frame.setBounds(0,0, 1280, 720);
 		 frame.setLayout(null);
@@ -78,48 +87,62 @@ public class matchRunner extends JPanel	 {
 
 		 
 		 playMatch();
-	
+		 Boolean check = checkStamina(stad);
+		 
+		 JLabel scoreLabel = new JLabel("Final Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")" );
+			scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			scoreLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+			scoreLabel.setBounds(338, 617, 587, 53);
+			if(check) {
+				add(scoreLabel);
+			}
+			
+		 
 		 JButton backButton = new JButton("Finish Simulation");
 			backButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
 					HomePanel home = new HomePanel(frame);
 					stad.currWeek +=1;
-					if(myClubScore > oppScore) {
-						JOptionPane.showMessageDialog(frame, "Congrats, with that win " + stad.club.name + " just earned $50");
-						stad.club.balance += 50;
-						stad.numWins +=1;
+					if(check ==  true) {
+						if(myClubScore > oppScore) {
+							JOptionPane.showMessageDialog(frame, "Congrats, with that win " + stad.club.name + " just earned $50");
+							stad.club.balance += 50;
+							stad.numWins +=1;
+						}
+						else if(myClubScore == oppScore) {
+							JOptionPane.showMessageDialog(frame, "With that tough draw " + stad.club.name + " just earned $25");
+							stad.club.balance += 25;
+							stad.numDraws += 1;
+						}
+						else if(myClubScore < oppScore) {
+							JOptionPane.showMessageDialog(frame, "The fans booed the players and demand a refund, " + stad.club.name + " just lost $10");
+							stad.club.balance -= 10;
+							stad.numLosses += 1;
+						}
+						
+						if(stad.currWeek < stad.weeksToPlay) {
+						
+							store.refreshStore();
+							home.setupPanel(stad, store);
+						}
+						else {
+							JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
+							FinishPanel finishPanel = new FinishPanel(frame,stad);
+							frame.setContentPane(finishPanel);
+						}
 					}
-					else if(myClubScore == oppScore) {
-						JOptionPane.showMessageDialog(frame, "With that tough draw " + stad.club.name + " just earned $25");
-						stad.club.balance += 25;
-						stad.numDraws += 1;
-					}
-					else if(myClubScore < oppScore) {
-						JOptionPane.showMessageDialog(frame, "The fans booed the players and demand a refund, " + stad.club.name + " just lost $10");
-						stad.club.balance -= 10;
-						stad.numLosses += 1;
-					}
-					
-					if(stadium.currWeek < stadium.weeksToPlay) {
-					
+					else if(check == false) {
+						JOptionPane.showMessageDialog(frame,"As all your players got injured, no money is earned/lost");
 						store.refreshStore();
 						home.setupPanel(stad, store);
-					}
-					else {
-						JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
-						FinishPanel finishPanel = new FinishPanel(frame,stad);
-						frame.setContentPane(finishPanel);
 					}
 				}
 			});
 			backButton.setBounds(10, 25, 150, 23);
 			add(backButton);
 			
-		JLabel scoreLabel = new JLabel("Final Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")" );
-		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		scoreLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
-		scoreLabel.setBounds(338, 617, 587, 53);
-		add(scoreLabel);
+		
 		 
 	}
 
@@ -135,112 +158,109 @@ public class matchRunner extends JPanel	 {
 		goalEvents goalEvents = new goalEvents();
 		List<String> otherEventsList = otherEvents.getList(); 
 		List<String> goalEventsList = goalEvents.getList();
-		
-//		textField.setText("Match begins between " + playerClub.name + " and " + opposition.name);
-//		
-//		textField.setText(textField.getText() + "\nHere is the starting lineup for " + playerClub.name);
-//		System.out.println(playerClub.printAthleteList());
-//		
-//		textField.setText(textField.getText()+ "\nHere is the starting lineup for " + opposition.name);
-//		System.out.println(opposition.printAthleteList());	
-//		for (int i = 0; i < 3; i++) {
-//			try {
-//				  Thread.sleep(1000); 
-//				} catch (Exception e) {
-//				    e.printStackTrace();
-//				}
-//			textField.setText(textField.getText()+" \n Simulating game.......\n");
-//			
-//		}
-//		
+				
 		textField.setText("Game Events: \n");
 		
-		while (minutespassed <= 90) {
+		while (minutespassed <= 90 && gameRunning) {
 			
 			
-			
+			Boolean check = checkStamina(stad);
 			int event = random.nextInt(2);
 			
 			int number = random.nextInt(4);
-			List<String> listKeysOfTeam = new ArrayList<String>(playerClub.starterList.keySet());
-			String playerName = listKeysOfTeam.get(number);
-			Athlete myPlayer = playerClub.starterList.get(playerName);
+			
+			Athlete myPlayer = playerClub.starterList.get(listKeysOfTeam.get(number));
 			
 			int number1 = random.nextInt(4);
-			List<String> listKeysOfOpposition = new ArrayList<String>(opposition.athleteList.keySet());
-			String oppositionPlayer = listKeysOfOpposition.get(number1);
-			Athlete oppPlayer = opposition.athleteList.get(oppositionPlayer);
+		
+			Athlete oppPlayer = opposition.athleteList.get(listKeysOfOpposition.get(number1));
 			
 			textField.setText(textField.getText()+ "\nMinutes: "+ minutespassed + ":00");
-			
-			if(event == 0) {
-				boolean working = true;
-					//Randomly selects a player by converting the hashtable keys into an array list, before getting the persons name and getting their attack stat 
-				while(working) {
-					int attackRatingPlayer = myPlayer.getAttack();
-					
-					
-					int defenseRatingOpps = oppPlayer.getDefense();
-					
-					if(attackRatingPlayer >= defenseRatingOpps) {
-						int eventNumber = random.nextInt(goalEventsList.size());
-						textField.setText(textField.getText()+ "\n" + myPlayer.name + " " + goalEventsList.get(eventNumber) + "\n");
-						myClubScore +=1;
-						working = false;
+			minutespassed +=10;
+			if(check ==false) {
+				frame.remove(matchRunner.this);
+				
+				endEarly();
+				gameRunning = false;
+				break;
+				
+				
+			}
+			else if(check == true) {
+				
+					if(event == 0) {
+						boolean working = true;
+		
+						while(working) {
+							int attackRatingPlayer = myPlayer.getAttack();
+							
+							
+							int defenseRatingOpps = oppPlayer.getDefense();
+							
+							if(attackRatingPlayer >= defenseRatingOpps) {
+								int eventNumber = random.nextInt(goalEventsList.size());
+								textField.setText(textField.getText()+ "\n" + myPlayer.name + " " + goalEventsList.get(eventNumber) + "\n");
+								myClubScore +=1;
+								working = false;
+							
+							}
+							else {
+								int eventNumber = random.nextInt(otherEventsList.size());
+								textField.setText(textField.getText()+ "\n" +myPlayer.name + " " + otherEventsList.get(eventNumber) + "\n");
+								working = false;
+								
+								}
+							reduceStamina(myPlayer);
+						}
+							
+							
+						
+						
 					
 					}
-					else {
-						int eventNumber = random.nextInt(otherEventsList.size());
-						textField.setText(textField.getText()+ "\n" +myPlayer.name + " " + otherEventsList.get(eventNumber) + "\n");
-						working = false;
-						reduceStamina(myPlayer);
-						
-						}
-					minutespassed += 10;
-					reduceStamina(myPlayer);
-				}
 					
-					
-				
-				
-			
-			}
-			
-			if(event == 1) {
-					boolean working = true;
-					while(working) {
-						int defenseRatingPlayer = myPlayer.getDefense();
-						
-						
-						int attackRatingOpp = oppPlayer.getAttack();
-						
-						if(defenseRatingPlayer <= attackRatingOpp) {
-							int eventNumber = random.nextInt(goalEventsList.size());
-							textField.setText(textField.getText()+ "\n" +oppPlayer.name + " " + goalEventsList.get(eventNumber) + "\n" );
-							oppScore+=1;
-							working = false;
+					if(event == 1) {
+							boolean working = true;
+							while(working) {
+								int defenseRatingPlayer = myPlayer.getDefense();
+								
+								
+								int attackRatingOpp = oppPlayer.getAttack();
+								
+								if(defenseRatingPlayer <= attackRatingOpp) {
+									int eventNumber = random.nextInt(goalEventsList.size());
+									textField.setText(textField.getText()+ "\n" +oppPlayer.name + " " + goalEventsList.get(eventNumber) + "\n" );
+									oppScore+=1;
+									working = false;
+									
+								}
+								else {
+									int eventNumber = random.nextInt(otherEventsList.size());
+									textField.setText(textField.getText()+ "\n" +oppPlayer.name + " " + otherEventsList.get(eventNumber)+ "\n" );
+									working = false;
+									}
+							}
+							
+							reduceStamina(myPlayer);
+							
 							
 						}
-						else {
-							int eventNumber = random.nextInt(otherEventsList.size());
-							textField.setText(textField.getText()+ "\n" +oppPlayer.name + " " + otherEventsList.get(eventNumber)+ "\n" );
-							working = false;
-							}
-					}
+						textField.setText(textField.getText()+ "\nScore = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")");
 					
-					reduceStamina(myPlayer);
-					minutespassed += 10;
+						
+						}
+						
 				
-				}
-			textField.setText(textField.getText()+ "\nScore = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")");
+				
+				
 			}
-				
-//		stadium.club.starterList.forEach((k, v) -> {
-//			if v.
-//		});
 			
-		stadium.PossibleOpponents.remove(opposition.name);
-		stadium.fillOpponentTable();
+			
+				
+
+			
+		stad.PossibleOpponents.remove(opposition.name);
+		stad.fillOpponentTable();
 		
 			
 		}
@@ -248,16 +268,46 @@ public class matchRunner extends JPanel	 {
 	//implement timer every 3 seconds output text that is randomly selected from some prompts eg (todd vermeir is through on goal but [opposingplayer] prevents a goal with his superior defense
 	
 	
+	public void endEarly() {
+		int res = JOptionPane.showOptionDialog(new JFrame(), "Game was unable to be simulated as all your starters got injured midway through", "Game",
+				JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+				new Object[] { "Ok" }, JOptionPane.OK_OPTION);
+		//JOptionPane.showMessageDialog(frame,"Game was unable to be simulated as all your starters got injured midway through");
+		if(res == JOptionPane.OK_OPTION) {
+			System.out.println("helo");
+			HomePanel home = new HomePanel(frame);
+			store.refreshStore();
+			home.setupPanel(stad, store);
+			frame.revalidate();
+		}
+			
+			
+		}
+			
+			
+		
 	
-	
-	
+	public Boolean checkStamina(Stadium stad) {
+		Boolean yes = false;
+		
+		for(int i = 0; i < listKeysOfTeam.size(); i++) {
+			Athlete player = stad.club.starterList.get(listKeysOfTeam.get(i));
+			if(player.stamina > 0) {
+				
+				yes = true;
+				
+			}
+		}
+		System.out.println(yes);
+		return yes;		
+	}
 	public void reduceStamina(Athlete myPlayer) {
 		Random random = new Random();
 		int number = 8 + random.nextInt(4);
 		
 		
 		if(myPlayer.stamina - number >= 0) {
-			myPlayer.stamina -= number;
+			myPlayer.stamina -= 100;
 		}
 		else if(myPlayer.stamina - number < 0) {
 			myPlayer.stamina = 0;

@@ -56,13 +56,7 @@ public class PlayerClub {
 	}
 	
 
-	/**
-	 *These are constructors used to set up the variables within the PlayerClub class, there are three of them as there are three different calls to the class
-	 * 
-	 * 
-	 *@param Balance: an integer value representing the money the club has, Name: an string value representing the name of the team
-	 *@return sets the balance and teamName within the class equal to the constructor values, the 3rd constructor, the hashtable athleteList from the opposing team class
-	 */
+	  
 	
 	
 	

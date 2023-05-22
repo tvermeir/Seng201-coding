@@ -106,7 +106,6 @@ public class gameEnvironment {
 		//Game Setup
 		
 		gameEnvironment helloEnvironment = new gameEnvironment();
-		
 		clubSetup myClub = new clubSetup();
 	    PlayerClub userClub = helloEnvironment.getDetails(myClub);
 
