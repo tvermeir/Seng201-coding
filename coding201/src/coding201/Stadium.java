@@ -17,12 +17,18 @@ public class Stadium {
 	int numDraws = 0;
 	int numLosses = 0;
 	
-	
+	/**
+	 * Constructs the stadium using the player's club.
+	 * @param club
+	 */
 	public Stadium(PlayerClub club) {
 		this.club = club;
 	}
 	
-	
+	/**
+	 * Fills the stadium's PossibleOpponent hashtable with 4 random teams.
+	 * @return
+	 */
 	public Hashtable<String, opposingTeam> fillOpponentTable() {
 		while (PossibleOpponents.size() < 5) {
 			Random random = new Random();
@@ -40,21 +46,21 @@ public class Stadium {
 	}
 	
 	
-	public Hashtable<String, opposingTeam> selectedTeam(){
-		PossibleOpponents.entrySet().forEach( entry -> {
-		   System.out.println( entry.getKey() + ": \n" + entry.getValue()  + ("\n"));
-		});
-		Random random = new Random();
-		int number = random.nextInt(3);
-		List<String> listKeysOfTeam = new ArrayList<String>(PossibleOpponents.keySet());
-		String teamName = listKeysOfTeam.get(number);
-		
-		
-		
-		
-		return PossibleOpponents;
-
-	}
+//	public Hashtable<String, opposingTeam> selectedTeam(){
+//		PossibleOpponents.entrySet().forEach( entry -> {
+//		   System.out.println( entry.getKey() + ": \n" + entry.getValue()  + ("\n"));
+//		});
+//		Random random = new Random();
+//		int number = random.nextInt(3);
+//		List<String> listKeysOfTeam = new ArrayList<String>(PossibleOpponents.keySet());
+//		String teamName = listKeysOfTeam.get(number);
+//		
+//		
+//		
+//		
+//		return PossibleOpponents;
+//
+//	}
 	
 	
 

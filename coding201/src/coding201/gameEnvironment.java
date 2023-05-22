@@ -64,7 +64,7 @@ public class gameEnvironment {
 		Stadium stad = new Stadium(club);
 
 		stad.fillOpponentTable();
-		possibleMatches = stad.selectedTeam();
+//		possibleMatches = stad.selectedTeam();
 		
 
 		return stad;

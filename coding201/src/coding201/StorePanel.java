@@ -29,9 +29,17 @@ public class StorePanel extends JPanel {
 	mainFrame frame;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	
+	/**
+	 * Constructs the whole store JPanel taking the stadium, store, and JFrame the game runs inside as parameters.
+	 * @param stadium
+	 * @param store
+	 * @param frame
+	 */
 	public StorePanel(Stadium stadium, Store store, mainFrame frame) {
 		setLayout(null);
+		/**
+		 * Creates arrayLists of the hashtables stored in the store object in order to make iteration possible
+		 */
 		if (store.playerHashTable.size() > 0) {
 			store.playerHashTable.forEach((k, v) -> {
 				playerList.add(v);  
@@ -42,13 +50,6 @@ public class StorePanel extends JPanel {
 			itemList.add(v);  
 		});
 		
-		
-		
-		
-//		System.out.println(playerList.size());
-		
-		
-		
 		JLabel lblNewLabel = new JLabel("Store");
 		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 36));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -58,26 +59,18 @@ public class StorePanel extends JPanel {
 		JPanel athletesDisplay = new JPanel();
 		athletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		athletesDisplay.setBounds(306, 107, 530, 191);
-		
-		
-		
 		add(athletesDisplay);
-			
-			
-		
-			
-	
-		
-
-		
 		athletesDisplay.setLayout(null);
+		
 		JPanel playersInStorePanel = new JPanel();
 		playersInStorePanel.setBounds(10, 7, 510, 157);
 		athletesDisplay.add(playersInStorePanel);
 		playersInStorePanel.setLayout(new GridLayout(0, 4, 0, 0));
 		
 		
-		
+		/**
+		 * Creates an athleteDisplay for each athlete in the playerList and adds them to the GridLayout playersInStorePanel
+		 */
 		
 		
 		playerList.forEach((v) -> {
@@ -104,7 +97,11 @@ public class StorePanel extends JPanel {
 		purchaseAthletesDisplay.add(currPlayerPanel);
 		currPlayerPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-if(playerList.size() == 0) {
+		/**
+		 * Removes the possibility of a panel being initialised from a null list.
+		 */
+		
+		if(playerList.size() == 0) {
 			playerTitle.setText("Player Store is Empty, Come back next week to purchase more players!");
 			remove(purchaseAthletesDisplay);
 			remove(currPlayerPanel);
@@ -137,14 +134,6 @@ if(playerList.size() == 0) {
 		add(itemsTitle);
 		
 		
-		
-		
-//		JLabel balancelbl = new JLabel("Balance: " + Integer.toString(store.myClub.balance));
-//		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
-//		balancelbl.setBounds(887, 29, 97, 23);
-//		add(balancelbl);
-		
-		
 		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
 		balancelbl.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 20));
 		balancelbl.setBounds(1050, 33, 144, 23);
@@ -157,6 +146,13 @@ if(playerList.size() == 0) {
 		
 		JButton btnNewButton_1 = new JButton("PURCHASE");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			/**
+			 * Purchase button for the purchaseable players.
+			 * If pressed while no player selected, user will be prompted.
+			 * Adds the purchased player to the club starter list, and if already full, swaps out a current starter for the new player.
+			 * Halts the purchase if the player cannot afford the player.
+			 * @param e
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if (currPlayer == null) {
 					JOptionPane.showMessageDialog(frame, "Please select a player." );
@@ -191,19 +187,11 @@ if(playerList.size() == 0) {
 							buttonsToPrint.add(buttonlist.get(i));
 						}
 					}
-					
-					
-						
-					
-					
-		            
-					validate();
-					repaint();
+				
 					playerList.forEach((v) -> {
 						athleteDisplay athleteDisplay = new athleteDisplay(v);
 						playersInStorePanel.add(athleteDisplay);   
 					});
-					
 					
 					currPlayerPanel.removeAll();
 					
@@ -250,6 +238,13 @@ if(playerList.size() == 0) {
 		
 		JButton btnNewButton = new JButton("PURCHASE");
 		btnNewButton.addActionListener(new ActionListener() {
+			/**
+			 * Purchase button for the items;
+			 * Selected item is purchased and added to the inventory of the club. 
+			 * Prevents players from having duplicate items.
+			 * Halts the purchase if the player cannot afford the item.
+			 * @param e
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if (currItem == null) {
 					JOptionPane.showMessageDialog(frame, "Please select an item." );
@@ -281,7 +276,9 @@ if(playerList.size() == 0) {
 		});
 		btnNewButton.setBounds(23, 158, 106, 29);
 		purchaseItemsDisplay.add(btnNewButton);
-		
+		/**
+		 * Takes the user back to the HomePanel
+		 */
 		JButton backButton = new JButton("Back");
 		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -295,13 +292,17 @@ if(playerList.size() == 0) {
 		
 		
 		
+		/**
+		 * Buttons for each purchaseable Player and each purchaseable Item are initialised and added to their respective groups.
+		 */
 		
 		
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
-		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+		JRadioButton selectPlayer1 = new JRadioButton("");
+		selectPlayer1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				/**
+				 * Selects the player at index 0 in the arrayList.
+				 */
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(0);
 					currPlayerPanel.removeAll();
@@ -312,13 +313,16 @@ if(playerList.size() == 0) {
 				
 			}
 		});
-		buttonGroup.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setBounds(65, 161, 21, 23);
+		buttonGroup.add(selectPlayer1);
+		selectPlayer1.setBounds(65, 161, 21, 23);
 //		panel.add(rdbtnNewRadioButton);
-		buttonlist.add(rdbtnNewRadioButton);
+		buttonlist.add(selectPlayer1);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
-		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+		JRadioButton selectPlayer2 = new JRadioButton("");
+		selectPlayer2.addActionListener(new ActionListener() {
+			/**
+			 * Selects the player at index 1 in the arrayList.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(1);
@@ -331,13 +335,16 @@ if(playerList.size() == 0) {
 		});
 		
 		
-		buttonGroup.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setBounds(192, 161, 21, 23);
+		buttonGroup.add(selectPlayer2);
+		selectPlayer2.setBounds(192, 161, 21, 23);
 //		panel.add(rdbtnNewRadioButton_1);
-		buttonlist.add(rdbtnNewRadioButton_1);
+		buttonlist.add(selectPlayer2);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("");
-		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+		JRadioButton selectPlayer3 = new JRadioButton("");
+		selectPlayer3.addActionListener(new ActionListener() {
+			/**
+			 * Selects the player at index 2 in the arrayList.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(2);
@@ -349,12 +356,16 @@ if(playerList.size() == 0) {
 			}
 		});
 		
-		buttonGroup.add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.setBounds(320, 161, 21, 23);
+		buttonGroup.add(selectPlayer3);
+		selectPlayer3.setBounds(320, 161, 21, 23);
 //		panel.add(rdbtnNewRadioButton_2);
-		buttonlist.add(rdbtnNewRadioButton_2);
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("");
-		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
+		buttonlist.add(selectPlayer3);
+		
+		JRadioButton selectPlayer4 = new JRadioButton("");
+		selectPlayer4.addActionListener(new ActionListener() {
+			/**
+			 * Selects the player at index 3 in the arrayList.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if (playerList.size() > 0) {
 					currPlayer = playerList.get(3);
@@ -366,16 +377,19 @@ if(playerList.size() == 0) {
 			}
 		});
 		
-		buttonGroup.add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.setBounds(450, 161, 21, 23);
+		buttonGroup.add(selectPlayer4);
+		selectPlayer4.setBounds(450, 161, 21, 23);
 //		panel.add(rdbtnNewRadioButton_3);
-		buttonlist.add(rdbtnNewRadioButton_3);
+		buttonlist.add(selectPlayer4);
 		
 		
 //		
 		
-		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("");
-		rdbtnNewRadioButton_4.addActionListener(new ActionListener() {
+		JRadioButton selectItem1 = new JRadioButton("");
+		selectItem1.addActionListener(new ActionListener() {
+			/**
+			 * Selects the item at index 0 in the arrayList.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currItem = itemList.get(0);
 				currItemPanel.removeAll();
@@ -384,12 +398,15 @@ if(playerList.size() == 0) {
 				revalidate();
 			}
 		});
-		buttonGroup_1.add(rdbtnNewRadioButton_4);
-		rdbtnNewRadioButton_4.setBounds(63, 160, 21, 23);
-		itemsDisplay.add(rdbtnNewRadioButton_4);
+		buttonGroup_1.add(selectItem1);
+		selectItem1.setBounds(63, 160, 21, 23);
+		itemsDisplay.add(selectItem1);
 		
-		JRadioButton rdbtnNewRadioButton_4_1 = new JRadioButton("");
-		rdbtnNewRadioButton_4_1.addActionListener(new ActionListener() {
+		JRadioButton selectItem2 = new JRadioButton("");
+		selectItem2.addActionListener(new ActionListener() {
+			/**
+			 * Selects the item at index 1 in the arrayList.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currItem = itemList.get(1);
 				currItemPanel.removeAll();
@@ -398,12 +415,15 @@ if(playerList.size() == 0) {
 				revalidate();
 			}
 		});
-		buttonGroup_1.add(rdbtnNewRadioButton_4_1);
-		rdbtnNewRadioButton_4_1.setBounds(193, 160, 21, 23);
-		itemsDisplay.add(rdbtnNewRadioButton_4_1);
+		buttonGroup_1.add(selectItem2);
+		selectItem2.setBounds(193, 160, 21, 23);
+		itemsDisplay.add(selectItem2);
 		
-		JRadioButton rdbtnNewRadioButton_4_2 = new JRadioButton("");
-		rdbtnNewRadioButton_4_2.addActionListener(new ActionListener() {
+		JRadioButton selectItem3 = new JRadioButton("");
+		selectItem3.addActionListener(new ActionListener() {
+			/**
+			 * Selects the item at index 2 in the arrayList.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currItem = itemList.get(2);
 				currItemPanel.removeAll();
@@ -413,9 +433,12 @@ if(playerList.size() == 0) {
 				
 			}
 		});
-		buttonGroup_1.add(rdbtnNewRadioButton_4_2);
-		rdbtnNewRadioButton_4_2.setBounds(319, 160, 21, 23);
-		itemsDisplay.add(rdbtnNewRadioButton_4_2);
+		buttonGroup_1.add(selectItem3);
+		selectItem3.setBounds(319, 160, 21, 23);
+		itemsDisplay.add(selectItem3);
+		/**
+		 * Only adds a button to the athletesDisplay panel if the store contains the number of players conducive to that button's index in the buttonlist.
+		 */
 		
 		if (playerList.size() > 0) {
 			for (int i = 0; i < playerList.size(); i++) {

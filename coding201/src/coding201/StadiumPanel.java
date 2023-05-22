@@ -44,6 +44,10 @@ public class StadiumPanel extends JPanel {
 		this.stadium = stadium;
 		this.club = stadium.club;
 		this.store = store;
+		
+		/**
+		 * Adds each item in the club's hashtables to a respective arrayList to make iteration possible.
+		 */
 		stadium.club.starterList.forEach((k, v) -> {
 			starterList.add(v);   
 		});
@@ -60,14 +64,9 @@ public class StadiumPanel extends JPanel {
 			nameList.add(k);
 		});
 		
-		
-		
-		
-		
-		
-        
-		
-		
+		/**
+		 * Creates a list of all the possible opponent teams
+		 */
 	
 		stadium.PossibleOpponents.forEach((k, v) -> {
 			  oppsListTable.add(v);
@@ -81,11 +80,11 @@ public class StadiumPanel extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 1280, 720);
 		
-		JLabel lblNewLabel = new JLabel("Stadium");
-		lblNewLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 34));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(540, 21, 153, 33);
-		add(lblNewLabel);
+		JLabel stadiumLabel = new JLabel("Stadium");
+		stadiumLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 34));
+		stadiumLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		stadiumLabel.setBounds(540, 21, 153, 33);
+		add(stadiumLabel);
 		
 		JLabel teamNameLabel = new JLabel(stadium.club.name);
 		teamNameLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
@@ -114,10 +113,10 @@ public class StadiumPanel extends JPanel {
 			playerListPanel.add(athleteDisplay);   
 		});
 		
-		JLabel lblNewLabel_1 = new JLabel("Starting Lineup");
-		lblNewLabel_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1.setBounds(10, 11, 134, 24);
-		playerPanel.add(lblNewLabel_1);
+		JLabel starterLabel = new JLabel("Starting Lineup");
+		starterLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		starterLabel.setBounds(10, 11, 134, 24);
+		playerPanel.add(starterLabel);
 		
 		
 		reservePanel.setBounds(10, 259, 530, 161);
@@ -129,79 +128,62 @@ public class StadiumPanel extends JPanel {
 		});
 		
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Reserves");
-		lblNewLabel_1_2.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblNewLabel_1_2.setBounds(10, 224, 134, 24);
-		playerPanel.add(lblNewLabel_1_2);
+		JLabel reserveLabel = new JLabel("Reserves");
+		reserveLabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
+		reserveLabel.setBounds(10, 224, 134, 24);
+		playerPanel.add(reserveLabel);
 		
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(653, 224, 550, 236);
-		add(panel_1);
-		panel_1.setLayout(null);
+		JPanel oppPanel = new JPanel();
+		oppPanel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		oppPanel.setBounds(653, 224, 550, 236);
+		add(oppPanel);
+		oppPanel.setLayout(null);
 		
-		JPanel oppList = new JPanel();
-		oppList.setBounds(10, 36, 532, 177);
-		panel_1.add(oppList);
-		oppList.setLayout(new GridLayout(1, 0, 0, 0));
+		JPanel oppListPanel = new JPanel();
+		oppListPanel.setBounds(10, 36, 532, 177);
+		oppPanel.add(oppListPanel);
+		oppListPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Starting Lineup");
 		lblNewLabel_1_1.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
 		lblNewLabel_1_1.setBounds(10, 11, 134, 24);
-		panel_1.add(lblNewLabel_1_1);
+		oppPanel.add(lblNewLabel_1_1);
 		
 		currTeam.athleteList.forEach((k, v) -> {
 			athleteDisplay athleteDisplay = new athleteDisplay(v);
-			oppList.add(athleteDisplay);   
+			oppListPanel.add(athleteDisplay);   
 		});
 		
 		
-		JButton btnNewButton = new JButton("SIMULATE MATCH");
-		btnNewButton.addActionListener(new ActionListener() {
-
-
-
+		JButton simulateButton = new JButton("SIMULATE MATCH");
+		simulateButton.addActionListener(new ActionListener() {
+			/**
+			 * Checks if the club is elgible to start the match with the correct number of players and no injuries.
+			 * Then initialises a matchRunner to begin the match
+			 * 
+			 */
 			public void actionPerformed(ActionEvent e) {
 				int count = 0;
-//				boolean hasInjured = false;
 				boolean canPlay = true;
 				for (int i = 0; i < nameList.size(); i++) {
 					Athlete athlete = stadium.club.starterList.get(nameList.get(i));
-//					if(athlete.stamina <50 && count <1) {
-//						JOptionPane.showMessageDialog(frame,"One Player on your team does not have enough stamina, make sure it is greater than 50");
-//						count+=1;
-//						canPlay = false;
-//						break;
-//					}
 					if(athlete.stamina == 0 && count<1) {
 						if (stadium.club.reserveList.size() == 0) {
 							JOptionPane.showMessageDialog(frame,"One Player on your team is injured. Heal this player to start a match.");
 						}
 						else if (stadium.club.reserveList.size() > 0) {
 							JOptionPane.showMessageDialog(frame,"One Player on your team is injured. Heal this player or swap them with a reserve who isn't injured to start a match.");
-						}
-						
-						
+						}												
 						count += 1;
 						canPlay = false;
 						break;
 					}
 					else if(athlete.stamina > 0) {
-						canPlay = true;
-						
-					}
-					
-						
-				
-						
-					
-				}
-				
-				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek && canPlay == true) {
-					
-					
-					
+						canPlay = true;						
+					}					
+				}				
+				if(stadium.club.starterList.size() == 4 && stadium.weeksToPlay > stadium.currWeek && canPlay == true) {															
 					matchRunner runner = new matchRunner(stadium.club, currTeam, frame, stadium, store);
 					frame.setContentPane(runner);
 				}
@@ -211,117 +193,123 @@ public class StadiumPanel extends JPanel {
 				else if(stadium.currWeek >= stadium.weeksToPlay) {
 					JOptionPane.showMessageDialog(frame,"All weeks have passed! Game has ended");
 					FinishPanel finishPanel = new FinishPanel(frame,stadium);
-					frame.setContentPane(finishPanel);
-					
-				}
-				
-				
-
-
-				
+					frame.setContentPane(finishPanel);					
+				}												
 			}
 		});
-		btnNewButton.setBounds(653, 557, 301, 23);
-		add(btnNewButton);
+		simulateButton.setBounds(653, 557, 301, 23);
+		add(simulateButton);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Opponent 1");
-		rdbtnNewRadioButton.setVerticalTextPosition(SwingConstants.TOP);
-		rdbtnNewRadioButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		rdbtnNewRadioButton.setSelected(true);
-		buttonGroup.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+		JRadioButton opp1Button = new JRadioButton("Opponent 1");
+		opp1Button.setVerticalTextPosition(SwingConstants.TOP);
+		opp1Button.setHorizontalTextPosition(SwingConstants.CENTER);
+		opp1Button.setSelected(true);
+		buttonGroup.add(opp1Button);
+		opp1Button.addActionListener(new ActionListener() {
+			/**
+			 * Selects opponent 1 as the current opposing team.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(0);
-				oppList.removeAll();
+				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
-					oppList.add(athleteDisplay);   
+					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
 				
 				revalidate();
 			}
 		});
-		rdbtnNewRadioButton.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton.setBounds(577, 132, 79, 33);
-		add(rdbtnNewRadioButton);
+		opp1Button.setHorizontalAlignment(SwingConstants.CENTER);
+		opp1Button.setBounds(577, 132, 79, 33);
+		add(opp1Button);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Opponent 2");
-		rdbtnNewRadioButton_1.setVerticalTextPosition(SwingConstants.TOP);
-		rdbtnNewRadioButton_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		buttonGroup.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+		JRadioButton opp2Button = new JRadioButton("Opponent 2");
+		opp2Button.setVerticalTextPosition(SwingConstants.TOP);
+		opp2Button.setHorizontalTextPosition(SwingConstants.CENTER);
+		buttonGroup.add(opp2Button);
+		opp2Button.addActionListener(new ActionListener() {
+			/**
+			 * Selects opponent 2 as the current opposing team.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(1);
-				oppList.removeAll();
+				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
-					oppList.add(athleteDisplay);   
+					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
 				
 				revalidate();
 			}
 		});
-		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1.setBounds(580, 222, 73, 37);
-		add(rdbtnNewRadioButton_1);
+		opp2Button.setHorizontalAlignment(SwingConstants.CENTER);
+		opp2Button.setBounds(580, 222, 73, 37);
+		add(opp2Button);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Opponent 3");
-		rdbtnNewRadioButton_2.setVerticalTextPosition(SwingConstants.TOP);
-		rdbtnNewRadioButton_2.setHorizontalTextPosition(SwingConstants.CENTER);
-		buttonGroup.add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+		JRadioButton opp3Button = new JRadioButton("Opponent 3");
+		opp3Button.setVerticalTextPosition(SwingConstants.TOP);
+		opp3Button.setHorizontalTextPosition(SwingConstants.CENTER);
+		buttonGroup.add(opp3Button);
+		opp3Button.addActionListener(new ActionListener() {
+			/**
+			 * Selects opponent 3 as the current opposing team.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(2);
-				oppList.removeAll();
+				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
-					oppList.add(athleteDisplay);   
+					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
 				
 				revalidate();
 			}
 		});
-		rdbtnNewRadioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
+		opp3Button.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		rdbtnNewRadioButton_2.setBounds(580, 325, 73, 38);
-		add(rdbtnNewRadioButton_2);
+		opp3Button.setBounds(580, 325, 73, 38);
+		add(opp3Button);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Opponent 4");
-		rdbtnNewRadioButton_3.setHorizontalTextPosition(SwingConstants.CENTER);
-		rdbtnNewRadioButton_3.setVerticalTextPosition(SwingConstants.TOP);
-		buttonGroup.add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
+		JRadioButton opp4Button = new JRadioButton("Opponent 4");
+		opp4Button.setHorizontalTextPosition(SwingConstants.CENTER);
+		opp4Button.setVerticalTextPosition(SwingConstants.TOP);
+		buttonGroup.add(opp4Button);
+		opp4Button.addActionListener(new ActionListener() {
+			/**
+			 * Selects opponent 4 as the current opposing team.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				currTeam = oppsListTable.get(3);
-				oppList.removeAll();
+				oppListPanel.removeAll();
 				currTeam.starterList.forEach((k, v) -> {
 					athleteDisplay athleteDisplay = new athleteDisplay(v);
-					oppList.add(athleteDisplay);   
+					oppListPanel.add(athleteDisplay);   
 				});
 				oppName.setText(currTeam.name);
 				
 				revalidate();
 			}
 		});
-		rdbtnNewRadioButton_3.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_3.setBounds(580, 423, 73, 37);
-		add(rdbtnNewRadioButton_3);
+		opp4Button.setHorizontalAlignment(SwingConstants.CENTER);
+		opp4Button.setBounds(580, 423, 73, 37);
+		add(opp4Button);
 		
-		JButton btnNewButton_1 = new JButton("Back");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener() {
+			/**
+			 * Takes the user back to the home panel.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				HomePanel home = new HomePanel(frame);
-
-				home.setupPanel(stadium, store);
-
-				
+				home.setupPanel(stadium, store);				
 			}
 		});
-		btnNewButton_1.setBounds(24, 33, 89, 23);
-		add(btnNewButton_1);
+		backButton.setBounds(24, 33, 89, 23);
+		add(backButton);
 		
 		
 		JLabel balancelbl = new JLabel("Balance: " + stadium.club.balance);
@@ -336,6 +324,12 @@ public class StadiumPanel extends JPanel {
 		
 		JButton byeButton = new JButton("Skip Week");
 		byeButton.addActionListener(new ActionListener() {
+			/**
+			 * Skips the current week, the opposition list of opposing teams is refreshed.
+			 * All players in the starting lineup are revived back to 100 stamina.
+			 * There is a chance for a random event to occur based on a random number.
+			 * One player in the starting lineup can be selected for special extra training
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if(stadium.currWeek < stadium.weeksToPlay) {
 					stadium.currWeek +=1;
@@ -363,21 +357,11 @@ public class StadiumPanel extends JPanel {
 		});
 		byeButton.setBounds(273, 557, 301, 23);
 		add(byeButton);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-
-
 
 	}
+	/**
+	 * Selects a random player from the club and boosts their stats using the Athlete.booststat method.
+	 */
 	public void doBoostStatEvent() {
 		Random random = new Random();
 		int number = random.nextInt(stadium.club.athleteList.size()-1);
@@ -433,6 +417,9 @@ public class StadiumPanel extends JPanel {
 		
 		
 	}
+	/**
+	 * Makes a randomly selected athlete quit the team.
+	 */
 
 	public void doAthleteQuitEvent() {
 		Random random = new Random();
@@ -499,9 +486,13 @@ public class StadiumPanel extends JPanel {
 			JOptionPane.showMessageDialog(frame, currPlayer.name + " has quit the team");
 	}
 
+	/**
+	 * Makes a random new athlete join the team
+	 */
 	public void doRandomNewAthleteEvent() {
 		AthleteDatabase athbase = new AthleteDatabase();
-		Athlete newAthlete = athbase.getAthlete();
+		String athString = athbase.makeAthleteString();
+		Athlete newAthlete = athbase.makeAthlete(athString);
 		stadium.club.reserveList.put(newAthlete.name, newAthlete);
 		stadium.club.reShuffle();
 		reservePanel.removeAll();
@@ -534,6 +525,9 @@ public class StadiumPanel extends JPanel {
 		
 		
 	}
+	/**
+	 * Generates a random number to determine if and how a random event will occur in the current weekskip.
+	 */
 
 	public void doRandomEvent() {
 		Random random = new Random();
@@ -592,6 +586,14 @@ public class StadiumPanel extends JPanel {
 		
 
 	}
+	/**
+	 * Takes the club balance, and finds the cheapest player in the store.
+	 * The two values are compared and if the club balance is lower than the cheapest price and there are not enough players to start a match, true is returned. 
+	 * Otherwise false.
+	 * @param stadium
+	 * @param store
+	 * @return boolean 
+	 */
 	public boolean checkEnd(Stadium stadium, Store store) {
 		Integer storemin = 200;
 		ArrayList<String> playerList = new ArrayList<String>();
@@ -609,6 +611,12 @@ public class StadiumPanel extends JPanel {
 		}
 		return false;
 	}
+	/**
+	 * Takes the stadium and a number, and uses that number to select an athlete who gets their stats significantly boosted.
+	 * This is done by calling the Athlete.boostStat() method 4 times.
+	 * @param stadium
+	 * @param num
+	 */
 	public void selectedTraining(Stadium stadium, int num) {
 		ArrayList<String> tempStarts = new ArrayList<String>();
 		stadium.club.starterList.forEach((k, v) -> {

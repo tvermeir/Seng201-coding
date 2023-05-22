@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class teamDatabase {
-
+	/**
+	 * teamnames string generated from list of top european clubs, compiled from top clubs from La Liga Santander, Premier Leaguue, Ligue 1, SPFL, Bundesliga, Serie A, and Liga Portugal.
+	 */
 	String teamnames = """
 	Real Madrid
 	Barcelona
@@ -128,15 +130,16 @@ public class teamDatabase {
 	Portimonense
 	Farense
 	""";
-	
+	/**
+	 * Uses the team name string to return a list of all the names.
+	 * @return List of team names
+	 */
 	public List<String> getList() {
 		List<String> items = Arrays. asList(teamnames. split("\n"));
 		return items;
 	}
 	
 	public static void main(String[] args) {
-		teamDatabase ting = new teamDatabase();
-		System.out.println(ting.getList());
 
 	}
 

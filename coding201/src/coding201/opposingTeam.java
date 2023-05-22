@@ -19,33 +19,35 @@ public class opposingTeam extends PlayerClub {
 	String rname = nlist.get(rindex);
 	Hashtable<String, Athlete> newathleteList = new Hashtable<String, Athlete>();
 	
-	
+	/**
+	 * Constructors used to initialise the team. If no name is passed in, a random one is generated from the teamDatabase.
+	 */
 	public opposingTeam() {
 		name = rname;
 	}
 	
-	
-	
+	/**
+	 * Sets the name of the OpposingTeam object to the input teamName.
+	 * @param teamName
+	 */
 	public opposingTeam(String teamName){
 		name = teamName;
-		
 	}
-	
+	/**
+	 * Sets the name of the OpposingTeam object to the input teamName
+	 * Sets the athleteList in the opposingTeam to the input inathleteList.
+	 * @param teamName
+	 * @param inathleteList
+	 */
 	public opposingTeam(String teamName, Hashtable<String, Athlete> inathleteList) {
 		name = teamName;
 		newathleteList = inathleteList;
 	}
 	
 	
-	
-	public void adjustWinReward(double difficulty){
-		winReward *= difficulty;
-	}
-	
-	public double getWinReward(){
-		return winReward;
-	}
-	
+	/**
+	 * Returns the string representation of the athleteList.
+	 */
 	public String toString() {
 		return athleteList.toString();
 	}
