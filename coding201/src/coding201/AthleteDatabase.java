@@ -4,7 +4,13 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * AthleteDatabase
+ * This class uses random numbers, along with names generated from the playerDatabase to create random athlete objects.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 
 public class AthleteDatabase {
 

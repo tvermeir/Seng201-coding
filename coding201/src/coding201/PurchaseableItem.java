@@ -1,5 +1,12 @@
 package coding201;
-
+/**
+ * PurchaseableItem
+ * PurchaseableItem is the class of the items that can be applied to each player in a team.
+ * They have a price, name, and a short info string about what effect they have when applied.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class PurchaseableItem {
 	int price;
 	String name;

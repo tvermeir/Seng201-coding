@@ -1,7 +1,13 @@
 package coding201;
 
 import java.util.Hashtable;
-
+/**
+ * PurchaseableAthletes
+ * This class contains a hashtable of random players that are used in the creation of the store and its refreshing.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class purchaseableAthletes {
 	Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
 	

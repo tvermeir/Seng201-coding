@@ -8,11 +8,17 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
-
+/**
+ * ItemDisplay
+ * This extension of JPanel is what is used in the store and the TeamViewPanel in order to see a visual representation of purchaseableItem.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class ItemDisplay extends JPanel {
 
 	/**
-	 * Creates a visual representation fo the purchaseableItem object, including all the stats.
+	 * Creates a visual representation for the purchaseableItem object, including all the stats.
 	 * @param item
 	 */
 	public ItemDisplay(PurchaseableItem item) {

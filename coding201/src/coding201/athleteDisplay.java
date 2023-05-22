@@ -7,7 +7,13 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTextArea;
-
+/**
+ * athleteDisplay
+ * This extension of JPanel is used throughout the game to visually represent an athlete and their stats. 
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class athleteDisplay extends JPanel {
 
 	/**

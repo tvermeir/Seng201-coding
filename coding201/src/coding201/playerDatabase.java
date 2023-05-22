@@ -3,7 +3,14 @@ package coding201;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
-
+/**
+ * playerDatabase
+ * This class contains a string of all possible default names for players in the game. 
+ * A list of these names can be returned.
+ * @version 1.0
+ * @author tve21 & bro82
+ *
+ */
 public class playerDatabase {
 	/**
 	 * playerString created from the list of Premier League Players from the 2018/2019 season.
