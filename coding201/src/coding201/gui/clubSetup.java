@@ -123,6 +123,10 @@ public class clubSetup {
 		 			JOptionPane.showMessageDialog(frame, stadium.club.name + " has been entered into a " + Integer.toString(stadium.weeksToPlay) + " week tournament. \n These starting players have been purchased: \n\n" + stadium.club.printAthleteList());
 		 			
 			 		homePanel.setupPanel(stadium, store);
+			 		JOptionPane.showMessageDialog(frame,"Welcome to the HomePanel! Here you are able to do multiple things");
+					JOptionPane.showMessageDialog(frame,"In the Store, you are able to purchase new players and items for your team");
+					JOptionPane.showMessageDialog(frame,"In the Team View you are able to apply items, sell players, rename players and adjust your lineup ");
+					JOptionPane.showMessageDialog(frame,"in the Stadium you are able to select your Opponent, Skip a Week and start a match");
 			 	}
 		 		
 		 		}

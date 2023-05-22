@@ -52,10 +52,7 @@ public class HomePanel extends JPanel {
 		 frame.setContentPane(mainPanel);
 		 frame.revalidate();
 		 
-		 JOptionPane.showMessageDialog(frame,"Welcome to the HomePanel! Here you are able to do multiple things");
-		 JOptionPane.showMessageDialog(frame,"In the Store, you are able to purchase new players and items for your team");
-		 JOptionPane.showMessageDialog(frame,"In the Team View you are able to apply items, sell players, rename players and adjust your lineup ");
-		 JOptionPane.showMessageDialog(frame,"in the Stadium you are able to select your Opponent, Skip a Week and start a match");
+		 
 		 
 		 JLabel titleLabel = new JLabel("Home Screen");
 		 titleLabel.setFont(new Font("Dialog", Font.PLAIN, 33));

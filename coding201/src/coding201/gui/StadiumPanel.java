@@ -573,8 +573,8 @@ public class StadiumPanel extends JPanel {
 
 	public void doRandomEvent() {
 		Random random = new Random();
-//		int number1 = random.nextInt(20);
-		int number1 = 9;
+		int number1 = random.nextInt(20);
+//		int number1 = 9;
 		if (number1 == 9) {
 			this.doAthleteQuitEvent();
 			stadium.club.reShuffle();
