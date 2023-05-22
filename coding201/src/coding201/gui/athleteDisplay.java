@@ -14,13 +14,14 @@ import javax.swing.JTextArea;
  * athleteDisplay
  * This extension of JPanel is used throughout the game to visually represent an athlete and their stats. 
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class athleteDisplay extends JPanel {
 
 	/**
 	 * Creates a visual representation of a player, including their stats along with a buy and sellback price.
-	 * @param Athlete: the athlete and his stats that we want to display
+	 * @param athlete the athlete and his stats that we want to display
 	 */
 	public athleteDisplay(Athlete athlete) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));

@@ -18,7 +18,8 @@ import java.awt.event.ActionEvent;
  *This is the main panel of the program, created after the club setup has been done. It contains 4 buttons, one to enter the store, one to enter the team view, one
  *to enter the stadium and one to exit the game. 
  *@version 1.0
- *@author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 
 
@@ -28,7 +29,7 @@ public class HomePanel extends JPanel {
 	/**\
 	 * The constructor here takes in the mainFrame class and adds the panel to it in the method setupPanel
 	 * 
-	 * @param mainFrame frame: takes in an instance of the mainFram class so that components can be added to it
+	 * @param frame takes in an instance of the mainFram class so that components can be added to it
 	 * 
 	 */
 	public HomePanel (mainFrame frame) {
@@ -37,9 +38,10 @@ public class HomePanel extends JPanel {
 		
 	}
 	/**\
-	 * The constructor here takes in the mainFrame class and adds the panel to it in the method setupPanel
+	 * Sets up the Panel and initializes it for the class
 	 * 
-	 * @param mainFrame frame: takes in an instance of the mainFram class so that components can be added to it
+	 * @param stadium accepts an instance of the stadium class
+	 * @param store accepts an instance of the store class
 	 * 
 	 */
 	public void setupPanel(Stadium stadium, Store store) {

@@ -6,7 +6,8 @@ import java.util.List;
  * Goal Events
  *This class contains a set of strings in an array list that are called whenever your team and the opposition score a goal
  *@version 1.0
- *@author tve21 & bro82
+ *@author tve21
+ *@author bro82
  */
 public class goalEvents {
 	String goalString = """
@@ -19,15 +20,11 @@ public class goalEvents {
 			has gone down in the box, Penalty and Goal for Argentina
 			
 			""";
-	
-	/* The method converts the string above into an arraylist, splitting the strings by the new line (\n) parameter*/
+	/**\
+	 * The method converts the string above into an arraylist, splitting the strings by the new line (\n) parameter
+	 * */
 	public List<String> getList() {
 		List<String> items = Arrays. asList(goalString. split("\n"));
 		return items;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

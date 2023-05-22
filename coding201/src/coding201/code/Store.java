@@ -4,7 +4,8 @@ import java.util.Hashtable;
  * Store is the object which contains the purchasable Players and the purchasable Items.
  * It is refreshed each week with 4 random players.
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class Store {
 	
@@ -18,7 +19,7 @@ public class Store {
 	/**
 	 * Uses the playerclub to create a store that can access all the parameters of the player club.
 	 * Also calls the refreshStore method to initialise a full store of items and players.
-	 * @param myClub
+	 * @param myClub an instance of a PlayerClub class
 	 */
 	public Store(PlayerClub myClub) {
 		

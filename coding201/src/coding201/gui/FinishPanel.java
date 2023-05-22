@@ -15,12 +15,15 @@ import java.awt.event.ActionEvent;
  *This is the finishing screen panel created after either all the weeks have finished, the user want's to quit the game or they cannot afford a new player.
  *It displays the users win's, losses', draw's and money gained during their play. 
  *@version 1.0
- *@author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class FinishPanel extends JPanel {
 	
 	/**
 	 * Create the panel.
+	 * @param frame initializes the mainFrame
+	 * @param stad creates an instance of the stadium class
 	 */
 	public FinishPanel(mainFrame frame, Stadium stad) {
 		setBounds(0, 0, 1280, 720);

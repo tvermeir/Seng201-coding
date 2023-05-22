@@ -11,7 +11,8 @@ import java.util.Arrays;
  *The athlete database is where an athlete is created. the name is taken from the playerDatabase list at random, given random stats
  * before the price is calculated using the average of all the stats. This class is used to create all athletes in the program.
  *@version 1.0
- *@author tve21 & bro82
+ *@author tve21
+ *@author bro82
  */
 
 
@@ -58,7 +59,7 @@ public class AthleteDatabase {
 	}
 	/**
 	 * Takes the string representation of an athlete and returns an athlete object, using the random string to generate it.
-	 * @param athleteString
+	 * @param athleteString a visual representation of an athlete in string form
 	 * @return athlete
 	 */
 	

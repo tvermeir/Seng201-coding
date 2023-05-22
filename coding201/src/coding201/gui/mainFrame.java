@@ -21,7 +21,8 @@ import java.awt.event.ActionEvent;
  * This extension of JFrame is the main window in which the game runs.
  * 
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  *
  */
 public class mainFrame extends JFrame {
@@ -41,9 +42,9 @@ public class mainFrame extends JFrame {
 
     /**
      * Sets up the starting JPanel containing the playButton
-     * @param stadium
-     * @param store
-     * @param userClub
+     * @param stadium an instance of the stadium class
+     * @param store an instance of the store class
+     * @param userClub an instance of the userClub class
      */
     public void setupFrame(Stadium stadium, Store store, PlayerClub userClub) {
     	this.stadium = stadium;
@@ -104,8 +105,5 @@ public class mainFrame extends JFrame {
     	
     }
     
-    public static void main(String[] args) {
-    
-             
-    }
+ 
 }

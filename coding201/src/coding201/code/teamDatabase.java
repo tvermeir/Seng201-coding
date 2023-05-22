@@ -6,7 +6,8 @@ import java.util.List;
  * teamDatabase
  * teamDatabase is the class from which the random team names are generated. A list of these teams can be returned.
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class teamDatabase {
 	/**

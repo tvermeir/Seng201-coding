@@ -29,23 +29,48 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
 /**
- * <h1>clubSetup<h1>
+ * clubSetup
  *This method is responsible for setting up the club page. It takes in user data such as the name of the club, the difficulty setting and the number of weeks the user wants to play for
  *It utilizes both Java Swing and java to create a gui with multiple JPanels.
  *@version 1.0
- *@author toddv & benzene26
+ * @author tve21
+ * @author bro82
  */
 
 public class clubSetup {
+	/* */
+	/**
+	 * an integer, money
+	 */
 	public int money = 100;
+	
 	Hashtable<String, Athlete> clubPlayersHashtable  = new Hashtable<>();
-	mainFrame frame;
+	
+	public mainFrame frame;
+	/**
+	 * name of a club
+	 */
 	public String clubName;
-	JPanel clubPanel;
+	
+	/**
+	 * a JPanel
+	 */
+	public JPanel clubPanel;
+	/**
+	 * string of a name
+	 */
 	public String nameString;
+	
 	ButtonGroup difficultyButtons = new ButtonGroup();
+	/**
+	 * string that represents the difficulty
+	 */
 	public String difficultyString;
+	
 	Stadium stadium;
+	/**
+	 * the number of weeks to play
+	 */
 	public int weeksToPlay;
 	PlayerClub userClub;
 	Store store;
@@ -55,10 +80,11 @@ public class clubSetup {
 	 * The constructor here take in a frame, a panel, an instance of a PlayerClub, Store and stadium. it also sets the bounds of the initial jPanel, before calling the 
 	 * appropriate method that gets the intended name of the club
 	 * 
-	 * @param frame: the mainframe that creates the whole frame. clubPanel: the panel that the class will be built upon.stadium: An instance of 
-	 * stadium was initialized in the gameEnvironment class before being passed through userClub: a playerClub that is initialized 
-	 * in the gameEnvironment before being passed through. Store: an instance of the store that is also created in the gameEnvironment class
-	 * 
+	 * @param store  an instance of the store that is also created in the gameEnvironment class
+	 * @param frame the mainframe that creates the whole frame.
+	 * @param clubPanel the panel that the class will be built upon.
+	 * @param stadium  An instance of stadium was initialized in the gameEnvironment class before being passed through
+	 * @param userClub a playerClub that is initialized in the gameEnvironment before being passed through.
 	 */
 	public void setupFrame(mainFrame frame, JPanel clubPanel, Stadium stadium, PlayerClub userClub, Store store) {
 		 this.frame = frame;
@@ -222,6 +248,7 @@ public class clubSetup {
 	
 	/**\
 	 *Depending on the value of the difficulty string, the initial balance will be set by the method below.
+	 *@return int money
 	 */
 	public int getMoney() {
 		if(difficultyString == "Hard") {
@@ -310,8 +337,4 @@ public class clubSetup {
 	
 	
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	}
-
 }

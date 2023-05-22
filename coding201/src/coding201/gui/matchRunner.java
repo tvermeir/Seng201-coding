@@ -34,7 +34,8 @@ import java.util.List;
  *It randomly selects two players, one from each team and checks if one's attack is greater than the other's defense
  *If it is true, a goal is scored. If false, it mvoes on to the next event
  *@version 1.0
- *@author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class matchRunner extends JPanel	 {
 	
@@ -55,7 +56,11 @@ public class matchRunner extends JPanel	 {
 
 	/**
 	 *The constructor for the class takes in multiple parameters and creates the JPanel for the class
-	 *@param playerclub,opposingTeam, mainFrame, Stadium, Store
+	 *@param player instance of the PlayerClub class
+	 *@param opps  instance of the opposingTeam class
+	 *@param frame instance of the mainFrame class
+	 *@param stad  instance of the Stadium class
+	 *@param store instance of the Store class
 	 */
 	public matchRunner(PlayerClub player, opposingTeam opps, mainFrame frame, Stadium stad, Store store) {
 		this.playerClub = player;

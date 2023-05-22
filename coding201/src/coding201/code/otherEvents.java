@@ -7,7 +7,8 @@ import java.util.List;
  * otherEvents contains a string of the possible events called in the matchRunner which do not result in a goal.
  * A list of the events can be returned.
  * @version 1.0
- * @author tve21 & bro82
+ *@author tve21
+ *@author bro82
  *
  */
 public class otherEvents {
@@ -26,7 +27,7 @@ public class otherEvents {
 			""";
 	/**
 	 * Returns a list form of the eventString of possible events that are printed by the matchrunner.
-	 * @return
+	 * @return items a list of items
 	 */
 	public List<String> getList() {
 		List<String> items = Arrays. asList(eventString. split("\n"));

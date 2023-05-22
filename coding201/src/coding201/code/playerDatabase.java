@@ -7,7 +7,8 @@ import java.util.Arrays;
  * This class contains a string of all possible default names for players in the game. 
  * A list of these names can be returned.
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  *
  */
 public class playerDatabase {
@@ -298,7 +299,7 @@ public class playerDatabase {
 	Johann Berg Guðmunds­son
 	John Ruddy
 	John Stones
-	Jon Gorenc Stankovič
+	Jon Gorenc Stankovic
 	Jonas Lössl
 	Jonathan Hogg
 	Jonathan Walters
@@ -399,7 +400,7 @@ public class playerDatabase {
 	Mason Greenwood
 	Mason Holgate
 	Matěj Vydra
-	Mateo Kovačić
+	Mateo Kovacic
 	Mathew Ryan
 	Mathias Jørgensen
 	Matt Butcher
@@ -587,7 +588,7 @@ public class playerDatabase {
 	Yves Bissouma
 	Zechariah Medley
 	Zeze Steven Sessegnon
-	Łukasz Fabiański
+	Lukasz Fabianski
 	""";
 	/**
 	 * Uses the playerString string of player names to return a list of the separate names.

@@ -5,12 +5,13 @@ import java.util.Random;
 import java.util.Hashtable;
 
 /**
- * <h1>Player Club<h1>
+ * Player Club
  * This class is responsible for creating the framework for the player club. It contains the complete
  * athleteList, starterList and reserveList as well as the name of the club and the starting balance of the club
  * 
  *@version 1.0
- *@author toddv & benzene26
+ *@author tve21
+ *@author bro82
  */
 public class PlayerClub {
 	public int balance;
@@ -26,25 +27,35 @@ public class PlayerClub {
 	int weeksToPlay;
 	
 	
+	
+	/**
+	 *These are constructors used to set up the variables within the PlayerClub class, there are three of them as there are three different calls to the class
+	 * 
+	 */
+	public PlayerClub () {
+		
+	}
 	/**
 	 *These are constructors used to set up the variables within the PlayerClub class, there are three of them as there are three different calls to the class
 	 * 
 	 * 
-	 *@param Balance: an integer value representing the money the club has, Name: an string value representing the name of the team
-	 *@return sets the balance and teamName within the class equal to the constructor values, the 3rd constructor, the hashtable athleteList from the opposing team class
+	 *@param balance an integer value representing the money the club has
+	 *@param name an string value representing the name of the team
 	 */
-	
-	public PlayerClub () {
-		
-	}
-	
 	public PlayerClub(int balance, String name) {
 		this.balance = balance;
 		teamName = name;
 	}
 	
 	
-
+	/**
+	 *These are constructors used to set up the variables within the PlayerClub class, there are three of them as there are three different calls to the class
+	 * 
+	 * 
+	 *@param balance an integer value representing the money the club has
+	 *@param name an string value representing the name of the team
+	 *@param athleteList2 a list of athletes
+	 */
 	public PlayerClub(int balance, String name, Hashtable<String, Athlete> athleteList2) {
 		this.balance = balance;
 		teamName = name;
@@ -77,7 +88,7 @@ public class PlayerClub {
 	/**
 	 * Adds a player to the club's athletelist table and either the starterlist or reservelist depending on how many players are in the starters.
 	 *
-	 * @param athlete
+	 * @param athlete an instance of the Athlete class
 	 */
 	
 	public void addPlayer(Athlete athlete) {
@@ -125,7 +136,6 @@ public class PlayerClub {
 	
 	/**
 	 *This method returns the name of the team
-	 *@param N/A
 	 *@return returns the string form of the teamName
 	 */
 	public String getName() {
@@ -162,7 +172,7 @@ public class PlayerClub {
 	}
 	/**
 	 * Removes an item from the inventory by passing the item's name as the key into the hashtable.
-	 * @param itemName
+	 * @param itemName a string representation of the name of the item
 	 */
 	public void removeItem(String itemName) {
 		itemInventory.remove(itemName);
@@ -170,7 +180,7 @@ public class PlayerClub {
 	}
 	/**
 	 * Sets the clubs name as the input name
-	 * @param name to set the club's name to.
+	 * @param name a string to set the name of the club to
 	 */
 	public void setName(String name) {
 		this.name = name;

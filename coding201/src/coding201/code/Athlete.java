@@ -7,14 +7,33 @@ package coding201.code;
  *including attack, defense, price and their name. The Athletes are used all over the program
  *
  *@version 1.0
- *@author tve21 & bro82
+ *@author tve21
+ *@author bro82
  */
 public class Athlete{ 
+	/**\
+	 * Attack rating 
+	 */
 	public int attack;
+	/**\
+	 * Defense rating 
+	 */
 	public int defense;
+	/**\
+	 * Price of player
+	 */
 	public int price = 0;
+	/**\
+	 * Player Stamina
+	 */
 	public int stamina = 100;
+	/**\
+	 * Player Name
+	 */
 	public String name;
+	/**\
+	 * Sell price of player
+	 */
 	public int sellPrice;
 	
 
@@ -22,7 +41,10 @@ public class Athlete{
 	 * The constructor here takes in statistics of attack,defense,price and name
 	 * and setting them equal to values in this class
 	 * 
-	 * @param attack:integer representing the players attack. defense:integer representing the players defense. Price :integer representing the players price. Name: String representing the players name
+	 * @param attack an integer value for attack.
+	 * @param defense an integer value for defense
+	 * @param price an integer value for price
+	 * @param name a string value for name
 	 * 
 	 */
 	public Athlete(int attack, int defense, int price, String name) {

@@ -9,7 +9,8 @@ import java.util.Random;
  * An extension of the PlayerClub, an OpposingTeam auto name generation.
  * This is the object whose athleteList is compared with the player's starter list in order to determine the outcome of a match.
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  *
  */
 public class opposingTeam extends PlayerClub {
@@ -31,7 +32,7 @@ public class opposingTeam extends PlayerClub {
 	
 	/**
 	 * Sets the name of the OpposingTeam object to the input teamName.
-	 * @param teamName
+	 * @param teamName a string of the opposingTeam
 	 */
 	public opposingTeam(String teamName){
 		name = teamName;
@@ -39,8 +40,8 @@ public class opposingTeam extends PlayerClub {
 	/**
 	 * Sets the name of the OpposingTeam object to the input teamName
 	 * Sets the athleteList in the opposingTeam to the input inathleteList.
-	 * @param teamName
-	 * @param inathleteList
+	 * @param teamName a string of the teamName
+	 * @param inathleteList a HashTable of Strings and Athletes
 	 */
 	public opposingTeam(String teamName, Hashtable<String, Athlete> inathleteList) {
 		name = teamName;

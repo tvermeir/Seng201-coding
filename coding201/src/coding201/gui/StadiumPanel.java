@@ -35,7 +35,8 @@ import javax.swing.ButtonGroup;
  * An opponent can be selected from 4 possible teams
  * Each week, the 4 possible opponents are refreshed with new random teams.
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class StadiumPanel extends JPanel {
 	opposingTeam currTeam;
@@ -43,11 +44,31 @@ public class StadiumPanel extends JPanel {
 	Stadium stadium;
 	Store store;
 	Integer bal;
+	/**\
+	 * List of Opposition teams
+	 */
 	ArrayList<opposingTeam> oppsListTable = new ArrayList<opposingTeam>();
+	
+	/**\
+	 * List of Starters
+	 */
 	ArrayList<Athlete> starterList = new ArrayList<Athlete>();
+	
+	/**\
+	 * List of reserves
+	 */
 	ArrayList<Athlete> reserveList = new ArrayList<Athlete>();
+	
+	/**\
+	 * list of Athletes
+	 */
+	
 	ArrayList<Athlete> athleteList = new ArrayList<Athlete>();
+	/**\
+	 * list of names of players
+	 */
 	ArrayList<String> nameList = new ArrayList<String>();
+	
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Create the panel.
@@ -56,6 +77,12 @@ public class StadiumPanel extends JPanel {
 	JPanel reservePanel = new JPanel();
 	PlayerClub club;
 	
+	/**
+	 * initializes the class and creates the panel before setting the contentPane of the frame to the created panel
+	 * @param stadium an instance of the stadium class
+	 * @param store an instance of the store class
+	 * @param frame an instance of the mainframe class
+	 */
 	public StadiumPanel(Stadium stadium, Store store, mainFrame frame) {
 		this.frame = frame;
 		this.stadium = stadium;
@@ -628,8 +655,10 @@ public class StadiumPanel extends JPanel {
 	/**
 	 * Takes the stadium and a number, and uses that number to select an athlete who gets their stats significantly boosted.
 	 * This is done by calling the Athlete.boostStat() method 4 times.
-	 * @param stadium
-	 * @param num
+	 * @param stadium an instance of the stadium class
+	 * @param num a random number between 0-3
+	 * 
+	 * @return ArrayList 
 	 */
 	public ArrayList<String> selectedTraining(Stadium stadium, int num) {
 		ArrayList<String> tempStarts = new ArrayList<String>();

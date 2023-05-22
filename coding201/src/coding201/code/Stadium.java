@@ -10,7 +10,8 @@ import java.util.Collections;
  * Stadium is the object that contains all the stats about the player's club and holds the hadhtable for the possible opponents.
  * The opponent hashtable can be filled with random teams.
  * @version 1.0
- * @author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class Stadium {
 
@@ -26,7 +27,7 @@ public class Stadium {
 	
 	/**
 	 * Constructs the stadium using the player's club.
-	 * @param club
+	 * @param club an instance of the PlayerClub club
 	 */
 	public Stadium(PlayerClub club) {
 		this.club = club;
@@ -34,7 +35,7 @@ public class Stadium {
 	
 	/**
 	 * Fills the stadium's PossibleOpponent hashtable with 4 random teams.
-	 * @return
+	 * @return HashTable
 	 */
 	public Hashtable<String, opposingTeam> fillOpponentTable() {
 		while (PossibleOpponents.size() < 5) {
@@ -55,7 +56,7 @@ public class Stadium {
 	 * Takes the club balance, and finds the cheapest player in the store.
 	 * The two values are compared and if the club balance is lower than the cheapest price and there are not enough players to start a match, true is returned. 
 	 * Otherwise false.
-	 * @param store
+	 * @param store an instance of a store class
 	 * @return boolean 
 	 */
 	public boolean checkEnd(Store store) {

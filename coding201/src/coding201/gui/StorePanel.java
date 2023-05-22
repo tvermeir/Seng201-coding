@@ -24,7 +24,8 @@ import javax.swing.ButtonGroup;
  * StorePanel
  * StorePanel is the JPanel where the store can be accessed. Players can be bought, along with items using buttons.
  *@version 1.0
- *@author tve21 & bro82
+ * @author tve21
+ * @author bro82
  */
 public class StorePanel extends JPanel {
 	ArrayList<Athlete> playerList = new ArrayList<Athlete>();
@@ -42,9 +43,9 @@ public class StorePanel extends JPanel {
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	/**
 	 * Constructs the whole store JPanel taking the stadium, store, and JFrame the game runs inside as parameters.
-	 * @param stadium 
-	 * @param store
-	 * @param frame
+	 * @param stadium an instance of the stadium class
+	 * @param store an instance of the store class
+	 * @param frame an instance of the frame class
 	 */
 	public StorePanel(Stadium stadium, Store store, mainFrame frame) {
 		setLayout(null);
