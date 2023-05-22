@@ -69,7 +69,7 @@ public class StorePanel extends JPanel {
 		
 		JPanel athletesDisplay = new JPanel();
 		athletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		athletesDisplay.setBounds(306, 107, 530, 191);
+		athletesDisplay.setBounds(306, 107, 530, 201);
 		add(athletesDisplay);
 		athletesDisplay.setLayout(null);
 		
@@ -100,11 +100,11 @@ public class StorePanel extends JPanel {
 		JPanel purchaseAthletesDisplay = new JPanel();
 		purchaseAthletesDisplay.setLayout(null);
 		purchaseAthletesDisplay.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		purchaseAthletesDisplay.setBounds(846, 107, 153, 191);
+		purchaseAthletesDisplay.setBounds(846, 107, 153, 201);
 		add(purchaseAthletesDisplay);
 		
 		JPanel currPlayerPanel = new JPanel();
-		currPlayerPanel.setBounds(10, 7, 133, 147);
+		currPlayerPanel.setBounds(10, 7, 133, 157);
 		purchaseAthletesDisplay.add(currPlayerPanel);
 		currPlayerPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -141,7 +141,7 @@ public class StorePanel extends JPanel {
 		
 		JLabel itemsTitle = new JLabel("Items");
 		itemsTitle.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		itemsTitle.setBounds(306, 309, 134, 14);
+		itemsTitle.setBounds(306, 314, 134, 14);
 		add(itemsTitle);
 		
 		
@@ -227,13 +227,20 @@ public class StorePanel extends JPanel {
 				else {
 					JOptionPane.showMessageDialog(frame, "Club balance is too low. Cannot purchase " + currPlayer.name + "." );
 				}
+				boolean lost = stadium.checkEnd(store);
+				if (lost == true) {
+					JOptionPane.showMessageDialog(frame,"Your team does not have enough players to play a match, and the club balance is too low to buy back to 4 players. Game over.");
+					FinishPanel finishPanel = new FinishPanel(frame,stadium);
+					frame.setContentPane(finishPanel);
+					frame.revalidate();
+				}
 					
 				
 			}
 		});
 		
 		
-		btnNewButton_1.setBounds(23, 156, 106, 29);
+		btnNewButton_1.setBounds(20, 168, 106, 29);
 		purchaseAthletesDisplay.add(btnNewButton_1);
 		
 		JPanel purchaseItemsDisplay = new JPanel();
@@ -325,7 +332,7 @@ public class StorePanel extends JPanel {
 			}
 		});
 		buttonGroup.add(selectPlayer1);
-		selectPlayer1.setBounds(65, 161, 21, 23);
+		selectPlayer1.setBounds(65, 165, 21, 23);
 //		panel.add(rdbtnNewRadioButton);
 		buttonlist.add(selectPlayer1);
 		
@@ -347,7 +354,7 @@ public class StorePanel extends JPanel {
 		
 		
 		buttonGroup.add(selectPlayer2);
-		selectPlayer2.setBounds(192, 161, 21, 23);
+		selectPlayer2.setBounds(192, 165, 21, 23);
 //		panel.add(rdbtnNewRadioButton_1);
 		buttonlist.add(selectPlayer2);
 		
@@ -368,7 +375,7 @@ public class StorePanel extends JPanel {
 		});
 		
 		buttonGroup.add(selectPlayer3);
-		selectPlayer3.setBounds(320, 161, 21, 23);
+		selectPlayer3.setBounds(320, 165, 21, 23);
 //		panel.add(rdbtnNewRadioButton_2);
 		buttonlist.add(selectPlayer3);
 		
@@ -389,7 +396,7 @@ public class StorePanel extends JPanel {
 		});
 		
 		buttonGroup.add(selectPlayer4);
-		selectPlayer4.setBounds(450, 161, 21, 23);
+		selectPlayer4.setBounds(450, 165, 21, 23);
 //		panel.add(rdbtnNewRadioButton_3);
 		buttonlist.add(selectPlayer4);
 		

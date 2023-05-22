@@ -118,6 +118,19 @@ class ClubTest {
 		assertEquals(club.starterList.size(), 4);
 		
 	}
+	@Test
+	void fillsToFour() {
+		boolean notFour = false;
+		for (int i=0; i < 100; i++) {
+			PlayerClub club = new PlayerClub(10, "Test");
+			club.Fill();
+			if (club.athleteList.size() < 4) {
+				notFour = true;
+			}
+			
+		}
+		assertEquals(notFour, false);
+	}
 	
 	
 

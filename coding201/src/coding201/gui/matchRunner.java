@@ -88,7 +88,7 @@ public class matchRunner extends JPanel	 {
 			JLabel lblNewLabel = new JLabel("Match Between " + playerClub.name +  " & " + opps.name);
 			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
-			lblNewLabel.setBounds(346, 30, 571, 46);
+			lblNewLabel.setBounds(246, 30, 771, 76);
 			add(lblNewLabel);
 			
 			
@@ -109,7 +109,7 @@ public class matchRunner extends JPanel	 {
 		 JLabel scoreLabel = new JLabel("Final Score = (" + opposition.name + " "+ oppScore + "-" + myClubScore + " " +  playerClub.name + ")" );
 			scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			scoreLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
-			scoreLabel.setBounds(338, 617, 587, 53);
+			scoreLabel.setBounds(238, 617, 787, 73);
 			if(check) {
 				add(scoreLabel);
 			}

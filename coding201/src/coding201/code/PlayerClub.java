@@ -189,6 +189,9 @@ public class PlayerClub {
 			AthleteDatabase ath = new AthleteDatabase();
 			String athstring = ath.makeAthleteString();
 			Athlete athlete = ath.makeAthlete(athstring);
+			if (athleteList.keys().contains(athlete.name)) {
+				continue;
+			}
 			this.addPlayer(athlete);
 			i ++;
 		}
