@@ -10,7 +10,7 @@ package coding201.code;
 public class Athlete{
 	public int attack;
 	public int defense;
-	public int price;
+	public int price =0;
 	public int stamina = 100;
 	public String name;
 	public int sellPrice;

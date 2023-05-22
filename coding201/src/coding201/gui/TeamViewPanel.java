@@ -864,11 +864,12 @@ public class TeamViewPanel extends JPanel {
 					}
 					
 					
-				boolean lost = checkEnd(stadium, store);
+				boolean lost = stadium.checkEnd(store);
 				if (lost == true) {
 					JOptionPane.showMessageDialog(frame,"Your team does not have enough players to play a match, and the club balance is too low to buy back to 4 players. Game over.");
 					FinishPanel finishPanel = new FinishPanel(frame,stadium);
 					frame.setContentPane(finishPanel);
+					frame.revalidate();
 				}	
 				}
 				
@@ -1016,49 +1017,6 @@ public class TeamViewPanel extends JPanel {
 		
 		
 
-	}
-	
-	/**
-	 * Takes the club balance, and finds the cheapest player in the store.
-	 * The two values are compared and if the club balance is lower than the cheapest price and there are not enough players to start a match, true is returned. 
-	 * Otherwise false.
-	 * @param stadium
-	 * @param store
-	 * @return boolean 
-	 */
-	public boolean checkEnd(Stadium stadium, Store store) {
-		Integer storemin = 200;
-		ArrayList<Integer> storePrices = new ArrayList<Integer>();
-		ArrayList<String> playerList = new ArrayList<String>();
-		store.playerHashTable.forEach((name, athlete) -> {
-			playerList.add(name);
-		});
-		int number2 = Math.min(store.playerHashTable.size(), nameList.size());
-		for (int i = 0; i < number2; i++) {
-			storePrices.add(store.playerHashTable.get(playerList.get(i)).price);
-			if (store.playerHashTable.get(playerList.get(i)).price < storemin) {
-				storemin = store.playerHashTable.get(playerList.get(i)).price;
-			}
-			
-		}
-		if (stadium.club.athleteList.size() < 4 && storemin > stadium.club.balance) {
-			return true;
-		}
-		boolean canAfford = true;
-		bal = stadium.club.balance;
-		Collections.sort(storePrices);
-		for (int i = 0; i < 4 - (nameList.size()); i++) {
-			bal -= storePrices.get(i);
-		}
-		if (bal < 0) {
-			canAfford = false;
-		}
-		if (canAfford == false) {
-			return true;
-		}
-//		else if ()
-		
-		return false;
 	}
 	
 }

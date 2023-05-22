@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Collections;
 /**
  * Stadium
  * Stadium is the object that contains all the stats about the player's club and holds the hadhtable for the possible opponents.
@@ -50,23 +51,31 @@ public class Stadium {
 		}
 		return PossibleOpponents;
 	}
+	/**
+	 * Takes the club balance, and finds the cheapest player in the store.
+	 * The two values are compared and if the club balance is lower than the cheapest price and there are not enough players to start a match, true is returned. 
+	 * Otherwise false.
+	 * @param store
+	 * @return boolean 
+	 */
+	public boolean checkEnd(Store store) {
+		int needsNAthletes = 4 - club.starterList.size();
+		int needsNMoney = 0;
+		ArrayList<Integer> storeprices = new ArrayList<Integer>();
+		store.playerHashTable.forEach((name, thlete) -> {
+			storeprices.add(thlete.price);
+		});
+		Collections.sort(storeprices);
+		for (int i = 0; i < needsNAthletes; i++) {
+			needsNMoney += storeprices.get(i);
+		}
+		if (needsNMoney > club.balance) {
+			return true;
+		}
+		return false;
+	}
 	
 	
-//	public Hashtable<String, opposingTeam> selectedTeam(){
-//		PossibleOpponents.entrySet().forEach( entry -> {
-//		   System.out.println( entry.getKey() + ": \n" + entry.getValue()  + ("\n"));
-//		});
-//		Random random = new Random();
-//		int number = random.nextInt(3);
-//		List<String> listKeysOfTeam = new ArrayList<String>(PossibleOpponents.keySet());
-//		String teamName = listKeysOfTeam.get(number);
-//		
-//		
-//		
-//		
-//		return PossibleOpponents;
-//
-//	}
 	
 
 

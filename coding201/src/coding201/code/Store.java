@@ -14,6 +14,8 @@ public class Store {
 	public Hashtable<String, Athlete> playerHashTable =  new Hashtable<>();
 	public Hashtable<String, PurchaseableItem> itemHashtable = new Hashtable<>();
 	public PlayerClub myClub;
+	Athlete zero = new Athlete(0, 0, 0, "null");
+	
 	
 	/**
 	 * Uses the playerclub to create a store that can access all the parameters of the player club.

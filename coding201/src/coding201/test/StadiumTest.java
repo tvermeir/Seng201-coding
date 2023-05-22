@@ -19,5 +19,13 @@ class StadiumTest {
 		stamfordBridge.fillOpponentTable();
 		assertEquals(5, stamfordBridge.PossibleOpponents.size());
 	}
+	@Test
+	void testCheckEnd() {
+		PlayerClub club = new PlayerClub(0, "Chelsea");
+		Store store = new Store(club);
+		Stadium stamfordBridge = new Stadium(club);
+		store.refreshStore();
+		assertEquals(true, stamfordBridge.checkEnd(store));
+	}
 
 }
