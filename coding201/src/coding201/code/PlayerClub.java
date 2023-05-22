@@ -166,9 +166,6 @@ public class PlayerClub {
 		athleteList.put(athlete.name, athlete);
 		return swappedAthlete;
 	}
-	
-	
-	
 	/**
 	 *This method returns the name of the team
 	 *@return returns the string form of the teamName
@@ -176,9 +173,6 @@ public class PlayerClub {
 	public String getName() {
 		return teamName;
 	}
-	
-	
-	
 	/**
 	 * Returns a "nicer" version of the athleteLIst hashtable.
 	 * @return string form of the AthleteList hashtable.
@@ -192,6 +186,7 @@ public class PlayerClub {
 		return output;
 	}
 	/**
+	 * Gets the inventory of the club
 	 * @return Returns the hashtable of the Club's inventory.
 	 */
 	public Hashtable<String, PurchaseableItem> getInventory() {

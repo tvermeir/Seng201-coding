@@ -14,10 +14,6 @@ import java.util.Arrays;
  *@author tve21
  *@author bro82
  */
-
-
-
-
 public class AthleteDatabase {
 
 	PlayerDatabase nameList = new PlayerDatabase();

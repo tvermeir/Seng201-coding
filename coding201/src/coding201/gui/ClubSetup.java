@@ -36,7 +36,6 @@ import javax.swing.ButtonGroup;
  * @author tve21
  * @author bro82
  */
-
 public class ClubSetup {
 	/* */
 	/**

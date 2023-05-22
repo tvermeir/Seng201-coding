@@ -14,8 +14,6 @@ import coding201.gui.MainFrame;
  *@author bro82
  */
 public class GameEnvironment {
-	
-	
 	/**
 	 * Creates an instance of the mainframe account
 	 * This frame instance is used across the whole program and is used to initialize the 
